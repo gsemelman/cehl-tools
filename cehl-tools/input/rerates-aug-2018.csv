@@ -1,0 +1,189 @@
+name,teamName,age,it,sp,st,en,du,di,sk,pa,pc,df,sc,ex,ld
+Jake Guentzel,Anaheim,99,70,77,73,77,77,69,77,75,76,69,75,31,31
+Teuvo Teravainen,Anaheim,99,70,77,73,77,77,79,78,76,75,71,75,34,31
+Brett Pesce,Anaheim,99,71,72,77,78,77,77,77,75,74,78,71,31,30
+Ryan Spooner,Anaheim,99,68,78,65,75,68,74,77,77,77,71,74,34,30
+Andrei Markov,Anaheim,99,65,75,72,77,67,74,74,78,77,74,71,78,77
+Alexander Steen,Anaheim,99,74,78,74,78,70,77,78,80,79,73,75,70,70
+Patrick Kane,Anaheim,99,70,88,68,85,73,77,88,89,93,69,87,62,62
+Joel Ward,Anaheim,99,74,72,77,75,74,74,74,73,73,71,72,52,47
+Sean Couturier,Boston,99,75,77,76,79,77,71,76,79,79,71,78,45,45
+Bryan Rust,Boston,99,73,75,72,76,68,74,74,74,74,72,73,31,29
+Carter Hutton,Boston,99,84,84,81,82,78,82,84,76,84,NA,NA,37,31
+Brent Seabrook,Boston,99,72,76,82,80,78,75,77,79,76,80,75,68,68
+Craig Anderson,Boston,99,82,86,80,83,69,80,86,76,86,NA,NA,62,62
+Matt Cullen,Boston,99,70,73,72,72,72,79,75,73,74,73,71,95,91
+Jacob Markstrom,Buffalo,99,82,83,84,80,79,81,84,76,82,NA,NA,36,32
+Esa Lindell,Buffalo,99,68,73,73,77,77,73,76,74,73,75,71,31,29
+Malcolm Subban,Buffalo,99,79,80,79,78,79,79,80,80,81,NA,NA,31,30
+Jake Virtanen,Buffalo,99,68,74,67,75,75,65,74,75,74,67,70,32,30
+Alexei Emelin,Buffalo,99,81,75,78,78,66,64,75,73,71,76,63,38,36
+Mattias Janmark-Nylen,Buffalo,99,68,75,70,74,69,70,74,72,73,68,70,31,30
+Magnus Paajarvi,Buffalo,99,68,78,70,75,70,78,77,72,73,66,70,34,34
+Luke Schenn,Buffalo,99,74,72,78,76,74,62,72,72,72,73,64,46,46
+William Karlsson,Calgary,99,73,78,72,78,77,77,78,78,77,73,78,36,34
+Tomas Plekanec,Calgary,99,68,76,67,79,81,71,77,77,77,73,72,75,75
+Johan Larsson,Calgary,99,69,72,70,75,69,73,72,73,73,69,71,32,32
+Bo Horvat,Carolina,99,73,75,76,78,70,75,73,75,76,70,75,34,34
+Aaron Ekblad,Carolina,99,74,75,76,77,76,65,76,76,76,79,79,36,36
+Colton Parayko,Carolina,99,73,71,81,80,80,75,74,77,77,77,72,33,33
+Jack Eichel,Carolina,99,73,77,74,80,70,73,76,80,79,65,77,30,30
+Dylan Larkin,Carolina,99,72,79,73,78,83,68,79,77,77,71,74,36,30
+Cam Atkinson,Carolina,99,69,80,64,79,76,79,80,78,78,71,78,42,42
+Kari Lehtonen,Carolina,99,79,84,84,79,62,76,84,77,85,NA,NA,60,58
+Ben Lovejoy,Carolina,99,75,72,76,75,60,72,72,71,73,77,68,40,40
+Michael Frolik,Carolina,99,67,77,72,79,77,77,75,75,75,71,73,50,50
+Marc Methot,Carolina,99,72,70,80,78,63,72,70,72,72,78,67,50,50
+Tom Wilson,Chicago,99,82,70,82,75,76,45,71,75,74,70,73,35,35
+Michael Ferland,Chicago,99,72,72,75,76,73,67,72,74,74,68,73,31,30
+Michal Kempny,Chicago,99,68,75,72,76,75,72,76,72,73,75,66,30,30
+Mike Smith,Chicago,99,83,85,86,82,70,70,84,78,85,NA,NA,55,53
+Drew Doughty,Chicago,99,78,83,73,87,78,67,83,85,85,82,78,58,61
+Brandon Dubinsky,Chicago,99,78,74,74,79,63,52,74,77,75,72,73,54,55
+Mikko Koivu,Chicago,99,71,74,76,77,72,73,75,77,78,75,73,70,77
+Peter Holland,Chicago,99,69,73,72,72,71,73,74,72,72,68,71,35,35
+Steven Stamkos,Chicago,99,74,85,70,86,77,73,85,89,86,72,87,53,57
+Jonas Hiller,Chicago,99,79,81,80,74,63,81,81,75,80,NA,NA,51,51
+Shayne Gostisbehere,Colorado,99,70,77,69,80,77,73,77,81,80,74,76,32,32
+Yanni Gourde,Colorado,99,74,75,64,75,76,67,74,76,74,73,74,30,28
+Colin MIller,Colorado,99,73,73,73,77,74,68,73,76,73,73,71,31,31
+Vladislave Namestnikov,Colorado,99,69,76,68,76,72,69,73,77,78,71,74,34,34
+Dominik Simon,Colorado,99,69,75,65,74,73,69,73,71,70,69,70,26,26
+Oliver Ekman-Larsson,Colorado,99,73,81,70,84,81,65,81,82,81,75,79,43,43
+Kevin Klein,Colorado,99,72,72,73,74,65,75,73,71,71,76,69,49,49
+Zack Smith,Colorado,99,77,69,78,76,76,45,69,73,73,71,73,40,38
+Brandon Sutter,Colorado,99,70,73,74,76,78,83,74,73,74,73,73,49,49
+Brian Elliott,Colorado,99,84,83,82,77,72,78,84,75,85,NA,NA,53,49
+Victor Hedman,Dallas,99,78,77,83,85,79,68,77,84,84,84,79,55,55
+Ondrej Kase,Dallas,99,70,74,73,75,75,75,76,74,73,70,74,28,27
+Sidney Crosby,Dallas,99,75,89,71,87,75,70,89,96,96,71,85,65,85
+Freddie Andersen,Dallas,99,83,86,86,83,76,82,88,76,89,NA,NA,39,39
+Claude Giroux,Dallas,99,77,82,71,86,80,74,82,85,83,73,80,58,58
+Jay Bouwmeester,Dallas,99,68,77,77,79,70,76,79,73,75,77,68,80,78
+Rick Nash,Dallas,99,70,76,78,78,67,68,76,75,79,68,75,80,80
+Jimmy Hayes,Dallas,99,72,69,80,73,71,75,72,72,72,65,72,34,34
+Mike Green,Dallas,99,70,78,73,77,65,68,79,79,79,72,75,65,60
+Shea Weber,Dallas,99,82,75,83,84,77,64,75,81,80,85,80,62,72
+Aleksander Barkov,Edmonton,99,72,78,78,80,72,79,77,82,80,74,79,32,32
+Dimitry Orlov,Edmonton,99,72,74,74,76,82,75,75,78,75,76,72,33,33
+John Gibson,Edmonton,99,87,88,86,85,80,75,88,80,88,NA,NA,35,35
+Ryan Ellis,Edmonton,99,68,79,65,77,66,75,79,78,78,76,73,36,34
+Artemi Panarin,Edmonton,99,70,81,65,78,79,73,80,84,83,70,80,33,32
+Dan Hamhuis,Edmonton,99,70,75,74,80,66,71,75,76,76,79,66,78,77
+Anton Stralman,Edmonton,99,70,76,71,80,77,76,75,76,76,79,70,50,50
+Carl Hagelin,Edmonton,99,68,85,66,77,65,70,83,76,74,70,73,40,40
+Jhonas Enroth,Edmonton,99,76,79,74,80,77,77,80,73,81,NA,NA,39,39
+Maxime Talbot,Edmonton,99,70,73,68,72,70,71,73,70,70,70,68,57,57
+Brayden Point,Florida,99,72,78,65,78,75,71,74,77,77,70,76,27,27
+Leon Draisaitl,Florida,99,72,77,77,78,76,70,79,82,80,68,76,36,30
+Anthony Mantha,Florida,99,70,75,79,77,75,68,77,76,75,70,74,30,26
+Matt Dumba,Florida,99,76,74,75,78,79,68,74,77,75,75,73,39,33
+Radek Faksa,Florida,99,75,72,77,77,76,70,74,74,74,73,74,31,29
+Andrej Sekera,Florida,99,69,77,74,76,70,75,76,75,73,74,70,52,48
+Bobby Ryan,Florida,99,68,76,75,77,75,72,76,77,78,68,74,52,49
+Chris Stewart,Florida,99,78,72,82,73,70,49,73,72,72,67,72,45,45
+Danny Dekeyser,Florida,99,68,75,74,77,73,72,75,74,74,76,70,38,37
+Duncan Keith,Florida,99,74,82,75,88,80,76,82,83,83,85,72,71,75
+Alexander Edler,LosAngeles,99,74,74,78,80,67,67,74,78,77,76,71,56,54
+Sergei Bobrovsky,LosAngeles,99,88,90,83,90,85,80,90,82,90,NA,NA,55,55
+Jakob Silfverberg,LosAngeles,99,69,77,71,77,77,75,77,76,75,74,75,40,38
+Artem Anisimov,LosAngeles,99,67,76,73,77,74,81,76,76,77,71,76,45,45
+Jeff Skinner,LosAngeles,99,72,82,70,77,74,74,82,78,80,66,79,45,45
+Marcus Johansson,LosAngeles,99,66,80,67,78,75,81,80,78,78,71,74,45,45
+Nathan Beaulieu,LosAngeles,99,73,76,75,76,64,60,76,74,73,73,67,32,29
+Zach Parise,LosAngeles,99,72,79,67,80,70,77,80,78,78,70,74,65,73
+Evgeny Dadonov,Montreal,99,69,77,70,78,77,80,77,77,77,71,76,32,31
+David Perron,Montreal,99,74,79,71,78,72,63,78,79,79,69,74,51,51
+Nick Foligno,Montreal,99,76,76,74,79,76,69,75,77,77,72,74,54,60
+Marc Staal,Montreal,99,72,74,80,77,68,75,74,72,72,78,69,48,48
+Brandon Montour,Nashville,99,68,73,73,75,75,73,75,75,74,75,71,29,28
+Gabriel Landeskog,Nashville,99,74,76,74,80,73,63,76,79,79,70,77,42,46
+Mika Zibanejad,Nashville,99,69,74,77,78,74,76,75,77,76,71,76,38,35
+Damon Severson,Nashville,99,67,72,72,75,77,74,77,75,73,73,71,33,31
+Connor Hellebuyck,Nashville,99,84,87,82,81,81,78,87,82,86,NA,NA,32,32
+Justin Faulk,Nashville,99,72,77,73,82,70,70,76,77,78,74,75,45,40
+Dion Phaneuf,Nashville,99,78,71,79,78,78,60,72,76,74,75,71,73,68
+Jannik Hansen,Nashville,99,67,76,72,73,65,70,76,73,73,71,72,44,44
+Mikael Backlund,Nashville,99,70,78,70,77,73,75,78,77,77,72,75,41,41
+Brad Boyes,Nashville,99,64,72,70,73,70,77,72,71,71,65,70,71,71
+Mitch Marner,New Jersey,99,68,82,65,79,70,70,82,81,83,68,75,30,30
+Pavel Buchnevich,New Jersey,99,67,70,73,76,73,72,76,75,74,68,72,31,30
+Oliver Bjorkstrand,New Jersey,99,67,72,73,76,73,75,76,74,75,68,71,28,27
+Antti Raanta,New Jersey,99,83,85,81,79,77,79,84,82,83,NA,NA,38,38
+Erik Karlsson,New Jersey,99,72,83,67,86,78,69,84,93,86,77,80,55,55
+Kris Versteeg,New Jersey,99,70,77,62,75,63,73,77,76,76,70,74,49,48
+Corey Perry,Islanders,99,80,78,80,82,79,60,78,78,79,73,78,66,66
+Cody Franson,Islanders,99,71,70,76,75,70,75,70,74,75,74,70,40,41
+Josh Manson,Rangers,99,74,72,77,75,73,60,73,74,75,75,66,33,31
+David Pastrnak,Rangers,99,69,79,70,76,75,75,79,80,81,70,80,36,30
+Jonathan Huberdeau,Rangers,99,70,77,71,77,70,70,77,82,80,71,78,36,34
+Derek Stepan,Rangers,99,66,76,71,81,77,78,77,81,80,73,74,44,44
+Oscar Klefbom,Rangers,99,73,70,75,77,71,70,74,75,75,76,72,34,30
+Cory Schneider,Rangers,99,87,88,84,85,80,83,89,75,88,NA,NA,45,44
+Jon Marchessault,Ottawa,99,69,80,69,76,74,72,80,78,79,71,78,33,32
+Brian Gibbons,Ottawa,99,68,76,59,73,70,77,76,73,74,69,73,32,32
+Blake Coleman,Ottawa,99,67,72,71,70,68,68,73,69,70,70,71,28,28
+Timo Meier,Ottawa,99,70,75,73,74,69,64,76,74,74,68,74,28,28
+Marc-Andre Fleury,Ottawa,99,82,90,83,88,72,85,90,80,90,NA,NA,75,73
+Jonathan Toews,Ottawa,99,77,83,75,86,82,68,83,82,83,80,78,68,86
+Jason Chimera,Ottawa,99,70,73,73,73,83,70,73,72,72,72,73,78,74
+Henrik Zetterberg,Ottawa,99,69,79,67,82,68,79,78,82,79,74,74,86,88
+Antoine Roussel,Ottawa,99,81,72,77,76,73,42,72,73,73,71,73,38,35
+Dale Weise,Ottawa,99,76,74,74,75,72,66,73,72,71,71,71,39,37
+Frans Nielsen,Philly,99,67,78,66,80,76,80,77,78,77,73,73,60,54
+Peter Budaj,Philly,99,78,80,79,75,74,78,81,76,81,NA,NA,49,49
+Riley Smith,Phoenix,99,73,78,71,79,77,76,76,78,77,73,75,40,40
+Scott Hartnell,Phoenix,99,79,71,77,77,78,41,71,75,73,71,73,88,87
+Paul Martin,Phoenix,99,63,74,72,79,57,80,74,74,75,76,69,69,67
+Anders Lee,Pittsburgh,99,73,78,79,78,79,66,76,77,78,68,82,33,33
+Ryan Pulock,Pittsburgh,99,72,72,77,76,75,73,72,73,72,72,71,29,29
+David Backes,Pittsburgh,99,79,73,80,79,72,56,73,75,75,75,73,66,71
+Marian Gaborik,Pittsburgh,99,62,77,69,75,50,80,78,74,75,65,73,82,82
+Eric Haula,San Jose,99,70,78,70,76,71,73,77,75,75,73,76,35,33
+Sean Monahan,San Jose,99,69,76,72,80,79,78,76,79,80,69,80,35,35
+Dougie Hamilton,San Jose,99,73,72,77,78,72,73,74,80,79,77,76,36,36
+Loui Eriksson,San Jose,99,66,77,72,79,73,83,78,73,75,66,73,60,60
+Tomas Tatar,San Jose,99,73,78,66,77,75,73,78,77,77,70,77,40,37
+Zach Bogosian,San Jose,99,76,74,78,77,56,65,74,71,71,76,67,45,46
+Tanner Pearson,St. Louis,99,69,75,73,76,75,69,74,76,76,71,73,36,36
+Jonas Brodin,St. Louis,99,72,77,72,80,78,71,75,76,77,80,71,36,36
+Jason Spezza,St. Louis,99,66,74,74,80,66,77,74,81,81,67,74,82,82
+Jaromir Jagr,St. Louis,99,66,70,75,77,76,73,73,78,78,62,74,99,99
+Dustin Brown,Tampa Bay,99,76,75,74,77,76,67,76,76,76,71,75,74,82
+Alex Tuch,Tampa Bay,99,70,68,75,71,67,67,70,74,74,68,74,28,28
+Thomas Chabot,Tampa Bay,99,67,72,70,74,67,73,72,71,71,72,69,27,27
+Nicholas Deslauriers,Tampa Bay,99,73,74,75,73,71,63,74,72,72,73,70,33,33
+Mark Stone,Tampa Bay,99,71,77,76,77,75,74,77,80,79,78,77,35,35
+Lee Stempniak,Tampa Bay,99,67,76,66,75,69,71,76,75,74,69,72,66,66
+Nick Leddy,Tampa Bay,99,69,77,72,80,80,84,77,80,78,77,74,47,47
+Tyler Bozak,Tampa Bay,99,72,77,71,78,70,77,78,77,77,71,74,45,45
+Chris Kreider,Tampa Bay,99,75,77,77,77,70,60,77,76,73,72,76,34,33
+Thomas Greiss,Tampa Bay,99,83,83,82,79,78,78,84,79,83,NA,NA,45,43
+Ryan Nugent-Hopkins,Toronto,99,73,76,74,78,71,72,75,78,76,75,75,42,35
+Nick Schmaltz,Toronto,99,72,75,71,75,70,70,73,76,75,68,74,28,28
+Mark Jankowski,Toronto,99,70,74,74,75,75,71,74,71,74,69,73,28,27
+Cam Talbot,Toronto,99,84,87,83,81,81,79,86,84,84,NA,NA,38,38
+Nikita Zaitsev,Toronto,99,73,76,74,76,70,70,76,76,74,74,69,32,29
+Mark Letestu,Toronto,99,67,75,67,76,70,85,75,73,76,70,72,40,40
+Jason Zucker,Vancouver,99,71,79,69,78,78,69,79,79,79,72,79,35,33
+Alexander Radulov,Vancouver,99,73,81,75,80,80,60,81,81,81,67,77,40,40
+Roberto Luongo,Vancouver,99,81,87,83,80,76,82,89,77,88,NA,NA,90,90
+Michael Matheson,Vancouver,99,74,73,74,76,79,67,72,74,74,74,73,30,28
+Casey Cizikas,Vancouver,99,72,75,72,76,72,73,74,74,74,71,72,38,38
+Charlie Coyle,Vancouver,99,74,73,79,78,74,72,74,77,77,70,75,37,35
+Mark Giordano,Vancouver,99,75,76,74,81,64,68,76,81,81,78,77,55,55
+Drew Stafford,Vancouver,99,69,73,74,74,74,74,73,75,74,69,72,60,55
+Taylor Hall,Washington,99,76,85,76,82,64,74,85,84,83,69,81,50,51
+Andrei Vasilevskiy,Washington,99,82,89,86,80,80,85,89,80,88,NA,NA,36,36
+Petr Mrazek,Washington,99,82,85,82,78,76,80,85,81,85,NA,NA,37,37
+Milan Lucic,Washington,99,85,72,85,79,77,61,73,78,76,73,74,56,56
+Matthew Tkachuk,Columbus,99,75,71,75,77,69,61,72,77,76,69,74,28,27
+Brandon Carlo,Columbus,99,72,70,78,76,70,63,69,68,68,76,61,27,27
+Braden Holtby,Columbus,99,88,90,86,89,82,83,89,85,88,NA,NA,48,46
+Jussi Jokinen,Columbus,99,64,76,66,78,76,70,75,77,76,68,70,68,68
+Nathan Mackinnon,Minnesota,99,69,83,71,80,72,70,83,84,83,69,80,37,37
+Seth Jones,Minnesota,99,72,74,80,82,74,75,76,82,80,80,76,38,38
+Brandon Saad,Minnesota,99,72,77,74,78,75,77,78,78,77,72,77,39,36
+Clayton Stoner,Minnesota,99,77,69,79,74,61,58,70,70,71,76,60,37,37
+Jack Johnson,Winnipeg,99,74,77,74,80,80,72,77,74,75,72,71,55,55
+Gustav Nyquist,Winnipeg,99,72,79,68,78,74,77,79,77,77,70,76,34,34
