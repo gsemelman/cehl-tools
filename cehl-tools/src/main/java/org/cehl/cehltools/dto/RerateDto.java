@@ -1,4 +1,4 @@
-package org.cehl.raw;
+package org.cehl.cehltools.dto;
 
 public class RerateDto {
 	private String name; //0-21

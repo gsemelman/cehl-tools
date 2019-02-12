@@ -28,6 +28,9 @@ public class App{
 	static final String CMD_LINE_PROSPECT_IMPORT = "prospectImport";
 	static final String CMD_LINE_UNASSIGNED_CLEANUP = "unassignedCleanup";
 	static final String CMD_LINE_RERATE_IMPORT = "rerateImport";
+	static final String CMD_LINE_CONTRACT_IMPORT = "contractImport";
+	static final String CMD_LINE_TEAM_CASH_IMPORT = "financesImport";
+	static final String CMD_LINE_PROSPECT_FILE_IMPORT = "prospectFileImport";
 	
 	private Options commandLineOptions;
 	private ApplicationContext ctx;
@@ -90,9 +93,25 @@ public class App{
 		option.setArgName("import csv location");
 		optionGroup.addOption(option);
 		commandLineOptions.addOptionGroup(optionGroup);
+		
+		optionGroup = new OptionGroup();
+		option = new Option(CMD_LINE_CONTRACT_IMPORT, hasArg,"Imports Contracts from list of rerates in csv file");
+		option.setArgName("import csv location");
+		optionGroup.addOption(option);
+		commandLineOptions.addOptionGroup(optionGroup);
 
-
-
+		optionGroup = new OptionGroup();
+		option = new Option(CMD_LINE_TEAM_CASH_IMPORT, hasArg,"Imports Team Finances from list of rerates in csv file");
+		option.setArgName("import csv location");
+		optionGroup.addOption(option);
+		commandLineOptions.addOptionGroup(optionGroup);
+		
+		optionGroup = new OptionGroup();
+		option = new Option(CMD_LINE_PROSPECT_FILE_IMPORT, hasArg,"Import prospects and add to teams from csv to pct file");
+		option.setArgName("import csv location");
+		optionGroup.addOption(option);
+		commandLineOptions.addOptionGroup(optionGroup);
+		
 		
 		CommandLineParser parser = new DefaultParser();
 		CommandLine cmd = null;
@@ -172,9 +191,35 @@ public class App{
 			}
 			JobRunner.rerateImport(new File(optionArg));
 			return;
+		}else if(cmdLine.hasOption(CMD_LINE_CONTRACT_IMPORT)) {
+			String optionArg = cmdLine.getOptionValue(CMD_LINE_CONTRACT_IMPORT);
+			if(optionArg == null){
+				logger.error("Location of contract csv must be passed in as parameter (with -" + CMD_LINE_CONTRACT_IMPORT + ")");
+				System.exit(1);
+			}
+			JobRunner.contractImport(new File(optionArg));
+			return;
+		}else if(cmdLine.hasOption(CMD_LINE_TEAM_CASH_IMPORT)) {
+			String optionArg = cmdLine.getOptionValue(CMD_LINE_TEAM_CASH_IMPORT);
+			if(optionArg == null){
+				logger.error("Location of finances csv must be passed in as parameter (with -" + CMD_LINE_TEAM_CASH_IMPORT + ")");
+				System.exit(1);
+			}
+			JobRunner.cashImport(new File(optionArg));
+			return;
+		}else if(cmdLine.hasOption(CMD_LINE_PROSPECT_FILE_IMPORT)) {
+			String optionArg = cmdLine.getOptionValue(CMD_LINE_PROSPECT_FILE_IMPORT);
+			if(optionArg == null){
+				logger.error("Location of provspect csv must be passed in as parameter (with -" + CMD_LINE_PROSPECT_FILE_IMPORT + ")");
+				System.exit(1);
+			}
+			JobRunner.prospectFileImport(new File(optionArg));
+			return;
 		}else{
 			usage();
 		}
+		
+		
     }
     
     void initAppContext( String[] args ){

@@ -9,17 +9,12 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.cehl.cehltools.JobType;
-import org.cehl.cehltools.dto.RerateDto;
+import org.cehl.cehltools.dto.ContractDto;
 import org.cehl.commons.SimFileType;
-import org.cehl.raw.DrsRaw;
 import org.cehl.raw.RosterRaw;
 import org.cehl.raw.Teams;
-import org.cehl.raw.decode.DrsTools;
-import org.cehl.raw.decode.GoalieStatProcessor;
-import org.cehl.raw.decode.RatingProcessor;
 import org.cehl.raw.decode.RosterTools;
 import org.springframework.stereotype.Component;
-import org.supercsv.cellprocessor.Optional;
 import org.supercsv.cellprocessor.ParseInt;
 import org.supercsv.cellprocessor.Trim;
 import org.supercsv.cellprocessor.constraint.NotNull;
@@ -34,21 +29,21 @@ import org.supercsv.io.ICsvListWriter;
 import org.supercsv.prefs.CsvPreference;
 
 @Component
-public class RerateImportJob extends AbstractJob {
+public class ContractImportJob extends AbstractJob {
 
-	private static final Logger logger = Logger.getLogger(RerateImportJob.class);
+	private static final Logger logger = Logger.getLogger(ContractImportJob.class);
 	
 	private File inputFile;
 	
-	public RerateImportJob() {
-		super(JobType.RERATE_IMPORT);
+	public ContractImportJob() {
+		super(JobType.CONTRACT_IMPORT);
 	}
 
 	@Override
 	public void _run() {
-		List<RerateDto> rerateImportList = null;
+		List<ContractDto> rerateImportList = null;
 		try{
-			rerateImportList = importReratesFromCsv(inputFile.getAbsolutePath());
+			rerateImportList = importContracts(inputFile.getAbsolutePath());
 		}catch(SuperCsvConstraintViolationException e){
 			logger.debug(e);
 			
@@ -58,12 +53,11 @@ public class RerateImportJob extends AbstractJob {
 		}
 		
 		List<RosterRaw> rosterList = RosterTools.loadRoster(super.getLeagueFileByType(SimFileType.ROSTER_FILE), false);
-		List<DrsRaw> drsList = DrsTools.loadDrs(super.getLeagueFileByType(SimFileType.DRS_FILE));
 		
 		List<String[]> errorList = new ArrayList<String[]>();
 		
 		//modify loaded attribs
-		for(RerateDto rawRerate : rerateImportList){
+		for(ContractDto rawRerate : rerateImportList){
 			RosterRaw rosterToUpdate = null;
 			
 			List<RosterRaw> playerSearch = RosterTools.findPlayerByName(rosterList, rawRerate.getName());
@@ -106,21 +100,9 @@ public class RerateImportJob extends AbstractJob {
 				continue;
 			}
 
-			rosterToUpdate.setAge(rawRerate.getAge());
-			
-			rosterToUpdate.setIt(rawRerate.getIt());
-			rosterToUpdate.setSp(rawRerate.getSp());
-			rosterToUpdate.setSt(rawRerate.getSt());
-			rosterToUpdate.setEn(rawRerate.getEn());
-			rosterToUpdate.setDu(rawRerate.getDu());
-			rosterToUpdate.setDi(rawRerate.getDi());
-			rosterToUpdate.setSk(rawRerate.getSk());
-			rosterToUpdate.setPa(rawRerate.getPa());
-			rosterToUpdate.setPc(rawRerate.getPc());
-			rosterToUpdate.setDf(rawRerate.getDf());
-			rosterToUpdate.setSc(rawRerate.getSc());
-			rosterToUpdate.setEx(rawRerate.getEx());
-			rosterToUpdate.setLd(rawRerate.getLd());
+			rosterToUpdate.setSalary(rawRerate.getSalary());
+			rosterToUpdate.setContractLength(rawRerate.getContractLength());
+
 
 		}
 		
@@ -137,6 +119,7 @@ public class RerateImportJob extends AbstractJob {
 		if(!errorList.isEmpty()) {
 			try {
 				writeErrorLog(errorList);
+				throw new RuntimeException("Error running import");
 			} catch (Exception e) {
 				logger.error(e);
 			}
@@ -145,7 +128,7 @@ public class RerateImportJob extends AbstractJob {
 
 	@Override
 	public String getJobInfo() {
-		return "Import and apply rerates from csv";
+		return "Import and apply contracts from csv";
 	}
 
 	public File getInputFile() {
@@ -156,9 +139,9 @@ public class RerateImportJob extends AbstractJob {
 		this.inputFile = inputFile;
 	}
 	
-	public static List<RerateDto> importReratesFromCsv(String fileName)  {
+	public static List<ContractDto> importContracts(String fileName)  {
 		
-		List<RerateDto> rosterList = new ArrayList<RerateDto>();
+		List<ContractDto> rosterList = new ArrayList<ContractDto>();
 
 		ICsvBeanReader beanReader = null;
 		try {
@@ -170,8 +153,8 @@ public class RerateImportJob extends AbstractJob {
 			final String[] header = beanReader.getHeader(true);
 			final CellProcessor[] processors = getProcessors();
 			
-			RerateDto rerate;
-			while ((rerate = beanReader.read(RerateDto.class, header,
+			ContractDto rerate;
+			while ((rerate = beanReader.read(ContractDto.class, header,
 					processors)) != null) {
 				rosterList.add(rerate);
 				System.out.println(rerate.toString());
@@ -202,21 +185,9 @@ public class RerateImportJob extends AbstractJob {
 		final CellProcessor[] processors = new CellProcessor[] {
 				new StrNotNullOrEmpty(new StrMinMax(1, 22, new Trim())), // Name
 				new StrNotNullOrEmpty(), // TeamName
-				new NotNull(new ParseInt()), // age
-				new NotNull(new RatingProcessor()), //intensity
-				new NotNull(new RatingProcessor()), //speed
-				new NotNull(new RatingProcessor()), //strength
-				new NotNull(new RatingProcessor()), //endurence
-				new NotNull(new RatingProcessor()), //duribility
-				new NotNull(new RatingProcessor()), //disciplie
-				new NotNull(new RatingProcessor()), //skaing
-				new NotNull(new RatingProcessor()), //pass accuracy
-				new NotNull(new RatingProcessor()), //puck control
-				new NotNull(new GoalieStatProcessor(new ParseInt())), //defense
-				new NotNull(new GoalieStatProcessor(new ParseInt())), //scoring
-				new NotNull(new RatingProcessor()), //experience
-				new NotNull(new RatingProcessor()) //leadership
-				
+				new NotNull(new ParseInt()), //contract
+				new NotNull(new ParseInt()) //salary
+
 				
 		};
 
@@ -230,17 +201,7 @@ public class RerateImportJob extends AbstractJob {
 		
 		switch(e.getCsvContext().getColumnNumber()){
 		case 1:
-			return String.format(message, "Player Name");
-		case 2:
-			return String.format(messageNumeric, "OF");
-		case 3:
-			return String.format(messageNumeric, "DF");
-		case 4:
-			return String.format(messageNumeric, "EX");
-		case 5:
-			return String.format(messageNumeric, "DF");
-		case 7:
-			return "Team Abbreviation must be between 2 and 3 characters if set for row:" + e.getCsvContext().toString();    
+			return String.format(message, "Player Name"); 
 		default:
 			return "Unknown issue for row:" + e.getCsvContext().toString();    	
     	}
@@ -272,5 +233,7 @@ public class RerateImportJob extends AbstractJob {
 	                }
 	        }
 	}
+	
+	
 
 }

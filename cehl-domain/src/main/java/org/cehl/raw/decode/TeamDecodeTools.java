@@ -8,7 +8,7 @@ import java.util.List;
 import org.cehl.raw.TeamRaw;
 
 public class TeamDecodeTools {
-private static int RECORD_LENGTH = 254;
+	public static int RECORD_LENGTH = 254;
 	
 	private List<TeamRaw> teamList;
 	private int teamId = 0;
@@ -161,5 +161,13 @@ private static int RECORD_LENGTH = 254;
         }
         
         return teamList;
+	}
+	
+	public static TeamRaw findTeamByName(List<TeamRaw> teamList, String teamName) {
+		
+		TeamRaw teamRaw = teamList.stream().filter(team -> teamName.equals(team.getTeamName())).findFirst().orElse(null);
+		
+		return teamRaw;
+		
 	}
 }

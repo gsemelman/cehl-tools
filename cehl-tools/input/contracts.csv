@@ -1,0 +1,108 @@
+name,teamName,salary,contractLength
+Jake Muzzin,Vancouver,4500000,2
+Paul Stastny,Vancouver,3600000,3
+Artemi Panarin,Edmonton,4000000,3
+John Gibson,Edmonton,3500000,4
+Ryan Suter,Edmonton,2750000,1
+Jeff Carter,Anaheim,3500000,2
+Cam Fowler,Anaheim,3500000,3
+Patrick Kane,Anaheim,4700000,2
+Victor Hedman,Dallas,6000000,3
+Sidney Crosby,Dallas,6000000,2
+Mark Giordano,Dallas,3000000,3
+Shea Weber,Dallas,5000000,2
+Nicklas Backstrom,Rangers,4500000,2
+Kevin Shattenkirk,Rangers,3500000,3
+Derek Stepan,Rangers,2500000,2
+Jared Spurgeon,Rangers,2750000,3
+Johnny Gaudreau,Rangers,3000000,4
+Oscar Klefbom,Rangers,1250000,3
+Sven Baertschi,Rangers,900000,3
+John Tavares,St. Louis,7000000,3
+Semyon Varlamov,St. Louis,4000000,2
+Mattias Ekholm,St. Louis,3000000,4
+Richard Panik,St. Louis,2500000,2
+Phillip Danault,St. Louis,1750000,4
+Robbie Russo,St. Louis,750000,4
+Jesse Graham,St. Louis,750000,3
+Joey Laleggia,St. Louis,750000,3
+Reid Boucher,St. Louis,1100000,4
+Drew Doughty,Chicago,6000000,3
+Pekka Rinne,Chicago,5000000,2
+Ryan Mcdonagh,Chicago,4000000,3
+Michal Kempny,Chicago,1250000,4
+Evgeni Malkin,New Jersey,6500000,2
+Nazem Kadri,New Jersey,5000000,4
+Tyler Johnson,New Jersey,5000000,4
+Brayden Schenn,New Jersey,5000000,4
+Rickard Rakell,Colorado,3000000,4
+Shayne Gostisbehere,Colorado,4500000,4
+Sven Andrighetto,Colorado,1250000,4
+Colin Miller,Colorado,1750000,3
+Tim Heed,Colorado,1000000,4
+Erik Gustafsson,Colorado,1250000,5
+JT Miller,Pittsburgh,3750000,4
+Evander Kane,Pittsburgh,3750000,4
+Travis Zajac,Pittsburgh,4000000,1
+David Backes,Pittsburgh,4500000,1
+Vincent Trocheck,Columbus,5000000,4
+Brian Boyle,Columbus,2500000,3
+Ryan Callahan,Columbus,3000000,2
+Marc-Edouard Vlasic,San Jose,4500000,3
+Brock Nelson,San Jose,3000000,3
+Marcus Johansson,Los Angeles,4000000,3
+Patrik Berglund,Los Angeles,3000000,3
+Michael Grabner,Los Angeles,4000000,4
+Sergei Bobrovsky,Los Angeles,7500000,4
+Matthew Peca,Montreal,1250000,4
+P.K. Subban,Montreal,5000000,2
+Craig Smith,Montreal,2500000,2
+Jake Gardiner,Montreal,3500000,3
+David Perron,Montreal,2750000,2
+Colton Hargrove,Montreal,650000,4
+Jakub Voracek,Boston,4500000,3
+Max Pacioretty,Boston,4000000,2
+P.E Bellemare,Boston,1000000,2
+Jonathan Toews,Ottawa,5000000,1
+Ondrej Palat,Ottawa,3400000,2
+Cam Talbot,Toronto,2500000,3
+Scott Darling,Toronto,1500000,2
+Aaron Dell,Toronto,1250000,4
+Tomas Hertl,Toronto,1750000,3
+Jamie Oleksiak,Toronto,1250000,2
+Zach Hyman,Toronto,1250000,3
+Jake Chelios,Toronto,655000,2
+Josh Leivo,Toronto,750000,2
+Ty Rattie,Phoenix,800000,4
+Johnny Boychuk,Islanders,4000000,2
+Cody Franson,Islanders,3000000,3
+Alex Killorn,Islanders,3000000,3
+James Wisniewski,Islanders,3750000,4
+William Karlsson,Calgary,2750000,3
+Joshua Bailey,Philly,2500000,3
+Jeff Petry,Philly,2000000,3
+Calvin De Haan,Philly,4500000,1
+Filip Forsberg,Minnesota,3500000,4
+Markus Granlund,Minnesota,1000000,3
+Travis Hamonic,Minnesota,2000000,2
+Zemgus Girgensons,Minnesota,1000000,2
+Colton Parayko,Carolina,3000000,5
+T.J. Oshie,Carolina,4000000,4
+Brandon Manning,Carolina,1500000,5
+Justin Abdelkader,Carolina,2000000,1
+Anze Kopitar,Carolina,4500000,2
+Jaden Schwartz,Carolina,3000000,3
+Kyle Turris,Tampa Bay,4000000,2
+Mark Stone,Tampa Bay,3000000,2
+Mark Borowiecki,Tampa Bay,1250000,1
+Victor Rask,Florida,2250000,3
+Matt Puempel,Florida,1250000,3
+Joel Edmundson,Florida,1750000,3
+Duncan Keith,Florida,5000000,2
+Nikita Kucherov,Washington,4250000,3
+Alex Pietrangelo,Washington,4750000,3
+Zdeno Chara,Washington,4000000,1
+Nikita Gusev,Washington,1000000,3
+Torey Krug,Nashville,2600000,2
+Connor Hellebuyck,Nashville,3000000,2
+Dion Phaneuf,Nashville,2000000,2

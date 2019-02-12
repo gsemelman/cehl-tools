@@ -5,7 +5,8 @@ public enum SimFileType {
 	COACH_FILE("coa"),
 	DRS_FILE("drs"),
 	ROSTER_FILE("ros"),
-	TEAM_FILE("tms");
+	TEAM_FILE("tms"),
+	PROSPECT_FILE("pct");
 
 	private String extension;
 

@@ -136,8 +136,8 @@ public abstract class AbstractJob implements Job {
 		if(getLeagueFiles().length == 0){
 			messages.add("Cannot find league files with prefix:" + "[" + leaguePrefix +"]" 
 					+ " at location: [" + simLocation.getAbsolutePath() + "]" );
-		}else if(getLeagueFiles().length != 15){
-			messages.add("Leagues files not complete. expected 15, got " + getLeagueFiles().length);
+		}else if(getLeagueFiles().length != 14){
+			//messages.add("Leagues files not complete. expected 15, got " + getLeagueFiles().length);
 		}
 
 		messages.addAll(additionalPreValidation());
