@@ -29,6 +29,11 @@ public class ProspectDto {
 		this.prospectName = prospectName;
 	}
 
+	@Override
+	public String toString() {
+		return "ProspectDto [team=" + team + ", prospectName=" + prospectName + "]";
+	}
+
 
 
 

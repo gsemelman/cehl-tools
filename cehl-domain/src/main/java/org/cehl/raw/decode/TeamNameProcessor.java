@@ -21,7 +21,12 @@ public class TeamNameProcessor extends CellProcessorAdaptor{
             
         validateInputNotNull(value, context);  // throws an Exception if the input is null
 
+        //support both tteam name and abbreviation
     	Teams team = Teams.fromName(value.toString());
+    	
+    	if(team == null) {
+    		team = Teams.fromAbbr(value.toString());
+    	}
     	
     	if(team == null) {
     		throw new SuperCsvCellProcessorException(

@@ -163,6 +163,11 @@ public class ProspectRaw {
 	public void setTeamName(String teamName) {
 		this.teamName = teamName;
 	}
+	
+	public void setTeamName(Teams team) {
+		this.teamName = team.getName();
+	}
+	
 	@Override
 	public String toString() {
 		return String.format(

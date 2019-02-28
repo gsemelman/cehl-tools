@@ -124,7 +124,8 @@ public class ProspectDecodeTools {
 				new NotNull(new ParseInt()), //salary
 				new NotNull(new ParseInt()), //contract
 				new NotNull(new StrMinMax(0, 3, new Trim())), //birthplace
-				new StrMinMax(0, 22, new Trim()) // teamName
+				//new StrMinMax(0, 22, new Trim()) // teamName
+				new TeamNameProcessor()
 
 				
 		};
