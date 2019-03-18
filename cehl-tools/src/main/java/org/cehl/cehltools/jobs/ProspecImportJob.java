@@ -3,12 +3,11 @@ package org.cehl.cehltools.jobs;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
@@ -20,7 +19,6 @@ import org.cehl.raw.DrsRaw;
 import org.cehl.raw.ProspectRaw;
 import org.cehl.raw.RosterRaw;
 import org.cehl.raw.Teams;
-import org.cehl.raw.decode.CoachDecodeTools;
 import org.cehl.raw.decode.DrsTools;
 import org.cehl.raw.decode.ProspectDecodeTools;
 import org.cehl.raw.decode.RosterTools;
@@ -111,6 +109,22 @@ public class ProspecImportJob extends AbstractJob{
 	   			existingImportExceptions.add(prospect.getName());
 	   		}
 	   		else{
+	   			
+				//search by name first
+				Teams team = Teams.fromName(prospect.getTeamName());
+				//if name not found search by abbreviation
+				if(team == null){
+					team = Teams.fromAbbr(prospect.getTeamName());
+				}
+
+				if(team == null){
+					//throw new RuntimeException("unable to find team " + prospect.getTeamName() );
+					this.addMessage("unable to find team " + prospect.getTeamName() );
+					continue;
+				}
+	   			
+	   			int jersey = getNextJerseyNumber(rosterList,team.getTeamId()  );
+	   			
 		   		DrsRaw newDrs = DrsTools.createInstance();
 		   		try {
 					BeanUtils.copyProperties(newDrs,prospect);
@@ -125,6 +139,7 @@ public class ProspecImportJob extends AbstractJob{
 						throw new RuntimeException("unable to find positionType type " + prospect.getPosition());
 					}
 					newDrs.setPosition(positionType.rawValue());
+					newDrs.setJersey(jersey);
 					
 					newDrs.setProFarmStatus1(255); //if adding to team
 					newDrs.setProFarmStatus2(255); //if adding to team
@@ -139,17 +154,17 @@ public class ProspecImportJob extends AbstractJob{
 					BeanUtils.copyProperties(newRos,newDrs);
 					//Teams team = Teams.valueOf(prospect.getTeamName());
 					
-					//search by name first
-					Teams team = Teams.fromName(prospect.getTeamName());
-					//if name not found search by abbreviation
-					if(team == null){
-						team = Teams.fromAbbr(prospect.getTeamName());
-					}
-
-					if(team == null){
-						//throw new RuntimeException("unable to find team " + prospect.getTeamName() );
-						this.addMessage("unable to find team " + prospect.getTeamName() );
-					}
+//					//search by name first
+//					Teams team = Teams.fromName(prospect.getTeamName());
+//					//if name not found search by abbreviation
+//					if(team == null){
+//						team = Teams.fromAbbr(prospect.getTeamName());
+//					}
+//
+//					if(team == null){
+//						//throw new RuntimeException("unable to find team " + prospect.getTeamName() );
+//						this.addMessage("unable to find team " + prospect.getTeamName() );
+//					}
 					newRos.setTeamId(team.getTeamId());
 					addToRoster(rosterList, newRos);
 				} catch (IllegalAccessException | InvocationTargetException e) {
@@ -185,14 +200,34 @@ public class ProspecImportJob extends AbstractJob{
 	}
 
 
-	public void getNextJerseyNumber(List<RosterRaw> rosterList, int teamId){
-		Integer maxJersey = 1;
+	public int getNextJerseyNumber(List<RosterRaw> rosterList, int teamId){
+
+		List<Integer> jerseyList = rosterList.stream()
+		.filter(r -> !r.getName().trim().isEmpty())
+		.filter(r -> teamId == r.getTeamId())
+		.map(r -> r.getJersey())
+		.collect(Collectors.toList());
 		
-		for(RosterRaw rosRaw : rosterList){
-			if(!rosRaw.getName().trim().isEmpty()){
-				maxJersey = Integer.max(maxJersey, rosRaw.getJersey());
+		for(int x = 1; x<=99 ; x++) {
+			if(jerseyList.contains(x)) {
+				continue;
+			}else {
+				return x;
 			}
 		}
+		
+		throw new RuntimeException("Unable to determine next jersey number");
+//		
+//		for(RosterRaw rosRaw : rosterList){
+//			if(teamId == rosRaw.getTeamId()) {
+//				if(!rosRaw.getName().trim().isEmpty()){
+////					maxJersey = Integer.max(maxJersey, rosRaw.getJersey());
+//					
+//				}
+//			}
+//		}
+//		
+
 	}
 	
 	public void addToRoster(List<RosterRaw> rosterList, RosterRaw ros){

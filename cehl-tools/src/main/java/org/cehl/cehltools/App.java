@@ -31,6 +31,7 @@ public class App{
 	static final String CMD_LINE_CONTRACT_IMPORT = "contractImport";
 	static final String CMD_LINE_TEAM_CASH_IMPORT = "financesImport";
 	static final String CMD_LINE_PROSPECT_FILE_IMPORT = "prospectFileImport";
+	static final String CMD_LINE_ROOKIE_FIX = "rookieFix";
 	
 	private Options commandLineOptions;
 	private ApplicationContext ctx;
@@ -109,6 +110,12 @@ public class App{
 		optionGroup = new OptionGroup();
 		option = new Option(CMD_LINE_PROSPECT_FILE_IMPORT, hasArg,"Import prospects and add to teams from csv to pct file");
 		option.setArgName("import csv location");
+		optionGroup.addOption(option);
+		commandLineOptions.addOptionGroup(optionGroup);
+		
+		optionGroup = new OptionGroup();
+		option = new Option(CMD_LINE_ROOKIE_FIX, hasArg,"Remove rookie status for roster players over threshold");
+		option.setArgName("import location (ros/csv)");
 		optionGroup.addOption(option);
 		commandLineOptions.addOptionGroup(optionGroup);
 		
@@ -214,6 +221,14 @@ public class App{
 				System.exit(1);
 			}
 			JobRunner.prospectFileImport(new File(optionArg));
+			return;
+		}else if(cmdLine.hasOption(CMD_LINE_ROOKIE_FIX)) {
+			String optionArg = cmdLine.getOptionValue(CMD_LINE_ROOKIE_FIX);
+			if(optionArg == null){
+				logger.error("Previous season ROS file or CSV must be passed in as parameter (with -" + CMD_LINE_ROOKIE_FIX + ")");
+				System.exit(1);
+			}
+			JobRunner.rookieFix(new File(optionArg));
 			return;
 		}else{
 			usage();

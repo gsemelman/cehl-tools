@@ -8,6 +8,7 @@ import org.cehl.cehltools.jobs.ContractImportJob;
 import org.cehl.cehltools.jobs.ProspecImportJob;
 import org.cehl.cehltools.jobs.ProspectFileUpdaterJob;
 import org.cehl.cehltools.jobs.RerateImportJob;
+import org.cehl.cehltools.jobs.RookieFixJob;
 import org.cehl.cehltools.jobs.UnassignedCleanupJob;
 import org.cehl.commons.spring.StaticContextAccessor;
 
@@ -51,6 +52,12 @@ public class JobRunner {
     
     public static void prospectFileImport(File inputFile){
     	ProspectFileUpdaterJob job = StaticContextAccessor.getBean(ProspectFileUpdaterJob.class);
+    	job.setInputFile(inputFile);
+    	job.runJob();
+    }
+    
+    public static void rookieFix(File inputFile){
+    	RookieFixJob job = StaticContextAccessor.getBean(RookieFixJob.class);
     	job.setInputFile(inputFile);
     	job.runJob();
     }

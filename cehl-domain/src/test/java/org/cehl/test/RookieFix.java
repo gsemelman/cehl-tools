@@ -37,11 +37,9 @@ public class RookieFix {
 	}
 	
 	void run(){
-		RosterTools rosterTools = new RosterTools();
 
-		
-		List<RosterRaw> rosterListSeason22 = rosterTools.loadRoster(new File("cehl.22.ros"), true);
-		List<RosterRaw> rosterList = rosterTools.loadRoster(new File("cehl.ros"), false);
+		List<RosterRaw> rosterListSeason22 = RosterTools.loadRoster(new File("cehl.22.ros"), true);
+		List<RosterRaw> rosterList = RosterTools.loadRoster(new File("cehl.ros"), false);
 
 		List<TeamPlayer> rookieList = new ArrayList<TeamPlayer>();
 		
@@ -92,45 +90,45 @@ public class RookieFix {
 		}
 
 		//write files
-		rosterTools.writeRoster(rosterList);
+		RosterTools.writeRoster(rosterList);
 		//drsTools.writeDrs(newDrsList);
-		applyWashingtonSalary(new File("cehl.tms"));
+		//applyWashingtonSalary(new File("cehl.tms"));
 
 	}
 	
-	void applyWashingtonSalary(File file) {
-
-		BufferedOutputStream bos;
-		try {
-			bos = new BufferedOutputStream(new FileOutputStream("output/cehl.tms"));
-		} catch (FileNotFoundException e1) {
-			throw new RuntimeException();
-		}
-		 
-		List<byte[]> byteList = DecodeTools.decodeFile(file,254);
-
-		//Integer newSalary = 13768249;
-		Integer newSalary = 15582437;
-		
-        for (byte[] bytes : byteList) {
-        	String teamName = DecodeTools.readString(Arrays.copyOfRange(bytes,0, 10)).trim();
-        	
-        	if(teamName.equals("Washington")){
-        		DecodeTools.writeInt(bytes,newSalary, 99, 103);
-        	}
-
-        }
-        
-        for (byte[] bytes : byteList) {
-        	try {
-				bos.write(bytes);
-			} catch (IOException e) {
-				throw new RuntimeException();
-			}
-        }
-        
- 
-	}
+//	void applyWashingtonSalary(File file) {
+//
+//		BufferedOutputStream bos;
+//		try {
+//			bos = new BufferedOutputStream(new FileOutputStream("output/cehl.tms"));
+//		} catch (FileNotFoundException e1) {
+//			throw new RuntimeException();
+//		}
+//		 
+//		List<byte[]> byteList = DecodeTools.decodeFile(file,254);
+//
+//		//Integer newSalary = 13768249;
+//		Integer newSalary = 15582437;
+//		
+//        for (byte[] bytes : byteList) {
+//        	String teamName = DecodeTools.readString(Arrays.copyOfRange(bytes,0, 10)).trim();
+//        	
+//        	if(teamName.equals("Washington")){
+//        		DecodeTools.writeInt(bytes,newSalary, 99, 103);
+//        	}
+//
+//        }
+//        
+//        for (byte[] bytes : byteList) {
+//        	try {
+//				bos.write(bytes);
+//			} catch (IOException e) {
+//				throw new RuntimeException();
+//			}
+//        }
+//        
+// 
+//	}
 	
 	class TeamPlayer{
 
