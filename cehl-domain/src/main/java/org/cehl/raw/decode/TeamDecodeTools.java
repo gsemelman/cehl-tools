@@ -9,11 +9,13 @@ import org.cehl.raw.TeamRaw;
 
 public class TeamDecodeTools {
 	public static int RECORD_LENGTH = 254;
+
 	
-	private List<TeamRaw> teamList;
-	private int teamId = 0;
 	
-	public List<TeamRaw> loadTeams(File file) {
+	public static List<TeamRaw> loadTeams(File file) {
+
+		List<TeamRaw> teamList;
+		int teamId = 0;
 
 		List<byte[]> byteList = DecodeTools.decodeFile(file,RECORD_LENGTH);
 		teamList = new ArrayList<TeamRaw>();
@@ -142,6 +144,8 @@ public class TeamDecodeTools {
         	System.out.println(team.toString());
         	
         	
+        	
+        	
 //        	System.out.println(team.getTeamName());
 //        	System.out.println(team.getGmName());
 //        	System.out.println(team.getGmIm());
@@ -163,11 +167,11 @@ public class TeamDecodeTools {
         return teamList;
 	}
 	
-	public static TeamRaw findTeamByName(List<TeamRaw> teamList, String teamName) {
-		
-		TeamRaw teamRaw = teamList.stream().filter(team -> teamName.equals(team.getTeamName())).findFirst().orElse(null);
-		
-		return teamRaw;
-		
-	}
+//	public static TeamRaw findTeamByName(List<TeamRaw> teamList, String teamName) {
+//		
+//		TeamRaw teamRaw = teamList.stream().filter(team -> teamName.equals(team.getTeamName())).findFirst().orElse(null);
+//		
+//		return teamRaw;
+//		
+//	}
 }
