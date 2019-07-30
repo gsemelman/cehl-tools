@@ -6,16 +6,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-import org.cehl.cehltools.App;
 import org.cehl.cehltools.JobType;
 import org.cehl.commons.SimFileType;
 import org.cehl.raw.DrsRaw;
 import org.cehl.raw.RosterRaw;
-import org.cehl.raw.decode.CoachDecodeTools;
 import org.cehl.raw.decode.DrsTools;
 import org.cehl.raw.decode.RosterTools;
-import org.cehl.raw.transformer.coach.CoachImport;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.supercsv.cellprocessor.Trim;
 import org.supercsv.cellprocessor.constraint.NotNull;
@@ -29,7 +27,7 @@ import org.supercsv.prefs.CsvPreference;
 @Component
 public class UnassignedCleanupJob extends AbstractJob{
 	
-	private static final Logger logger = Logger.getLogger(UnassignedCleanupJob.class);
+	private static final Logger logger = LoggerFactory.getLogger(UnassignedCleanupJob.class);
 	
 	private File inputFile;
 	
@@ -70,7 +68,7 @@ public class UnassignedCleanupJob extends AbstractJob{
 		try{
 			deleteList = importDeletePlayerNameFile();
 		}catch(SuperCsvConstraintViolationException e){
-			logger.debug(e);
+			logger.error("error",e);
 
 			this.addMessage("Player name must be between 1 and 22 characters for row: " + e.getCsvContext().toString());
 			

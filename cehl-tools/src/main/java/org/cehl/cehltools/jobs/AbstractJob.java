@@ -10,9 +10,10 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
 import org.cehl.cehltools.JobType;
 import org.cehl.commons.SimFileType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -26,7 +27,7 @@ import net.lingala.zip4j.model.ZipParameters;
 
 public abstract class AbstractJob implements Job {
 	
-	private static final Logger logger = Logger.getLogger(AbstractJob.class);
+	private static final Logger logger = LoggerFactory.getLogger(CoachUpdaterJob.class);
 	
 	@Autowired
 	@Qualifier("simLocation")
@@ -86,7 +87,7 @@ public abstract class AbstractJob implements Job {
 			logger.info("Clearing output directory..");
 			this.clearOldFiles();
 			
-			if(backupLeagueFiles){
+			if(isBackupLeagueFiles()){
 				logger.info("Backing up league files to [ " + backupLocation.getAbsolutePath() +"]");
 				this.backupLeagueFiles() ;
 			}else{

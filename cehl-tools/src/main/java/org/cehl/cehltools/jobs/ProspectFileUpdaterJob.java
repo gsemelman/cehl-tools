@@ -11,15 +11,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import org.apache.log4j.Logger;
 import org.cehl.cehltools.JobType;
 import org.cehl.cehltools.dto.ProspectDto;
 import org.cehl.commons.SimFileType;
 import org.cehl.raw.Teams;
 import org.cehl.raw.decode.DecodeTools;
 import org.cehl.raw.decode.TeamNameProcessor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import org.supercsv.cellprocessor.Optional;
 import org.supercsv.cellprocessor.Trim;
 import org.supercsv.cellprocessor.constraint.StrMinMax;
 import org.supercsv.cellprocessor.constraint.StrNotNullOrEmpty;
@@ -33,8 +33,7 @@ import org.supercsv.prefs.CsvPreference;
 
 @Component
 public class ProspectFileUpdaterJob extends AbstractJob {
-
-	private static final Logger logger = Logger.getLogger(ProspectFileUpdaterJob.class);
+	private static final Logger logger = LoggerFactory.getLogger(ProspectFileUpdaterJob.class);
 	
 	private static int RECORD_LENGTH = 22;
 	//record length is 2700 but team can only fit 100 prospects (2200 bytes, so need to add filler of 500 bytes to end of each team)
@@ -53,7 +52,7 @@ public class ProspectFileUpdaterJob extends AbstractJob {
 		try{
 			prospects = importProspects(inputFile);
 		}catch(SuperCsvConstraintViolationException e){
-			logger.debug(e);
+			logger.error("error",e);
 			
 			this.addMessage(decodeImportException(e));
 			
@@ -69,7 +68,7 @@ public class ProspectFileUpdaterJob extends AbstractJob {
 				writeErrorLog(errorList);
 				throw new RuntimeException("Error running import");
 			} catch (Exception e) {
-				logger.error(e);
+				logger.error("error",e);
 			}
 		}
 	}

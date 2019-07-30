@@ -10,8 +10,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-import org.cehl.cehltools.App;
 import org.cehl.cehltools.JobType;
 import org.cehl.commons.SimFileType;
 import org.cehl.raw.CoachRaw;
@@ -19,15 +17,17 @@ import org.cehl.raw.Teams;
 import org.cehl.raw.decode.CoachDecodeTools;
 import org.cehl.raw.decode.DecodeTools;
 import org.cehl.raw.transformer.coach.CoachImport;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+//import org.supercsv.exception.SuperCsvConstraintViolationException;
 import org.supercsv.exception.SuperCsvConstraintViolationException;
 
 //@ConditionalOnProperty(value="#{systemProperties.coachUpdate}", matchIfMissing = false)
 @Component
 public class CoachUpdaterJob extends AbstractJob{
-	
-	private static final Logger logger = Logger.getLogger(CoachUpdaterJob.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(CoachUpdaterJob.class);
 	
 	private File inputFile;
 
@@ -66,7 +66,7 @@ public class CoachUpdaterJob extends AbstractJob{
 		try{
 			coachImportList = CoachDecodeTools.importCoachesFromCsv(inputFile.getAbsolutePath());
 		}catch(SuperCsvConstraintViolationException e){
-			logger.debug(e);
+			logger.debug("error",e);
 			
 			this.addMessage(CoachDecodeTools.decodeImportException(e));
 			

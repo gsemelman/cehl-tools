@@ -7,13 +7,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.cehl.cehltools.JobType;
 import org.cehl.cehltools.dto.ContractDto;
 import org.cehl.commons.SimFileType;
 import org.cehl.raw.RosterRaw;
 import org.cehl.raw.Teams;
 import org.cehl.raw.decode.RosterTools;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.supercsv.cellprocessor.ParseInt;
 import org.supercsv.cellprocessor.Trim;
@@ -31,7 +31,7 @@ import org.supercsv.prefs.CsvPreference;
 @Component
 public class ContractImportJob extends AbstractJob {
 
-	private static final Logger logger = Logger.getLogger(ContractImportJob.class);
+	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(ContractImportJob.class);
 	
 	private File inputFile;
 	
@@ -45,7 +45,7 @@ public class ContractImportJob extends AbstractJob {
 		try{
 			rerateImportList = importContracts(inputFile.getAbsolutePath());
 		}catch(SuperCsvConstraintViolationException e){
-			logger.debug(e);
+			logger.debug("error",e);
 			
 			this.addMessage(decodeImportException(e));
 			
@@ -121,7 +121,7 @@ public class ContractImportJob extends AbstractJob {
 				writeErrorLog(errorList);
 				throw new RuntimeException("Error running import");
 			} catch (Exception e) {
-				logger.error(e);
+				logger.error("error",e);
 			}
 		}
 	}

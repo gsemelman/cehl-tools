@@ -11,15 +11,17 @@ import org.apache.commons.cli.MissingOptionException;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.OptionGroup;
 import org.apache.commons.cli.Options;
-import org.apache.log4j.Logger;
 import org.cehl.cehltools.config.CehlToolsConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.Banner;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 
 public class App{
 	
-	private static final Logger logger = Logger.getLogger(App.class);
+	private static final Logger logger = LoggerFactory.getLogger(App.class);
+	
 	static final int EXIT_CODE_SUCCESS = 0;
 	static final int EXIT_CODE_FAIL = 1;
 	
@@ -32,6 +34,8 @@ public class App{
 	static final String CMD_LINE_TEAM_CASH_IMPORT = "financesImport";
 	static final String CMD_LINE_PROSPECT_FILE_IMPORT = "prospectFileImport";
 	static final String CMD_LINE_ROOKIE_FIX = "rookieFix";
+	static final String CMD_LINE_HOLDOUT = "holdoutUpdate";
+	static final String CMD_LINE_UPLOAD = "upload";
 	
 	private Options commandLineOptions;
 	private ApplicationContext ctx;
@@ -118,6 +122,18 @@ public class App{
 		option.setArgName("import location (ros/csv)");
 		optionGroup.addOption(option);
 		commandLineOptions.addOptionGroup(optionGroup);
+		
+		optionGroup = new OptionGroup();
+		option = new Option(CMD_LINE_HOLDOUT, false,"Update holdout status");
+		optionGroup.addOption(option);
+		commandLineOptions.addOptionGroup(optionGroup);
+		
+		optionGroup = new OptionGroup();
+		option = new Option(CMD_LINE_UPLOAD, false,"Upload");
+		optionGroup.addOption(option);
+		commandLineOptions.addOptionGroup(optionGroup);
+		
+		
 		
 		
 		CommandLineParser parser = new DefaultParser();
@@ -230,6 +246,12 @@ public class App{
 			}
 			JobRunner.rookieFix(new File(optionArg));
 			return;
+		}else if(cmdLine.hasOption(CMD_LINE_HOLDOUT)) {
+			JobRunner.updateHoldouts();
+			return;
+		}else if(cmdLine.hasOption(CMD_LINE_UPLOAD)) {
+			JobRunner.uploadfiles();
+			return;
 		}else{
 			usage();
 		}
@@ -240,7 +262,8 @@ public class App{
     void initAppContext( String[] args ){
     	ctx = new SpringApplicationBuilder(CehlToolsConfig.class)
     			.bannerMode(Banner.Mode.OFF) // do not print spring boot banner
-    			.web(false)
+    			//.
+    			//.web(false)
     			.run(args);
     	
 

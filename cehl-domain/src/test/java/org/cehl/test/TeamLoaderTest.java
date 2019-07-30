@@ -39,17 +39,31 @@ public class TeamLoaderTest {
 			
 			
 			
-			for(int x = 0; x <= byteList.size(); x++) {
-				if(x < 30 || x ==34) { //remove unused teams
-					
-					byte[] bytes = byteList.get(x);
-					
-					//byteList
-					bytes[97] = (byte)255; //reset to unassigned
-					bytes[98] = (byte)255; //reset to unassigned
-					
+			for(int x = 0; x < byteList.size(); x++) {
+//				if(x < 30 || x ==34) { //remove unused teams
+//					
+//					byte[] bytes = byteList.get(x);
+//					
+//					//byteList
+//					bytes[97] = (byte)255; //reset to unassigned
+//					bytes[98] = (byte)255; //reset to unassigned
+//					
+//					bos.write(bytes);
+//				}
+				
+				byte[] bytes = byteList.get(x);
+				
+				//if(bytes[0] > 0) {
+				if(x < 30 ) {
+					System.out.println(x + ": Resetting team div/conf");
+					//bytes[97] = (byte)255; //reset to unassigned
+					//bytes[98] = (byte)255; //reset to unassigned
 					bos.write(bytes);
+				}else {
+					System.out.println(x + ": Blank Team");
 				}
+
+				
 			}
 			
 			bos.close();

@@ -10,13 +10,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.cehl.cehltools.JobType;
 import org.cehl.cehltools.dto.CashDto;
 import org.cehl.commons.SimFileType;
 import org.cehl.raw.Teams;
 import org.cehl.raw.decode.DecodeTools;
 import org.cehl.raw.decode.TeamDecodeTools;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.supercsv.cellprocessor.ParseInt;
 import org.supercsv.cellprocessor.constraint.NotNull;
@@ -32,7 +33,7 @@ import org.supercsv.prefs.CsvPreference;
 @Component
 public class CashUpdaterJob extends AbstractJob {
 
-	private static final Logger logger = Logger.getLogger(CashUpdaterJob.class);
+	private static final Logger logger = LoggerFactory.getLogger(CashUpdaterJob.class);
 	
 	private File inputFile;
 	
@@ -46,7 +47,7 @@ public class CashUpdaterJob extends AbstractJob {
 		try{
 			cashImportList = importCash(inputFile.getAbsolutePath());
 		}catch(SuperCsvConstraintViolationException e){
-			logger.debug(e);
+			logger.debug("csv constraint error", e);
 			
 			this.addMessage(decodeImportException(e));
 			
@@ -62,7 +63,7 @@ public class CashUpdaterJob extends AbstractJob {
 				writeErrorLog(errorList);
 				throw new RuntimeException("Error running import");
 			} catch (Exception e) {
-				logger.error(e);
+				logger.error("error writing",e);
 			}
 		}
 	}

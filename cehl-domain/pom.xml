@@ -21,7 +21,6 @@
 		<dependency>
 			<groupId>org.cehl</groupId>
 			<artifactId>cehl-commons</artifactId>
-			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		
 		<dependency>

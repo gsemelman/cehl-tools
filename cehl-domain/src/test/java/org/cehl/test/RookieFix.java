@@ -37,9 +37,9 @@ public class RookieFix {
 	}
 	
 	void run(){
-
-		List<RosterRaw> rosterListSeason22 = RosterTools.loadRoster(new File("cehl.22.ros"), true);
 		List<RosterRaw> rosterList = RosterTools.loadRoster(new File("cehl.ros"), false);
+		List<RosterRaw> rosterListSeason22 = RosterTools.loadRoster(new File("cehl.22.ros"), true);
+		List<RosterRaw> rosterList2 = RosterTools.loadRoster(new File("cehl.ros"), false);
 
 		List<TeamPlayer> rookieList = new ArrayList<TeamPlayer>();
 		

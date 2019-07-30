@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.cehl.model.cehl.player.PlayerPositionType;
+
 public class RosterRaw implements Serializable{
     
     public RosterRaw() {
@@ -467,7 +469,17 @@ public class RosterRaw implements Serializable{
 						farmPim, farmPim2, hits, hits2);
 	}
 
+	public Teams getTeamAbbr() {
+		return Teams.fromId(getTeamId());
+	}
 	
+	public String getTeamName() {
+		return Teams.fromId(getTeamId()).getName();
+	}
+	
+	public String getPositionString() {
+		return PlayerPositionType.PositionByRawValue(getPosition()).stringValue();
+	}
 
 	
 //	@Override

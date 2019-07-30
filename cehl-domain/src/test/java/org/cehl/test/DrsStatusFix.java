@@ -4,12 +4,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.cehl.raw.DrsRaw;
 import org.cehl.raw.RosterRaw;
 import org.cehl.raw.decode.DrsTools;
 import org.cehl.raw.decode.RosterTools;
 
-import com.mysql.jdbc.StringUtils;
 
 public class DrsStatusFix {
 	public static void main(String[] args) throws Exception {
@@ -31,7 +31,7 @@ public class DrsStatusFix {
 		//gather drs entries not in roster
 		//List<DrsRaw> drsToKeep = new ArrayList<DrsRaw>();
 		for(DrsRaw drsRaw : drsList){
-			if(StringUtils.isNullOrEmpty(drsRaw.getName())) continue;
+			if(StringUtils.isEmpty(drsRaw.getName())) continue;
 			
 			for(RosterRaw rosterRaw : rosterList){
 				if(drsRaw.getName().equals(rosterRaw.getName())){

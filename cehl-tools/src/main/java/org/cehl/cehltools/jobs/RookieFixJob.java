@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.cehl.cehltools.JobType;
 import org.cehl.cehltools.dto.TeamPlayerDto;
 import org.cehl.commons.SimFileType;
@@ -13,6 +12,8 @@ import org.cehl.raw.RosterRaw;
 import org.cehl.raw.Teams;
 import org.cehl.raw.decode.RosterTools;
 import org.cehl.raw.decode.TeamNameProcessor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.supercsv.cellprocessor.Trim;
 import org.supercsv.cellprocessor.constraint.StrMinMax;
@@ -28,7 +29,7 @@ import com.google.common.io.Files;
 @Component
 public class RookieFixJob extends AbstractJob{
 	
-	private static final Logger logger = Logger.getLogger(RookieFixJob.class);
+	private static final Logger logger = LoggerFactory.getLogger(RookieFixJob.class);
 	
 	private File inputFile;
 
