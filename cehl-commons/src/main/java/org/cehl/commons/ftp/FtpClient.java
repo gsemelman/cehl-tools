@@ -1,6 +1,10 @@
 package org.cehl.commons.ftp;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+
+import com.jcraft.jsch.Session;
 
 public interface FtpClient {
 	
@@ -22,6 +26,8 @@ public interface FtpClient {
 	
 	public void put( String src, String target, FtpMonitor monitor );
 	public void get( String src, String target, FtpMonitor monitor );
+	public void uploadDirectory(File directory, String remotePath) throws IOException;
+	public void remoteToRemoteCopy(String source, String target) throws IOException;
 	
 	public String getHost();
 	public int getPort();

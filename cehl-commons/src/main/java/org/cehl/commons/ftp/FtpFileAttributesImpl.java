@@ -12,6 +12,7 @@ public class FtpFileAttributesImpl implements FtpFileAttributes {
 	int atime;
 	int mtime;
 	String[] extended=null;
+	boolean directory;
 	
 	/*
 	 * The atime--access time--is the time when the data of a file was last accessed. 
@@ -100,6 +101,14 @@ public class FtpFileAttributesImpl implements FtpFileAttributes {
 
 	public Date getMTimeAsDate() {
 		return new Date( getMTime() * 1000L );
+	}
+
+	public boolean isDirectory() {
+		return directory;
+	}
+
+	public void setDirectory(boolean directory) {
+		this.directory = directory;
 	}
 	
 	

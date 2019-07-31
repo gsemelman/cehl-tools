@@ -1,5 +1,7 @@
 package org.cehl.commons.ftp;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -9,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jcraft.jsch.Channel;
+import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
@@ -23,6 +26,7 @@ public class JschFtpClientImpl implements FtpClient{
 	
 	JschFtpClientSyncModeImpl client = new JschFtpClientSyncModeImpl();
 	private long operationTimeout = 5400000; //for put/get
+
 
 	/* (non-Javadoc)
 	 * @see com.openlead.io.ftp.client.FtpClient#connect()
@@ -195,6 +199,16 @@ public class JschFtpClientImpl implements FtpClient{
 		client.put(src, dst);
 		
 	}
+	
+	@Override
+	public void uploadDirectory(File directory, String remotePath) throws IOException {
+		client.uploadDirectory(directory, remotePath);
+	}
+	
+	@Override
+	public void remoteToRemoteCopy(String source, String target) throws IOException {
+		client.remoteToRemoteCopy(source, target);
+	}
 
 
 	/* (non-Javadoc)
@@ -347,6 +361,10 @@ public class JschFtpClientImpl implements FtpClient{
 		// Not used in this implementation
 		return null;
 	}
+
+
+
+
 }
 
 class JschFtpClientSyncModeImpl implements FtpClient{
@@ -359,8 +377,10 @@ class JschFtpClientSyncModeImpl implements FtpClient{
 	int sessionTimeout = 30000; // timeout
 	int retries = 3; // default
 	int retryWaitTime = 30000; // default
+	private static final int SHORT_WAIT_MSEC = 100;
 	String password;
 	boolean strictHostChecking = false; // default
+	private static final String SLASH = "/";
 	
 	private ChannelSftp channel;
 	
@@ -569,6 +589,104 @@ class JschFtpClientSyncModeImpl implements FtpClient{
 		}
 
 	}
+	
+	public void uploadDirectory(File directory, String remotePath) throws IOException{
+		ChannelExec channelExec = null;
+		try {
+			remotePath = remotePath + "/" + directory.getName();
+
+			//use existing channel to get session to open an exec channel
+			channelExec = (ChannelExec) channel.getSession().openChannel("exec");
+			// NOTE: the provided paths are expected to require no escaping
+			//channelExec.setCommand("mkdir -p " + remotePath); 
+			channelExec.setCommand("mkdir -p " + cleanPath(remotePath)); 
+			channelExec.connect();
+			while (!channelExec.isClosed()) {
+				// dir creation is usually fast, so only wait for a short time
+				Thread.sleep(SHORT_WAIT_MSEC);
+			}
+			channelExec.disconnect();
+			if (channelExec.getExitStatus() != 0) {
+				throw new IOException("Creating directory failed: "  + remotePath);
+			}
+
+			for (File file : directory.listFiles()) {
+				if (file.isDirectory()) {
+					uploadDirectory(file, remotePath);
+				} else {
+					put(file.getAbsolutePath(), remotePath);
+				}
+			}
+		} catch (JSchException e) {
+			throw new RuntimeException(e);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}finally {
+			if(channelExec != null && channelExec.isConnected()) {
+				channelExec.disconnect();
+			}
+		}
+
+
+	}
+	
+    /**
+     * Performs a file copy operation on the remove host through an existing SSH connection.
+     * 
+     * IMPORTANT: This method uses the standard "mkdir" and "cp" shell commands on the remote system, and will therefore not work on
+     * standard Windows hosts.
+     * 
+     * @param jschSession an established JSch session
+     * @param source the source path of the file to copy, using a relative path to the initial SSH "home" directory if necessary. IMPORTANT:
+     *        this path is expected to work without shell escaping; in particular, it should not contain spaces or reserved shell
+     *        characters.
+     * @param target the target path of the file to copy, using a relative path to the initial SSH "home" directory if necessary; if the
+     *        containing directory does not exist, it will be created. IMPORTANT: this path is expected to work without shell escaping; in
+     *        particular, it should not contain spaces or reserved shell characters.
+     * @throws JSchException on general SSH exceptions
+     * @throws IOException if the remote copy operation returned a non-zero exit code
+     * @throws InterruptedException if the thread is interrupted while waiting for the copy to complete
+     */
+    public void remoteToRemoteCopy(String source, String target) throws IOException {
+    	
+    	ChannelExec channelExec = null;
+    	try {
+    	     // generate a "mkdir" command for the target directory, if present
+            String mkdirCommandPrefix = "";
+            int separatorPos = target.lastIndexOf(SLASH);
+            if (separatorPos >= 0) {
+                // contains slash -> has directory part
+                String directoryPart = target.substring(0, separatorPos);
+                mkdirCommandPrefix = "mkdir -p " + directoryPart + " && ";
+            }
+
+            //use existing channel to get session to open an exec channel
+            channelExec = (ChannelExec) channel.getSession().openChannel("exec");
+            // NOTE: the provided paths are expected to require no escaping
+            String fullCommand = mkdirCommandPrefix + "cp " + source + " " + target;
+            logger.debug("Performing remote copy: " + fullCommand);
+            channelExec.setCommand(fullCommand);
+            channelExec.connect();
+            while (!channelExec.isClosed()) {
+                // file copy is usually fast, so only wait for a short time
+                Thread.sleep(SHORT_WAIT_MSEC);
+            }
+            channelExec.disconnect();
+            if (channelExec.getExitStatus() != 0) {
+                throw new IOException("Remote copy operation failed: " + source + " -> " + target);
+            }
+    	}catch(JSchException e) {
+    		throw new RuntimeException("sftp error", e);
+    	}catch( InterruptedException e) {
+    		Thread.currentThread().interrupt();
+    	}finally {
+			if(channelExec != null && channelExec.isConnected()) {
+				channelExec.disconnect();
+			}
+		}
+
+   
+    }
 	
 	public void put( String src, String dst )
 	{
@@ -785,6 +903,12 @@ class JschFtpClientSyncModeImpl implements FtpClient{
 		                if(obj instanceof com.jcraft.jsch.ChannelSftp.LsEntry){
 		                	
 		                	ChannelSftp.LsEntry entry = ((com.jcraft.jsch.ChannelSftp.LsEntry)obj);
+		                	
+		                	
+		                	if (".".equals(entry.getFilename()) || "..".equals(entry.getFilename())) {
+		                        continue;
+		                    }
+		                	
 		                	FtpFileEntryImpl fileEntry = new FtpFileEntryImpl();
 		                	fileEntry.setFilename( entry.getFilename() );
 		                	fileEntry.setLongname( entry.getLongname() );
@@ -800,6 +924,7 @@ class JschFtpClientSyncModeImpl implements FtpClient{
 			                	fileAttributes.setSize( entry.getAttrs().getSize() );
 			                	fileAttributes.setUId( entry.getAttrs().getUId() );
 			                	fileAttributes.setExtended( entry.getAttrs().getExtended() );
+			                	fileAttributes.setDirectory(entry.getAttrs().isDir());
 		                	
 			                	fileEntry.setAttrs( fileAttributes );
 		                	}

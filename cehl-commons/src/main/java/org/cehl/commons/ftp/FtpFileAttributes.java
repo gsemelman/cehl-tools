@@ -37,5 +37,7 @@ public interface FtpFileAttributes {
 	   * @Return return the mtime as a java.util.Date
 	   */
 	  public Date getMTimeAsDate();
+	  
+	  public boolean isDirectory();
 
 }
