@@ -119,6 +119,7 @@ public class ContractImportJob extends AbstractJob {
 		if(!errorList.isEmpty()) {
 			try {
 				writeErrorLog(errorList);
+
 				throw new RuntimeException("Error running import");
 			} catch (Exception e) {
 				logger.error("error",e);

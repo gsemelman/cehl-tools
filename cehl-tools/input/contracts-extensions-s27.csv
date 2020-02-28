@@ -1,0 +1,83 @@
+name,teamName,salary,contractLength
+Brent Burns,Anaheim,4800000,2
+Jonathan Quick,Anaheim,3700000,2
+Brendan Gallagher,Boston,4000000,4
+Blake Wheeler,Boston,6000000,2
+Nate Schmidt,Boston,3000000,2
+Nick Cousins,Boston,850000,2
+Nick Holden,Boston,1500000,2
+Oscar Dansk,Boston,700000,2
+Malcolm Subban,Buffalo,1400000,4
+Dustin Brown,Carolina,2500000,1
+Bo Horvat,Carolina,3750000,5
+Jonny Brodzinski,Carolina,750000,5
+Tuukka Rask,Carolina,4750000,2
+Aaron Ekblad,Carolina,4000000,3
+Andre Burakovsky,Carolina,1300000,3
+Corey Crawford,Carolina,1500000,1
+Kristopher Letang,Chicago,4500000,3
+Mikko Koivu,Chicago,1600000,2
+Tyler Seguin,Chicago,5750000,3
+Nick Foligno,Colorado,3750000,3
+Eric Staal,Colorado,4750000,2
+Colton Sissons,Colorado,1250000,4
+Andreas Martinsen,Colorado,750000,4
+Pontus Aberg,Colorado,750000,4
+Jordan Schmaltz,Colorado,650000,4
+Pheonix Copley,Colorado,900000,4
+Dean Kukan,Colorado,600000,4
+Austin Czarnik,Columbus,900000,4
+Philipp Grubauer,Columbus,3000000,3
+Ryan Suter,Dallas,4000000,2
+Ben Bishop,Dallas,4500000,3
+Ryan Reaves,Dallas,1500000,3
+Claude Giroux,Edmonton,4200000,2
+John Carlson,Edmonton,4750000,3
+Brian Dumoulin,Edmonton,2400000,4
+Devan Dubnyk,Florida,4500000,2
+Radek Faksa,Florida,2250000,3
+Sami Vatanen,Islanders,5250000,3
+Jaroslav Halak,Islanders,4500000,3
+Connor Carrick,Islanders,1000000,4
+Martin Jones,Minnesota,4000000,2
+Evgeny Kuznetsov,Minnesota,4000000,3
+Antti Raanta,Minnesota,3250000,3
+Kevin Hayes,Minnesota,3000000,3
+Brandon Saad,Minnesota,2500000,2
+Tanner Pearson,Montreal,3000000,4
+Jordan Staal,Montreal,3000000,2
+Ryan Johansen,Nashville,5000000,3
+Justin Faulk,Nashville,5000000,2
+Gabriel Landeskog,Nashville,4000000,3
+Alexander Ovechkin,Nashville,6500000,2
+David Krejci,New Jersey,4000000,2
+Jonathan Toews,Ottawa,5000000,1
+Ryan Murray,Ottawa,3000000,4
+Mikko Koskinen,Ottawa,2000000,2
+Calvin De Haan,Philly,4000000,1
+Anders Lee,Pittsburgh,3250000,3
+Mats Zuccarello,Pittsburgh,3250000,3
+Tyler Myers,Pittsburgh,3250000,3
+Dmitry Kulikov,Pittsburgh,1250000,1
+Travis Zajac,Pittsburgh,2500000,1
+Roman Josi,Rangers,4250000,2
+Tyson Barrie,Rangers,3250000,2
+Jonathan Drouin,Rangers,2250000,3
+Viktor Arvidsson,Rangers,2750000,3
+Rasmus Ristolainen,Rangers,2000000,1
+David Rittich,Rangers,1750000,3
+Henrik Lundqvist,Rangers,2000000,1
+Reilly Smith,St. Louis,4500000,4
+Matt Duchene,Tampa Bay,3400000,2
+Nick Leddy,Tampa Bay,5750000,3
+Jake Allen,Tampa Bay,5000000,1
+Jason Demers,Tampa Bay,3000000,3
+Corey Perry,Toronto,5000000,2
+Slater Koekkoek,Toronto,800000,3
+Marco Scandella,Toronto,3000000,1
+Ryan Getzlaf,Washington,4500000,3
+Keith Yandle,Washington,4500000,2
+Zdeno Chara,Washington,4000000,1
+Joonas Donskoi,Washington,1200000,2
+Boone Jenner,Winnipeg,3500000,3
+Alex Wennberg,Winnipeg,3000000,3

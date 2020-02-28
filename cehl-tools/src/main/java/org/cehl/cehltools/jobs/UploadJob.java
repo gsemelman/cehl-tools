@@ -29,7 +29,7 @@ public class UploadJob extends AbstractJob{
 	private String username = "";
 	private String password = "";
 	
-	private String baseRemoteLocation = "/var/www/canadianelitehockeyleague.ca/public_html/";
+	private String baseRemoteLocation = "/var/www/test.canadianelitehockeyleague.ca/public_html/";
 	private String transferDir = "transfer/";
 	private String filesDir = "gmo/files/";
 	private String backFilesDir = "gmo/files/backup/";
@@ -41,6 +41,8 @@ public class UploadJob extends AbstractJob{
 
 	@Override
 	public void _run() {
+		
+		//test();
 		
 		JschFtpClientImpl ftpClient = new JschFtpClientImpl();
 
@@ -56,6 +58,35 @@ public class UploadJob extends AbstractJob{
 	
 		
 	}
+	
+//	private void test() {
+//		Parameters params = new Parameters();
+//		FileBasedConfigurationBuilder<FileBasedConfiguration> builder =
+//		    new FileBasedConfigurationBuilder<FileBasedConfiguration>(PropertiesConfiguration.class)
+//		    .configure(params.properties()
+//		        .setFileName("upload.properties"));
+//		try
+//		{
+//		    Configuration config = builder.getConfiguration();
+//		    
+//		    config.getProperty("upload.host");
+//		    //...
+//		}
+//		catch(ConfigurationException cex)
+//		{
+//		    // loading of the configuration file failed
+//		}
+//		
+//		
+//		 BasicConfigurationBuilder<DatabaseConfiguration> builder2 =
+//				      new BasicConfigurationBuilder<DatabaseConfiguration>(DatabaseConfiguration.class);
+//				  builder.configure(
+//				      Parameters.database()
+//				          .setDataSource(dataSource)
+//				         .setTable("myconfig")
+//				         .setKeyColumn("key")
+//				         .setValueColumn("value");
+//	}
 	
 	private void _doWork(FtpClient ftpClient) throws IOException{
 
