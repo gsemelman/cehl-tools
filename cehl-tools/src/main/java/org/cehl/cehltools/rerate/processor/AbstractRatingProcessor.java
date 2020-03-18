@@ -34,29 +34,36 @@ public abstract class AbstractRatingProcessor implements RatingProcessor2{
 
 		Map<Double, Integer> map = new HashMap<>();
 		
+		//add last season weight on games played
 		RerateUtils.addToAverageMap(map,lastRating,totalLast.getGp());
+		
+		//add last 3 seasons weight on games played
 		RerateUtils.addToAverageMap(map,last3Rating,totalLast3.getGp());
-		
-//		RerateUtils.addToAverageMap(map,last3Rating,totalLast3.getGp());
-//		
-//		if(last3Rating > lastRating) {
-//			RerateUtils.addToAverageMap(map,last3Rating,totalLast3.getGp());
-//		}
-		
+
+		//for older players where the last 6 seasons rating is better than the last 3
+		//use the totals of the last 6 and divid by seasons played.
 		if(last6Rating > last3Rating) {
-			RerateUtils.addToAverageMap(map,last6Rating,totalsLast6.getGp() / 2);
+			RerateUtils.addToAverageMap(map,last6Rating,totalsLast6.getGp() / totalsLast6.getYear());
 		}
 		
+		//calculate rating
 		double rating = RerateUtils.calculateWeightedAverage(map);
-		
-		boolean totalLast3Seasons = accumulator.getTotalSeasons() > 3;
-		
-		//rating = adjustRating(rating, accumulator.getTotalStats().getGp());
-		if(last3IfPlayed.getGp() <= 82 && accumulator.getTotalSeasons() > 3) {
+
+		if(accumulator.getLastYearPlayed() <= 2016 && accumulator.getTotalSeasons() > 3) {
+			rating = adjustRating(rating, last3IfPlayed.getGp());
+		}else if(accumulator.getLastYearPlayed() <= 2017 && accumulator.getTotalSeasons() > 3) {
 			rating = adjustRating(rating, last3IfPlayed.getGp());
 		}else {
+			//handle players with less than 3 seasons
 			rating = adjustRating(rating, accumulator.getTotalStats().getGp());
 		}
+		
+//		//rating = adjustRating(rating, accumulator.getTotalStats().getGp());
+//		if(last3IfPlayed.getGp() <= 82 && accumulator.getTotalSeasons() > 3) {
+//			rating = adjustRating(rating, last3IfPlayed.getGp());
+//		}else {
+//			rating = adjustRating(rating, accumulator.getTotalStats().getGp());
+//		}
 	
 		
 		
@@ -89,105 +96,6 @@ public abstract class AbstractRatingProcessor implements RatingProcessor2{
 		}
 
 		return rating;
-	}
-	
-
-
-	public double getRating2(Player player, PlayerStatAccumulator accumulator) {
-		PlayerStatHolder last = null;
-		PlayerStatHolder last2 = null;
-		PlayerStatHolder last3 = null;
-		PlayerStatHolder totals = accumulator.getTotalStats();
-		PlayerStatHolder totalLast3 = accumulator.getPreviousSeasonsTotals(3);
-		
-		PlayerStatHolder totals2 = accumulator.getPreviousSeasonTotals(5, accumulator.getLastYearPlayed() - 3);
-		
-		int count = 1;
-		for(PlayerStatHolder stat: accumulator.getPreviousSeasonsStats(3)) {
-			
-			if(count == 1) {
-				last = stat;
-			}else if(count == 2){
-				last2 = stat;
-			}else if(count == 3){
-				last3 = stat;
-				break;
-			}else {
-				break;
-			}
-			
-			count ++;
-		}
-		
-		int lastRating = last != null ? getSeasonRating(player,last) : 0;
-		int last2Rating= last2 != null ? getSeasonRating(player,last2) : 0;
-		int last3Rating= last3 != null ? getSeasonRating(player,last3) : 0;
-		
-		lastRating = Math.max(60, lastRating);
-		last2Rating = Math.max(60, last2Rating);
-		last3Rating = Math.max(60, last3Rating);
-		int totalRating = getSeasonRating(player,totals);
-		int last3TotalRating = getSeasonRating(player,totalLast3);
-		
-		if(useTotal) return last3TotalRating;
-
-		Map<Double, Integer> map = new HashMap<>();
-		RerateUtils.addToAverageMap(map, lastRating, last != null ? last.getGp(): 82);
-		RerateUtils.addToAverageMap(map, last2Rating, last2 != null ? last2.getGp(): 82);
-		 
-		 if(accumulator.getTotalSeasons() >= 3) {
-			RerateUtils.addToAverageMap(map, last3Rating, last3 != null ? last3.getGp(): 82);
-		 }else if(accumulator.getTotalSeasons() == 2 && totalLast3.getGp() > 82) {
-			 RerateUtils.addToAverageMap(map, last3Rating, last3 != null ? last3.getGp(): 20);
-		 }else if(accumulator.getTotalSeasons() == 2 ) {
-			 RerateUtils.addToAverageMap(map, last3Rating, last3 != null ? last3.getGp(): 40);
-		 }
-		 
-		 if(totalLast3.getGp() > 82) {
-			 //map.put((double) last3TotalRating, totalLast3.getGp()/3);
-			 RerateUtils.addToAverageMap(map, last3TotalRating, totalLast3.getGp()/3);
-		 }
-
-	     Double weightedAverage = RerateUtils.calculateWeightedAverage(map);
-	     Double weightedAverage2 = null;
-	     
-		 //if(accumulator.getTotalSeasons() >= 4 && totalGroup.getGp() > 120) {
-	     if(totals2.getGp() > 162) {
-	 		int totalRating2 = getSeasonRating(player,totals2);
-			// map.put((double) totalRating, 20);
-			// map.put((double) totalRating, 35);
-			 //map.put((double) totalRating2, 20);
-			 RerateUtils.addToAverageMap(map, totalRating2, 20);
-			// weightedAverage2 = RerateUtils.calculateWeightedAverage(map);
-		 }
-	     
-		 double finalRating = 0;
-		
-		if (totalLast3.getGp() < 20) {
-			finalRating =  Math.min(last3TotalRating, 68);
-		} else if (totalLast3.getGp() < 40) {
-			finalRating = Math.min(last3TotalRating, 70);
-		} else if (totalLast3.getGp() < 55) {
-			finalRating = Math.min(last3TotalRating, 74);
-		} else if (totalLast3.getGp() < 65) {
-			finalRating = Math.min(last3TotalRating, 76);
-		} else if (weightedAverage2 != null) {
-			//return RerateUtils.normalizeRating(Math.max(weightedAverage, weightedAverage2));
-			finalRating =  RerateUtils.normalizeRating(Math.max(weightedAverage, weightedAverage2));
-		} else {
-			finalRating = RerateUtils.normalizeRating(weightedAverage);
-		}
-		
-		return finalRating;
-
-	}
-
-	public boolean isUseTotal() {
-		return useTotal;
-	}
-
-	public void setUseTotal(boolean useTotal) {
-		this.useTotal = useTotal;
 	}
 	
 

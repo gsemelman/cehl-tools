@@ -139,7 +139,7 @@ public class PlayerStatAccumulator {
 		}
 		
 		totalStats = accumulateTotals(statsByYear.values());
-		totalStats.setYear(statsByYear.size()); //TODO move this somewhere else
+		//totalStats.setYear(statsByYear.size()); //TODO move this somewhere else
 	
 	}
 	
@@ -182,7 +182,8 @@ public class PlayerStatAccumulator {
 		totals.setPpPoints(seasons.stream().mapToInt(PlayerStatHolder::getPpPoints).sum());
 		
 		totals.setPkToi(seasons.stream().mapToInt(PlayerStatHolder::getPkToi).sum());
-
+		
+		totals.setYear(seasons.size()); //TODO fix this
 		
 
 		
@@ -294,12 +295,15 @@ public class PlayerStatAccumulator {
 		.max(Integer::compare).orElse(0);
 	}
 	
-	public boolean isPlayedLastSeason() {
-		return statsByYear.containsKey(endYear);
+
+	public Integer getStartYear() {
+		return startYear;
+	}
+
+	public Integer getEndYear() {
+		return endYear;
 	}
 	
-	public boolean isPlayedSeason(int yearsBack) {
-		return statsByYear.containsKey(endYear - yearsBack);
-	}
+	
 	
 }

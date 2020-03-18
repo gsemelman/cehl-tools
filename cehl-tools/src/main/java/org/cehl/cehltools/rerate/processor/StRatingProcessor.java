@@ -69,7 +69,6 @@ public class StRatingProcessor extends AbstractRatingProcessor{
 	
 	public StRatingProcessor() {
 		super();
-		this.setUseTotal(true);
 	}
 	
 	@Override

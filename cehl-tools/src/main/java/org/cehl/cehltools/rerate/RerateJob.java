@@ -134,7 +134,7 @@ public class RerateJob {
 
 		for(RosterRaw rosterRaw : rosterList){
 			
-			if(!"Connor McDavid".equalsIgnoreCase(rosterRaw.getName())){
+			if(!"Henrik Zetterberg".equalsIgnoreCase(rosterRaw.getName())){
 				//== continue;
 			}
 			

@@ -73,7 +73,7 @@ public class JpaCustomerRepositoryIntegrationTest {
 		
 		ScRatingProcessor scProcessor = new ScRatingProcessor();
 		
-		System.out.println(scProcessor.getRating2(player, psa));
+		//System.out.println(scProcessor.getRating2(player, psa));
 	}
 	//1379
 	@Test
