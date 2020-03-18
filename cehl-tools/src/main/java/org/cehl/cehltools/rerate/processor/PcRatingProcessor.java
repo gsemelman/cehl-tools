@@ -13,9 +13,11 @@ public class PcRatingProcessor extends AbstractRatingProcessor{
 	
 	static RangeTable initForwardRanges() {
 		RangeTable forwardRangeTable = new RangeTable();
-		forwardRangeTable.insertValue(0, 60);
-		forwardRangeTable.insertValue(0.285714286, 75);
-		forwardRangeTable.insertValue(0.8760, 97); //played all games
+		forwardRangeTable.insertValue(0.05, 60);
+		forwardRangeTable.insertValue(0.1219, 70);
+		forwardRangeTable.insertValue(0.2857, 75);
+		//forwardRangeTable.insertValue(0.8760, 97); 
+		forwardRangeTable.insertValue(0.8760, 89);
 		
 		return forwardRangeTable;
 
@@ -24,9 +26,11 @@ public class PcRatingProcessor extends AbstractRatingProcessor{
 	static RangeTable initDefenseRanges() {
 
 		RangeTable defenseRangeTable = new RangeTable();
-		defenseRangeTable.insertValue(0, 60);
-		defenseRangeTable.insertValue(0.285714286, 75);
-		defenseRangeTable.insertValue(0.8760, 97); //played all games
+		defenseRangeTable.insertValue(0.05, 60);
+		defenseRangeTable.insertValue(0.1, 69);
+		defenseRangeTable.insertValue(0.25, 76);
+		defenseRangeTable.insertValue(0.55, 80.5);	
+		defenseRangeTable.insertValue(0.8760, 88.5); 
 		
 		return defenseRangeTable;
 	}
@@ -36,6 +40,7 @@ public class PcRatingProcessor extends AbstractRatingProcessor{
 	
 		double gp = (double)statHolder.getGp();
 		double apg = (double)statHolder.getAssists() / gp;
+		double gpg = (double)statHolder.getGoals() / gp;
 		double cfPct = statHolder.getCfPct();
 		double ppToi =  statHolder.getPpToi();
 		double ppPoints =  statHolder.getPpPoints();
@@ -43,30 +48,41 @@ public class PcRatingProcessor extends AbstractRatingProcessor{
 		double pa = 0;
 		
 		if(player.getPosition().contains("D")) {
-			pa = Double.valueOf(defenseRangeTable.findInterpolatedValue(apg)) * 1.045;
+			pa = Double.valueOf(defenseRangeTable.findInterpolatedValue(apg)); //* 1.045;
 		}else {
 			pa = Double.valueOf(forwardRangeTable.findInterpolatedValue(apg));
 		}
 		
-		pa = pa - 10;
+		
+		
+		if(pa > 81) {
+			pa-=4;
+		}else if(pa > 77) {
+			pa-=3;
+		}else if(pa > 70) {
+			pa-=2;
+		}else {
+			pa-=1;
+		}
+
 		
 		double cfBonus = 0;		
-		if(cfPct >= 57) {
-			cfBonus = 10;
-		}else if(cfPct >= 57) {
-			cfBonus = 8;
-		}else if(cfPct >= 55) {
+		if(cfPct >= 58) {
 			cfBonus = 6;
+		}else if(cfPct >= 57) {
+			cfBonus = 5;
+		}else if(cfPct >= 55) {
+			cfBonus = 4;
 		}else if(cfPct >= 53) {
-			cfBonus = 4.5;
+			cfBonus = 2;
 		}else if(cfPct >= 51) {
-			cfBonus = 3;
+			cfBonus = 1.5;
 		}else if(cfPct >= 50) {
-			cfBonus = 0;
+			cfBonus = 1;
 		}else if(cfPct >= 49) {
-			cfBonus = -3;
+			cfBonus = -2;
 		}else if(cfPct >= 47) {
-			cfBonus = -4;
+			cfBonus = -3;
 		}
 		
 		double pppm = 0;
@@ -81,10 +97,28 @@ public class PcRatingProcessor extends AbstractRatingProcessor{
 		
 		double ppBonus = 0;	
 		if(statHolder.getPpToi() > 40) {
-			ppBonus = Math.max(pppm, 7);
+			ppBonus = Math.min(pppm, 5);
 		}
 		
-		double pc = pa + cfBonus + ppBonus;
+		double goalBonus = 0;
+
+		if(!player.getPosition().contains("D")) {
+			if(gpg >= 0.45) {
+				goalBonus = 3;
+			}else if(gpg >= 0.45) {
+				goalBonus = 2;
+			}else if(gpg >= 0.4) {
+				goalBonus = 1.5;
+			}else if(gpg >= 0.3048) {
+				goalBonus = 1;
+			}
+		}
+		
+		//double totalBonus = Math.min(cfBonus + goalBonus + ppBonus, 9);
+		double totalBonus = Math.min(cfBonus + goalBonus + ppBonus, 11);
+		 
+		double pc = pa + totalBonus;
+		
 
 		return RerateUtils.normalizeRating(pc);
 	}

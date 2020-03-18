@@ -15,8 +15,8 @@ public class EnRatingProcessor extends AbstractRatingProcessor{
 	static RangeTable initForwardRanges() {
 		RangeTable forwardRangeTable = new RangeTable();
 		forwardRangeTable.insertValue(0, 60);
-		forwardRangeTable.insertValue(14, 74);
-		forwardRangeTable.insertValue(26, 92); //played all games
+		forwardRangeTable.insertValue(14, 75);
+		forwardRangeTable.insertValue(25, 90); //played all games
 		
 		return forwardRangeTable;
 
@@ -26,8 +26,9 @@ public class EnRatingProcessor extends AbstractRatingProcessor{
 
 		RangeTable defenseRangeTable = new RangeTable();
 		defenseRangeTable.insertValue(0, 60);
-		defenseRangeTable.insertValue(16, 70);
-		defenseRangeTable.insertValue(30, 92); //played all games
+		defenseRangeTable.insertValue(14, 72);
+		defenseRangeTable.insertValue(18, 78);
+		defenseRangeTable.insertValue(31, 90); //played all games
 		
 		return defenseRangeTable;
 	}
@@ -41,17 +42,17 @@ public class EnRatingProcessor extends AbstractRatingProcessor{
 		
 		double toiPerGame = toi / gp;
 		
-		double du = 0;
+		double en = 0;
 		
 		if(player.getPosition().contains("D")) {
-			du = Double.valueOf(defenseRangeTable.findInterpolatedValue(toiPerGame));
+			en = Double.valueOf(defenseRangeTable.findInterpolatedValue(toiPerGame));
 		}else {
-			du = Double.valueOf(forwardRangeTable.findInterpolatedValue(toiPerGame));
+			en = Double.valueOf(forwardRangeTable.findInterpolatedValue(toiPerGame));
 		}
 		
-		du = Math.max(du, 60);
+		en = Math.max(en, 60);
 
-		return RerateUtils.normalizeRating(du);
+		return RerateUtils.normalizeRating(en);
 	}
 
 }

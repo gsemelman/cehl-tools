@@ -7,13 +7,16 @@ import org.cehl.commons.spring.StaticPropertyAccessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
 @Configuration
-@EnableAutoConfiguration
+@EnableAutoConfiguration(exclude={JpaRepositoriesAutoConfiguration.class,
+		  DataSourceAutoConfiguration.class})
 @ComponentScan(basePackages = { "org.cehl.cehltools.jobs" })
 public class CehlToolsConfig {
 	

@@ -10,16 +10,66 @@ import org.cehl.cehltools.rerate.rating.interp.RangeTable;
 
 public class StRatingProcessor extends AbstractRatingProcessor{
 
-	static RangeTable rangeTable = initRange();
+	static RangeTable bmiRangeTable = initBmiRange();
+	static RangeTable heightRangeTable = initHeightRange();
+	static RangeTable pimRangeTable = pimRange();
+	static RangeTable pimFighterRange = pimRange();
 
-	static RangeTable initRange() {
+	static RangeTable initBmiRange() {
 		RangeTable rangeTable = new RangeTable();
-		rangeTable.insertValue(0, 60);
-		rangeTable.insertValue(28, 70);
-		rangeTable.insertValue(31, 90); 
+		rangeTable.insertValue(21, 60);
+		rangeTable.insertValue(25, 71);
+		rangeTable.insertValue(26, 72);
+		rangeTable.insertValue(27, 75);
+		rangeTable.insertValue(28, 80);
+		rangeTable.insertValue(29.5, 85);
+		rangeTable.insertValue(30, 99);
+		//rangeTable.insertValue(30, 73);
+		//rangeTable.insertValue(32, 80); 
+
 		
 		return rangeTable;
 
+	}
+	
+	static RangeTable initHeightRange() {
+		RangeTable rangeTable = new RangeTable();
+		rangeTable.insertValue(64, 60);
+		rangeTable.insertValue(66, 66);
+		rangeTable.insertValue(71, 70);
+		rangeTable.insertValue(76, 78);
+		rangeTable.insertValue(77, 79);
+		rangeTable.insertValue(78, 79);
+		rangeTable.insertValue(79, 80);
+		rangeTable.insertValue(80, 85);
+		rangeTable.insertValue(81, 99);
+
+		
+		return rangeTable;
+
+	}
+	
+	static RangeTable pimRange() {
+		RangeTable rangeTable = new RangeTable();
+		rangeTable.insertValue(0.1, 60);
+		rangeTable.insertValue(4, 99);
+	
+		return rangeTable;
+
+	}
+	
+	static RangeTable pimFighterRange() {
+		RangeTable rangeTable = new RangeTable();
+		rangeTable.insertValue(0.1, 60);
+		rangeTable.insertValue(4, 99);
+	
+		return rangeTable;
+
+	}
+	
+	public StRatingProcessor() {
+		super();
+		this.setUseTotal(true);
 	}
 	
 	@Override
@@ -27,51 +77,38 @@ public class StRatingProcessor extends AbstractRatingProcessor{
 		double bmi = ((player.getWeight() * 703) / (player.getHeight() * player.getHeight()));
 		
 		double pim = statHolder.getPim();
+		double pimPerGame = pim / ((double)statHolder.getGp());
 		double height = player.getHeight();
+		double heightByWeight = Math.round(((double)player.getHeight()/(double)player.getWeight()) * 100);
 		
-		double pimBonus = 0;		
-		if(pim >= 100) {
-			pimBonus = 5;
-		}else if(pim >= 80) {
-			pimBonus = 4;
-		}else if(pim >= 60) {
-			pimBonus = 3;
-		}else if(pim >= 40) {
-			pimBonus = 2;
-		}else if(pim >= 20) {
-			pimBonus = 1;
-		}
+		double heightValue = Double.valueOf(heightRangeTable.findInterpolatedValue(height));
+		double bmiValue = Double.valueOf(bmiRangeTable.findInterpolatedValue(bmi));
+		double pimValue = Double.valueOf(pimRangeTable.findInterpolatedValue(pimPerGame));
 		
-		double heightBonus = 0;
-		
-		if(height < 70) {
-			heightBonus = -5;
-		}else if(height < 72) {
-			heightBonus = -3;
-		}else if(height <= 73) {
-			heightBonus = 2;
-		}else if(height <= 75) {
-			heightBonus = 3.5;
-		}else if(height <= 78) {
-			heightBonus = 4.5;
-		}else if(height <= 79) {
-			heightBonus = 6;
-		}else if(height >= 80) {
-			heightBonus = 10;
-		}
-		
-
-		//double st = Double.valueOf(rangeTable.findInterpolatedValue(bmi + (player.getWeight() / 10)));
-		double st = Double.valueOf(rangeTable.findInterpolatedValue(bmi));
+		Map<Double, Integer> map = new HashMap<>();
+		map.put(heightValue, 100);
+		map.put(bmiValue, 100);
+		//map.put(pimValue, 60);
 		
 		if(player.getPosition().contains("D")) {
-			st++;
+			//map.put(heightValue + 10, 50);
 		}
 		
-		st = st + pimBonus;
-		st = st + heightBonus;
+		Double st = RerateUtils.calculateWeightedAverage(map);
+
+		//double st = Double.valueOf(rangeTable.findInterpolatedValue(bmi + (player.getWeight() / 10)));
 		
-		st = Math.min(st, 95);
+		
+//		if(player.getPosition().contains("D")) {
+//			st= st+6;
+//		}else {
+//			st = st+ 4;
+//		}
+		
+		//st = st + pimBonus;
+		//st = st + heightBonus;
+		
+		//st = Math.min(st, 95);
 
 		return RerateUtils.normalizeRating(st);
 	}

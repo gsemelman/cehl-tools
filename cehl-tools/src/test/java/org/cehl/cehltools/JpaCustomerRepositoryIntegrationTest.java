@@ -29,7 +29,7 @@ import org.cehl.cehltools.rerate.processor.ItRatingProcessor;
 import org.cehl.cehltools.rerate.processor.PaRatingProcessor;
 import org.cehl.cehltools.rerate.processor.PcRatingProcessor;
 import org.cehl.cehltools.rerate.processor.ScRatingProcessor;
-import org.cehl.cehltools.rerate.processor.ScRatingProcessor2;
+import org.cehl.cehltools.rerate.processor.ScRatingProcessor;
 import org.cehl.cehltools.rerate.processor.StRatingProcessor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -81,7 +81,10 @@ public class JpaCustomerRepositoryIntegrationTest {
 		
 		JdbcTemplate template = new JdbcTemplate(ds);
 		
-		Map<String,Integer> spMap = template.query("select name, sp from player_ratings.cehl_master", new ResultSetExtractor<Map<String,Integer>>(){
+		Map<String,Integer> spMap = template.query(
+				"select case WHEN e.simName IS NULL THEN m.name ELSE e.linkName END as name, sp from player_ratings.cehl_master m "
+				+ " LEFT OUTER JOIN player_ratings.player_exception e ON m.name = e.simName", 
+				new ResultSetExtractor<Map<String,Integer>>(){
 		    @Override
 		    public Map<String,Integer> extractData(ResultSet rs) throws SQLException,DataAccessException {
 		        HashMap<String,Integer> mapRet= new HashMap<>();
@@ -92,12 +95,27 @@ public class JpaCustomerRepositoryIntegrationTest {
 		    }
 		});
 		
-		Map<String,Integer> skMap = template.query("select name, sk from player_ratings.cehl_master", new ResultSetExtractor<Map<String,Integer>>(){
+		Map<String,Integer> skMap = template.query("select case WHEN e.simName IS NULL THEN m.name ELSE e.linkName END as name, sk from player_ratings.cehl_master m "
+				+ " LEFT OUTER JOIN player_ratings.player_exception e ON m.name = e.simName", 
+				new ResultSetExtractor<Map<String,Integer>>(){
 		    @Override
 		    public Map<String,Integer> extractData(ResultSet rs) throws SQLException,DataAccessException {
 		        HashMap<String,Integer> mapRet= new HashMap<>();
 		        while(rs.next()){
 		            mapRet.put(rs.getString("name"),rs.getInt("sk"));
+		        }
+		        return mapRet;
+		    }
+		});
+		
+		Map<String,Integer> dfMap = template.query("select case WHEN e.simName IS NULL THEN m.name ELSE e.linkName END as name, df from player_ratings.cehl_master m "
+				+ " LEFT OUTER JOIN player_ratings.player_exception e ON m.name = e.simName", 
+				new ResultSetExtractor<Map<String,Integer>>(){
+		    @Override
+		    public Map<String,Integer> extractData(ResultSet rs) throws SQLException,DataAccessException {
+		        HashMap<String,Integer> mapRet= new HashMap<>();
+		        while(rs.next()){
+		            mapRet.put(rs.getString("name"),rs.getInt("df"));
 		        }
 		        return mapRet;
 		    }
@@ -113,13 +131,13 @@ public class JpaCustomerRepositoryIntegrationTest {
 		DiRatingProcessor diProcessor = new DiRatingProcessor();
 		PaRatingProcessor paProcessor = new PaRatingProcessor();
 		PcRatingProcessor pcProcessor= new PcRatingProcessor();
-		ScRatingProcessor2 scProcessor = new ScRatingProcessor2();
+		ScRatingProcessor scProcessor = new ScRatingProcessor();
 		DfRatingProcessor dfProcessor= new DfRatingProcessor();
 		ExRatingProcessor exProcessor = new ExRatingProcessor();
 
 		
 		List<String[]> rows = new ArrayList<>();
-		rows.add(new String[] {"Name","POS","Seasons","Last Year","GP","G","GPG","A","IT","SP","ST","EN","DU","DI","SK","PA","PC","SC","DF","ED","LD","OV"});
+		rows.add(new String[] {"Name","POS","Seasons","Last Year","GP_TOTAL","GP_LAST3","G","GPG","A","IT","SP","ST","EN","DU","DI","SK","PA","PC","SC","DF","ED","LD","OV"});
 		
 		
 		playeritr.forEach(p-> {
@@ -128,7 +146,7 @@ public class JpaCustomerRepositoryIntegrationTest {
 //				return;
 //			}
 			//if(!"Mikhail Sergachev".equalsIgnoreCase(p.getName())){
-			if(!"Zdeno Chara".equalsIgnoreCase(p.getName())){
+			if(!"Tom Wilson".equalsIgnoreCase(p.getName())){
 			// return;
 			}
 			
@@ -159,10 +177,11 @@ public class JpaCustomerRepositoryIntegrationTest {
 			if(skMap.containsKey(p.getName())) {
 				sk = skMap.get(p.getName());
 			}
+	
 
 			double it = itProcessor.getRating(p, psa);
-			double st = stProcessor.getSeasonRating(p, totals);
-			//double st = stProcessor.getRating(p, psa);
+			//double st = stProcessor.getSeasonRating(p, totals);
+			double st = stProcessor.getRating(p, psa);
 			double en = enProcessor.getRating(p, psa);
 			double du = duProcessor.getSeasonRating(p, totals2);
 			double di = diProcessor.getRating(p,psa);
@@ -173,10 +192,10 @@ public class JpaCustomerRepositoryIntegrationTest {
 			double ex = exProcessor.getSeasonRating(p, totals2);
 			double ld = exProcessor.getSeasonRating(p, totals2);
 			
-			if(p.getPosition().contains("D")){
-				df = 77;
-			}else {
-				df = 70;
+			df = 70;
+			
+			if(dfMap.containsKey(p.getName())) {
+				df = dfMap.get(p.getName());
 			}
 			
 			if(gp < 1) {
@@ -189,7 +208,8 @@ public class JpaCustomerRepositoryIntegrationTest {
 					String.valueOf(p.getPosition().charAt(0)), 
 					String.valueOf(seasons), 
 					String.valueOf(lastYearPlayed),
-					String.valueOf(gp), 
+					String.valueOf(totals2.getGp()), 
+					String.valueOf(gp),
 					String.valueOf(goals), 
 					String.valueOf(goals / gp),
 					String.valueOf(assists), 

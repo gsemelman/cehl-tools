@@ -17,11 +17,10 @@ public class PlayerStatAccumulator {
 	
 
 	private final Player player;
-	private final Integer startYear;
-	private final Integer endYear;
+	private Integer startYear;
+	private Integer endYear;
 	
 	private Integer lastYearPlayed;
-	private int totalSeasons;
 	private List<Integer> yearsPlayed;
 	
 	private PlayerStatHolder totalStats;
@@ -41,6 +40,22 @@ public class PlayerStatAccumulator {
 		this.endYear = endYear;
 		
 		this.statsByYear= new HashMap<>();
+		
+		if(this.startYear == null) {
+			this.startYear = player.getSeasons().stream()
+			.map(PlayerSeason::getYear)
+			.min(Integer::compare).get();
+		}
+		
+		if(this.endYear == null) {
+			this.endYear = player.getSeasons().stream()
+			.map(PlayerSeason::getYear)
+			.max(Integer::compare).get();
+		}
+		
+//		if(endYear > startYear) {
+//			throw new RuntimeException("start year cannot be after end year");
+//		}
 		
 		accumulate();
 	}
@@ -123,10 +138,8 @@ public class PlayerStatAccumulator {
 			}
 		}
 		
-		totalSeasons = statsByYear.size();
-
 		totalStats = accumulateTotals(statsByYear.values());
-		totalStats.setYear(totalSeasons);
+		totalStats.setYear(statsByYear.size()); //TODO move this somewhere else
 	
 	}
 	
@@ -182,26 +195,39 @@ public class PlayerStatAccumulator {
 		
 		return accumulateTotals(prevSeasons);
 	}
-//	
-//	public PlayerStatHolder getPreviousSeasonTotalsFrom(int fromYear) {
-//
-//		List<PlayerStatHolder> prevSeasons = new ArrayList<>();
-//		
-//		List<Integer> years = new ArrayList<>(statsByYear.keySet());
-//		years.sort(Comparator.reverseOrder());
-//		
-//
-//		for(Integer year : years) {
-//			if(year <= fromYear) {
-//				if(statsByYear.containsKey(year)) {
-//					prevSeasons.add(statsByYear.get(year));
-//				}
-//			}
-//		}
-//		
-//		return accumulateTotals(prevSeasons);
-//	}
-//	
+	
+	public PlayerStatHolder getPreviousSeasonTotalsFromYear(int seasons, int endYear) {
+		List<PlayerStatHolder> prevSeasons = new ArrayList<>();
+
+		int lastSeason = endYear - seasons;
+		
+		for(int x = endYear; x> lastSeason; x--) {
+			PlayerStatHolder holder = statsByYear.get(x);
+			if(holder != null ) prevSeasons.add(holder);
+		
+		}
+
+		return prevSeasons.isEmpty() ? new PlayerStatHolder() :  accumulateTotals(prevSeasons);
+	}
+	
+	public PlayerStatHolder getPreviousSeasonTotals(int maxSeasons, int endYear) {
+
+		List<PlayerStatHolder> prevSeasons = new ArrayList<>();
+
+		int count = 0;
+		for(PlayerStatHolder holder : getAllSeasons()) {
+			if(holder.getYear() <= endYear) {
+				count++;
+				prevSeasons.add(holder);
+			}
+			
+			if(count >= maxSeasons) break;
+		
+		}
+		
+		return prevSeasons.isEmpty() ? new PlayerStatHolder() :  accumulateTotals(prevSeasons);
+	}
+	
 
 	
 	public List<PlayerStatHolder> getPreviousSeasonsStats(int seasons) {
@@ -258,13 +284,22 @@ public class PlayerStatAccumulator {
 
 
 	public int getTotalSeasons() {
-		return totalSeasons;
+		return statsByYear.size();
 	}
 
 	public Integer getLastYearPlayed() {
-		return lastYearPlayed;
+		//return lastYearPlayed;
+		return player.getSeasons().stream()
+		.map(PlayerSeason::getYear)
+		.max(Integer::compare).orElse(0);
 	}
 	
+	public boolean isPlayedLastSeason() {
+		return statsByYear.containsKey(endYear);
+	}
 	
+	public boolean isPlayedSeason(int yearsBack) {
+		return statsByYear.containsKey(endYear - yearsBack);
+	}
 	
 }

@@ -6,11 +6,11 @@ import org.cehl.cehltools.jobs.CashUpdaterJob;
 import org.cehl.cehltools.jobs.CoachUpdaterJob;
 import org.cehl.cehltools.jobs.ContractImportJob;
 import org.cehl.cehltools.jobs.HoldoutJob;
-import org.cehl.cehltools.jobs.Job;
 import org.cehl.cehltools.jobs.ProspecImportJob;
 import org.cehl.cehltools.jobs.ProspectFileUpdaterJob;
 import org.cehl.cehltools.jobs.RerateImportJob;
 import org.cehl.cehltools.jobs.RookieFixJob;
+import org.cehl.cehltools.jobs.RosterExportJob;
 import org.cehl.cehltools.jobs.UnassignedCleanupJob;
 import org.cehl.cehltools.jobs.UploadJob;
 import org.cehl.commons.spring.StaticContextAccessor;
@@ -73,6 +73,12 @@ public class JobRunner {
     
     public static void uploadfiles(){
     	UploadJob job = StaticContextAccessor.getBean(UploadJob.class);
+    	job.runJob();
+    }
+    
+    
+    public static void rosterExport(){
+    	RosterExportJob job = StaticContextAccessor.getBean(RosterExportJob.class);
     	job.runJob();
     }
 }

@@ -30,8 +30,8 @@ public class ExRatingProcessor extends AbstractRatingProcessor{
 		double age = RerateUtils.calculateAge(player.getDob());
 		
 		double gpStat = (gp * 0.055);
-		double seasonStat = statHolder.getYear() * 1.2; //assumes seasons is set into years var
-		double ageStat = age / 2;
+		double seasonStat = statHolder.getYear() * 0.7; //assumes seasons is set into years var
+		double ageStat = age / 3;
 
 		double ex = gpStat + seasonStat + ageStat + 30;
 		

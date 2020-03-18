@@ -15,10 +15,10 @@ public class ItRatingProcessor extends AbstractRatingProcessor{
 	static RangeTable initRange() {
 		RangeTable rangeTable = new RangeTable();
 		rangeTable.insertValue(0, 60);
-		rangeTable.insertValue(2, 70);
-		rangeTable.insertValue(4, 73);
-		rangeTable.insertValue(7, 77);
-		rangeTable.insertValue(15, 90); 
+		rangeTable.insertValue(5, 70);
+		rangeTable.insertValue(7, 72);
+		rangeTable.insertValue(12, 75);
+		rangeTable.insertValue(22, 90); 
 		
 		return rangeTable;
 
@@ -40,14 +40,21 @@ public class ItRatingProcessor extends AbstractRatingProcessor{
 		double rushAttemptPerMin = rushAttempt / toiPer60;
 		
 		Map<Double, Integer> map = new HashMap<>();
-		map.put((double) hitsPerMin, 100);
-		//map.put((double) shotsBlockedPerMin, 30);
-		map.put((double) Math.max(rushAttemptPerMin, pim/10), 100);
+		
+		if(player.getPosition().contains("D")) {
+			hitsPerMin = hitsPerMin * 1.25;
+		}
+		
+		RerateUtils.addToAverageMap(map,hitsPerMin,100);
+		double sbWeight = player.getPosition().contains("D") ? 2 : 1;
+		RerateUtils.addToAverageMap(map,shotsBlockedPerMin * sbWeight,30);
+		RerateUtils.addToAverageMap(map,Math.max(rushAttemptPerMin, pim/10),100);
+
 		Double weightedAverage = RerateUtils.calculateWeightedAverage(map);
 		
 		double it = Double.valueOf(rangeTable.findInterpolatedValue(weightedAverage));
 
-		return RerateUtils.normalizeRating(it);
+		return RerateUtils.normalizeRating(it) ;
 	}
 
 }

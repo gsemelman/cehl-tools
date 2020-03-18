@@ -90,14 +90,26 @@ public class RerateUtils {
 		return num / denom;
 	}
 	
+	public static void addToAverageMap(Map<Double, Integer> map, double rating, int weight) {
+		
+		if(map.containsKey(rating)) {
+			int newWeight = map.get(rating) + weight;
+			map.put(rating, newWeight);
+			
+		}else {
+			map.put(rating, weight);
+		}
+		
+	}
+	
 	public static double calculateOv(String position, double it, double sp, double st, double en, double du, double di, double sk, double pa, double pc, double df, double sc, double ex, double ld) {
 		
 		if(position.contains("D")) {
-			return calculateDefenseOv(ld, sp, st, en, du, di, sk, pa, pc, df, sc, ex, ld);
+			return calculateDefenseOv(it, sp, st, en, du, di, sk, pa, pc, df, sc, ex, ld);
 		}else if(position.contains("G")) {
-			return calculateGoalieOv(ld, sp, st, en, du, di, sk, pa, pc, df, sc, ex, ld);
+			return calculateGoalieOv(it, sp, st, en, du, di, sk, pa, pc, df, sc, ex, ld);
 		}else {
-			return calculateForwardOv(ld, sp, st, en, du, di, sk, pa, pc, df, sc, ex, ld);
+			return calculateForwardOv(it, sp, st, en, du, di, sk, pa, pc, df, sc, ex, ld);
 		}
 	}
 	
@@ -120,7 +132,8 @@ public class RerateUtils {
 		return  Math.round(value);
 	}
 	
-	public static double calculateDefenseOv(double it, double sp, double st, double en, double du, double di, double sk, double pa, double pc, double df, double sc, double ex, double ld) {
+	public static double calculateDefenseOv(double it, double sp, double st, double en, double du, 
+			double di, double sk, double pa, double pc, double df, double sc, double ex, double ld) {
 
 		double value = 0;
 		
@@ -159,7 +172,7 @@ public class RerateUtils {
 		return Math.round(value);
 	}
 	
-	public static double calculateGoalieOv(double it, double sp, double st, double en, double du, double di, double sk, double pa, double pc, double df, double sc, double ex, double ld) {
+	public static double calculateGoalieOv(double it, double sp, double st, double en, double du, double di, double sk, double pa, double pc, double sc, double df, double ex, double ld) {
 		double value = ((it*0.0945)
 				+(sp*0.3215)
 				+(st*0.0755)

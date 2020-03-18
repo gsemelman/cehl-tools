@@ -36,6 +36,7 @@ public class App{
 	static final String CMD_LINE_ROOKIE_FIX = "rookieFix";
 	static final String CMD_LINE_HOLDOUT = "holdoutUpdate";
 	static final String CMD_LINE_UPLOAD = "upload";
+	static final String CMD_LINE_ROSTER_EXPORT = "rosterExport";
 	
 	private Options commandLineOptions;
 	private ApplicationContext ctx;
@@ -133,7 +134,10 @@ public class App{
 		optionGroup.addOption(option);
 		commandLineOptions.addOptionGroup(optionGroup);
 		
-		
+		optionGroup = new OptionGroup();
+		option = new Option(CMD_LINE_ROSTER_EXPORT, false,"Roster Export");
+		optionGroup.addOption(option);
+		commandLineOptions.addOptionGroup(optionGroup);
 		
 		
 		CommandLineParser parser = new DefaultParser();
@@ -251,6 +255,9 @@ public class App{
 			return;
 		}else if(cmdLine.hasOption(CMD_LINE_UPLOAD)) {
 			JobRunner.uploadfiles();
+			return;
+		}else if(cmdLine.hasOption(CMD_LINE_ROSTER_EXPORT)) {
+			JobRunner.rosterExport();
 			return;
 		}else{
 			usage();
