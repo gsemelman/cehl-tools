@@ -26,11 +26,17 @@ public class PcRatingProcessor extends AbstractRatingProcessor{
 	static RangeTable initDefenseRanges() {
 
 		RangeTable defenseRangeTable = new RangeTable();
+//		defenseRangeTable.insertValue(0.05, 60);
+//		defenseRangeTable.insertValue(0.1, 69);
+//		defenseRangeTable.insertValue(0.25, 76);
+//		defenseRangeTable.insertValue(0.55, 80.5);	
+//		defenseRangeTable.insertValue(0.8760, 88.5); 
+		
 		defenseRangeTable.insertValue(0.05, 60);
-		defenseRangeTable.insertValue(0.1, 69);
-		defenseRangeTable.insertValue(0.25, 76);
-		defenseRangeTable.insertValue(0.55, 80.5);	
-		defenseRangeTable.insertValue(0.8760, 88.5); 
+		defenseRangeTable.insertValue(0.1, 69.5);
+		defenseRangeTable.insertValue(0.25, 76.5);
+		defenseRangeTable.insertValue(0.55, 81.5);	
+		defenseRangeTable.insertValue(0.8760, 90); 
 		
 		return defenseRangeTable;
 	}
@@ -52,9 +58,8 @@ public class PcRatingProcessor extends AbstractRatingProcessor{
 		}else {
 			pa = Double.valueOf(forwardRangeTable.findInterpolatedValue(apg));
 		}
-		
-		
-		
+
+	
 		if(pa > 81) {
 			pa-=4;
 		}else if(pa > 77) {
@@ -66,6 +71,7 @@ public class PcRatingProcessor extends AbstractRatingProcessor{
 		}
 
 		
+		//calculate corsi cf% bonus
 		double cfBonus = 0;		
 		if(cfPct >= 58) {
 			cfBonus = 6;
@@ -85,6 +91,7 @@ public class PcRatingProcessor extends AbstractRatingProcessor{
 			cfBonus = -3;
 		}
 		
+		//calculate powerplay points bonus
 		double pppm = 0;
 		if(ppToi > 0 && ppPoints > 0) {
 			try {
@@ -102,6 +109,7 @@ public class PcRatingProcessor extends AbstractRatingProcessor{
 		
 		double goalBonus = 0;
 
+		//calculate goal bonus for forwards
 		if(!player.getPosition().contains("D")) {
 			if(gpg >= 0.45) {
 				goalBonus = 3;

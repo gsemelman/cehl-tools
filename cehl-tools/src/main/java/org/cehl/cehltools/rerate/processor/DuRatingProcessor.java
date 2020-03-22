@@ -1,5 +1,8 @@
 package org.cehl.cehltools.rerate.processor;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.cehl.cehltools.rerate.RerateUtils;
 import org.cehl.cehltools.rerate.agg.PlayerStatAccumulator;
 import org.cehl.cehltools.rerate.dto.PlayerStatHolder;
@@ -16,9 +19,9 @@ public class DuRatingProcessor implements RatingProcessor2{
 		rangeTable.insertValue(0.3, 63);
 		rangeTable.insertValue(0.4, 64);
 		rangeTable.insertValue(0.5, 65);
-		rangeTable.insertValue(0.7, 68);
-		rangeTable.insertValue(0.8, 70);
-		rangeTable.insertValue(0.9, 76);
+		rangeTable.insertValue(0.7, 66);
+		rangeTable.insertValue(0.8, 68);
+		rangeTable.insertValue(0.9, 70);
 		rangeTable.insertValue(1, 82); //played all games
 		
 		return rangeTable;
@@ -28,7 +31,34 @@ public class DuRatingProcessor implements RatingProcessor2{
 	@Override
 	public double getRating(Player player, PlayerStatAccumulator accumulator) {
 		PlayerStatHolder allSeasons = accumulator.getTotalStats();
-		return adjustRating(getSeasonRating(player,allSeasons),allSeasons.getGp());
+		double allRating = getSeasonRating(player,allSeasons);
+		
+		PlayerStatHolder last3IfPlayed = accumulator.getPreviousSeasonTotalsFromYear(3, accumulator.getEndYear());
+		double last3Rating = getSeasonRating(player,last3IfPlayed);
+		
+		Map<Double, Integer> map = new HashMap<>();
+		RerateUtils.addToAverageMap(map,allRating, 50);
+		RerateUtils.addToAverageMap(map,last3Rating, 150);
+	
+
+		double rating = RerateUtils.calculateWeightedAverage(map);
+		
+		if(player.getAge() >= 35) {
+			rating = rating * 1.05;
+		}else if(player.getAge() >= 32) {
+			rating = rating * 1.03;
+		}else if(player.getAge() >= 28) {
+			rating = rating * 1.02;
+		}else if(player.getAge() >= 25) {
+			rating = rating * 1.01;
+		}
+		
+		rating = Math.max(rating, 60);
+		rating = Math.min(rating, 95);
+		
+		return RerateUtils.normalizeRating(adjustRating(rating, allSeasons.getGp()));
+		
+		//return adjustRating(getSeasonRating(player,allSeasons),allSeasons.getGp());
 	}
 
 	@Override
@@ -41,7 +71,8 @@ public class DuRatingProcessor implements RatingProcessor2{
 		double du = Double.valueOf(rangeTable.findInterpolatedValue(playedPct));
 		
 		du = Math.max(du, 60);
-
+		du = Math.min(du, 95);
+		
 		return RerateUtils.normalizeRating(du);
 	}
 	

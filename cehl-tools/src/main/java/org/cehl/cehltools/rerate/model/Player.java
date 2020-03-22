@@ -1,6 +1,7 @@
 package org.cehl.cehltools.rerate.model;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -110,6 +111,10 @@ public class Player extends AbstractEntity {
 	
 	public PlayerSeason getSeasonByYear(int year) {
 		return seasons.stream().filter(ps-> year == ps.getYear()).findFirst().orElse(null);
+	}
+	
+	public int getAge() {
+		return Period.between(getDob(), LocalDate.now()).getYears();
 	}
 
 }

@@ -15,7 +15,8 @@ public class RerateUtils {
 	}
 	
 	public static int roundToInt(double d, RoundingMode roundingMode) {
-	    BigDecimal bd = new BigDecimal(Double.toString(d));
+	   // BigDecimal bd = new BigDecimal(Double.toString(d));
+		BigDecimal bd = new BigDecimal(d);
 	    bd = bd.setScale(0, roundingMode);
 	    return bd.intValue();
 	}

@@ -53,7 +53,7 @@ public class RerateRunner {
 
     	RerateJob job =context.getBean(RerateJob.class);
     	
-    	job.reratePlayers();
+    	job.reratePlayers(2018);
     
     }
 }

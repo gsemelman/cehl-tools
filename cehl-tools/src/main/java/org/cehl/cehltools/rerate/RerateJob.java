@@ -79,9 +79,8 @@ public class RerateJob {
 	@Qualifier("leaguePrefix")
 	private String leaguePrefix;
 
-
 	@Transactional
-	public void reratePlayers() {
+	public void reratePlayers(int endYear) {
 		
 		JdbcTemplate template = new JdbcTemplate(ds);
 		
@@ -134,8 +133,8 @@ public class RerateJob {
 
 		for(RosterRaw rosterRaw : rosterList){
 			
-			if(!"Henrik Zetterberg".equalsIgnoreCase(rosterRaw.getName())){
-				//== continue;
+			if(!"Auston Matthews".equalsIgnoreCase(rosterRaw.getName())){
+				//continue;
 			}
 			
 			PlayerPositionType position = PlayerPositionType.PositionByRawValue(rosterRaw.getPosition());
@@ -217,7 +216,7 @@ public class RerateJob {
 //			}
 			
 			if(player != null) {
-				String[] rerateValues = getRerateValues(player, rosterRaw);
+				String[] rerateValues = getRerateValues(player, rosterRaw, endYear);
 				rows.add(append(rerateValues, "FOUND"));
 			}else {
 				rows.add(append(initialValues,"NOT FOUND"));
@@ -238,7 +237,7 @@ public class RerateJob {
 
 	}
 	
-	public String[] getRerateValues(Player p, RosterRaw rosterRaw) {
+	public String[] getRerateValues(Player p, RosterRaw rosterRaw, int endYear) {
 
 		ItRatingProcessor itProcessor = new ItRatingProcessor();
 		StRatingProcessor stProcessor = new StRatingProcessor();
@@ -251,7 +250,7 @@ public class RerateJob {
 		DfRatingProcessor dfProcessor= new DfRatingProcessor();
 		ExRatingProcessor exProcessor = new ExRatingProcessor();
 		
-		PlayerStatAccumulator psa = new PlayerStatAccumulator(p);
+		PlayerStatAccumulator psa = new PlayerStatAccumulator(p,endYear);
 		PlayerStatHolder totals2 = psa.getTotalStats();
 
 
@@ -266,17 +265,7 @@ public class RerateJob {
 		double sc = scProcessor.getRating(p,psa);
 		double ex = exProcessor.getSeasonRating(p, totals2);
 		double ld = exProcessor.getSeasonRating(p, totals2);
-		
-//		if(pa < 85) {
-//			pc = Math.min(pc, pa + 5);
-//		}else if(pa < 80) {
-//			pc = Math.min(pc, pa + 4);
-//		}else if(pa <= 78) {
-//			pc = Math.min(pc, pa + 3);
-//		}else if(pa <= 76) {
-//			pc = Math.min(pc, pa + 2);
-//		}
-		
+
 		//set inital ov and populate result
 		double ov = RerateUtils.calculateOv(p.getPosition(), it, rosterRaw.getSp(), rosterRaw.getSt(), 
 				en, du, di, rosterRaw.getSk(), pa, pc,  rosterRaw.getDf(),sc, rosterRaw.getEx(), rosterRaw.getLd());
@@ -319,28 +308,7 @@ public class RerateJob {
 				String.valueOf(Precision.round(rerateResult.getLd(),0) ),
 				String.valueOf(Precision.round(rerateResult.getOv(),0) ),
 				};
-		
-//		String[] values = new String[] {
-//				rosterRaw.getTeamName(),
-//				String.valueOf(rosterRaw.getJersey()), 
-//				rosterRaw.getName(), 
-//				position.stringValue(),
-//				String.valueOf(Precision.round(it,0) ), 
-//				String.valueOf(Precision.round(rosterRaw.getSp(),0) ), 
-//				String.valueOf(Precision.round(rosterRaw.getSt(),0) ), 
-//				String.valueOf(Precision.round(en,0) ), 
-//				String.valueOf(Precision.round(du,0) ), 
-//				String.valueOf(Precision.round(di,0) ), 
-//				String.valueOf(Precision.round(rosterRaw.getSk(),0) ), 
-//				String.valueOf(Precision.round(pa,0) ), 
-//				String.valueOf(Precision.round(pc,0) ), 
-//				String.valueOf(Precision.round(rosterRaw.getDf(),0) ),
-//				String.valueOf(Precision.round(sc,0) ),
-//				String.valueOf(Precision.round(rosterRaw.getEx(),0) ),
-//				String.valueOf(Precision.round(rosterRaw.getLd(),0) ),
-//				String.valueOf(Precision.round(ov,0) ),
-//				};
-		
+
 		return values;
 	}
 

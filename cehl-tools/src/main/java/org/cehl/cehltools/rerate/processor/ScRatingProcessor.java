@@ -35,13 +35,20 @@ public class ScRatingProcessor extends AbstractRatingProcessor{
 	static RangeTable initDefenseRanges() {
 
 		RangeTable defenseRangeTable = new RangeTable();
+//		defenseRangeTable.insertValue(0.01, 62);
+//		defenseRangeTable.insertValue(0.065, 69);
+//		defenseRangeTable.insertValue(0.14, 73);
+//		defenseRangeTable.insertValue(0.17, 75);
+//		defenseRangeTable.insertValue(0.1951, 79);
+//		defenseRangeTable.insertValue(0.24, 83);
+		
 		defenseRangeTable.insertValue(0.01, 62);
-		defenseRangeTable.insertValue(0.065, 69);
-		defenseRangeTable.insertValue(0.14, 73);
-		defenseRangeTable.insertValue(0.17, 75);
+		defenseRangeTable.insertValue(0.06, 70);
+		//defenseRangeTable.insertValue(0.14, 73);
+		defenseRangeTable.insertValue(0.12, 75);
 		defenseRangeTable.insertValue(0.1951, 79);
 		defenseRangeTable.insertValue(0.24, 83);
-		//defenseRangeTable.insertValue(0.4, 90); //50 goals per season
+
 		
 		return defenseRangeTable;
 	}
