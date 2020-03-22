@@ -1,0 +1,59 @@
+
+SET GLOBAL local_infile = true;
+
+CREATE TEMPORARY TABLE `import_player_stats_pk_temp` (
+  `name` varchar(60) NOT NULL,
+  `team` varchar(45) NOT NULL,
+  `position` varchar(20) NOT NULL,
+  `gp` int DEFAULT NULL,
+  `toi` int DEFAULT NULL,
+  `goals` int DEFAULT NULL,
+  `assists` int DEFAULT NULL,
+  `assists_first` int DEFAULT NULL,
+  `assists_second` int DEFAULT NULL,
+  `points` int DEFAULT NULL,
+  `ipp` int DEFAULT NULL,
+  `shots` int DEFAULT NULL,
+  `sh_pct` decimal(5,2) DEFAULT NULL,
+  `ixg` int DEFAULT NULL,
+  `icf` int DEFAULT NULL,
+  `iff` int DEFAULT NULL,
+  `iscf` int DEFAULT NULL,
+  `ihdcf` int DEFAULT NULL,
+  `rush_attempt` int DEFAULT NULL,
+  `rebounds_created` int DEFAULT NULL,
+  `pim` int DEFAULT NULL,
+  `pen_total` int DEFAULT NULL,
+  `pen_minor` int DEFAULT NULL,
+  `pen_major` int DEFAULT NULL,
+  `pen_misconduct` int DEFAULT NULL,
+  `pen_drawn` int DEFAULT NULL,
+  `give_away` int DEFAULT NULL,
+  `take_away` int DEFAULT NULL,
+  `hits` int DEFAULT NULL,
+  `hits_taken` int DEFAULT NULL,
+  `shots_blocked` int DEFAULT NULL,
+  `faceoff_won` int DEFAULT NULL,
+  `facoff_lost` int DEFAULT NULL,
+  `faceoff_pct` decimal(5,2) DEFAULT NULL
+);
+
+
+LOAD DATA LOCAL INFILE 'C:/3_personal/stats/PK counts/pk-2018-2019.csv'
+INTO TABLE import_player_stats_pk_temp
+FIELDS TERMINATED BY ','
+    ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 LINES
+(@dummy,name, team,position,gp,toi,goals,assists,assists_first,assists_second,points,ipp,shots,sh_pct,ixg,icf,iff,iscf,ihdcf,rush_attempt,
+    rebounds_created,pim,pen_total,pen_minor,pen_major,pen_misconduct,pen_drawn,give_away,take_away,hits, hits_taken, shots_blocked, faceoff_won,
+    facoff_lost,faceoff_pct);
+
+INSERT INTO import_player_stats_pk (year, name, team,position,gp,toi,goals,assists,assists_first,assists_second,points,ipp,shots,sh_pct,ixg,icf,iff,iscf,ihdcf,rush_attempt,
+    rebounds_created,pim,pen_total,pen_minor,pen_major,pen_misconduct,pen_drawn,give_away,take_away,hits, hits_taken, shots_blocked, faceoff_won,
+    facoff_lost,faceoff_pct)
+select '2018', name, team,position,gp,toi,goals,assists,assists_first,assists_second,points,ipp,shots,sh_pct,ixg,icf,iff,iscf,ihdcf,rush_attempt,
+    rebounds_created,pim,pen_total,pen_minor,pen_major,pen_misconduct,pen_drawn,give_away,take_away,hits, hits_taken, shots_blocked, faceoff_won,
+    facoff_lost,faceoff_pct FROM import_player_stats_pk_temp;
+
+DROP table import_player_stats_pk_temp;

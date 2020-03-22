@@ -1,0 +1,79 @@
+
+SET GLOBAL local_infile = true;
+
+CREATE TEMPORARY TABLE `import_player_stats_on_ice_rel_temp` (
+  `id` bigint NOT NULL,
+  `year` int NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `team` varchar(45) NOT NULL,
+  `position` varchar(20) NOT NULL,
+  `gp` decimal(8,2) DEFAULT NULL,
+  `toi` decimal(8,2) DEFAULT NULL,
+  `cf` decimal(8,2) DEFAULT NULL,
+  `ca` decimal(8,2) DEFAULT NULL,
+  `cf_pct` decimal(5,2) DEFAULT NULL,
+  `ff` decimal(8,2) DEFAULT NULL,
+  `fa` decimal(8,2) DEFAULT NULL,
+  `ff_pct` decimal(5,2) DEFAULT NULL,
+  `sf` decimal(8,2) DEFAULT NULL,
+  `sa` decimal(8,2) DEFAULT NULL,
+  `sf_pct` decimal(5,2) DEFAULT NULL,
+  `gf` decimal(8,2) DEFAULT NULL,
+  `ga` decimal(8,2) DEFAULT NULL,
+  `gf_pct` decimal(5,2) DEFAULT NULL,
+  `xgf` decimal(8,2) DEFAULT NULL,
+  `xga` decimal(8,2) DEFAULT NULL,
+  `xgf_pct` decimal(5,2) DEFAULT NULL,
+  `scf` decimal(8,2) DEFAULT NULL,
+  `sca` decimal(8,2) DEFAULT NULL,
+  `scf_pct` decimal(5,2) DEFAULT NULL,
+  `hdcf` decimal(8,2) DEFAULT NULL,
+  `hdca` decimal(8,2) DEFAULT NULL,
+  `hdcf_pct` decimal(5,2) DEFAULT NULL,
+  `hdgf` decimal(8,2) DEFAULT NULL,
+  `hdga` decimal(8,2) DEFAULT NULL,
+  `hdgf_pct` decimal(5,2) DEFAULT NULL,
+  `mdcf` decimal(8,2) DEFAULT NULL,
+  `mdca` decimal(8,2) DEFAULT NULL,
+  `mdcf_pct` decimal(5,2) DEFAULT NULL,
+  `mdgf` decimal(8,2) DEFAULT NULL,
+  `mdga` decimal(8,2) DEFAULT NULL,
+  `mdgf_pct` decimal(5,2) DEFAULT NULL,
+  `ldcf` decimal(8,2) DEFAULT NULL,
+  `ldca` decimal(8,2) DEFAULT NULL,
+  `ldcf_pct` decimal(5,2) DEFAULT NULL,
+  `ldgf` decimal(8,2) DEFAULT NULL,
+  `ldga` int NOT NULL,
+  `ldgf_pct` decimal(5,2) DEFAULT NULL,
+  `oi_sh_pct` decimal(5,2) DEFAULT NULL,
+  `oi_sv_pct` decimal(5,2) DEFAULT NULL,
+  `pdo` decimal(11,4) DEFAULT NULL,
+  `o_zone_start` decimal(8,2) DEFAULT NULL,
+  `n_zone_start` decimal(8,2) DEFAULT NULL,
+  `d_zone_start` decimal(8,2) DEFAULT NULL,
+  `f_zone_start` int DEFAULT NULL
+);
+
+
+LOAD DATA LOCAL INFILE 'C:/3_personal/stats/On Ice Rel/oir-2018-2019.csv'
+INTO TABLE import_player_stats_on_ice_rel_temp
+FIELDS TERMINATED BY ','
+    ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 LINES
+(@dummy,  name, team, position, gp, toi, cf ,
+  ca, cf_pct, ff, fa, ff_pct, sf, sa, sf_pct, gf, ga ,
+  gf_pct, xgf, xga, xgf_pct, scf, sca, scf_pct, hdcf, hdca, hdcf_pct, hdgf, hdga, hdgf_pct, mdcf, mdca, mdcf_pct, mdgf, mdga, mdgf_pct ,
+  ldcf, ldca, ldcf_pct, ldgf, ldga, ldgf_pct, oi_sh_pct, oi_sv_pct, pdo, o_zone_start, n_zone_start, d_zone_start, f_zone_start );
+
+INSERT INTO import_player_stats_on_ice_rel (year, name, team, position, gp, toi, cf ,
+  ca, cf_pct, ff, fa, ff_pct, sf, sa, sf_pct, gf, ga ,
+  gf_pct, xgf, xga, xgf_pct, scf, sca, scf_pct, hdcf, hdca, hdcf_pct, hdgf, hdga, hdgf_pct, mdcf, mdca, mdcf_pct, mdgf, mdga, mdgf_pct ,
+  ldcf, ldca, ldcf_pct, ldgf, ldga, ldgf_pct, oi_sh_pct, oi_sv_pct, pdo, o_zone_start, n_zone_start, d_zone_start, f_zone_start)
+  
+select '2018', name, team, position, gp, toi, cf ,
+  ca, cf_pct, ff, fa, ff_pct, sf, sa, sf_pct, gf, ga ,
+  gf_pct, xgf, xga, xgf_pct, scf, sca, scf_pct, hdcf, hdca, hdcf_pct, hdgf, hdga, hdgf_pct, mdcf, mdca, mdcf_pct, mdgf, mdga, mdgf_pct ,
+  ldcf, ldca, ldcf_pct, ldgf, ldga, ldgf_pct, oi_sh_pct, oi_sv_pct, pdo, o_zone_start, n_zone_start, d_zone_start, f_zone_start FROM import_player_stats_on_ice_rel_temp;
+
+DROP table import_player_stats_on_ice_rel_temp;

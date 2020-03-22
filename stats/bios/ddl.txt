@@ -1,0 +1,22 @@
+CREATE TABLE `import_player_bio` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `year` int NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `team` varchar(45) NOT NULL,
+  `position` varchar(20) NOT NULL,
+  `age` int NOT NULL,
+  `dob` date NOT NULL,
+  `birth_place` varchar(100) DEFAULT NULL,
+  `prov_state` varchar(10) DEFAULT NULL,
+  `country` varchar(10) DEFAULT NULL,
+  `nationality` varchar(10) DEFAULT NULL,
+  `height` int DEFAULT NULL,
+  `weight` int DEFAULT NULL,
+  `draft_year` varchar(45) DEFAULT NULL,
+  `draft_team` varchar(45) DEFAULT NULL,
+  `draft_round` varchar(45) DEFAULT NULL,
+  `draft_pick` varchar(45) DEFAULT NULL,
+  `draft_overall` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `PB_UNIQUE` (`year`,`name`,`team`,`position`)
+) ENGINE=InnoDB AUTO_INCREMENT=11254 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

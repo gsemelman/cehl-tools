@@ -1,0 +1,39 @@
+
+SET GLOBAL local_infile = true;
+
+CREATE TEMPORARY TABLE `import_player_bio_temp` (
+  `name` varchar(60) NOT NULL,
+  `team` varchar(45) NOT NULL,
+  `position` varchar(20) NOT NULL,
+  `age` int NOT NULL,
+  `dob` date NOT NULL,
+  `birth_place` varchar(100) DEFAULT NULL,
+  `prov_state` varchar(10) DEFAULT NULL,
+  `country` varchar(10) DEFAULT NULL,
+  `nationality` varchar(10) DEFAULT NULL,
+  `height` int(11) DEFAULT NULL,
+  `weight` int(11) DEFAULT NULL,
+  `draft_year` varchar(45) DEFAULT NULL,
+  `draft_team` varchar(45) DEFAULT NULL,
+  `draft_round` varchar(45) DEFAULT NULL,
+  `draft_pick` varchar(45) DEFAULT NULL,
+  `draft_overall` varchar(45) DEFAULT NULL
+);
+
+LOAD DATA LOCAL INFILE 'C:/3_personal/stats/bios/bio-2018-2019.csv'
+INTO TABLE import_player_bio_temp
+FIELDS TERMINATED BY ','
+    ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 LINES
+(@dummy,name,team,position,age,dob,birth_place,prov_state,country,nationality,height,weight,draft_year,draft_team,draft_round,draft_pick,draft_overall);
+
+UPDATE import_player_bio_temp SET draft_year = null WHERE draft_year NOT REGEXP '^[0-9]+$';
+UPDATE import_player_bio_temp SET draft_round = null WHERE draft_round NOT REGEXP '^[0-9]+$';
+UPDATE import_player_bio_temp SET draft_pick = null WHERE draft_pick NOT REGEXP '^[0-9]+$';
+UPDATE import_player_bio_temp SET draft_overall = null WHERE draft_overall NOT REGEXP '^[0-9]+$';
+
+INSERT INTO import_player_bio (year, name,team,position,age,dob,birth_place,prov_state,country,nationality,height,weight,draft_year,draft_team,draft_round,draft_pick,draft_overall)
+select '2018', name,team,position,age,dob,birth_place,prov_state,country,nationality,height,weight,draft_year,draft_team,draft_round,draft_pick,draft_overall FROM import_player_bio_temp;
+
+DROP table import_player_bio_temp;

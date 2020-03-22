@@ -1,0 +1,22 @@
+SELECT b.name, b.dob, max(b.position), sum(s.goals) as totalGoals, count(*) as seasons, sum(gp), sum(toi),  sum(goals) / sum(gp) as gpg, sum(assists) / sum(gp) as apg, 
+sum(hits) / sum(toi) as hpm ,sum(takeaway) / sum(toi) as tawaypm,((max(weight) * 703) / (max(height) * max(height))) AS BMI,
+CASE
+    WHEN max(b.position) = 'D' THEN (60 + ((sum(goals) / sum(gp))) * 110) 
+    ELSE (60 + ((sum(goals) / sum(gp))) * 57) 
+END as SC,
+CASE
+    WHEN max(b.position) = 'D' THEN (60 + ((sum(assists) / sum(gp))) * 52)
+    ELSE (60 + ((sum(assists) / sum(gp))) * 42)
+END as PA,
+CASE
+    WHEN max(b.position) = 'D' THEN (60 + ((sum(hits) / sum(toi)) + (sum(takeaway) / sum(toi)) + (sum(shots_blocked) / sum(toi))) * 80)
+    ELSE (60 + ((sum(hits) / sum(toi)) + (sum(takeaway) / sum(toi)) + (sum(shots_blocked) / sum(toi)) + (sum(rush_attempt) / sum(toi))) * 75)
+END as IT,
+30 + ((max(weight) * 703) / (max(height) * max(height))) + (max(weight) / 10) AS ST
+FROM player_bio b
+INNER JOIN player_stats_all s ON b.year = s.year AND b.name = s.name and b.team=s.team
+WHERE s.year >= 2016
+#and b.position = 'D'
+group by b.name, b.dob
+having sum(gp) > 50
+order by ST desc

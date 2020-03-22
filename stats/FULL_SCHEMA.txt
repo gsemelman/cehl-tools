@@ -1,0 +1,860 @@
+CREATE DATABASE `player_ratings` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+
+
+CREATE TABLE `cehl_master` (
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+  `jersey` int NOT NULL,
+  `name` varchar(22) NOT NULL,
+  `team` varchar(22) NOT NULL,
+  `age` int NOT NULL,
+  `pos` varchar(2) NOT NULL,
+  `nat` char(3) NOT NULL,
+  `IT` int NOT NULL,
+  `SP` int NOT NULL,
+  `ST` int NOT NULL,
+  `EN` int NOT NULL,
+  `DU` int NOT NULL,
+  `DI` int NOT NULL,
+  `SK` int NOT NULL,
+  `PA` int NOT NULL,
+  `PC` int NOT NULL,
+  `DF` int NOT NULL,
+  `SC` int NOT NULL,
+  `EX` int NOT NULL,
+  `LD` int NOT NULL,
+  `OV` int NOT NULL,
+  `playerId` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=1298 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `import_player_bio` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `year` int NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `team` varchar(45) NOT NULL,
+  `position` varchar(20) NOT NULL,
+  `age` int NOT NULL,
+  `dob` date NOT NULL,
+  `birth_place` varchar(100) DEFAULT NULL,
+  `prov_state` varchar(10) DEFAULT NULL,
+  `country` varchar(10) DEFAULT NULL,
+  `nationality` varchar(10) DEFAULT NULL,
+  `height` int DEFAULT NULL,
+  `weight` int DEFAULT NULL,
+  `draft_year` varchar(45) DEFAULT NULL,
+  `draft_team` varchar(45) DEFAULT NULL,
+  `draft_round` varchar(45) DEFAULT NULL,
+  `draft_pick` varchar(45) DEFAULT NULL,
+  `draft_overall` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `PB_UNIQUE` (`year`,`name`,`team`,`position`)
+) ENGINE=InnoDB AUTO_INCREMENT=11254 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `import_player_stats_all_strengths` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `year` int NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `team` varchar(45) NOT NULL,
+  `position` varchar(20) NOT NULL,
+  `gp` int DEFAULT NULL,
+  `toi` int DEFAULT NULL,
+  `goals` int DEFAULT NULL,
+  `assists` int DEFAULT NULL,
+  `assists_first` int DEFAULT NULL,
+  `assists_second` int DEFAULT NULL,
+  `points` int DEFAULT NULL,
+  `ipp` int DEFAULT NULL,
+  `shots` int DEFAULT NULL,
+  `sh_pct` decimal(5,2) DEFAULT NULL,
+  `ixg` int DEFAULT NULL,
+  `icf` int DEFAULT NULL,
+  `iff` int DEFAULT NULL,
+  `iscf` int DEFAULT NULL,
+  `ihdcf` int DEFAULT NULL,
+  `rush_attempt` int DEFAULT NULL,
+  `rebounds_created` int DEFAULT NULL,
+  `pim` int DEFAULT NULL,
+  `pen_total` int DEFAULT NULL,
+  `pen_minor` int DEFAULT NULL,
+  `pen_major` int DEFAULT NULL,
+  `pen_misconduct` int DEFAULT NULL,
+  `pen_drawn` int DEFAULT NULL,
+  `give_away` int DEFAULT NULL,
+  `take_away` int DEFAULT NULL,
+  `hits` int DEFAULT NULL,
+  `hits_taken` int DEFAULT NULL,
+  `shots_blocked` int DEFAULT NULL,
+  `faceoff_won` int DEFAULT NULL,
+  `facoff_lost` int DEFAULT NULL,
+  `faceoff_pct` decimal(5,2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `SAS_UNIQUE` (`year`,`name`,`team`,`position`)
+) ENGINE=InnoDB AUTO_INCREMENT=12277 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `import_player_stats_on_ice` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `year` int NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `team` varchar(45) NOT NULL,
+  `position` varchar(20) NOT NULL,
+  `gp` int DEFAULT NULL,
+  `toi` int DEFAULT NULL,
+  `cf` int DEFAULT NULL,
+  `ca` int DEFAULT NULL,
+  `cf_pct` decimal(5,2) DEFAULT NULL,
+  `ff` int DEFAULT NULL,
+  `fa` int DEFAULT NULL,
+  `ff_pct` decimal(5,2) DEFAULT NULL,
+  `sf` int DEFAULT NULL,
+  `sa` int DEFAULT NULL,
+  `sf_pct` decimal(5,2) DEFAULT NULL,
+  `gf` int DEFAULT NULL,
+  `ga` int DEFAULT NULL,
+  `gf_pct` decimal(5,2) DEFAULT NULL,
+  `xgf` int DEFAULT NULL,
+  `xga` int DEFAULT NULL,
+  `xgf_pct` decimal(5,2) DEFAULT NULL,
+  `scf` int DEFAULT NULL,
+  `sca` int DEFAULT NULL,
+  `scf_pct` decimal(5,2) DEFAULT NULL,
+  `hdcf` int DEFAULT NULL,
+  `hdca` int DEFAULT NULL,
+  `hdcf_pct` decimal(5,2) DEFAULT NULL,
+  `hdgf` int DEFAULT NULL,
+  `hdga` int DEFAULT NULL,
+  `hdgf_pct` decimal(5,2) DEFAULT NULL,
+  `mdcf` int DEFAULT NULL,
+  `mdca` int DEFAULT NULL,
+  `mdcf_pct` decimal(5,2) DEFAULT NULL,
+  `mdgf` int DEFAULT NULL,
+  `mdga` int DEFAULT NULL,
+  `mdgf_pct` decimal(5,2) DEFAULT NULL,
+  `ldcf` int DEFAULT NULL,
+  `ldca` int DEFAULT NULL,
+  `ldcf_pct` decimal(5,2) DEFAULT NULL,
+  `ldgf` int DEFAULT NULL,
+  `ldga` int DEFAULT NULL,
+  `ldgf_pct` decimal(5,2) DEFAULT NULL,
+  `oi_sh_pct` decimal(5,2) DEFAULT NULL,
+  `oi_sv_pct` decimal(5,2) DEFAULT NULL,
+  `pdo` decimal(11,4) DEFAULT NULL,
+  `o_zone_start` int DEFAULT NULL,
+  `n_zone_start` int DEFAULT NULL,
+  `d_zone_start` int DEFAULT NULL,
+  `f_zone_start` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `SAS_UNIQUE` (`year`,`name`,`team`,`position`)
+) ENGINE=InnoDB AUTO_INCREMENT=3968 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `import_player_stats_on_ice_rel` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `year` int NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `team` varchar(45) NOT NULL,
+  `position` varchar(20) NOT NULL,
+  `gp` decimal(8,2) DEFAULT NULL,
+  `toi` decimal(8,2) DEFAULT NULL,
+  `cf` decimal(8,2) DEFAULT NULL,
+  `ca` decimal(8,2) DEFAULT NULL,
+  `cf_pct` decimal(5,2) DEFAULT NULL,
+  `ff` decimal(8,2) DEFAULT NULL,
+  `fa` decimal(8,2) DEFAULT NULL,
+  `ff_pct` decimal(5,2) DEFAULT NULL,
+  `sf` decimal(8,2) DEFAULT NULL,
+  `sa` decimal(8,2) DEFAULT NULL,
+  `sf_pct` decimal(5,2) DEFAULT NULL,
+  `gf` decimal(8,2) DEFAULT NULL,
+  `ga` decimal(8,2) DEFAULT NULL,
+  `gf_pct` decimal(5,2) DEFAULT NULL,
+  `xgf` decimal(8,2) DEFAULT NULL,
+  `xga` decimal(8,2) DEFAULT NULL,
+  `xgf_pct` decimal(5,2) DEFAULT NULL,
+  `scf` decimal(8,2) DEFAULT NULL,
+  `sca` decimal(8,2) DEFAULT NULL,
+  `scf_pct` decimal(5,2) DEFAULT NULL,
+  `hdcf` decimal(8,2) DEFAULT NULL,
+  `hdca` decimal(8,2) DEFAULT NULL,
+  `hdcf_pct` decimal(5,2) DEFAULT NULL,
+  `hdgf` decimal(8,2) DEFAULT NULL,
+  `hdga` decimal(8,2) DEFAULT NULL,
+  `hdgf_pct` decimal(5,2) DEFAULT NULL,
+  `mdcf` decimal(8,2) DEFAULT NULL,
+  `mdca` decimal(8,2) DEFAULT NULL,
+  `mdcf_pct` decimal(5,2) DEFAULT NULL,
+  `mdgf` decimal(8,2) DEFAULT NULL,
+  `mdga` decimal(8,2) DEFAULT NULL,
+  `mdgf_pct` decimal(5,2) DEFAULT NULL,
+  `ldcf` decimal(8,2) DEFAULT NULL,
+  `ldca` decimal(8,2) DEFAULT NULL,
+  `ldcf_pct` decimal(5,2) DEFAULT NULL,
+  `ldgf` decimal(8,2) DEFAULT NULL,
+  `ldga` decimal(8,2) DEFAULT NULL,
+  `ldgf_pct` decimal(5,2) DEFAULT NULL,
+  `oi_sh_pct` decimal(5,2) DEFAULT NULL,
+  `oi_sv_pct` decimal(5,2) DEFAULT NULL,
+  `pdo` decimal(11,4) DEFAULT NULL,
+  `o_zone_start` decimal(8,2) DEFAULT NULL,
+  `n_zone_start` decimal(8,2) DEFAULT NULL,
+  `d_zone_start` decimal(8,2) DEFAULT NULL,
+  `f_zone_start` decimal(8,2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `SAS_UNIQUE` (`year`,`name`,`team`,`position`)
+) ENGINE=InnoDB AUTO_INCREMENT=4999 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `import_player_stats_pk` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `year` int NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `team` varchar(45) NOT NULL,
+  `position` varchar(20) NOT NULL,
+  `gp` int DEFAULT NULL,
+  `toi` int DEFAULT NULL,
+  `goals` int DEFAULT NULL,
+  `assists` int DEFAULT NULL,
+  `assists_first` int DEFAULT NULL,
+  `assists_second` int DEFAULT NULL,
+  `points` int DEFAULT NULL,
+  `ipp` int DEFAULT NULL,
+  `shots` int DEFAULT NULL,
+  `sh_pct` decimal(5,2) DEFAULT NULL,
+  `ixg` int DEFAULT NULL,
+  `icf` int DEFAULT NULL,
+  `iff` int DEFAULT NULL,
+  `iscf` int DEFAULT NULL,
+  `ihdcf` int DEFAULT NULL,
+  `rush_attempt` int DEFAULT NULL,
+  `rebounds_created` int DEFAULT NULL,
+  `pim` int DEFAULT NULL,
+  `pen_total` int DEFAULT NULL,
+  `pen_minor` int DEFAULT NULL,
+  `pen_major` int DEFAULT NULL,
+  `pen_misconduct` int DEFAULT NULL,
+  `pen_drawn` int DEFAULT NULL,
+  `give_away` int DEFAULT NULL,
+  `take_away` int DEFAULT NULL,
+  `hits` int DEFAULT NULL,
+  `hits_taken` int DEFAULT NULL,
+  `shots_blocked` int DEFAULT NULL,
+  `faceoff_won` int DEFAULT NULL,
+  `facoff_lost` int DEFAULT NULL,
+  `faceoff_pct` decimal(5,2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `SAS_UNIQUE` (`year`,`name`,`team`,`position`)
+) ENGINE=InnoDB AUTO_INCREMENT=16141 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `import_player_stats_pp` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `year` int NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `team` varchar(45) NOT NULL,
+  `position` varchar(20) NOT NULL,
+  `gp` int DEFAULT NULL,
+  `toi` int DEFAULT NULL,
+  `goals` int DEFAULT NULL,
+  `assists` int DEFAULT NULL,
+  `assists_first` int DEFAULT NULL,
+  `assists_second` int DEFAULT NULL,
+  `points` int DEFAULT NULL,
+  `ipp` int DEFAULT NULL,
+  `shots` int DEFAULT NULL,
+  `sh_pct` decimal(5,2) DEFAULT NULL,
+  `ixg` int DEFAULT NULL,
+  `icf` int DEFAULT NULL,
+  `iff` int DEFAULT NULL,
+  `iscf` int DEFAULT NULL,
+  `ihdcf` int DEFAULT NULL,
+  `rush_attempt` int DEFAULT NULL,
+  `rebounds_created` int DEFAULT NULL,
+  `pim` int DEFAULT NULL,
+  `pen_total` int DEFAULT NULL,
+  `pen_minor` int DEFAULT NULL,
+  `pen_major` int DEFAULT NULL,
+  `pen_misconduct` int DEFAULT NULL,
+  `pen_drawn` int DEFAULT NULL,
+  `give_away` int DEFAULT NULL,
+  `take_away` int DEFAULT NULL,
+  `hits` int DEFAULT NULL,
+  `hits_taken` int DEFAULT NULL,
+  `shots_blocked` int DEFAULT NULL,
+  `faceoff_won` int DEFAULT NULL,
+  `facoff_lost` int DEFAULT NULL,
+  `faceoff_pct` decimal(5,2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `SAS_UNIQUE` (`year`,`name`,`team`,`position`)
+) ENGINE=InnoDB AUTO_INCREMENT=16173 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `player` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(60) NOT NULL,
+  `dob` date NOT NULL,
+  `position` varchar(20) NOT NULL,
+  `country` varchar(10) DEFAULT NULL,
+  `height` int DEFAULT NULL,
+  `weight` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_index` (`name`,`dob`)
+) ENGINE=InnoDB AUTO_INCREMENT=2246 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `player_exception` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `simName` varchar(22) NOT NULL,
+  `linkName` varchar(60) NOT NULL,
+  `simNat` varchar(3) DEFAULT NULL,
+  `linkNat` varchar(3) DEFAULT NULL,
+  `duplicate` tinyint NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `player_master` (
+  `ID` int unsigned NOT NULL AUTO_INCREMENT,
+  `NHLid` int DEFAULT NULL,
+  `LastName` text,
+  `FirstName` text,
+  `Position` text,
+  `Born` text,
+  `City` text,
+  `ProvState` text,
+  `Country` text,
+  `Nat` text,
+  `Ht` int DEFAULT NULL,
+  `Wt` int DEFAULT NULL,
+  `DftYr` text,
+  `DftRd` text,
+  `Ovrl` text,
+  `Hand` text,
+  `Debut` text,
+  `Seasons` text,
+  `CorsicaID` text,
+  `HrefName` text,
+  `Captain` int DEFAULT NULL,
+  `AsstCaptain` int DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=891 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `player_season` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `player_id` int NOT NULL,
+  `year` int NOT NULL,
+  `team` varchar(45) DEFAULT NULL,
+  `position` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_index` (`player_id`,`year`)
+) ENGINE=InnoDB AUTO_INCREMENT=9739 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `player_stats_all_strengths` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `player_season_id` bigint NOT NULL,
+  `year` int NOT NULL,
+  `gp` int DEFAULT NULL,
+  `toi` int DEFAULT NULL,
+  `goals` int DEFAULT NULL,
+  `assists` int DEFAULT NULL,
+  `assists_first` int DEFAULT NULL,
+  `assists_second` int DEFAULT NULL,
+  `points` int DEFAULT NULL,
+  `ipp` int DEFAULT NULL,
+  `shots` int DEFAULT NULL,
+  `sh_pct` decimal(5,2) DEFAULT NULL,
+  `ixg` int DEFAULT NULL,
+  `icf` int DEFAULT NULL,
+  `iff` int DEFAULT NULL,
+  `iscf` int DEFAULT NULL,
+  `ihdcf` int DEFAULT NULL,
+  `rush_attempt` int DEFAULT NULL,
+  `rebounds_created` int DEFAULT NULL,
+  `pim` int DEFAULT NULL,
+  `pen_total` int DEFAULT NULL,
+  `pen_minor` int DEFAULT NULL,
+  `pen_major` int DEFAULT NULL,
+  `pen_misconduct` int DEFAULT NULL,
+  `pen_drawn` int DEFAULT NULL,
+  `give_away` int DEFAULT NULL,
+  `take_away` int DEFAULT NULL,
+  `hits` int DEFAULT NULL,
+  `hits_taken` int DEFAULT NULL,
+  `shots_blocked` int DEFAULT NULL,
+  `faceoff_won` int DEFAULT NULL,
+  `facoff_lost` int DEFAULT NULL,
+  `faceoff_pct` decimal(5,2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `SAS_UNIQUE_INDEX` (`player_season_id`,`year`)
+) ENGINE=InnoDB AUTO_INCREMENT=9739 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `player_stats_on_ice` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `player_season_id` bigint NOT NULL,
+  `year` int NOT NULL,
+  `gp` int DEFAULT NULL,
+  `toi` int DEFAULT NULL,
+  `cf` int DEFAULT NULL,
+  `ca` int DEFAULT NULL,
+  `cf_pct` decimal(5,2) DEFAULT NULL,
+  `ff` int DEFAULT NULL,
+  `fa` int DEFAULT NULL,
+  `ff_pct` decimal(5,2) DEFAULT NULL,
+  `sf` int DEFAULT NULL,
+  `sa` int DEFAULT NULL,
+  `sf_pct` decimal(5,2) DEFAULT NULL,
+  `gf` int DEFAULT NULL,
+  `ga` int DEFAULT NULL,
+  `gf_pct` decimal(5,2) DEFAULT NULL,
+  `xgf` int DEFAULT NULL,
+  `xga` int DEFAULT NULL,
+  `xgf_pct` decimal(5,2) DEFAULT NULL,
+  `scf` int DEFAULT NULL,
+  `sca` int DEFAULT NULL,
+  `scf_pct` decimal(5,2) DEFAULT NULL,
+  `hdcf` int DEFAULT NULL,
+  `hdca` int DEFAULT NULL,
+  `hdcf_pct` decimal(5,2) DEFAULT NULL,
+  `hdgf` int DEFAULT NULL,
+  `hdga` int DEFAULT NULL,
+  `hdgf_pct` decimal(5,2) DEFAULT NULL,
+  `mdcf` int DEFAULT NULL,
+  `mdca` int DEFAULT NULL,
+  `mdcf_pct` decimal(5,2) DEFAULT NULL,
+  `mdgf` int DEFAULT NULL,
+  `mdga` int DEFAULT NULL,
+  `mdgf_pct` decimal(5,2) DEFAULT NULL,
+  `ldcf` int DEFAULT NULL,
+  `ldca` int DEFAULT NULL,
+  `ldcf_pct` decimal(5,2) DEFAULT NULL,
+  `ldgf` int DEFAULT NULL,
+  `ldga` int DEFAULT NULL,
+  `ldgf_pct` decimal(5,2) DEFAULT NULL,
+  `oi_sh_pct` decimal(5,2) DEFAULT NULL,
+  `oi_sv_pct` decimal(5,2) DEFAULT NULL,
+  `pdo` decimal(11,4) DEFAULT NULL,
+  `o_zone_start` int DEFAULT NULL,
+  `n_zone_start` int DEFAULT NULL,
+  `d_zone_start` int DEFAULT NULL,
+  `f_zone_start` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `SOC_UNIQUE_INDEX` (`player_season_id`,`year`)
+) ENGINE=InnoDB AUTO_INCREMENT=17395 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `player_stats_pk` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `player_season_id` bigint NOT NULL,
+  `year` int NOT NULL,
+  `gp` int DEFAULT NULL,
+  `toi` int DEFAULT NULL,
+  `goals` int DEFAULT NULL,
+  `assists` int DEFAULT NULL,
+  `assists_first` int DEFAULT NULL,
+  `assists_second` int DEFAULT NULL,
+  `points` int DEFAULT NULL,
+  `ipp` int DEFAULT NULL,
+  `shots` int DEFAULT NULL,
+  `sh_pct` decimal(5,2) DEFAULT NULL,
+  `ixg` int DEFAULT NULL,
+  `icf` int DEFAULT NULL,
+  `iff` int DEFAULT NULL,
+  `iscf` int DEFAULT NULL,
+  `ihdcf` int DEFAULT NULL,
+  `rush_attempt` int DEFAULT NULL,
+  `rebounds_created` int DEFAULT NULL,
+  `pim` int DEFAULT NULL,
+  `pen_total` int DEFAULT NULL,
+  `pen_minor` int DEFAULT NULL,
+  `pen_major` int DEFAULT NULL,
+  `pen_misconduct` int DEFAULT NULL,
+  `pen_drawn` int DEFAULT NULL,
+  `give_away` int DEFAULT NULL,
+  `take_away` int DEFAULT NULL,
+  `hits` int DEFAULT NULL,
+  `hits_taken` int DEFAULT NULL,
+  `shots_blocked` int DEFAULT NULL,
+  `faceoff_won` int DEFAULT NULL,
+  `facoff_lost` int DEFAULT NULL,
+  `faceoff_pct` decimal(5,2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `SAS_UNIQUE_INDEX` (`player_season_id`,`year`)
+) ENGINE=InnoDB AUTO_INCREMENT=19760 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `player_stats_pp` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `player_season_id` bigint NOT NULL,
+  `year` int NOT NULL,
+  `gp` int DEFAULT NULL,
+  `toi` int DEFAULT NULL,
+  `goals` int DEFAULT NULL,
+  `assists` int DEFAULT NULL,
+  `assists_first` int DEFAULT NULL,
+  `assists_second` int DEFAULT NULL,
+  `points` int DEFAULT NULL,
+  `ipp` int DEFAULT NULL,
+  `shots` int DEFAULT NULL,
+  `sh_pct` decimal(5,2) DEFAULT NULL,
+  `ixg` int DEFAULT NULL,
+  `icf` int DEFAULT NULL,
+  `iff` int DEFAULT NULL,
+  `iscf` int DEFAULT NULL,
+  `ihdcf` int DEFAULT NULL,
+  `rush_attempt` int DEFAULT NULL,
+  `rebounds_created` int DEFAULT NULL,
+  `pim` int DEFAULT NULL,
+  `pen_total` int DEFAULT NULL,
+  `pen_minor` int DEFAULT NULL,
+  `pen_major` int DEFAULT NULL,
+  `pen_misconduct` int DEFAULT NULL,
+  `pen_drawn` int DEFAULT NULL,
+  `give_away` int DEFAULT NULL,
+  `take_away` int DEFAULT NULL,
+  `hits` int DEFAULT NULL,
+  `hits_taken` int DEFAULT NULL,
+  `shots_blocked` int DEFAULT NULL,
+  `faceoff_won` int DEFAULT NULL,
+  `facoff_lost` int DEFAULT NULL,
+  `faceoff_pct` decimal(5,2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `SAS_UNIQUE_INDEX` (`player_season_id`,`year`)
+) ENGINE=InnoDB AUTO_INCREMENT=19874 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `raw_player_data` (
+  `LastName` text,
+  `FirstName` text,
+  `Season` text,
+  `Age` int DEFAULT NULL,
+  `Team` text,
+  `Pos` text,
+  `GP` int DEFAULT NULL,
+  `G` int DEFAULT NULL,
+  `A` int DEFAULT NULL,
+  `PTS` int DEFAULT NULL,
+  `PlusMinus` int DEFAULT NULL,
+  `PIM` int DEFAULT NULL,
+  `ESG` int DEFAULT NULL,
+  `PPG` int DEFAULT NULL,
+  `SHG` int DEFAULT NULL,
+  `Shot` int DEFAULT NULL,
+  `TOI` int DEFAULT NULL,
+  `OPS` double DEFAULT NULL,
+  `DPS` double DEFAULT NULL,
+  `PS` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `stats_career` (
+  `NHLid` int DEFAULT NULL,
+  `GP` int DEFAULT NULL,
+  `G` int DEFAULT NULL,
+  `A` int DEFAULT NULL,
+  `PTS` int DEFAULT NULL,
+  `PlusMinus` int DEFAULT NULL,
+  `PIM` int DEFAULT NULL,
+  `Shot` int DEFAULT NULL,
+  `TOI` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `calc_ex` AS select `m`.`CEHLid` AS `CEHLid`,`m`.`FirstName` AS `FirstName`,`m`.`LastName` AS `LastName`,(year(curdate()) - year(`m`.`Born`)) AS `Age`,(((((year(curdate()) - year(`m`.`Born`)) * 1.8) + `pd`.`GP`) * 0.06) + 25) AS `EX` from (`player_master` `m` left join `raw_player_data_grouped` `pd` on(((`m`.`FirstName` = `pd`.`FirstName`) and (`m`.`LastName` = `pd`.`LastName`))));
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `calc_ex_ld` AS select `stats`.`hrefName` AS `hrefName`,`stats`.`age` AS `age`,`stats`.`Seasons` AS `Seasons`,`stats`.`GP` AS `GP`,`stats`.`Captain` AS `Captain`,`stats`.`AsstCaptain` AS `AsstCaptain`,(`stats`.`age` * 0.09) AS `(age * 0.09)`,(`stats`.`GP` * 0.055) AS `(GP * 0.055)`,(`stats`.`Seasons` * 0.7) AS `(Seasons * 0.5)`,(`stats`.`Captain` * 10) AS `(Captain * 10)`,(`stats`.`AsstCaptain` * 5) AS `(AsstCaptain * 5)`,round(greatest(least(((((`stats`.`age` * 0.09) + (`stats`.`Seasons` * 0.7)) + (`stats`.`GP` * 0.055)) + 26.5),99),30),0) AS `EX`,round(greatest(least((((((`stats`.`age` * 0.09) + (`stats`.`Captain` * 10)) + (`stats`.`AsstCaptain` * 5)) + (`stats`.`GP` * 0.055)) + 26.5),99),30),0) AS `LD` from (select `pm`.`HrefName` AS `hrefName`,(year(curdate()) - year(`pm`.`Born`)) AS `age`,`pm`.`Seasons` AS `Seasons`,`sc`.`GP` AS `GP`,`pm`.`Captain` AS `Captain`,`pm`.`AsstCaptain` AS `AsstCaptain` from (`player_master` `pm` join `stats_career` `sc` on((`pm`.`NHLid` = `sc`.`NHLid`)))) `stats` order by round(greatest(least(((((`stats`.`age` * 0.09) + (`stats`.`Seasons` * 0.5)) + (`stats`.`GP` * 0.055)) + 26.5),99),30),0) desc;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `calc_ld` AS select `m`.`CEHLid` AS `CEHLid`,`m`.`FirstName` AS `FirstName`,`m`.`LastName` AS `LastName`,(year(curdate()) - year(`m`.`Born`)) AS `Age`,(((((((year(curdate()) - year(`m`.`Born`)) * 1.8) + `pd`.`GP`) * 0.06) + 15) + (10 * `m`.`Captain`)) + (5 * `m`.`AsstCaptain`)) AS `LD` from (`player_master` `m` left join `raw_player_data_grouped` `pd` on(((`m`.`FirstName` = `pd`.`FirstName`) and (`m`.`LastName` = `pd`.`LastName`))));
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `raw_player_data_grouped` AS select `raw_player_data`.`LastName` AS `LastName`,`raw_player_data`.`FirstName` AS `FirstName`,sum(`raw_player_data`.`GP`) AS `GP`,sum(`raw_player_data`.`G`) AS `G`,sum(`raw_player_data`.`A`) AS `A`,sum(`raw_player_data`.`PTS`) AS `PTS`,sum(`raw_player_data`.`PlusMinus`) AS `PlusMinus`,sum(`raw_player_data`.`PIM`) AS `PIM`,sum(`raw_player_data`.`Shot`) AS `Shot`,sum(`raw_player_data`.`TOI`) AS `TOI`,sum(`raw_player_data`.`ESG`) AS `ESG`,sum(`raw_player_data`.`PPG`) AS `PPG`,sum(`raw_player_data`.`SHG`) AS `SHG` from `raw_player_data` group by `raw_player_data`.`LastName`,`raw_player_data`.`FirstName`;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `merge_player_bio`()
+BEGIN
+
+INSERT INTO `player_ratings`.`player`
+(
+	`name`,
+	`position`,
+	`dob`,
+	`country`,
+	`height`,
+	`weight`)
+	SELECT b.name, b.position, max(b.dob) as dob, 
+	 max(b.country) as country, max(b.height) as height, max(b.weight) as weight
+	FROM player_ratings.import_player_bio b
+	group by b.name, b.dob
+	order by b.year DESC, b.name, b.dob
+	ON DUPLICATE KEY UPDATE position = VALUES(position), country = VALUES(country), height = VALUES(height), weight = VALUES(weight);
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `merge_player_season`()
+BEGIN
+
+INSERT INTO `player_ratings`.`player_season`
+(`player_id`,`year`,`team`,`position`)
+select distinct p.id as player_id, b.year, b.team, b.position
+ FROM player_ratings.player p
+JOIN player_ratings.import_player_bio b ON p.name = b.name and p.dob = b.dob
+ON DUPLICATE KEY UPDATE year = VALUES(year), team = VALUES(team), position = VALUES(position);
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `merge_stats_all_strengths`()
+BEGIN
+
+INSERT INTO `player_ratings`.`player_stats_all_strengths`
+(
+`player_season_id`,
+`year`,
+`gp`,
+`toi`,
+`goals`,
+`assists`,
+`assists_first`,
+`assists_second`,
+`points`,
+`ipp`,
+`shots`,
+`sh_pct`,
+`ixg`,
+`icf`,
+`iff`,
+`iscf`,
+`ihdcf`,
+`rush_attempt`,
+`rebounds_created`,
+`pim`,
+`pen_total`,
+`pen_minor`,
+`pen_major`,
+`pen_misconduct`,
+`pen_drawn`,
+`give_away`,
+`take_away`,
+`hits`,
+`hits_taken`,
+`shots_blocked`,
+`faceoff_won`,
+`facoff_lost`,
+`faceoff_pct`)
+SELECT ps.id as player_season_id,
+`sa`.`year`,
+    `sa`.`gp`,
+    `sa`.`toi`,
+    `sa`.`goals`,
+    `sa`.`assists`,
+    `sa`.`assists_first`,
+    `sa`.`assists_second`,
+    `sa`.`points`,
+    `sa`.`ipp`,
+    `sa`.`shots`,
+    `sa`.`sh_pct`,
+    `sa`.`ixg`,
+    `sa`.`icf`,
+    `sa`.`iff`,
+    `sa`.`iscf`,
+    `sa`.`ihdcf`,
+    `sa`.`rush_attempt`,
+    `sa`.`rebounds_created`,
+    `sa`.`pim`,
+    `sa`.`pen_total`,
+    `sa`.`pen_minor`,
+    `sa`.`pen_major`,
+    `sa`.`pen_misconduct`,
+    `sa`.`pen_drawn`,
+    `sa`.`give_away`,
+    `sa`.`take_away`,
+    `sa`.`hits`,
+    `sa`.`hits_taken`,
+    `sa`.`shots_blocked`,
+    `sa`.`faceoff_won`,
+    `sa`.`facoff_lost`,
+    `sa`.`faceoff_pct`
+ FROM player_ratings.player p
+JOIN player_ratings.import_player_bio b ON p.name = b.name and p.dob = b.dob
+JOIN player_ratings.player_season ps ON ps.player_id = p.id AND ps.year = b.year
+JOIN player_ratings.import_player_stats_all_strengths sa 
+ON b.name = sa.name AND b.team = sa.team and b.position = sa.position AND b.year = sa.year
+ON DUPLICATE KEY UPDATE year = VALUES(year);
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `merge_stats_on_ice`()
+BEGIN
+
+INSERT INTO `player_ratings`.`player_stats_on_ice`
+(
+player_season_id,
+year, gp, toi, cf ,
+  ca, cf_pct, ff, fa, ff_pct, sf, sa, sf_pct, gf, ga ,
+  gf_pct, xgf, xga, xgf_pct, scf, sca, scf_pct, hdcf, hdca, hdcf_pct, hdgf, hdga, hdgf_pct, mdcf, mdca, mdcf_pct, mdgf, mdga, mdgf_pct ,
+  ldcf, ldca, ldcf_pct, ldgf, ldga, ldgf_pct, oi_sh_pct, oi_sv_pct, pdo, o_zone_start, n_zone_start, d_zone_start, f_zone_start)
+SELECT ps.id as player_season_id,
+sa.year,
+    gp, toi, cf ,
+  ca, cf_pct, ff, fa, ff_pct, sf, sa, sf_pct, gf, ga ,
+  gf_pct, xgf, xga, xgf_pct, scf, sca, scf_pct, hdcf, hdca, hdcf_pct, hdgf, hdga, hdgf_pct, mdcf, mdca, mdcf_pct, mdgf, mdga, mdgf_pct ,
+  ldcf, ldca, ldcf_pct, ldgf, ldga, ldgf_pct, oi_sh_pct, oi_sv_pct, pdo, o_zone_start, n_zone_start, d_zone_start, f_zone_start
+ FROM player_ratings.player p
+JOIN player_ratings.import_player_bio b ON p.name = b.name and p.dob = b.dob
+JOIN player_ratings.player_season ps ON ps.player_id = p.id AND ps.year = b.year
+JOIN player_ratings.import_player_stats_on_ice sa 
+ON b.name = sa.name AND b.team = sa.team and b.position = sa.position AND b.year = sa.year
+ON DUPLICATE KEY UPDATE year = VALUES(year);
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `merge_stats_pk`()
+BEGIN
+
+INSERT INTO `player_ratings`.`player_stats_pk`
+(
+`player_season_id`,
+`year`,
+`gp`,
+`toi`,
+`goals`,
+`assists`,
+`assists_first`,
+`assists_second`,
+`points`,
+`ipp`,
+`shots`,
+`sh_pct`,
+`ixg`,
+`icf`,
+`iff`,
+`iscf`,
+`ihdcf`,
+`rush_attempt`,
+`rebounds_created`,
+`pim`,
+`pen_total`,
+`pen_minor`,
+`pen_major`,
+`pen_misconduct`,
+`pen_drawn`,
+`give_away`,
+`take_away`,
+`hits`,
+`hits_taken`,
+`shots_blocked`,
+`faceoff_won`,
+`facoff_lost`,
+`faceoff_pct`)
+SELECT ps.id as player_season_id,
+`sa`.`year`,
+    `sa`.`gp`,
+    `sa`.`toi`,
+    `sa`.`goals`,
+    `sa`.`assists`,
+    `sa`.`assists_first`,
+    `sa`.`assists_second`,
+    `sa`.`points`,
+    `sa`.`ipp`,
+    `sa`.`shots`,
+    `sa`.`sh_pct`,
+    `sa`.`ixg`,
+    `sa`.`icf`,
+    `sa`.`iff`,
+    `sa`.`iscf`,
+    `sa`.`ihdcf`,
+    `sa`.`rush_attempt`,
+    `sa`.`rebounds_created`,
+    `sa`.`pim`,
+    `sa`.`pen_total`,
+    `sa`.`pen_minor`,
+    `sa`.`pen_major`,
+    `sa`.`pen_misconduct`,
+    `sa`.`pen_drawn`,
+    `sa`.`give_away`,
+    `sa`.`take_away`,
+    `sa`.`hits`,
+    `sa`.`hits_taken`,
+    `sa`.`shots_blocked`,
+    `sa`.`faceoff_won`,
+    `sa`.`facoff_lost`,
+    `sa`.`faceoff_pct`
+ FROM player_ratings.player p
+JOIN player_ratings.import_player_bio b ON p.name = b.name and p.dob = b.dob
+JOIN player_ratings.player_season ps ON ps.player_id = p.id AND ps.year = b.year
+JOIN player_ratings.import_player_stats_pk sa 
+ON b.name = sa.name AND b.team = sa.team and b.position = sa.position AND b.year = sa.year
+ON DUPLICATE KEY UPDATE year = VALUES(year);
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `merge_stats_pp`()
+BEGIN
+
+INSERT INTO `player_ratings`.`player_stats_pp`
+(
+`player_season_id`,
+`year`,
+`gp`,
+`toi`,
+`goals`,
+`assists`,
+`assists_first`,
+`assists_second`,
+`points`,
+`ipp`,
+`shots`,
+`sh_pct`,
+`ixg`,
+`icf`,
+`iff`,
+`iscf`,
+`ihdcf`,
+`rush_attempt`,
+`rebounds_created`,
+`pim`,
+`pen_total`,
+`pen_minor`,
+`pen_major`,
+`pen_misconduct`,
+`pen_drawn`,
+`give_away`,
+`take_away`,
+`hits`,
+`hits_taken`,
+`shots_blocked`,
+`faceoff_won`,
+`facoff_lost`,
+`faceoff_pct`)
+SELECT ps.id as player_season_id,
+`sa`.`year`,
+    `sa`.`gp`,
+    `sa`.`toi`,
+    `sa`.`goals`,
+    `sa`.`assists`,
+    `sa`.`assists_first`,
+    `sa`.`assists_second`,
+    `sa`.`points`,
+    `sa`.`ipp`,
+    `sa`.`shots`,
+    `sa`.`sh_pct`,
+    `sa`.`ixg`,
+    `sa`.`icf`,
+    `sa`.`iff`,
+    `sa`.`iscf`,
+    `sa`.`ihdcf`,
+    `sa`.`rush_attempt`,
+    `sa`.`rebounds_created`,
+    `sa`.`pim`,
+    `sa`.`pen_total`,
+    `sa`.`pen_minor`,
+    `sa`.`pen_major`,
+    `sa`.`pen_misconduct`,
+    `sa`.`pen_drawn`,
+    `sa`.`give_away`,
+    `sa`.`take_away`,
+    `sa`.`hits`,
+    `sa`.`hits_taken`,
+    `sa`.`shots_blocked`,
+    `sa`.`faceoff_won`,
+    `sa`.`facoff_lost`,
+    `sa`.`faceoff_pct`
+ FROM player_ratings.player p
+JOIN player_ratings.import_player_bio b ON p.name = b.name and p.dob = b.dob
+JOIN player_ratings.player_season ps ON ps.player_id = p.id AND ps.year = b.year
+JOIN player_ratings.import_player_stats_pp sa 
+ON b.name = sa.name AND b.team = sa.team and b.position = sa.position AND b.year = sa.year
+ON DUPLICATE KEY UPDATE year = VALUES(year);
+END$$
+DELIMITER ;
