@@ -48,7 +48,7 @@ public abstract class AbstractRatingProcessor implements RatingProcessor2{
 //		//calculate rating
 //		double rating = RerateUtils.calculateWeightedAverage(map);
 		
-		double rating = 0;
+		Double rating = (double) 0;
 		
 		//use total average to determine rating for players played less than 3 seasons.
 		if(accumulator.getTotalSeasons() <= 2 || accumulator.getTotalStats().getGp() <= 82) {
@@ -98,7 +98,9 @@ public abstract class AbstractRatingProcessor implements RatingProcessor2{
 //			rating = adjustRating(rating, accumulator.getTotalStats().getGp());
 //		}
 	
-		
+		if(rating.isInfinite() || rating.isNaN()) {
+			return 60;
+		}
 		
 		return RerateUtils.normalizeRating(rating);
 

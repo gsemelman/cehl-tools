@@ -78,6 +78,8 @@ public class RerateJob {
 	@Autowired
 	@Qualifier("leaguePrefix")
 	private String leaguePrefix;
+	
+
 
 	@Transactional
 	public void reratePlayers(int endYear) {
@@ -101,35 +103,12 @@ public class RerateJob {
 		        return mapRet;
 		    }
 		});
-		
-	
-		
-		Iterable<Player> playeritr = repository.findAll(Sort.by("name").ascending());
 
-		
 		List<RosterRaw> rosterList = RosterTools.loadRoster(getLeagueFileByType(SimFileType.ROSTER_FILE), false);
 
 		List<String[]> rows = new ArrayList<>();
 		rows.add(new String[] {"Team","Number","Name","Position","IT","SP","ST","EN","DU","DI","SK","PA","PC","DF","SC","EX","LD","OV"});
 
-//		Map<String,Player> playerException = new HashMap<>();
-//		Map<String,Player> players = new HashMap<>();
-//		playeritr.forEach(p-> {
-//			String name = p.getName();
-//			//handle name exceptions
-//			
-//			if(dupExceptions.contains(name)) {
-//				playerException.put(name.toUpperCase() + "-" + p.getCountry(), p);
-//			//	return;
-//			}
-//
-//			if(nameExceptions.containsKey(name)) {
-//				name = nameExceptions.get(name);
-//			}
-//			players.put(name.toUpperCase(), p);
-//		});
-//		
-//		logger.info(""+players.size());
 
 		for(RosterRaw rosterRaw : rosterList){
 			

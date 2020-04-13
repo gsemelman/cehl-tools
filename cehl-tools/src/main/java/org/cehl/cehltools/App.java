@@ -37,6 +37,7 @@ public class App{
 	static final String CMD_LINE_HOLDOUT = "holdoutUpdate";
 	static final String CMD_LINE_UPLOAD = "upload";
 	static final String CMD_LINE_ROSTER_EXPORT = "rosterExport";
+	static final String CMD_LINE_UNASSIGNED_RERATE = "unassignedRerate";
 	
 	private Options commandLineOptions;
 	private ApplicationContext ctx;
@@ -136,6 +137,11 @@ public class App{
 		
 		optionGroup = new OptionGroup();
 		option = new Option(CMD_LINE_ROSTER_EXPORT, false,"Roster Export");
+		optionGroup.addOption(option);
+		commandLineOptions.addOptionGroup(optionGroup);
+		
+		optionGroup = new OptionGroup();
+		option = new Option(CMD_LINE_UNASSIGNED_RERATE, false,"Unassigned rerate");
 		optionGroup.addOption(option);
 		commandLineOptions.addOptionGroup(optionGroup);
 		
@@ -258,6 +264,14 @@ public class App{
 			return;
 		}else if(cmdLine.hasOption(CMD_LINE_ROSTER_EXPORT)) {
 			JobRunner.rosterExport();
+			return;
+		}else if(cmdLine.hasOption(CMD_LINE_UNASSIGNED_RERATE)) {
+			String optionArg = cmdLine.getOptionValue(CMD_LINE_UNASSIGNED_RERATE);
+			if(optionArg == null){
+				logger.error(" CSV must be passed in as parameter (with -" + CMD_LINE_UNASSIGNED_RERATE + ")");
+				System.exit(1);
+			}
+			JobRunner.unassignedRerate(new File(optionArg));
 			return;
 		}else{
 			usage();

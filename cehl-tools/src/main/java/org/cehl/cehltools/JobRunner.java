@@ -12,6 +12,7 @@ import org.cehl.cehltools.jobs.RerateImportJob;
 import org.cehl.cehltools.jobs.RookieFixJob;
 import org.cehl.cehltools.jobs.RosterExportJob;
 import org.cehl.cehltools.jobs.UnassignedCleanupJob;
+import org.cehl.cehltools.jobs.UnassignedRerateImportJob;
 import org.cehl.cehltools.jobs.UploadJob;
 import org.cehl.commons.spring.StaticContextAccessor;
 
@@ -81,4 +82,12 @@ public class JobRunner {
     	RosterExportJob job = StaticContextAccessor.getBean(RosterExportJob.class);
     	job.runJob();
     }
+    
+    public static void unassignedRerate(File inputFile){
+    	UnassignedRerateImportJob job = StaticContextAccessor.getBean(UnassignedRerateImportJob.class);
+    	job.setInputFile(inputFile);
+    	job.runJob();
+    }
+    
+    
 }

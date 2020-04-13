@@ -46,7 +46,7 @@ public class RerateRunner {
     	ConfigurableApplicationContext context = appBuilder.run(args);
 
     	RerateRunner runner = new RerateRunner();
-    	runner.run(context);
+    	runner.run3(context);
     }
     
     void run(ApplicationContext context) {
@@ -54,6 +54,22 @@ public class RerateRunner {
     	RerateJob job =context.getBean(RerateJob.class);
     	
     	job.reratePlayers(2018);
+    
+    }
+    
+    void run2(ApplicationContext context) {
+
+    	CsvRerateJob job =context.getBean(CsvRerateJob.class);
+    	
+    	job.runJob(2018);
+    
+    }
+    
+    void run3(ApplicationContext context) {
+
+    	DrsRerateJob job =context.getBean(DrsRerateJob.class);
+    	
+    	job.runJob(2018);
     
     }
 }

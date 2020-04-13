@@ -79,10 +79,26 @@ public class RerateConfig {
     public boolean isPlayoffMode(){
     	return env.getRequiredProperty("league.playoff.mode", Boolean.class);
     }
+	
+	@Bean
+	public RerateService rerateService() {
+		return new RerateService();
+	}
 
 	@Bean
 	public RerateJob rerateJob() {
 		return new RerateJob();
 	}
+	
+	@Bean
+	public CsvRerateJob csvRerateJob() {
+		return new CsvRerateJob("input/csv_rerate.csv");
+	}
+	
+	@Bean
+	public DrsRerateJob drsRerateJob() {
+		return new DrsRerateJob();
+	}
+	
 
 }

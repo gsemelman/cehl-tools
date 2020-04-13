@@ -11,8 +11,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.cehl.raw.DrsRaw;
+import org.cehl.raw.RosterRaw;
 import org.supercsv.cellprocessor.ConvertNullTo;
 import org.supercsv.cellprocessor.ParseInt;
 import org.supercsv.cellprocessor.Trim;
@@ -340,5 +342,11 @@ public class DrsTools {
 	}
 
 	
-
+	public static List<DrsRaw> findPlayerByName(List<DrsRaw> drsList , String name){
+		return drsList.stream()
+				.filter(roster -> roster.getName().toUpperCase().equals(name.toUpperCase()))
+				.collect(Collectors.toList());
+		
+	}
+	
 }
