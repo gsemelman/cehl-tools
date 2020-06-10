@@ -13,7 +13,7 @@ import java.util.List;
 import org.cehl.cehltools.JobType;
 import org.cehl.commons.SimFileType;
 import org.cehl.raw.CoachRaw;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.decode.CoachDecodeTools;
 import org.cehl.raw.decode.DecodeTools;
 import org.cehl.raw.transformer.coach.CoachImport;
@@ -100,7 +100,7 @@ public class CoachUpdaterJob extends AbstractJob{
 			coachRaw.setSalary(coachImport.getSalary());
 			
 			if(coachImport.getTeamAbbr() != null){
-				Teams team = Teams.fromAbbr(coachImport.getTeamAbbr().toUpperCase());
+				CehlTeam team = CehlTeam.fromAbbr(coachImport.getTeamAbbr().toUpperCase());
 				if(team == null){
 					throw new RuntimeException("Unable to find team for abbreviate [" + coachImport.getTeamAbbr() + "]" );	
 				}

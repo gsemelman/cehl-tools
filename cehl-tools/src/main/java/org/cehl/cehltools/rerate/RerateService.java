@@ -11,11 +11,9 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
-import javax.transaction.Transactional;
 
 import org.cehl.cehltools.rerate.agg.PlayerStatAccumulator;
 import org.cehl.cehltools.rerate.dto.PlayerRerateDto;
-import org.cehl.cehltools.rerate.dto.PlayerStatHolder;
 import org.cehl.cehltools.rerate.model.Player;
 import org.cehl.cehltools.rerate.model.PlayerRepository;
 import org.cehl.cehltools.rerate.processor.DfRatingProcessor;
@@ -34,7 +32,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
-import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 public class RerateService {
 	
@@ -57,6 +55,7 @@ public class RerateService {
 	ScRatingProcessor scProcessor; 
 	DfRatingProcessor dfProcessor;
 	ExRatingProcessor exProcessor;
+	//LdRatingProcessor ldProcessor;
 	
 	@PostConstruct
     public void init() {
@@ -71,6 +70,7 @@ public class RerateService {
 		scProcessor = new ScRatingProcessor();
 		dfProcessor= new DfRatingProcessor();
 		exProcessor = new ExRatingProcessor();
+		//ldProcessor = new LdRatingProcessor();
 		
 		JdbcTemplate template = new JdbcTemplate(ds);
 		
@@ -163,7 +163,8 @@ public class RerateService {
 		double pc = pcProcessor.getRating(p,psa);
 		double df = rerateDto.getDf();
 		double sc = scProcessor.getRating(p,psa);
-		double ex = rerateDto.getEx();
+		//double ex = rerateDto.getEx();
+		double ex = exProcessor.getSeasonRating(p, psa.getTotalStats());
 		double ld = rerateDto.getLd();
 
 		//set inital ov and populate result

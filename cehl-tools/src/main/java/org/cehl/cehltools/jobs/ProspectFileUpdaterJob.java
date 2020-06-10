@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 import org.cehl.cehltools.JobType;
 import org.cehl.cehltools.dto.ProspectDto;
 import org.cehl.commons.SimFileType;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.decode.DecodeTools;
 import org.cehl.raw.decode.TeamNameProcessor;
 import org.slf4j.Logger;
@@ -78,10 +78,10 @@ public class ProspectFileUpdaterJob extends AbstractJob {
 		
 		File outputFile = new File(this.getBaseOutputLocation(),super.getFileNameStringByType(SimFileType.PROSPECT_FILE));
 
-		Map<Teams,List<ProspectDto>> prospectMap = prospects.stream().collect(Collectors.groupingBy(ProspectDto::getTeam)); 
+		Map<CehlTeam,List<ProspectDto>> prospectMap = prospects.stream().collect(Collectors.groupingBy(ProspectDto::getTeam)); 
 
 		try(BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(outputFile))){
-			for(Teams team : Teams.values()) {
+			for(CehlTeam team : CehlTeam.values()) {
 				List<ProspectDto> list = prospectMap.get(team);
 				int listSize = 0;
 				

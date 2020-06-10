@@ -16,7 +16,7 @@ import org.cehl.model.cehl.player.PlayerPositionType;
 import org.cehl.raw.DrsRaw;
 import org.cehl.raw.ProspectRaw;
 import org.cehl.raw.RosterRaw;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.decode.DrsTools;
 import org.cehl.raw.decode.ProspectDecodeTools;
 import org.cehl.raw.decode.RosterTools;
@@ -149,7 +149,7 @@ public class ProspectImporter2 {
 		   		RosterRaw newRos = new RosterRaw();
 		   		try {
 					BeanUtils.copyProperties(newRos,newDrs);
-					Teams team = Teams.valueOf(prospect.getTeamName());
+					CehlTeam team = CehlTeam.valueOf(prospect.getTeamName());
 					if(team == null){
 						throw new RuntimeException("unable to find team " + prospect.getTeamName() );
 					}
@@ -221,7 +221,7 @@ public class ProspectImporter2 {
 		}else{
 			//throw new RuntimeException("Unable to add player to roster, no available spots");	
 			messages.add("Unable to add player to roster, no available spots [" 
-			+ ros.getName() + "] [" + Teams.fromId(ros.getTeamId()) + "]");
+			+ ros.getName() + "] [" + CehlTeam.fromId(ros.getTeamId()) + "]");
 		}
 		
 		

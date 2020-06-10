@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.cehl.raw.CoachRaw;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.decode.CoachDecodeTools;
 import org.cehl.raw.transformer.coach.CoachImport;
 import org.supercsv.cellprocessor.ift.CellProcessor;
@@ -35,7 +35,7 @@ public class CoachExport {
 			ci.setOf(coachRaw.getOf());
 			ci.setSalary(coachRaw.getSalary() / 2);
 			
-			Teams team = Teams.fromId(coachRaw.getTeamId());		
+			CehlTeam team = CehlTeam.fromId(coachRaw.getTeamId());		
 			if(team!= null){
 				ci.setTeamAbbr(team.name());
 			}

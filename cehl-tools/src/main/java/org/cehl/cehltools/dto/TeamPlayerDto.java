@@ -1,26 +1,26 @@
 package org.cehl.cehltools.dto;
 
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 
 public class TeamPlayerDto {
-	private Teams team;
+	private CehlTeam team;
 	private String playerName;
 
 	public TeamPlayerDto() {
 		super();
 	}
 	
-	public TeamPlayerDto(Teams team, String playerName) {
+	public TeamPlayerDto(CehlTeam team, String playerName) {
 		super();
 		this.team = team;
 		this.playerName = playerName;
 	}
 
-	public Teams getTeam() {
+	public CehlTeam getTeam() {
 		return team;
 	}
 
-	public void setTeam(Teams team) {
+	public void setTeam(CehlTeam team) {
 		this.team = team;
 	}
 

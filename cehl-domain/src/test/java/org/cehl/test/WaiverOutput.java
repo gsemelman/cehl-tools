@@ -9,7 +9,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.cehl.raw.RosterRaw;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.decode.RosterTools;
 import org.supercsv.cellprocessor.FmtBool;
 import org.supercsv.cellprocessor.FmtDate;
@@ -45,7 +45,7 @@ public class WaiverOutput {
 				
 				
 				List<RosterRaw> lastSeasonList = RosterTools.findPlayerByNameAndTeam(
-						rosterListSeason26, rosterRaw.getName(), Teams.fromId(rosterRaw.getTeamId()));
+						rosterListSeason26, rosterRaw.getName(), CehlTeam.fromId(rosterRaw.getTeamId()));
 				if(lastSeasonList.isEmpty()) {
 					lastSeasonList = RosterTools.findPlayerByName(rosterListSeason26, rosterRaw.getName());
 				}

@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.sql.DataSource;
-import javax.transaction.Transactional;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.math3.util.Precision;
@@ -36,8 +35,8 @@ import org.cehl.cehltools.rerate.processor.StRatingProcessor;
 import org.cehl.cehltools.rerate.rating.RatingResult;
 import org.cehl.commons.SimFileType;
 import org.cehl.model.cehl.player.PlayerPositionType;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.RosterRaw;
-import org.cehl.raw.Teams;
 import org.cehl.raw.decode.RosterTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,6 +47,7 @@ import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.data.domain.Sort;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.transaction.annotation.Transactional;
 
 public class RerateJob {
 	
@@ -117,7 +117,7 @@ public class RerateJob {
 			}
 			
 			PlayerPositionType position = PlayerPositionType.PositionByRawValue(rosterRaw.getPosition());
-			Teams team = Teams.fromId(rosterRaw.getTeamId());
+			CehlTeam team = CehlTeam.fromId(rosterRaw.getTeamId());
 			
 			if(StringUtils.isBlank(rosterRaw.getName())) continue;
 			

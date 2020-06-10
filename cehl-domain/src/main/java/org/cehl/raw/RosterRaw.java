@@ -469,12 +469,12 @@ public class RosterRaw implements Serializable{
 						farmPim, farmPim2, hits, hits2);
 	}
 
-	public Teams getTeamAbbr() {
-		return Teams.fromId(getTeamId());
+	public CehlTeam getTeamAbbr() {
+		return CehlTeam.fromId(getTeamId());
 	}
 	
 	public String getTeamName() {
-		return Teams.fromId(getTeamId()).getName();
+		return CehlTeam.fromId(getTeamId()).getName();
 	}
 	
 	public String getPositionString() {

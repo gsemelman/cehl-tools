@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.cehl.raw.RosterRaw;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
@@ -271,7 +271,7 @@ public class RosterTools {
 //		
 //		return counter > 1;
 	}
-	public static RosterRaw findRosterByNameAndTeam(List<RosterRaw> rosterList, String name, Teams team){
+	public static RosterRaw findRosterByNameAndTeam(List<RosterRaw> rosterList, String name, CehlTeam team){
 		return findRosterByNameAndTeam(rosterList, name, team.getTeamId());
 	}
 	
@@ -290,7 +290,7 @@ public class RosterTools {
 		
 	}
 	
-	public static  List<RosterRaw>  findPlayerByNameAndTeam(List<RosterRaw> rosterList, String name, Teams team){
+	public static  List<RosterRaw>  findPlayerByNameAndTeam(List<RosterRaw> rosterList, String name, CehlTeam team){
 		return findPlayerByName(rosterList, name).stream()
 				.filter(roster -> roster.getTeamId() == team.getTeamId())
 				.collect(Collectors.toList());

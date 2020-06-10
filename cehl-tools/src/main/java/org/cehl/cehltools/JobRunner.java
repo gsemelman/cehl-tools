@@ -8,7 +8,7 @@ import org.cehl.cehltools.jobs.ContractImportJob;
 import org.cehl.cehltools.jobs.HoldoutJob;
 import org.cehl.cehltools.jobs.ProspecImportJob;
 import org.cehl.cehltools.jobs.ProspectFileUpdaterJob;
-import org.cehl.cehltools.jobs.RerateImportJob;
+import org.cehl.cehltools.jobs.RerateImportJob2;
 import org.cehl.cehltools.jobs.RookieFixJob;
 import org.cehl.cehltools.jobs.RosterExportJob;
 import org.cehl.cehltools.jobs.UnassignedCleanupJob;
@@ -37,7 +37,7 @@ public class JobRunner {
     }
     
     public static void rerateImport(File inputFile){
-    	RerateImportJob job = StaticContextAccessor.getBean(RerateImportJob.class);
+    	RerateImportJob2 job = StaticContextAccessor.getBean(RerateImportJob2.class);
     	job.setInputFile(inputFile);
     	job.runJob();
     }

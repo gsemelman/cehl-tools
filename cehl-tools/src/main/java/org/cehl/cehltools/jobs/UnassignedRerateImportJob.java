@@ -15,7 +15,7 @@ import org.cehl.cehltools.rerate.model.Player;
 import org.cehl.commons.SimFileType;
 import org.cehl.raw.DrsRaw;
 import org.cehl.raw.RosterRaw;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.decode.DrsTools;
 import org.cehl.raw.decode.GoalieStatProcessor;
 import org.cehl.raw.decode.RatingProcessor;

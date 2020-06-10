@@ -17,7 +17,7 @@ import org.cehl.model.cehl.player.PlayerPositionType;
 import org.cehl.raw.DrsRaw;
 import org.cehl.raw.ProspectRaw;
 import org.cehl.raw.RosterRaw;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.decode.DrsTools;
 import org.cehl.raw.decode.ProspectDecodeTools;
 import org.cehl.raw.decode.RosterTools;
@@ -112,10 +112,10 @@ public class ProspecImportJob extends AbstractJob{
 	   		else{
 	   			
 				//search by name first
-				Teams team = Teams.fromName(prospect.getTeamName());
+				CehlTeam team = CehlTeam.fromName(prospect.getTeamName());
 				//if name not found search by abbreviation
 				if(team == null){
-					team = Teams.fromAbbr(prospect.getTeamName());
+					team = CehlTeam.fromAbbr(prospect.getTeamName());
 				}
 
 				if(team == null){
@@ -249,7 +249,7 @@ public class ProspecImportJob extends AbstractJob{
 			logger.debug("Unable to add player to roster, no available spots");
 			//throw new RuntimeException("Unable to add player to roster, no available spots");	
 			this.addMessage("Unable to add player [" + ros.getName() 
-			+ "]to roster, no available spots on team [" + Teams.fromId(ros.getTeamId()) + "]");
+			+ "]to roster, no available spots on team [" + CehlTeam.fromId(ros.getTeamId()) + "]");
 		}
 		
 		

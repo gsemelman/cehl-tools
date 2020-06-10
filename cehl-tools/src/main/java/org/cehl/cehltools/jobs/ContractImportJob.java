@@ -11,7 +11,7 @@ import org.cehl.cehltools.JobType;
 import org.cehl.cehltools.dto.ContractDto;
 import org.cehl.commons.SimFileType;
 import org.cehl.raw.RosterRaw;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.decode.RosterTools;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -70,7 +70,7 @@ public class ContractImportJob extends AbstractJob {
 			
 			if(playerSearch.size() > 1) {
 				logger.debug("Multiple players found. Searching by team name");
-				Teams team = Teams.fromName(rawRerate.getTeamName());
+				CehlTeam team = CehlTeam.fromName(rawRerate.getTeamName());
 				
 				if(team == null) {
 					logger.debug("Unknown team name");

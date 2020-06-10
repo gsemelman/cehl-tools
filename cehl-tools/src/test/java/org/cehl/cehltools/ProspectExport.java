@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.cehl.cehltools.dto.ProspectDto;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.decode.DecodeTools;
 import org.supercsv.cellprocessor.constraint.NotNull;
 import org.supercsv.cellprocessor.ift.CellProcessor;
@@ -50,7 +50,7 @@ public class ProspectExport {
 
 				if(StringUtils.isNoneEmpty(prospectName)) {
 					ProspectDto dto = new ProspectDto();
-					Teams team = Teams.fromId(teamId);
+					CehlTeam team = CehlTeam.fromId(teamId);
 					dto.setTeam(team);
 					dto.setProspectName(DecodeTools.readString(rawRecord));
 

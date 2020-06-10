@@ -13,7 +13,7 @@ import java.util.List;
 import org.cehl.cehltools.JobType;
 import org.cehl.cehltools.dto.CashDto;
 import org.cehl.commons.SimFileType;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.decode.DecodeTools;
 import org.cehl.raw.decode.TeamDecodeTools;
 import org.slf4j.Logger;
@@ -81,7 +81,7 @@ public class CashUpdaterJob extends AbstractJob {
 	        for (byte[] bytes : byteList) {
 	        	for(CashDto cash : cashList){
 	        		
-	        		Teams team = Teams.fromName(cash.getTeamName());
+	        		CehlTeam team = CehlTeam.fromName(cash.getTeamName());
 	        		
 	        		if(team == null){
 	        			throw new RuntimeException("Invalid team name :" + cash.getTeamName());

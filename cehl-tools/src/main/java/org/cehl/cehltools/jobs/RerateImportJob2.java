@@ -12,13 +12,16 @@ import org.cehl.cehltools.dto.RerateDto;
 import org.cehl.commons.SimFileType;
 import org.cehl.raw.DrsRaw;
 import org.cehl.raw.RosterRaw;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.decode.DrsTools;
+import org.cehl.raw.decode.GoalieStatProcessor;
 import org.cehl.raw.decode.RatingProcessor;
 import org.cehl.raw.decode.RosterTools;
+import org.cehl.raw.decode.TeamNameProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.supercsv.cellprocessor.ParseInt;
 import org.supercsv.cellprocessor.Trim;
 import org.supercsv.cellprocessor.constraint.NotNull;
 import org.supercsv.cellprocessor.constraint.StrMinMax;
@@ -74,7 +77,7 @@ public class RerateImportJob2 extends AbstractJob {
 			
 			if(playerSearch.size() > 1) {
 				logger.debug("Multiple players found. Searching by team name");
-				Teams team = Teams.fromName(rawRerate.getTeamName());
+				CehlTeam team = CehlTeam.fromName(rawRerate.getTeamName());
 				
 				if(team == null) {
 					logger.debug("Unknown team name");
@@ -108,43 +111,43 @@ public class RerateImportJob2 extends AbstractJob {
 				rosterToUpdate.setAge(rawRerate.getAge());
 			}
 			if(rawRerate.getIt() > 0) {
-				rosterToUpdate.setAge(rawRerate.getIt());
+				rosterToUpdate.setIt(rawRerate.getIt());
 			}
 			if(rawRerate.getSp() > 0) {
-				rosterToUpdate.setAge(rawRerate.getSp());
+				rosterToUpdate.setSp(rawRerate.getSp());
 			}
 			if(rawRerate.getSt() > 0) {
-				rosterToUpdate.setAge(rawRerate.getSt());
+				rosterToUpdate.setSt(rawRerate.getSt());
 			}
 			if(rawRerate.getEn() > 0) {
-				rosterToUpdate.setAge(rawRerate.getEn());
+				rosterToUpdate.setEn(rawRerate.getEn());
 			}
 			if(rawRerate.getDu() > 0) {
-				rosterToUpdate.setAge(rawRerate.getDu());
+				rosterToUpdate.setDu(rawRerate.getDu());
 			}
 			if(rawRerate.getDi() > 0) {
-				rosterToUpdate.setAge(rawRerate.getDi());
+				rosterToUpdate.setDi(rawRerate.getDi());
 			}
 			if(rawRerate.getSk() > 0) {
-				rosterToUpdate.setAge(rawRerate.getSk());
+				rosterToUpdate.setSk(rawRerate.getSk());
 			}
 			if(rawRerate.getPa() > 0) {
-				rosterToUpdate.setAge(rawRerate.getPa());
+				rosterToUpdate.setPa(rawRerate.getPa());
 			}
 			if(rawRerate.getPc() > 0) {
-				rosterToUpdate.setAge(rawRerate.getPc());
+				rosterToUpdate.setPc(rawRerate.getPc());
 			}
 			if(rawRerate.getDf() > 0) {
-				rosterToUpdate.setAge(rawRerate.getDf());
+				rosterToUpdate.setDf(rawRerate.getDf());
 			}
 			if(rawRerate.getSc() > 0) {
-				rosterToUpdate.setAge(rawRerate.getSc());
+				rosterToUpdate.setSc(rawRerate.getSc());
 			}
 			if(rawRerate.getEx() > 0) {
-				rosterToUpdate.setAge(rawRerate.getEx());
+				rosterToUpdate.setEx(rawRerate.getEx());
 			}
 			if(rawRerate.getLd() > 0) {
-				rosterToUpdate.setAge(rawRerate.getLd());
+				rosterToUpdate.setLd(rawRerate.getLd());
 			}
 			
 
@@ -227,11 +230,22 @@ public class RerateImportJob2 extends AbstractJob {
 
 		final CellProcessor[] processors = new CellProcessor[] {
 				new StrNotNullOrEmpty(new StrMinMax(1, 22, new Trim())), // Name
-				new StrNotNullOrEmpty(), // TeamName
-				new NotNull(new RatingProcessor()), //rating
-	
-				
-				
+				new TeamNameProcessor(true), // TeamName
+				new NotNull(new ParseInt()), // age
+				new NotNull(new RatingProcessor(0,99)), //intensity
+				new NotNull(new RatingProcessor(0,99)), //speed
+				new NotNull(new RatingProcessor(0,99)), //strength
+				new NotNull(new RatingProcessor(0,99)), //endurence
+				new NotNull(new RatingProcessor(0,99)), //duribility
+				new NotNull(new RatingProcessor(0,99)), //disciplie
+				new NotNull(new RatingProcessor(0,99)), //skaing
+				new NotNull(new RatingProcessor(0,99)), //pass accuracy
+				new NotNull(new RatingProcessor(0,99)), //puck control
+				new NotNull(new GoalieStatProcessor(new RatingProcessor(0,99))), //defense
+				new NotNull(new GoalieStatProcessor(new RatingProcessor(0,99))), //scoring
+				new NotNull(new RatingProcessor(0,99)), //experience
+				new NotNull(new RatingProcessor(0,99)) //leadership
+
 		};
 
 		return processors;

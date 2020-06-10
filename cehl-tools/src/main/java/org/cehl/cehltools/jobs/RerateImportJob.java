@@ -12,11 +12,12 @@ import org.cehl.cehltools.dto.RerateDto;
 import org.cehl.commons.SimFileType;
 import org.cehl.raw.DrsRaw;
 import org.cehl.raw.RosterRaw;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.decode.DrsTools;
 import org.cehl.raw.decode.GoalieStatProcessor;
 import org.cehl.raw.decode.RatingProcessor;
 import org.cehl.raw.decode.RosterTools;
+import org.cehl.raw.decode.TeamNameProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -76,7 +77,7 @@ public class RerateImportJob extends AbstractJob {
 			
 			if(playerSearch.size() > 1) {
 				logger.debug("Multiple players found. Searching by team name");
-				Teams team = Teams.fromName(rawRerate.getTeamName());
+				CehlTeam team = CehlTeam.fromName(rawRerate.getTeamName());
 				
 				if(team == null) {
 					logger.debug("Unknown team name");
@@ -204,7 +205,7 @@ public class RerateImportJob extends AbstractJob {
 
 		final CellProcessor[] processors = new CellProcessor[] {
 				new StrNotNullOrEmpty(new StrMinMax(1, 22, new Trim())), // Name
-				new StrNotNullOrEmpty(), // TeamName
+				new TeamNameProcessor(), // TeamName
 				new NotNull(new ParseInt()), // age
 				new NotNull(new RatingProcessor()), //intensity
 				new NotNull(new RatingProcessor()), //speed

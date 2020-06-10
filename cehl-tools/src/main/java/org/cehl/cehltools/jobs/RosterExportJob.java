@@ -12,7 +12,7 @@ import org.cehl.cehltools.rerate.RerateUtils;
 import org.cehl.commons.SimFileType;
 import org.cehl.model.cehl.player.PlayerPositionType;
 import org.cehl.raw.RosterRaw;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.decode.RosterTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,7 +52,7 @@ public class RosterExportJob extends AbstractJob{
 		for(RosterRaw rosterRaw : rosterList){
 			
 			PlayerPositionType position = PlayerPositionType.PositionByRawValue(rosterRaw.getPosition());
-			Teams team = Teams.fromId(rosterRaw.getTeamId());
+			CehlTeam team = CehlTeam.fromId(rosterRaw.getTeamId());
 			
 			if(StringUtils.isBlank(rosterRaw.getName())) continue;
 			

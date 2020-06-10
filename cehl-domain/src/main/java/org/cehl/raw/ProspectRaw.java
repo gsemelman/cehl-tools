@@ -164,7 +164,7 @@ public class ProspectRaw {
 		this.teamName = teamName;
 	}
 	
-	public void setTeamName(Teams team) {
+	public void setTeamName(CehlTeam team) {
 		this.teamName = team.getName();
 	}
 	

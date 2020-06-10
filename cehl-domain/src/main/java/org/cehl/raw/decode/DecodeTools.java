@@ -123,9 +123,9 @@ public class DecodeTools {
 				.order(java.nio.ByteOrder.LITTLE_ENDIAN).putInt(x).array();
 	}
 
-	public static byte[] getShortBytes(Integer x, int length) {
+	public static byte[] getShortBytes(Short x) {
 		return ByteBuffer.allocate(2).order(java.nio.ByteOrder.LITTLE_ENDIAN)
-				.putInt(x).array();
+				.putShort(x).array();
 	}
 
 	public static void writeString(byte[] bytes, String string, int offset,
@@ -156,12 +156,27 @@ public class DecodeTools {
 		// }
 	}
 
+	//added another method that is backwards compatible, but the length of a fhl int will always be 4 and is not required.
 	public static void writeInt(byte[] bytes, Integer x, int offset, int length) {
 		byte[] intBytes = getIntBytes(x, 4);
 
 		for (int i = 0; i < intBytes.length; i++) {
 			bytes[i + offset] = intBytes[i];
 		}
+	}
+	
+	public static void writeInt(byte[] bytes, Integer x, int offset) {
+		writeInt(bytes,offset, 4);
+	}
+	
+	public static void writeShort(byte[] bytes, Short val, int offset) {
+		
+		byte[] shortBytes = getShortBytes(val);
+
+		for (int i = 0; i < shortBytes.length; i++) {
+			bytes[i + offset] = shortBytes[i];
+		}
+		
 	}
 
 	public static int readShort(byte[] bytes) {

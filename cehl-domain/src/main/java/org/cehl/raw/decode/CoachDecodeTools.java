@@ -14,7 +14,7 @@ import java.util.Set;
 
 import org.cehl.commons.StringUtils;
 import org.cehl.raw.CoachRaw;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.transformer.coach.CoachImport;
 //import org.springframework.util.StringUtils;
 import org.supercsv.cellprocessor.Optional;
@@ -63,8 +63,8 @@ private static int RECORD_LENGTH = 31;
 	
 	public static void writeCoaches(List<CoachRaw> coachList, File ouputFile){
 
-		try {
-			BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(ouputFile.getAbsolutePath()));
+		try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(ouputFile.getAbsolutePath()));){
+			
 			
 			//List<byte[]> byteList = new ArrayList<byte[]>();
 			for (CoachRaw coach : coachList) {
@@ -80,9 +80,7 @@ private static int RECORD_LENGTH = 31;
 
 				bos.write(bytes);
 			}
-			
-			bos.close();
-			
+
 		} catch (FileNotFoundException e) {
 			System.out.println("File Not Found.");
 			throw new RuntimeException(e);
@@ -204,7 +202,7 @@ private static int RECORD_LENGTH = 31;
 			
 		}
 		
-		Set<String> missingTeams = Teams.getMissingTeamsByAbbr(teamAbbrSet);
+		Set<String> missingTeams = CehlTeam.getMissingTeamsByAbbr(teamAbbrSet);
 		if(!missingTeams.isEmpty()){
 			messages.add("All teams require a coach. Coach not set for the following teams. [" 
 					+ StringUtils.commaList(missingTeams) + "]");

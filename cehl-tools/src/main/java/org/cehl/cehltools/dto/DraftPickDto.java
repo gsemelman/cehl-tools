@@ -1,11 +1,22 @@
 package org.cehl.cehltools.dto;
 
+import org.cehl.raw.CehlTeam;
+
 public class DraftPickDto {
+	CehlTeam team;
 	int year;
 	int selection;
 	int teamId;
 	int newTeamId;
+	int active;
 	
+
+	public CehlTeam getTeam() {
+		return team;
+	}
+	public void setTeam(CehlTeam team) {
+		this.team = team;
+	}
 	public int getYear() {
 		return year;
 	}
@@ -30,20 +41,20 @@ public class DraftPickDto {
 	public void setNewTeamId(int newTeamId) {
 		this.newTeamId = newTeamId;
 	}
+	
+	//0 = no, -1 = year
+	public int isActive() {
+		return active;
+	}
+	public void setActive(int active) {
+		this.active = active;
+	}
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("DraftPickDto [year=");
-		builder.append(year);
-		builder.append(", selection=");
-		builder.append(selection);
-		builder.append(", teamId=");
-		builder.append(teamId);
-		builder.append(", newTeamId=");
-		builder.append(newTeamId);
-		builder.append("]");
-		return builder.toString();
+		return "DraftPickDto [team=" + team + ", year=" + year + ", selection=" + selection + ", teamId=" + teamId
+				+ ", newTeamId=" + newTeamId + ", active=" + active + "]";
 	}
+
 	
 	
 }

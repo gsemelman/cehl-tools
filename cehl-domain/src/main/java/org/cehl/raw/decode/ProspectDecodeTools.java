@@ -15,7 +15,7 @@ import org.cehl.model.cehl.player.PlayerHandType;
 import org.cehl.model.cehl.player.PlayerPositionType;
 import org.cehl.raw.DrsRaw;
 import org.cehl.raw.ProspectRaw;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.supercsv.cellprocessor.ParseInt;
 import org.supercsv.cellprocessor.Trim;
 import org.supercsv.cellprocessor.constraint.NotNull;
@@ -244,7 +244,7 @@ public class ProspectDecodeTools {
             TreeMap<Integer,ArrayList<String>> treeMap = new TreeMap<>();
             
             for(ProspectImport p : prospectList) {
-                Teams team = Teams.fromName(p.getTeam());
+                CehlTeam team = CehlTeam.fromName(p.getTeam());
                 
                 if(team == null) {
                     throw new RuntimeException("invalid team name" + p.getTeam());
@@ -267,7 +267,7 @@ public class ProspectDecodeTools {
             }
             
             //assumes teams are ordered correctly (by id)
-            for(Teams team : Teams.values()) {
+            for(CehlTeam team : CehlTeam.values()) {
                 ArrayList<String> prospects = treeMap.get(team.getTeamId());
                 for(int x = 0; x < TEAM_LENGTH ; x++ ) {
                     byte[] bytes = new byte[RECORD_LENGTH];

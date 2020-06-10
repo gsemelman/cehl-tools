@@ -2,7 +2,7 @@ package org.cehl.raw.decode;
 
 import org.cehl.model.cehl.player.PlayerHandType;
 import org.cehl.model.cehl.player.PlayerPositionType;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 
 public class ValidationHelper {
 	
@@ -62,7 +62,7 @@ public class ValidationHelper {
 	}
 	
 	public static boolean validateTeamAbbreviation(String abbr){
-		Teams team = Teams.fromAbbr(abbr);
+		CehlTeam team = CehlTeam.fromAbbr(abbr);
 		return team != null;
 	}
 	

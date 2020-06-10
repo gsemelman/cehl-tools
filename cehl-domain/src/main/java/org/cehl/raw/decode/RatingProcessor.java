@@ -14,9 +14,18 @@ import com.google.common.collect.Lists;
 public class RatingProcessor extends CellProcessorAdaptor{
 	static final ArrayList<String> NA_STRINGS = Lists.newArrayList("NA","N/A","#N/A");
 	
+	private int minValue = 25;
+	private int maxValue = 99;
+	
     public RatingProcessor() {
             super();
     }
+    
+    public RatingProcessor(int minValue, int maxValue) {
+        super();
+        this.minValue = minValue;
+        this.maxValue = maxValue;
+}
     
     public RatingProcessor(CellProcessor next) {
             // this constructor allows other processors to be chained after ParseDay
@@ -41,12 +50,12 @@ public class RatingProcessor extends CellProcessorAdaptor{
                          String.format("Could not parse rating '%s' as it is not an integer value", value), context, this);
             }
             
-            if(rating < 25) {
+            if(rating < minValue) {
             	 throw new SuperCsvCellProcessorException(
-                         String.format("Rating: '%s' cannot be lower than 25", value), context, this);
-            }else if(rating > 99) {
+                         String.format("Rating: '%s' cannot be lower than " + minValue, value), context, this);
+            }else if(rating > maxValue) {
            	 throw new SuperCsvCellProcessorException(
-                     String.format("Rating: '%s' cannot be higher than 99", value), context, this);
+                     String.format("Rating: '%s' cannot be higher than 99" + maxValue, value), context, this);
             }
             
 //            if(NA_STRINGS.contains(value.toString())){

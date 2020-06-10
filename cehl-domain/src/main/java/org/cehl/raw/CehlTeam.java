@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-public enum Teams {
+public enum CehlTeam {
 	ANA(0,"Anaheim"),
 	WPG(1,"Winnipeg"),
 	BOS(2,"Boston"),
@@ -47,13 +47,13 @@ public enum Teams {
 		return name;
 	}
 	
-	Teams(int teamId, String name){
+	CehlTeam(int teamId, String name){
 		this.teamId = teamId;
 		this.name= name;
 	}
 	
-	public static Teams fromId(int code) {
-		for(Teams team : Teams.values()) {
+	public static CehlTeam fromId(int code) {
+		for(CehlTeam team : CehlTeam.values()) {
 			if(team.getTeamId() == code) {
 				return team;
 			}
@@ -61,8 +61,8 @@ public enum Teams {
 		return null;
 	}
 	
-	public static Teams fromAbbr(String abbr) {
-		for(Teams team : Teams.values()) {
+	public static CehlTeam fromAbbr(String abbr) {
+		for(CehlTeam team : CehlTeam.values()) {
 			if(team.name().equals(abbr)) {
 				return team;
 			}
@@ -70,8 +70,8 @@ public enum Teams {
 		return null;
 	}
 	
-	public static Teams fromName(String name) {
-		for(Teams team : Teams.values()) {
+	public static CehlTeam fromName(String name) {
+		for(CehlTeam team : CehlTeam.values()) {
 			if(team.getName().equals(name)) {
 				return team;
 			}
@@ -82,7 +82,7 @@ public enum Teams {
 	public static Set<String> getMissingTeamsByAbbr(Collection<String> abbr){
 		Set<String> missingAbbr = new HashSet<String>();
 		
-		for(Teams team : Teams.values()) {
+		for(CehlTeam team : CehlTeam.values()) {
 			if(!abbr.contains(team.name())){
 				missingAbbr.add(team.getName());
 			}

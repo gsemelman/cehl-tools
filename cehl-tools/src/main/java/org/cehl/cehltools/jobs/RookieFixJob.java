@@ -9,7 +9,7 @@ import org.cehl.cehltools.JobType;
 import org.cehl.cehltools.dto.TeamPlayerDto;
 import org.cehl.commons.SimFileType;
 import org.cehl.raw.RosterRaw;
-import org.cehl.raw.Teams;
+import org.cehl.raw.CehlTeam;
 import org.cehl.raw.decode.RosterTools;
 import org.cehl.raw.decode.TeamNameProcessor;
 import org.slf4j.Logger;
@@ -112,7 +112,7 @@ public class RookieFixJob extends AbstractJob{
 					if(rosterRaw.getGamesPlayed() >= 25){
 						System.out.println(rosterRaw);
 						
-						rookieList.add(new TeamPlayerDto(Teams.fromId(rosterRaw.getTeamId()), rosterRaw.getName()));
+						rookieList.add(new TeamPlayerDto(CehlTeam.fromId(rosterRaw.getTeamId()), rosterRaw.getName()));
 					}
 				}
 			}
