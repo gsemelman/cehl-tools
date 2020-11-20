@@ -4,6 +4,7 @@ import java.io.File;
 
 import javax.sql.DataSource;
 
+import org.cehl.cehltools.rerate.model.PlayerService;
 import org.cehl.commons.spring.StaticContextAccessor;
 import org.cehl.commons.spring.StaticPropertyAccessor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,6 +82,11 @@ public class RerateConfig {
     }
 	
 	@Bean
+	public PlayerService playerService() {
+		return new PlayerService();
+	}
+	
+	@Bean
 	public RerateService rerateService() {
 		return new RerateService();
 	}
@@ -99,6 +105,12 @@ public class RerateConfig {
 	public DrsRerateJob drsRerateJob() {
 		return new DrsRerateJob();
 	}
+	
+	@Bean
+	public RerateJob2 rerateJob2() {
+		return new RerateJob2();
+	}
+	
 	
 
 }

@@ -10,7 +10,108 @@ import org.cehl.cehltools.rerate.model.Player;
 
 public abstract class AbstractRatingProcessor implements RatingProcessor2{
 	
+	
 	public double getRating(Player player, PlayerStatAccumulator accumulator) {
+		
+		PlayerStatHolder last = accumulator.getPreviousSeasonTotalsFromYear(1, accumulator.getEndYear());	
+		PlayerStatHolder last2 = accumulator.getPreviousSeasonTotalsFromYear(1, accumulator.getEndYear()-1);	
+		PlayerStatHolder last3 = accumulator.getPreviousSeasonTotalsFromYear(1, accumulator.getEndYear()-2);
+		PlayerStatHolder lastPlayed = accumulator.getPreviousSeasonsTotals(1);
+		
+		
+		int lastRating = getSeasonRating(player,last);
+		int last2Rating = getSeasonRating(player,last2);
+		int last3Rating = getSeasonRating(player,last3);
+		
+		//double rating = ((lastRating * 1.2) + (last3Rating * 0.8)) / 2;
+		double rating = 0;
+		
+		int totalGp = last.getGp() + last2.getGp() + last3.getGp();
+		
+		Map<Double, Integer> map = new HashMap<>();
+		if(last.getGp() > 0) {
+			RerateUtils.addToAverageMap(map,lastRating,last.getGp() + Math.max(50, last.getGp()));
+		}else {
+			if(lastPlayed.getGp() > 0) {
+				int lastPlayedRating = getSeasonRating(player,lastPlayed);
+				RerateUtils.addToAverageMap(map,lastPlayedRating * 0.9,100);
+			}
+		}
+		if(last2.getGp() > 0) {
+			RerateUtils.addToAverageMap(map,last2Rating,last2.getGp() + Math.max(25, last2.getGp()));
+		}
+		if(last3.getGp() > 0) {
+			RerateUtils.addToAverageMap(map,last3Rating,last3.getGp());
+		}
+		
+		//if no gp used last seasons games played
+		if(totalGp == 0) {
+			if(lastPlayed.getGp() > 0) {
+				totalGp = (int) ((double)lastPlayed.getGp());
+			}
+		}
+
+		if(map.isEmpty() && accumulator.getTotalStats().getGp() > 0) {
+
+			int lastPlayedRating = getSeasonRating(player,lastPlayed);
+			
+			RerateUtils.addToAverageMap(map,lastPlayedRating,100);
+			RerateUtils.addToAverageMap(map,60,100);
+		}	
+		else if(last.getGp() == 0 && last2.getGp() > 0) {
+			RerateUtils.addToAverageMap(map,lastRating,last.getGp() + Math.max(50, last.getGp()));
+		}
+		
+		rating = RerateUtils.calculateWeightedAverage(map);
+
+		//rating = adjustRating(rating, accumulator.getTotalStats().getGp());
+		//get total gp of last 3 seasons
+
+		
+//		//if no gp used last seasons games played
+//		if(totalGp == 0) {
+//			PlayerStatHolder lastPlayed = accumulator.getPreviousSeasonsTotals(1);
+//			if(lastPlayed.getGp() > 0) {
+//				totalGp = (int) ((double)lastPlayed.getGp() / 1.5);
+//			}
+//		}
+		rating = adjustRating(rating, totalGp);
+		
+		return RerateUtils.normalizeRating(rating);
+	}
+	
+	public double getRating4(Player player, PlayerStatAccumulator accumulator) {
+		
+		PlayerStatHolder totalLast = accumulator.getPreviousSeasonsTotals(1);	
+		//PlayerStatHolder totalLast3 = accumulator.getPreviousSeasonTotalsFromYear(3, accumulator.getEndYear());	
+		//PlayerStatHolder totalLast3 = accumulator.getPreviousSeasonTotalsFromYear(3, accumulator.getEndYear());	
+		PlayerStatHolder totalLast2 = accumulator.getPreviousSeasonTotalsFromYear(2, accumulator.getEndYear()-1);	
+		PlayerStatHolder totalsLast6 = accumulator.getPreviousSeasonTotalsFromYear(6, accumulator.getEndYear());
+		
+		int lastRating = getSeasonRating(player,totalLast);
+		int last2Rating = getSeasonRating(player,totalLast2);
+		//int last6Rating = getSeasonRating(player,totalsLast6);
+		
+		//double rating = ((lastRating * 1.2) + (last3Rating * 0.8)) / 2;
+		double rating = 0;
+		
+		if((totalLast2.getGp() == 0 || totalLast2.getGp() < 20) && totalsLast6.getGp() <= 82) {
+			rating = lastRating;
+			//rating = adjustSeasonRating2(lastRating, totalsLast6.getGp());
+			
+			rating = adjustRating2(lastRating, totalsLast6.getGp());
+			
+		}else {
+			rating = ((lastRating * 1.2) + (last2Rating * 0.8)) / 2;
+			rating = adjustRating(rating, totalsLast6.getGp());
+		}
+		
+		
+		
+		return RerateUtils.normalizeRating(rating);
+	}
+	
+	public double getRating3(Player player, PlayerStatAccumulator accumulator) {
 	
 		//last season played
 		PlayerStatHolder totalLast = accumulator.getPreviousSeasonsTotals(1);	
@@ -214,7 +315,7 @@ public abstract class AbstractRatingProcessor implements RatingProcessor2{
 	
 	protected double adjustSeasonRating(double rating, int totalGp) {
 		if (totalGp <= 20) {
-			rating =  rating * 0.85;
+			rating =  Math.min(rating, 7);
 		}else if (totalGp <= 40) {
 			rating = rating * 0.925;
 		}else if (totalGp <= 50) {
@@ -225,6 +326,90 @@ public abstract class AbstractRatingProcessor implements RatingProcessor2{
 //		else if (totalGp <= 65) {
 //			rating = rating * 0.98;
 //		}
+		
+		return rating;
+	}
+	
+	protected double adjustRating2(double rating, int totalGp) {
+		if (totalGp <= 10) {
+			rating =  Math.min(rating, 72);
+		} else if (totalGp <= 20) {
+			rating = Math.min(rating, 74);
+		} else if (totalGp <= 30) {
+			rating = Math.min(rating, 77);
+		} else if (totalGp <= 40) {
+			rating = Math.min(rating, 78);
+		} else if (totalGp <= 50) {
+			rating = Math.min(rating, 80);
+		}else if (totalGp <= 60) {
+			rating = Math.min(rating, 82);
+		}else if (totalGp <= 70) {
+			rating = Math.min(rating, 83);
+		}
+//		else if (totalGp <= 246) {
+//			rating = Math.min(rating, 87);
+//		}
+
+		return rating;
+	}
+	
+	
+	
+	
+	protected double adjustSeasonRating2(double rating, int totalGp) {
+//		if (totalGp <= 20) {
+//			rating =  rating * 0.83;
+//		}else if (totalGp <= 40) {
+//			rating = rating * 0.85;
+//		}else if (totalGp <= 50) {
+//			rating = rating * 0.87;
+//		}else if (totalGp <= 60) {
+//			rating = rating * 0.88;
+//		}else {
+//			rating = rating * 0.89;
+//		}
+//		else if (totalGp <= 65) {
+//			rating = rating * 0.98;
+//		}
+		
+		if(rating >= 84) {
+			if (totalGp <= 20) {
+				rating =  rating * 0.85;
+			}else if (totalGp <= 40) {
+				rating = rating * 0.92;
+			}else if (totalGp <= 50) {
+				rating = rating * 0.93;
+			}else if (totalGp <= 60) {
+				rating = rating * 0.94;
+			}else {
+				rating = rating * 0.95;
+			}
+		}else if(rating >= 78) {
+			if (totalGp <= 20) {
+				rating =  rating * 0.85;
+			}else if (totalGp <= 40) {
+				rating = rating * 0.93;
+			}else if (totalGp <= 50) {
+				rating = rating * 0.95;
+			}else if (totalGp <= 60) {
+				rating = rating * 0.96;
+			}else {
+				rating = rating * 0.97;
+			}
+
+		}else {
+			if (totalGp <= 20) {
+				rating =  rating * 0.85;
+			}else if (totalGp <= 40) {
+				rating = rating * 0.94;
+			}else if (totalGp <= 50) {
+				rating = rating * 0.95;
+			}else if (totalGp <= 60) {
+				rating = rating * 0.96;
+			}else {
+				rating = rating * 0.97;
+			}
+		}
 		
 		return rating;
 	}

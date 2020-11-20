@@ -15,8 +15,10 @@ public class EnRatingProcessor extends AbstractRatingProcessor{
 	static RangeTable initForwardRanges() {
 		RangeTable forwardRangeTable = new RangeTable();
 		forwardRangeTable.insertValue(0, 60);
-		forwardRangeTable.insertValue(14, 75);
-		forwardRangeTable.insertValue(25, 90); //played all games
+		forwardRangeTable.insertValue(9, 70);
+		forwardRangeTable.insertValue(13.5, 75);
+		forwardRangeTable.insertValue(18, 79);
+		forwardRangeTable.insertValue(25, 89); //played all games
 		
 		return forwardRangeTable;
 
@@ -26,9 +28,13 @@ public class EnRatingProcessor extends AbstractRatingProcessor{
 
 		RangeTable defenseRangeTable = new RangeTable();
 		defenseRangeTable.insertValue(0, 60);
-		defenseRangeTable.insertValue(14, 72);
-		defenseRangeTable.insertValue(18, 78);
-		defenseRangeTable.insertValue(31, 90); //played all games
+//		defenseRangeTable.insertValue(14, 72);
+//		defenseRangeTable.insertValue(18, 78);
+		defenseRangeTable.insertValue(14, 74);
+		
+		defenseRangeTable.insertValue(21.5, 80);
+		
+		defenseRangeTable.insertValue(30, 92); //played all games
 		
 		return defenseRangeTable;
 	}
@@ -45,9 +51,9 @@ public class EnRatingProcessor extends AbstractRatingProcessor{
 		double en = 0;
 		
 		if(player.getPosition().contains("D")) {
-			en = Double.valueOf(defenseRangeTable.findInterpolatedValue(toiPerGame));
+			en = Double.valueOf(defenseRangeTable.findInterpolatedValueSmooth(toiPerGame));
 		}else {
-			en = Double.valueOf(forwardRangeTable.findInterpolatedValue(toiPerGame));
+			en = Double.valueOf(forwardRangeTable.findInterpolatedValueSmooth(toiPerGame));
 		}
 		
 		en = Math.max(en, 60);

@@ -87,6 +87,10 @@ public class CsvRerateJob implements IRerateJob {
 					String.valueOf(Precision.round(rerateResult.getEx(),0) ),
 					String.valueOf(Precision.round(rerateResult.getLd(),0) ),
 					String.valueOf(Precision.round(rerateResult.getOv(),0) ),
+					String.valueOf( player.getSt()),
+					String.valueOf( player.getSk()),
+					String.valueOf( player.getSp()),
+				    
 					};
 			
 			rows.add(values);

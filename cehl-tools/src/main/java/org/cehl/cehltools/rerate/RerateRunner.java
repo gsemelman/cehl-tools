@@ -22,7 +22,7 @@ public class RerateRunner {
 
     	RerateJob job =context.getBean(RerateJob.class);
     	
-    	job.reratePlayers(2018);
+    	job.reratePlayers(2019);
     
     }
     
@@ -30,7 +30,7 @@ public class RerateRunner {
 
     	CsvRerateJob job =context.getBean(CsvRerateJob.class);
     	
-    	job.runJob(2018);
+    	job.runJob(2019);
     
     }
     
@@ -38,7 +38,15 @@ public class RerateRunner {
 
     	DrsRerateJob job =context.getBean(DrsRerateJob.class);
     	
-    	job.runJob(2018);
+    	job.runJob(2019);
+    
+    }
+    
+    void run4(ApplicationContext context) {
+
+    	RerateJob2 job =context.getBean(RerateJob2.class);
+    	
+    	job.runJob(2019);
     
     }
 }

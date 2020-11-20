@@ -25,7 +25,7 @@ public class Player extends AbstractEntity {
 	private int height;
 	private int weight;
 	
-	@OneToMany(mappedBy = "player", fetch = FetchType.LAZY,
+	@OneToMany(mappedBy = "player", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
 	@OrderBy("year ASC")
 	private Set<PlayerSeason> seasons = new HashSet<>();

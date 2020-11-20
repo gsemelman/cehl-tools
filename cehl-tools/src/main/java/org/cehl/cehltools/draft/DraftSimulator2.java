@@ -25,6 +25,7 @@ import java.util.Map.Entry;
 import java.util.NavigableMap;
 import java.util.Random;
 import java.util.TreeMap;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.imageio.ImageIO;
@@ -63,6 +64,8 @@ public class DraftSimulator2 {
 	private static final String TEAM_CARD = "TEAM_CARD";
 	private static final String DRAFT_CARD = "DRAFT_CARD";
 	private static final String CAPTURE_LOCATION ="c:/temp/capture/";
+	private static final int PICK_DISPLAY_DELAY_SECONDS = 4;
+	private static final int DRAFT_DISPLAY_DELAY_SECONDS = 6;
 	
 	int rounds = 3;
 	
@@ -92,21 +95,21 @@ public class DraftSimulator2 {
     	teamMap = new LinkedHashMap<>();
     	finalOrder = new LinkedHashSet<String>();
     	rc = new RandomCollection<>();
-    	
-    	teamMap.put("Phoenix",18.5);
-    	teamMap.put("Detroit",13.5);
-    	teamMap.put("Philly",11.5);
-    	teamMap.put("Islanders",9.5);
-    	teamMap.put("Winnipeg",8.5);
-    	teamMap.put("Buffalo",7.5);
-    	teamMap.put("Calgary",6.5);
-    	teamMap.put("St. Louis",6.0);
-    	teamMap.put("Tampa Bay",5.0);
-    	teamMap.put("LosAngeles",3.5);
-    	teamMap.put("Boston",3.0);
-    	teamMap.put("Ottawa",2.75);
-    	teamMap.put("Colorado",2.25);
-    	teamMap.put("Vancouver",2.0);
+
+    	teamMap.put("Detroit",20.0); //18.5
+    	teamMap.put("Phoenix",13.5); //13.5
+    	teamMap.put("Calgary",11.5); //11.5
+    	teamMap.put("Islanders",9.5);//9.5
+    	teamMap.put("Philly",8.5);
+    	teamMap.put("Colorado",7.5);
+    	teamMap.put("Buffalo",6.5);
+    	teamMap.put("Winnipeg",6.0);
+    	teamMap.put("Vancouver",5.0);
+    	teamMap.put("Boston",3.5);
+    	teamMap.put("Montreal",3.0);
+    	teamMap.put("Ottawa",2.5);
+    	teamMap.put("LosAngeles",2.0);
+    	teamMap.put("Columbus",1.0);
     	
     	for(Entry<String, Double> entry : teamMap.entrySet()) {
     		rc.add(entry.getValue(), entry.getKey());
@@ -283,21 +286,15 @@ public class DraftSimulator2 {
 						while(itr.hasNext()) {
 							
 							try {
-								Thread.sleep(2000);
+								TimeUnit.SECONDS.sleep(DRAFT_DISPLAY_DELAY_SECONDS);
 							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
+								Thread.currentThread().interrupt();
+								throw new RuntimeException(e);
 							}
 
 							String item = itr.next();
 							System.out.println("Pick " + count + " = " + item);
 							
-//							SwingUtilities.invokeAndWait(new Runnable() {
-//
-//								@Override
-//								public void run() {
-//									displayTeam(item);
-//								}});
 							displayTeam(item);
 
 							//model.insertRow(0, new Object[] { count,getIcon(item)});
@@ -322,7 +319,8 @@ public class DraftSimulator2 {
 					        {
 					        	//sleep once winner is shown for 7 seconds
 								try {
-									Thread.sleep(7000);
+									TimeUnit.SECONDS.sleep(PICK_DISPLAY_DELAY_SECONDS);
+									
 								} catch (InterruptedException e) {
 									Thread.currentThread().interrupt();
 								}
@@ -370,7 +368,7 @@ public class DraftSimulator2 {
 		cl.show(mainPanel, TEAM_CARD);
 		
 		try {
-			Thread.sleep(2000);
+			TimeUnit.SECONDS.sleep(PICK_DISPLAY_DELAY_SECONDS);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

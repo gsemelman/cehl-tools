@@ -16,25 +16,25 @@ public class PlayerSeason extends AbstractEntity {
 	private String team;
 	private String position;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "player_id", nullable = false)
     private Player player;
 	
     @OneToOne(mappedBy = "playerSeason", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
-	private PlayerStatsAllStrengths statsAll;
+            fetch = FetchType.EAGER, optional = true)
+	private PlayerStatsAllStrengths statsAll = new PlayerStatsAllStrengths();
     
     @OneToOne(mappedBy = "playerSeason", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
-	private PlayerStatsPp statsPp;
+            fetch = FetchType.EAGER, optional = true)
+	private PlayerStatsPp statsPp = new PlayerStatsPp();
     
     @OneToOne(mappedBy = "playerSeason", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
-	private PlayerStatsPk statsPk;
+            fetch = FetchType.EAGER, optional = true)
+	private PlayerStatsPk statsPk = new PlayerStatsPk();
     
     @OneToOne(mappedBy = "playerSeason", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
-	private PlayerStatsOnIce statsOnIce;
+            fetch = FetchType.EAGER, optional = true)
+	private PlayerStatsOnIce statsOnIce = new PlayerStatsOnIce();
 	
 	public PlayerSeason() {
 		

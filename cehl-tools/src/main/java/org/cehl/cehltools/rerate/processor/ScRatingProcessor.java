@@ -24,7 +24,7 @@ public class ScRatingProcessor extends AbstractRatingProcessor{
 		forwardRangeTable.insertValue(0.375, 80);
 		//forwardRangeTable.insertValue(0.6097, 99); //50 goals per season
 		forwardRangeTable.insertValue(0.45, 83);
-		forwardRangeTable.insertValue(0.6097, 96); //50 goals per season
+		forwardRangeTable.insertValue(0.6097, 94); //50 goals per season
 		//forwardRangeTable.insertValue(0.43, 80);
 		//forwardRangeTable.insertValue(0.7, 95); //50 goals per season
 		
@@ -43,11 +43,11 @@ public class ScRatingProcessor extends AbstractRatingProcessor{
 //		defenseRangeTable.insertValue(0.24, 83);
 		
 		defenseRangeTable.insertValue(0.01, 62);
-		defenseRangeTable.insertValue(0.06, 70);
+		defenseRangeTable.insertValue(0.055, 70);
 		//defenseRangeTable.insertValue(0.14, 73);
-		defenseRangeTable.insertValue(0.12, 75);
-		defenseRangeTable.insertValue(0.1951, 79);
-		defenseRangeTable.insertValue(0.24, 83);
+		defenseRangeTable.insertValue(0.12, 74);
+		defenseRangeTable.insertValue(0.1951, 81);
+		defenseRangeTable.insertValue(0.24, 84);
 
 		
 		return defenseRangeTable;
@@ -55,7 +55,6 @@ public class ScRatingProcessor extends AbstractRatingProcessor{
 	
 	@Override
 	public int getSeasonRating(Player player, PlayerStatHolder statHolder) {
-		if(statHolder == null) return 0;
 		
 		double gp = (double)statHolder.getGp();
 		double gpg = (double)statHolder.getGoals() / gp;
@@ -64,10 +63,10 @@ public class ScRatingProcessor extends AbstractRatingProcessor{
 		
 		if(player.getPosition().contains("D")) {
 			//sc = (60 + (gpg * 110));
-			sc = Double.valueOf(defenseRangeTable.findInterpolatedValue(gpg));
+			sc = Double.valueOf(defenseRangeTable.findInterpolatedValueSmooth(gpg));
 		}else {
 			//sc = (60 + (gpg * 57));
-			sc = Double.valueOf(forwardRangeTable.findInterpolatedValue(gpg));
+			sc = Double.valueOf(forwardRangeTable.findInterpolatedValueSmooth(gpg));
 		}
 		
 		return RerateUtils.normalizeRating(sc);

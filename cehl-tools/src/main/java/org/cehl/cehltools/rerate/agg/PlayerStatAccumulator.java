@@ -13,6 +13,8 @@ import org.cehl.cehltools.rerate.dto.PlayerStatHolder;
 import org.cehl.cehltools.rerate.model.Player;
 import org.cehl.cehltools.rerate.model.PlayerSeason;
 
+import com.google.common.base.Throwables;
+
 public class PlayerStatAccumulator {
 	
 
@@ -41,17 +43,28 @@ public class PlayerStatAccumulator {
 		
 		this.statsByYear= new HashMap<>();
 		
-		if(this.startYear == null) {
-			this.startYear = player.getSeasons().stream()
-			.map(PlayerSeason::getYear)
-			.min(Integer::compare).get();
+		//determine stat and end years if not set..
+		//can only perform this action if at least one season exists.
+		if(player.getSeasons().size() > 0) {
+			if(this.startYear == null) {
+				
+				this.startYear = player.getSeasons().stream()
+				.map(PlayerSeason::getYear)
+				.min(Integer::compare).get();
+			}
+			
+			if(this.endYear == null) {
+				this.endYear = player.getSeasons().stream()
+				.map(PlayerSeason::getYear)
+				.max(Integer::compare).get();
+			}
+		}else {
+			startYear = 0;
+			endYear = 0;
 		}
 		
-		if(this.endYear == null) {
-			this.endYear = player.getSeasons().stream()
-			.map(PlayerSeason::getYear)
-			.max(Integer::compare).get();
-		}
+		//preprocess season results (incomplete seasons etc)
+		player.getSeasons().forEach(s->preProcess(s));
 		
 //		if(endYear > startYear) {
 //			throw new RuntimeException("start year cannot be after end year");
@@ -304,6 +317,62 @@ public class PlayerStatAccumulator {
 		return endYear;
 	}
 	
-	
+	//handle cases of incomplete NHL seasons (2019-2020)
+	public void preProcess(PlayerSeason season) {
+		
+		Double multiplier = null;
+		
+		if(season.getYear() == 2019) {
+			multiplier = 1.17; //assumes 70 game season
+		}
+		
+		if(multiplier != null) {
+			if(season.getStatsAll() != null) {
+
+				season.getStatsAll().setGp((int) (season.getStatsAll().getGp() * multiplier));
+				season.getStatsAll().setToi((int) (season.getStatsAll().getToi() * multiplier));
+				
+				season.getStatsAll().setGoals((int) (season.getStatsAll().getGoals() * multiplier));
+				season.getStatsAll().setAssists((int) (season.getStatsAll().getAssists() * multiplier));
+				
+				season.getStatsAll().setPim((int) (season.getStatsAll().getPim() * multiplier));
+				season.getStatsAll().setPenMinor((int) (season.getStatsAll().getPenMinor() * multiplier));
+				season.getStatsAll().setPenMajor((int) (season.getStatsAll().getPenMajor() * multiplier));
+				season.getStatsAll().setPenMisconduct((int) (season.getStatsAll().getPenMisconduct() * multiplier));
+				
+				season.getStatsAll().setGiveAway((int) (season.getStatsAll().getGiveAway() * multiplier));
+				season.getStatsAll().setTakeAway((int) (season.getStatsAll().getTakeAway() * multiplier));
+				season.getStatsAll().setShotsBlocked((int) (season.getStatsAll().getShotsBlocked() * multiplier));
+				season.getStatsAll().setRushAttempt((int) (season.getStatsAll().getRushAttempt() * multiplier));
+				
+				season.getStatsAll().setHits((int) (season.getStatsAll().getHits()* multiplier));
+			}
+
+			if(season.getStatsOnIce() != null) {
+				season.getStatsOnIce().setCf((int) (season.getStatsOnIce().getCf() * multiplier));
+				season.getStatsOnIce().setCa((int) (season.getStatsOnIce().getCa() * multiplier));
+				season.getStatsOnIce().setCfPct(season.getStatsOnIce().getCfPct());
+				
+				season.getStatsOnIce().setFf((int) (season.getStatsOnIce().getFf() * multiplier));
+				season.getStatsOnIce().setFa((int) (season.getStatsOnIce().getFa() * multiplier));
+				season.getStatsOnIce().setFfPct(season.getStatsOnIce().getFfPct());
+				
+				season.getStatsOnIce().setoZoneStart((int) (season.getStatsOnIce().getoZoneStart() * multiplier));
+				season.getStatsOnIce().setdZoneStart((int) (season.getStatsOnIce().getdZoneStart() * multiplier));
+				season.getStatsOnIce().setnZoneStart((int) (season.getStatsOnIce().getnZoneStart() * multiplier));
+			}
+			
+			if(season.getStatsPp() != null) {
+				season.getStatsPp().setToi((int) (season.getStatsPp().getToi() * multiplier));
+				season.getStatsPp().setGoals((int) (season.getStatsPp().getGoals() * multiplier));
+				season.getStatsPp().setAssists((int) (season.getStatsPp().getAssists() * multiplier));
+				season.getStatsPp().setPoints((int) (season.getStatsPp().getPoints() * multiplier));
+			}
+			
+			if(season.getStatsPk() != null) {
+				season.getStatsPk().setToi((int) (season.getStatsPk().getToi() * multiplier));
+			}
+		}
+	}
 	
 }

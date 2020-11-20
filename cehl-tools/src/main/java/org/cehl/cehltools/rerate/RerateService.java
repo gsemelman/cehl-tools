@@ -15,13 +15,14 @@ import javax.sql.DataSource;
 import org.cehl.cehltools.rerate.agg.PlayerStatAccumulator;
 import org.cehl.cehltools.rerate.dto.PlayerRerateDto;
 import org.cehl.cehltools.rerate.model.Player;
-import org.cehl.cehltools.rerate.model.PlayerRepository;
+import org.cehl.cehltools.rerate.model.PlayerService;
 import org.cehl.cehltools.rerate.processor.DfRatingProcessor;
 import org.cehl.cehltools.rerate.processor.DiRatingProcessor;
 import org.cehl.cehltools.rerate.processor.DuRatingProcessor;
 import org.cehl.cehltools.rerate.processor.EnRatingProcessor;
 import org.cehl.cehltools.rerate.processor.ExRatingProcessor;
 import org.cehl.cehltools.rerate.processor.ItRatingProcessor;
+import org.cehl.cehltools.rerate.processor.LdRatingProcessor;
 import org.cehl.cehltools.rerate.processor.PaRatingProcessor;
 import org.cehl.cehltools.rerate.processor.PcRatingProcessor;
 import org.cehl.cehltools.rerate.processor.ScRatingProcessor;
@@ -32,12 +33,11 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
-import org.springframework.transaction.annotation.Transactional;
 
 public class RerateService {
 	
 	@Autowired
-	PlayerRepository repository;
+	PlayerService repository;
 	
 	@Autowired
 	DataSource ds;
@@ -55,7 +55,7 @@ public class RerateService {
 	ScRatingProcessor scProcessor; 
 	DfRatingProcessor dfProcessor;
 	ExRatingProcessor exProcessor;
-	//LdRatingProcessor ldProcessor;
+	LdRatingProcessor ldProcessor;
 	
 	@PostConstruct
     public void init() {
@@ -70,7 +70,7 @@ public class RerateService {
 		scProcessor = new ScRatingProcessor();
 		dfProcessor= new DfRatingProcessor();
 		exProcessor = new ExRatingProcessor();
-		//ldProcessor = new LdRatingProcessor();
+		ldProcessor = new LdRatingProcessor();
 		
 		JdbcTemplate template = new JdbcTemplate(ds);
 		
@@ -93,10 +93,23 @@ public class RerateService {
     }
 	
 	
-	@Transactional
+	//@Transactional
 	public RatingResult reratePlayer(PlayerRerateDto rerateDto,int endYear) {
-
 		
+		Player player = findPlayer(rerateDto);
+		
+		if(player == null) {
+			return null;
+		}
+		
+		rerateDto.setSt(player.getSeasons().size());
+		rerateDto.setSk(player.getSeasonByYear(2019) != null ? 1 : 0);
+		rerateDto.setSp(player.getSeasonByYear(2019) != null ? player.getSeasonByYear(2019).getStatsAll().getGp() : 0);
+		
+		return getRerateResult(player,rerateDto, endYear);
+	}
+	
+	public Player findPlayer(PlayerRerateDto rerateDto) {
 		String playerNameSearch = nameExceptions.get(rerateDto.getName()) != null 
 				? nameExceptions.get(rerateDto.getName()) : rerateDto.getName();
 		
@@ -139,12 +152,9 @@ public class RerateService {
 				}
 			}
 		}
+
 		
-		if(player == null) {
-			return null;
-		}
-		
-		return getRerateResult(player,rerateDto, endYear);
+		return player;
 	}
 	
 	public RatingResult getRerateResult(Player p,PlayerRerateDto rerateDto, int endYear) {
@@ -161,12 +171,15 @@ public class RerateService {
 		double sk = rerateDto.getSk();
 		double pa = paProcessor.getRating(p,psa);
 		double pc = pcProcessor.getRating(p,psa);
-		double df = rerateDto.getDf();
+		//double df = rerateDto.getDf();
+		double df = dfProcessor.getRating(p,psa);
 		double sc = scProcessor.getRating(p,psa);
 		//double ex = rerateDto.getEx();
-		double ex = exProcessor.getSeasonRating(p, psa.getTotalStats());
-		double ld = rerateDto.getLd();
-
+		//double ex = exProcessor.getSeasonRating(p, psa.getTotalStats());
+		double ex = exProcessor.getRating(p, psa);
+		//double ld = rerateDto.getLd();
+		double ld = ldProcessor.getRating(p, psa);
+		
 		//set inital ov and populate result
 		double ov = RerateUtils.calculateOv(p.getPosition(), it, sp, st, 
 				en, du, di, sk, pa, pc, df ,sc, ex, ld);

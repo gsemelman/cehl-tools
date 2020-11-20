@@ -11,13 +11,36 @@ public class PcRatingProcessor extends AbstractRatingProcessor{
 	static RangeTable forwardRangeTable = initForwardRanges();
 	static RangeTable defenseRangeTable = initDefenseRanges();
 	
+//	static RangeTable initForwardRanges() {
+//		RangeTable forwardRangeTable = new RangeTable();
+//		forwardRangeTable.insertValue(0.05, 60);
+//		forwardRangeTable.insertValue(0.1219, 70);
+//		forwardRangeTable.insertValue(0.2857, 75);
+//		//forwardRangeTable.insertValue(0.8760, 97); 
+//		//forwardRangeTable.insertValue(0.6, 80); 
+//		forwardRangeTable.insertValue(0.625, 79); 
+//		forwardRangeTable.insertValue(0.8760, 87);
+//		
+//		return forwardRangeTable;
+//
+//	}
+	
 	static RangeTable initForwardRanges() {
 		RangeTable forwardRangeTable = new RangeTable();
-		forwardRangeTable.insertValue(0.05, 60);
+		//forwardRangeTable.insertValue(0.00, 60);
+		//forwardRangeTable.insertValue(0.1219, 72);
+		//forwardRangeTable.insertValue(0.5, 81);
+		
+		forwardRangeTable.insertValue(0.00, 60);
 		forwardRangeTable.insertValue(0.1219, 70);
-		forwardRangeTable.insertValue(0.2857, 75);
-		//forwardRangeTable.insertValue(0.8760, 97); 
-		forwardRangeTable.insertValue(0.8760, 89);
+		
+		forwardRangeTable.insertValue(0.26, 72);
+		
+		forwardRangeTable.insertValue(0.48, 77);
+
+		forwardRangeTable.insertValue(0.68, 82);
+		
+		forwardRangeTable.insertValue(0.8760, 87);
 		
 		return forwardRangeTable;
 
@@ -36,7 +59,7 @@ public class PcRatingProcessor extends AbstractRatingProcessor{
 		defenseRangeTable.insertValue(0.1, 69.5);
 		defenseRangeTable.insertValue(0.25, 76.5);
 		defenseRangeTable.insertValue(0.55, 81.5);	
-		defenseRangeTable.insertValue(0.8760, 90); 
+		defenseRangeTable.insertValue(0.8760, 88); 
 		
 		return defenseRangeTable;
 	}
@@ -54,9 +77,9 @@ public class PcRatingProcessor extends AbstractRatingProcessor{
 		double pa = 0;
 		
 		if(player.getPosition().contains("D")) {
-			pa = Double.valueOf(defenseRangeTable.findInterpolatedValue(apg)); //* 1.045;
+			pa = Double.valueOf(defenseRangeTable.findInterpolatedValueSmooth(apg)); //* 1.045;
 		}else {
-			pa = Double.valueOf(forwardRangeTable.findInterpolatedValue(apg));
+			pa = Double.valueOf(forwardRangeTable.findInterpolatedValueSmooth(apg));
 		}
 
 	

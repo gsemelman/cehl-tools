@@ -272,6 +272,10 @@ public class RangeTable implements Serializable {
 		
 	}
 	
+	public String findInterpolatedValueSmooth(Number value) {
+		return getValue(value, INTERPOLATION_TYPE.SMOOTH);
+	}
+	
 	public String findInterpolatedValue(Number value) {
 		return getValue(value, INTERPOLATION_TYPE.LINEAR);
 	}

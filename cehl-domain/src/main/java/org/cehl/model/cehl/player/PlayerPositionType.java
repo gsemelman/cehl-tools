@@ -32,6 +32,10 @@ public enum PlayerPositionType {
 		return this.description;
 	}
 	
+	public boolean isForward() {
+		return !PlayerPositionType.DEFENSE.equals(this) && !PlayerPositionType.GOALIE.equals(this);
+	}
+	
 	public static List<PlayerPositionType> asList() {
 		
 		List<PlayerPositionType> flags = new ArrayList<PlayerPositionType>();
