@@ -290,6 +290,13 @@ public class RosterTools {
 		
 	}
 	
+	public static List<RosterRaw> findPlayerByNameAndJersey(List<RosterRaw> rosterList , String name, int jersey){
+		return rosterList.stream()
+				.filter(roster -> roster.getName().toUpperCase().equals(name.toUpperCase()) && roster.getJersey() == jersey)
+				.collect(Collectors.toList());
+		
+	}
+	
 	public static  List<RosterRaw>  findPlayerByNameAndTeam(List<RosterRaw> rosterList, String name, CehlTeam team){
 		return findPlayerByName(rosterList, name).stream()
 				.filter(roster -> roster.getTeamId() == team.getTeamId())

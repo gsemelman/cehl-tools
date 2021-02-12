@@ -21,6 +21,7 @@ import org.cehl.raw.decode.TeamNameProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.supercsv.cellprocessor.Optional;
 import org.supercsv.cellprocessor.ParseInt;
 import org.supercsv.cellprocessor.Trim;
 import org.supercsv.cellprocessor.constraint.NotNull;
@@ -64,30 +65,38 @@ public class RerateImportJob2 extends AbstractJob {
 		List<String[]> errorList = new ArrayList<String[]>();
 		
 		//modify loaded attribs
-		for(RerateDto rawRerate : rerateImportList){
+		for(RerateDto rerateDto : rerateImportList){
 			RosterRaw rosterToUpdate = null;
 			
-			List<RosterRaw> playerSearch = RosterTools.findPlayerByName(rosterList, rawRerate.getName());
+			//first search by name and jersey#
+			List<RosterRaw> playerSearch = RosterTools.findPlayerByNameAndJersey(rosterList, rerateDto.getName(), rerateDto.getJersey());
 			
 			if(playerSearch.isEmpty()) {
+				playerSearch = RosterTools.findPlayerByName(rosterList, rerateDto.getName());
+			}
+			
+			//List<RosterRaw> playerSearch = RosterTools.findPlayerByName(rosterList, rawRerate.getName());
+			//then by player name
+			if(playerSearch.isEmpty()) {
 				//throw new RuntimeException("Failure - Unable to update player:" + rawRerate.getName() + " As it cannot be found");
-				errorList.add(new String[] {rawRerate.getName(), "Player not found"});
+				errorList.add(new String[] {rerateDto.getName(), "Player not found"});
 				continue;
 			}
 			
+			//resolve any players that have multiple search results found.
 			if(playerSearch.size() > 1) {
 				logger.debug("Multiple players found. Searching by team name");
-				CehlTeam team = CehlTeam.fromName(rawRerate.getTeamName());
+				CehlTeam team = CehlTeam.fromName(rerateDto.getTeamName());
 				
 				if(team == null) {
 					logger.debug("Unknown team name");
-					errorList.add(new String[] {rawRerate.getName(), "Unknown team name"});
+					errorList.add(new String[] {rerateDto.getName(), "Unknown team name"});
 				}
 
-				List<RosterRaw> playerTeamSearch = RosterTools.findPlayerByNameAndTeam(playerSearch, rawRerate.getName(), team);
+				List<RosterRaw> playerTeamSearch = RosterTools.findPlayerByNameAndTeam(playerSearch, rerateDto.getName(), team);
 				if(playerTeamSearch.size() > 1) {
 					logger.debug("Multiple players found on same team. Unable to rerate");
-					errorList.add(new String[] {rawRerate.getName(), "Multiple players found on same team"});
+					errorList.add(new String[] {rerateDto.getName(), "Multiple players found on same team"});
 					continue;
 					
 				}
@@ -103,52 +112,60 @@ public class RerateImportJob2 extends AbstractJob {
 			
 			if(rosterToUpdate== null) {
 				logger.info("Unable to find player");
-				errorList.add(new String[] {rawRerate.getName(), "Unable to find player"});
+				errorList.add(new String[] {rerateDto.getName(), "Unable to find player"});
 				continue;
 			}
 
-			if(rawRerate.getAge() > 0) {
-				rosterToUpdate.setAge(rawRerate.getAge());
+			if(rerateDto.getAge() > 0) {
+				rosterToUpdate.setAge(rerateDto.getAge());
 			}
-			if(rawRerate.getIt() > 0) {
-				rosterToUpdate.setIt(rawRerate.getIt());
+			if(rerateDto.getIt() > 0) {
+				rosterToUpdate.setIt(rerateDto.getIt());
 			}
-			if(rawRerate.getSp() > 0) {
-				rosterToUpdate.setSp(rawRerate.getSp());
+			if(rerateDto.getSp() > 0) {
+				rosterToUpdate.setSp(rerateDto.getSp());
 			}
-			if(rawRerate.getSt() > 0) {
-				rosterToUpdate.setSt(rawRerate.getSt());
+			if(rerateDto.getSt() > 0) {
+				rosterToUpdate.setSt(rerateDto.getSt());
 			}
-			if(rawRerate.getEn() > 0) {
-				rosterToUpdate.setEn(rawRerate.getEn());
+			if(rerateDto.getEn() > 0) {
+				rosterToUpdate.setEn(rerateDto.getEn());
 			}
-			if(rawRerate.getDu() > 0) {
-				rosterToUpdate.setDu(rawRerate.getDu());
+			if(rerateDto.getDu() > 0) {
+				rosterToUpdate.setDu(rerateDto.getDu());
 			}
-			if(rawRerate.getDi() > 0) {
-				rosterToUpdate.setDi(rawRerate.getDi());
+			if(rerateDto.getDi() > 0) {
+				rosterToUpdate.setDi(rerateDto.getDi());
 			}
-			if(rawRerate.getSk() > 0) {
-				rosterToUpdate.setSk(rawRerate.getSk());
+			if(rerateDto.getSk() > 0) {
+				rosterToUpdate.setSk(rerateDto.getSk());
 			}
-			if(rawRerate.getPa() > 0) {
-				rosterToUpdate.setPa(rawRerate.getPa());
+			if(rerateDto.getPa() > 0) {
+				rosterToUpdate.setPa(rerateDto.getPa());
 			}
-			if(rawRerate.getPc() > 0) {
-				rosterToUpdate.setPc(rawRerate.getPc());
+			if(rerateDto.getPc() > 0) {
+				rosterToUpdate.setPc(rerateDto.getPc());
 			}
-			if(rawRerate.getDf() > 0) {
-				rosterToUpdate.setDf(rawRerate.getDf());
+			if(rerateDto.getDf() > 0) {
+				rosterToUpdate.setDf(rerateDto.getDf());
 			}
-			if(rawRerate.getSc() > 0) {
-				rosterToUpdate.setSc(rawRerate.getSc());
+			if(rerateDto.getSc() > 0) {
+				rosterToUpdate.setSc(rerateDto.getSc());
 			}
-			if(rawRerate.getEx() > 0) {
-				rosterToUpdate.setEx(rawRerate.getEx());
+			if(rerateDto.getEx() > 0) {
+				rosterToUpdate.setEx(rerateDto.getEx());
 			}
-			if(rawRerate.getLd() > 0) {
-				rosterToUpdate.setLd(rawRerate.getLd());
+			if(rerateDto.getLd() > 0) {
+				rosterToUpdate.setLd(rerateDto.getLd());
 			}
+			
+			if(rerateDto.getHt() > 0) {
+				rosterToUpdate.setHeight(rerateDto.getHt());
+			}
+			if(rerateDto.getWt() > 0) {
+				rosterToUpdate.setWeight(rerateDto.getWt());
+			}
+			
 			
 
 		}
@@ -231,6 +248,7 @@ public class RerateImportJob2 extends AbstractJob {
 		final CellProcessor[] processors = new CellProcessor[] {
 				new StrNotNullOrEmpty(new StrMinMax(1, 22, new Trim())), // Name
 				new TeamNameProcessor(true), // TeamName
+				new NotNull(new ParseInt()), // jersey
 				new NotNull(new ParseInt()), // age
 				new NotNull(new RatingProcessor(0,99)), //intensity
 				new NotNull(new RatingProcessor(0,99)), //speed
@@ -244,7 +262,9 @@ public class RerateImportJob2 extends AbstractJob {
 				new NotNull(new GoalieStatProcessor(new RatingProcessor(0,99))), //defense
 				new NotNull(new GoalieStatProcessor(new RatingProcessor(0,99))), //scoring
 				new NotNull(new RatingProcessor(0,99)), //experience
-				new NotNull(new RatingProcessor(0,99)) //leadership
+				new NotNull(new RatingProcessor(0,99)), //leadership
+				new Optional(new ParseInt()), //height
+				new Optional(new ParseInt()), //weight
 
 		};
 

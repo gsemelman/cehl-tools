@@ -53,12 +53,14 @@ public class CsvRerateJob implements IRerateJob {
 	public void output(Map<PlayerRerateDto, RatingResult> results) {
 		
 		List<String[]> rows = new ArrayList<>();
-		rows.add(new String[] {"Name","Age","IT","SP","ST","EN","DU","DI","SK","PA","PC","DF","SC","EX","LD","OV"});
+		rows.add(new String[] {"Team","Name","Age","Weight","Height","Nat","POS","IT","SP","ST","EN","DU","DI","SK","PA","PC","DF","SC","EX","LD","OV", "Seasons","PlayedLast","GP"});
 
 		
 		for(Entry<PlayerRerateDto, RatingResult> entry: results.entrySet()) {
 			PlayerRerateDto player = entry.getKey();
 			RatingResult rerateResult = entry.getValue();
+			
+			String team = player.getTeam() != null ? player.getTeam() : "N/A";
 			
 			if(rerateResult == null) {
 				String[] values = new String[] {
@@ -71,8 +73,13 @@ public class CsvRerateJob implements IRerateJob {
 
 			
 			String[] values = new String[] {
+					String.valueOf(team),
 					player.getName(), 
 					String.valueOf(player.getAge()),
+					String.valueOf(player.getWieght()),
+					String.valueOf(player.getHeight()),
+					player.getNationality(),
+					String.valueOf(player.getPos()),
 					String.valueOf(Precision.round(rerateResult.getIt(),0) ), 
 					String.valueOf(Precision.round(rerateResult.getSp(),0) ), 
 					String.valueOf(Precision.round(rerateResult.getSt(),0) ), 
@@ -155,7 +162,8 @@ public class CsvRerateJob implements IRerateJob {
 		final CellProcessor[] processors = new CellProcessor[] {
 				new StrNotNullOrEmpty(), // Name
 				new Optional(new ParseInt()), // age
-				new Optional() // nat
+				new Optional(), // nat
+				new Optional() // team
 				
 				
 

@@ -3,6 +3,7 @@ package org.cehl.cehltools.dto;
 public class RerateDto {
 	private String name; //0-21
 	private String teamName;
+	private int jersey = -1;
 	private int age;
 	private int it;
 	private int sp;
@@ -17,6 +18,8 @@ public class RerateDto {
 	private int sc;
 	private int ex;
 	private int ld;
+	private int ht;
+	private int wt;
 	
 	
 	public String getName() {
@@ -36,6 +39,14 @@ public class RerateDto {
 	}
 	public void setAge(int age) {
 		this.age = age;
+	}
+	
+	
+	public int getJersey() {
+		return jersey;
+	}
+	public void setJersey(int jersey) {
+		this.jersey = jersey;
 	}
 	public int getIt() {
 		return it;
@@ -114,6 +125,20 @@ public class RerateDto {
 	}
 	public void setLd(int ld) {
 		this.ld = ld;
+	}
+	
+	
+	public int getHt() {
+		return ht;
+	}
+	public void setHt(int ht) {
+		this.ht = ht;
+	}
+	public int getWt() {
+		return wt;
+	}
+	public void setWt(int wt) {
+		this.wt = wt;
 	}
 	@Override
 	public String toString() {

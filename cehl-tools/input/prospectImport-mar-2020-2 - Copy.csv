@@ -1,0 +1,5 @@
+name,position,hand,height,weight,age,it,sp,st,en,du,di,sk,pa,pc,df,sc,ex,ld,salary,contractLength,birthPlace,TeamName
+Rasmus Dahlin,D,L,75,193,19,71,76,73,79,71,69,76,79,79,76,74,35,35,1250000,4,SWE,LosAngeles
+Brady Tkachuk,LW,L,75,212,20,78,72,75,78,69,66,72,77,77,68,77,35,35,1250000,4,USA,New Jersey
+Andrei Svechnikov,RW,L,74,195,19,73,75,73,76,71,66,75,74,76,67,74,35,35,1250000,4,RUS,Phoenix
+Jesperi Kotkaniemi,C,L,74,198,19,68,75,73,75,71,66,75,76,78,69,71,35,35,1250000,4,FIN,Winnipeg

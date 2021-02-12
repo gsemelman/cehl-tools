@@ -9,11 +9,13 @@ public class PlayerRerateDto implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private String team;
 	private String name;
 	private int age;
 	private LocalDate dob;
 	private String nationality;
-	
+	private Integer wieght;
+	private Integer height;
 	private char pos;
 	private double it;
 	private double sp;
@@ -47,6 +49,23 @@ public class PlayerRerateDto implements Serializable {
 		this.dob = dob;
 		this.age = Period.between(dob, LocalDate.now()).getYears();
 		this.nationality = nationality;
+	}
+	
+	public PlayerRerateDto(String name, LocalDate dob, String nationality, String team) {
+		super();
+		this.name = name;
+		this.dob = dob;
+		this.age = Period.between(dob, LocalDate.now()).getYears();
+		this.nationality = nationality;
+		this.team = team;
+	}
+
+	public String getTeam() {
+		return team;
+	}
+
+	public void setTeam(String team) {
+		this.team = team;
 	}
 
 	public String getName() {
@@ -83,7 +102,17 @@ public class PlayerRerateDto implements Serializable {
 
 	@Override
 	public String toString() {
-		return "PlayerRerateDto [name=" + name + ", age=" + age + ", dob=" + dob + ", nationality=" + nationality + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("PlayerRerateDto [team=");
+		builder.append(team);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append(", age=");
+		builder.append(age);
+		builder.append(", dob=");
+		builder.append(dob);
+		builder.append("]");
+		return builder.toString();
 	}
 	
 
@@ -197,6 +226,22 @@ public class PlayerRerateDto implements Serializable {
 
 	public void setLd(double ld) {
 		this.ld = ld;
+	}
+
+	public Integer getWieght() {
+		return wieght;
+	}
+
+	public void setWieght(Integer wieght) {
+		this.wieght = wieght;
+	}
+
+	public Integer getHeight() {
+		return height;
+	}
+
+	public void setHeight(Integer height) {
+		this.height = height;
 	}
 
 

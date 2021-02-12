@@ -8,8 +8,9 @@ import java.util.List;
 import org.cehl.cehltools.JobType;
 import org.cehl.cehltools.dto.TeamPlayerDto;
 import org.cehl.commons.SimFileType;
-import org.cehl.raw.RosterRaw;
+import org.cehl.model.cehl.player.PlayerPositionType;
 import org.cehl.raw.CehlTeam;
+import org.cehl.raw.RosterRaw;
 import org.cehl.raw.decode.RosterTools;
 import org.cehl.raw.decode.TeamNameProcessor;
 import org.slf4j.Logger;
@@ -109,7 +110,11 @@ public class RookieFixJob extends AbstractJob{
 			for(RosterRaw rosterRaw : rosterPrevSeason){
 				
 				if(rosterRaw.getVetRookieStatus1() == 255){
-					if(rosterRaw.getGamesPlayed() >= 25){
+					PlayerPositionType position = PlayerPositionType.PositionByRawValue(rosterRaw.getPosition());
+					
+					int minGames = PlayerPositionType.GOALIE.equals(position) ? 10 : 25;
+							
+					if(rosterRaw.getGamesPlayed() >= minGames){
 						System.out.println(rosterRaw);
 						
 						rookieList.add(new TeamPlayerDto(CehlTeam.fromId(rosterRaw.getTeamId()), rosterRaw.getName()));

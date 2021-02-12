@@ -14,6 +14,7 @@ import org.cehl.cehltools.JobType;
 import org.cehl.cehltools.dto.CashDto;
 import org.cehl.commons.SimFileType;
 import org.cehl.raw.CehlTeam;
+import org.cehl.raw.TeamRaw;
 import org.cehl.raw.decode.DecodeTools;
 import org.cehl.raw.decode.TeamDecodeTools;
 import org.slf4j.Logger;
@@ -56,7 +57,9 @@ public class CashUpdaterJob extends AbstractJob {
 
 		List<String[]> errorList = new ArrayList<String[]>();
 		
-		applyTeamCash(super.getLeagueFileByType(SimFileType.TEAM_FILE), cashImportList);
+		File teamsFile = super.getLeagueFileByType(SimFileType.TEAM_FILE);
+		outputCurrentCash(teamsFile);
+		applyTeamCash(teamsFile, cashImportList);
 		
 		if(!errorList.isEmpty()) {
 			try {
@@ -65,6 +68,32 @@ public class CashUpdaterJob extends AbstractJob {
 			} catch (Exception e) {
 				logger.error("error writing",e);
 			}
+		}
+	}
+	
+	void outputCurrentCash(File tmsFile) {
+		List<TeamRaw> teams = TeamDecodeTools.loadTeams(tmsFile);
+		
+		List<String[]> objects = new ArrayList<String[]>();
+		
+		for(TeamRaw team : teams) {
+			CehlTeam teamName = CehlTeam.fromId(team.getTeamId());
+			
+			if(teamName == null) continue;
+			
+			System.out.println(teamName.getName() + ", " + team.getTeamFinances());
+			
+			objects.add(new String[] {teamName.getName(), team.getTeamFinances().toString()});
+		}
+		
+
+	    final String[] header = new String[] { "Team", "Cash"};
+	    final File file = new File("output/existing_finances.csv");
+	    
+	    try {
+			writeCsv(header, objects, file);
+		} catch (IOException e) {
+			throw new RuntimeException("Unable to output previous team finances");
 		}
 	}
 	
@@ -89,6 +118,8 @@ public class CashUpdaterJob extends AbstractJob {
 	        		if(team.getTeamId() == teamId){
 	        			//set finances
 
+	        		
+	        			
 	        			DecodeTools.writeInt(bytes,cash.getNewCash(), 99, 103);
 	        			
 	        			continue;
@@ -192,13 +223,18 @@ public class CashUpdaterJob extends AbstractJob {
 	
 	private static void writeErrorLog(List<String[]> objects) throws IOException  {
 
+	    final String[] header = new String[] { "Name", "Error"};
+	    final File file = new File("output/errors.csv");
+	    
+	    writeCsv(header, objects, file);
+	}
+	
+	private static void writeCsv(String[] header, List<String[]> objects, File file) throws IOException  {
 		 ICsvListWriter listWriter = null;
 	        try {
-	                listWriter = new CsvListWriter(new FileWriter("output/errors.csv"),
+	                listWriter = new CsvListWriter(new FileWriter(file),
 	                        CsvPreference.STANDARD_PREFERENCE);
 
-	                final String[] header = new String[] { "Name", "Error"};
-	                
 	                // write the header
 	                listWriter.writeHeader(header);
 	                
@@ -206,8 +242,7 @@ public class CashUpdaterJob extends AbstractJob {
 	                for(String[] object : objects) {
 	                	listWriter.write(object);
 	                }
-
-	                
+ 
 	        }
 	        finally {
 	                if( listWriter != null ) {

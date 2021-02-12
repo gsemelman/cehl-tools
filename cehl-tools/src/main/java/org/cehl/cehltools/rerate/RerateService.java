@@ -15,7 +15,9 @@ import javax.sql.DataSource;
 import org.cehl.cehltools.rerate.agg.PlayerStatAccumulator;
 import org.cehl.cehltools.rerate.dto.PlayerRerateDto;
 import org.cehl.cehltools.rerate.model.Player;
+import org.cehl.cehltools.rerate.model.PlayerSeason;
 import org.cehl.cehltools.rerate.model.PlayerService;
+import org.cehl.cehltools.rerate.model.PlayerStatsAllStrengths;
 import org.cehl.cehltools.rerate.processor.DfRatingProcessor;
 import org.cehl.cehltools.rerate.processor.DiRatingProcessor;
 import org.cehl.cehltools.rerate.processor.DuRatingProcessor;
@@ -104,7 +106,27 @@ public class RerateService {
 		
 		rerateDto.setSt(player.getSeasons().size());
 		rerateDto.setSk(player.getSeasonByYear(2019) != null ? 1 : 0);
-		rerateDto.setSp(player.getSeasonByYear(2019) != null ? player.getSeasonByYear(2019).getStatsAll().getGp() : 0);
+//		rerateDto.setSp(player.getSeasonByYear(2019) != null ? player.getSeasonByYear(2019).getStatsAll().getGp() : 0);
+		int totalgp = player.getSeasons().stream().map(PlayerSeason::getStatsAll).mapToInt(PlayerStatsAllStrengths::getGp).sum();
+		rerateDto.setSp(totalgp);
+		if(rerateDto.getAge() == 0 && player.getDob() != null) {
+			rerateDto.setAge(player.getAge());
+		}
+		if(rerateDto.getPos() == (char)0) {
+			rerateDto.setPos(player.getPosition().charAt(0));
+		}
+		if(rerateDto.getHeight() == null) {
+			rerateDto.setHeight(player.getHeight());
+		}
+		if(rerateDto.getWieght() == null) {
+			rerateDto.setWieght(player.getWeight());
+		}
+		if(rerateDto.getNationality() == null) {
+			rerateDto.setNationality(player.getCountry());
+		}
+	
+		
+		
 		
 		return getRerateResult(player,rerateDto, endYear);
 	}

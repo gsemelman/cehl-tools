@@ -1,0 +1,874 @@
+name,teamName,jersey,age,it,sp,st,en,du,di,sk,pa,pc,df,sc,ex,ld,ht,wt
+A.J. Greer,Islanders,3,24,0,0,0,0,0,0,0,0,0,0,0,0,0,75,210
+Aaron Ekblad,Carolina,10,24,0,0,0,0,0,0,0,0,0,0,0,0,0,76,215
+Adam Brooks,Winnipeg,4,24,0,0,0,0,0,0,0,0,0,0,0,0,0,71,180
+Adam Clendening,Columbus,6,28,0,0,0,0,0,0,0,0,0,0,0,0,0,72,196
+Adam Erne,Edmonton,17,25,0,0,0,0,0,0,0,0,0,0,0,0,0,73,212
+Adam Gaudette,Calgary,13,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,170
+Adam Henrique,Columbus,27,30,0,0,0,0,0,0,0,0,0,0,0,0,0,72,188
+Adam Larsson,Buffalo,18,28,0,0,0,0,0,0,0,0,0,0,0,0,0,75,208
+Adam Lowry,Dallas,37,27,0,0,0,0,0,0,0,0,0,0,0,0,0,77,210
+Adam McQuaid,Columbus,55,34,0,0,0,0,0,0,0,0,0,0,0,0,0,76,210
+Adam Pardy,Phoenix,66,36,0,0,0,0,0,0,0,0,0,0,0,0,0,76,227
+Adam Pelech,Pittsburgh,0,26,0,0,0,0,0,0,0,0,0,0,0,0,0,75,218
+Adrian Kempe,Winnipeg,20,24,0,0,0,0,0,0,0,0,0,0,0,0,0,74,201
+Alec Martinez,Winnipeg,58,33,0,0,0,0,0,0,0,0,0,0,0,0,0,73,209
+Aleksander Barkov,Edmonton,4,25,0,0,0,0,0,0,0,0,0,0,0,0,0,75,210
+Aleksi Saarela,Minnesota,7,24,0,0,0,0,0,0,0,0,0,0,0,0,0,71,200
+Ales Hemsky,Detroit,84,37,0,0,0,0,0,0,0,0,0,0,0,0,0,72,177
+Alex Broadhurst,Philly,14,27,0,0,0,0,0,0,0,0,0,0,0,0,0,72,178
+Alex Chiasson,Montreal,29,30,0,0,0,0,0,0,0,0,0,0,0,0,0,76,208
+Alex DeBrincat,Vancouver,1,23,0,0,0,0,0,0,0,0,0,0,0,0,0,67,165
+Alex Galchenyuk,Washington,28,26,0,0,0,0,0,0,0,0,0,0,0,0,0,73,207
+Alex Goligoski,Montreal,67,35,0,0,0,0,0,0,0,0,0,0,0,0,0,71,185
+Alex Iafallo,Ottawa,9,27,0,0,0,0,0,0,0,0,0,0,0,0,0,72,188
+Alex Killorn,Islanders,69,31,0,0,0,0,0,0,0,0,0,0,0,0,0,73,198
+Alex Pietrangelo,Washington,11,31,0,0,0,0,0,0,0,0,0,0,0,0,0,75,210
+Alex Tuch,Tampa Bay,1,24,0,0,0,0,0,0,0,0,0,0,0,0,0,76,220
+Alexander Edler,Columbus,34,34,0,0,0,0,0,0,0,0,0,0,0,0,0,75,212
+Alexander Nylander,St. Louis,32,22,0,0,0,0,0,0,0,0,0,0,0,0,0,73,192
+Alexander Radulov,Chicago,47,34,0,0,0,0,0,0,0,0,0,0,0,0,0,73,205
+Alexander Semin,Chicago,30,36,0,0,0,0,0,0,0,0,0,0,0,0,0,74,211
+Alexander Steen,Florida,56,36,0,0,0,0,0,0,0,0,0,0,0,0,0,72,211
+Alexandre Carrier,Rangers,31,24,0,0,0,0,0,0,0,0,0,0,0,0,0,71,174
+Alexei Emelin,Columbus,45,34,0,0,0,0,0,0,0,0,0,0,0,0,0,74,218
+Anders Bjork,Pittsburgh,11,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,190
+Anders Lee,Pittsburgh,21,30,0,0,0,0,0,0,0,0,0,0,0,0,0,75,231
+Andre Benoit,Islanders,62,37,0,0,0,0,0,0,0,0,0,0,0,0,0,71,190
+Andre Burakovsky,Carolina,9,25,0,0,0,0,0,0,0,0,0,0,0,0,0,75,201
+Andreas Athanasiou,Rangers,19,26,0,0,0,0,0,0,0,0,0,0,0,0,0,74,188
+Andreas Borgman,Montreal,39,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,199
+Andreas Englund,Buffalo,35,24,0,0,0,0,0,0,0,0,0,0,0,0,0,75,189
+Andrei Loktionov,Philly,78,30,0,0,0,0,0,0,0,0,0,0,0,0,0,71,190
+Andrei Markov,San Jose,79,42,0,0,0,0,0,0,0,0,0,0,0,0,0,72,200
+Andrei Svechnikov,Phoenix,3,20,0,0,0,0,0,0,0,0,0,0,0,0,0,74,195
+Andrej Nestrasil,Toronto,5,29,0,0,0,0,0,0,0,0,0,0,0,0,0,75,200
+Andrej Sekera,Florida,46,34,0,0,0,0,0,0,0,0,0,0,0,0,0,72,195
+Andrej Sustr,LosAngeles,11,30,0,0,0,0,0,0,0,0,0,0,0,0,0,79,217
+Andrew Cogliano,Buffalo,40,33,0,0,0,0,0,0,0,0,0,0,0,0,0,70,175
+Andrew Copp,Buffalo,37,26,0,0,0,0,0,0,0,0,0,0,0,0,0,73,206
+Andrew Desjardins,Islanders,49,34,0,0,0,0,0,0,0,0,0,0,0,0,0,73,195
+Andrew Ladd,Montreal,24,35,0,0,0,0,0,0,0,0,0,0,0,0,0,75,192
+Andrew MacDonald,Montreal,57,34,0,0,0,0,0,0,0,0,0,0,0,0,0,73,204
+Andrew MacWilliam,Winnipeg,27,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,223
+Andrew Mangiapane,Phoenix,15,24,0,0,0,0,0,0,0,0,0,0,0,0,0,70,184
+Andrew Poturalski,Calgary,2,27,0,0,0,0,0,0,0,0,0,0,0,0,0,70,183
+Andrew Shaw,Boston,70,29,0,0,0,0,0,0,0,0,0,0,0,0,0,71,182
+Andy Greene,Boston,17,38,0,0,0,0,0,0,0,0,0,0,0,0,0,71,190
+Andy Welinski,Pittsburgh,8,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,201
+Anthony Angello,Colorado,13,24,0,0,0,0,0,0,0,0,0,0,0,0,0,77,210
+Anthony Beauvillier,Pittsburgh,26,23,0,0,0,0,0,0,0,0,0,0,0,0,0,71,182
+Anthony Bitetto,Vancouver,84,30,0,0,0,0,0,0,0,0,0,0,0,0,0,73,210
+Anthony Cirelli,Colorado,10,23,0,0,0,0,0,0,0,0,0,0,0,0,0,72,193
+Anthony DeAngelo,Philly,6,25,0,0,0,0,0,0,0,0,0,0,0,0,0,71,180
+Anthony Duclair,Boston,16,25,0,0,0,0,0,0,0,0,0,0,0,0,0,71,198
+Anthony Mantha,Edmonton,14,26,0,0,0,0,0,0,0,0,0,0,0,0,0,77,234
+Anthony Peluso,Florida,74,31,0,0,0,0,0,0,0,0,0,0,0,0,0,75,225
+Anthony Richard,Edmonton,3,24,0,0,0,0,0,0,0,0,0,0,0,0,0,70,163
+Antoine Roussel,Ottawa,69,31,0,0,0,0,0,0,0,0,0,0,0,0,0,71,199
+Anton Blidh,Nashville,5,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,201
+Anton Lander,Phoenix,62,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,184
+Anton Rodin,Boston,6,30,0,0,0,0,0,0,0,0,0,0,0,0,0,71,186
+Anton Slepyshev,LosAngeles,10,26,0,0,0,0,0,0,0,0,0,0,0,0,0,74,221
+Anton Stralman,Carolina,66,34,0,0,0,0,0,0,0,0,0,0,0,0,0,71,186
+Antti Suomela,New Jersey,16,26,0,0,0,0,0,0,0,0,0,0,0,0,0,72,180
+Anze Kopitar,Carolina,32,33,0,0,0,0,0,0,0,0,0,0,0,0,0,75,225
+Artem Anisimov,Montreal,53,32,0,0,0,0,0,0,0,0,0,0,0,0,0,76,199
+Artemi Panarin,Carolina,39,29,0,0,0,0,0,0,0,0,0,0,0,0,0,71,170
+Artturi Lehkonen,Washington,9,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,176
+Austin Czarnik,LosAngeles,27,28,0,0,0,0,0,0,0,0,0,0,0,0,0,69,170
+Austin Wagner,Toronto,18,23,0,0,0,0,0,0,0,0,0,0,0,0,0,73,185
+Austin Watson,Dallas,53,29,0,0,0,0,0,0,0,0,0,0,0,0,0,76,204
+Auston Matthews,Toronto,7,23,0,0,0,0,0,0,0,0,0,0,0,0,0,75,220
+Barclay Goodrow,Philly,89,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,215
+Ben Chiarot,Ottawa,63,29,0,0,0,0,0,0,0,0,0,0,0,0,0,75,225
+Ben Harpur,San Jose,7,26,0,0,0,0,0,0,0,0,0,0,0,0,0,78,231
+Ben Hutton,Montreal,45,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,206
+Ben Thomson,Winnipeg,9,28,0,0,0,0,0,0,0,0,0,0,0,0,0,75,205
+Benoit Pouliot,San Jose,67,34,0,0,0,0,0,0,0,0,0,0,0,0,0,75,200
+Bill Arnold,LosAngeles,13,28,0,0,0,0,0,0,0,0,0,0,0,0,0,72,193
+Blake Coleman,Ottawa,65,29,0,0,0,0,0,0,0,0,0,0,0,0,0,71,200
+Blake Comeau,Toronto,65,34,0,0,0,0,0,0,0,0,0,0,0,0,0,73,200
+Blake Pietila,Philly,12,27,0,0,0,0,0,0,0,0,0,0,0,0,0,71,200
+Blake Speers,Minnesota,17,24,0,0,0,0,0,0,0,0,0,0,0,0,0,71,185
+Blake Wheeler,Boston,41,34,0,0,0,0,0,0,0,0,0,0,0,0,0,77,225
+Bo Horvat,Chicago,33,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,215
+Bobby Butler,Calgary,35,33,0,0,0,0,0,0,0,0,0,0,0,0,0,72,189
+Bobby Ryan,Tampa Bay,37,33,0,0,0,0,0,0,0,0,0,0,0,0,0,74,208
+Bogdan Kiselevich,Washington,36,30,0,0,0,0,0,0,0,0,0,0,0,0,0,72,202
+Boone Jenner,Winnipeg,38,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,208
+Brad Boyes,Nashville,33,38,0,0,0,0,0,0,0,0,0,0,0,0,0,72,199
+Brad Hunt,Tampa Bay,63,32,0,0,0,0,0,0,0,0,0,0,0,0,0,69,176
+Brad Marchand,Edmonton,67,32,0,0,0,0,0,0,0,0,0,0,0,0,0,69,181
+Brad Richardson,Carolina,28,35,0,0,0,0,0,0,0,0,0,0,0,0,0,72,190
+Brady Skjei,Anaheim,0,26,0,0,0,0,0,0,0,0,0,0,0,0,0,75,210
+Brady Tkachuk,Chicago,16,21,0,0,0,0,0,0,0,0,0,0,0,0,0,75,212
+Brandon Carlo,Columbus,7,24,0,0,0,0,0,0,0,0,0,0,0,0,0,77,212
+Brandon Dubinsky,Florida,32,34,0,0,0,0,0,0,0,0,0,0,0,0,0,74,208
+Brandon Montour,Nashville,28,26,0,0,0,0,0,0,0,0,0,0,0,0,0,72,189
+Brandon Pirri,Philly,38,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,180
+Brandon Saad,Minnesota,2,28,0,0,0,0,0,0,0,0,0,0,0,0,0,73,206
+Brandon Sutter,Tampa Bay,15,31,0,0,0,0,0,0,0,0,0,0,0,0,0,75,190
+Brandon Tanev,Toronto,34,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,180
+Brayden McNabb,LosAngeles,80,29,0,0,0,0,0,0,0,0,0,0,0,0,0,76,213
+Brayden Point,Florida,4,24,0,0,0,0,0,0,0,0,0,0,0,0,0,70,166
+Brayden Schenn,New Jersey,12,29,0,0,0,0,0,0,0,0,0,0,0,0,0,73,200
+Braydon Coburn,Chicago,60,35,0,0,0,0,0,0,0,0,0,0,0,0,0,77,224
+Brendan Gallagher,Boston,12,28,0,0,0,0,0,0,0,0,0,0,0,0,0,69,184
+Brendan Gaunce,San Jose,3,26,0,0,0,0,0,0,0,0,0,0,0,0,0,74,217
+Brendan Guhle,Tampa Bay,12,23,0,0,0,0,0,0,0,0,0,0,0,0,0,74,197
+Brendan Leipsic,Pittsburgh,14,26,0,0,0,0,0,0,0,0,0,0,0,0,0,70,180
+Brendan Lemieux,Colorado,28,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,213
+Brendan Perlini,LosAngeles,7,24,0,0,0,0,0,0,0,0,0,0,0,0,0,75,211
+Brendan Smith,Dallas,23,31,0,0,0,0,0,0,0,0,0,0,0,0,0,74,200
+Brenden Dillon,St. Louis,28,30,0,0,0,0,0,0,0,0,0,0,0,0,0,76,225
+Brent Burns,Anaheim,8,35,0,0,0,0,0,0,0,0,0,0,0,0,0,77,230
+Brent Seabrook,Dallas,15,35,0,0,0,0,0,0,0,0,0,0,0,0,0,75,220
+Brett Bulmer,Philly,56,28,0,0,0,0,0,0,0,0,0,0,0,0,0,76,212
+Brett Connolly,LosAngeles,34,28,0,0,0,0,0,0,0,0,0,0,0,0,0,75,192
+Brett Howden,Detroit,13,22,0,0,0,0,0,0,0,0,0,0,0,0,0,74,197
+Brett Kulak,Vancouver,25,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,190
+Brett Lernout,Carolina,6,25,0,0,0,0,0,0,0,0,0,0,0,0,0,76,214
+Brett Pesce,Anaheim,13,26,0,0,0,0,0,0,0,0,0,0,0,0,0,75,206
+Brett Seney,St. Louis,3,24,0,0,0,0,0,0,0,0,0,0,0,0,0,69,156
+Brian Boyle,Columbus,35,36,0,0,0,0,0,0,0,0,0,0,0,0,0,78,245
+Brian Dumoulin,Carolina,36,29,0,0,0,0,0,0,0,0,0,0,0,0,0,76,207
+Brian Gibbons,Ottawa,21,32,0,0,0,0,0,0,0,0,0,0,0,0,0,68,175
+Brock Boeser,Washington,18,23,0,0,0,0,0,0,0,0,0,0,0,0,0,73,208
+Brock McGinn,Islanders,1,26,0,0,0,0,0,0,0,0,0,0,0,0,0,72,187
+Brock Nelson,San Jose,31,29,0,0,0,0,0,0,0,0,0,0,0,0,0,75,212
+Bryan Little,Chicago,10,33,0,0,0,0,0,0,0,0,0,0,0,0,0,72,191
+Bryan Rust,Boston,26,28,0,0,0,0,0,0,0,0,0,0,0,0,0,71,192
+C.J. Smith,Montreal,4,26,0,0,0,0,0,0,0,0,0,0,0,0,0,71,181
+Cal Clutterbuck,Vancouver,36,33,0,0,0,0,0,0,0,0,0,0,0,0,0,71,216
+Cal O'Reilly,Phoenix,52,34,0,0,0,0,0,0,0,0,0,0,0,0,0,72,188
+Caleb Jones,Tampa Bay,10,23,0,0,0,0,0,0,0,0,0,0,0,0,0,73,194
+Calle Jarnkrok,Tampa Bay,72,29,0,0,0,0,0,0,0,0,0,0,0,0,0,71,186
+Calvin De Haan,Pittsburgh,34,29,0,0,0,0,0,0,0,0,0,0,0,0,0,73,195
+Cam Atkinson,Carolina,25,31,0,0,0,0,0,0,0,0,0,0,0,0,0,68,175
+Cam Fowler,Anaheim,4,29,0,0,0,0,0,0,0,0,0,0,0,0,0,73,207
+Cameron Gaunce,Edmonton,26,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,204
+Carl Dahlstrom,Buffalo,41,25,0,0,0,0,0,0,0,0,0,0,0,0,0,76,231
+Carl Gunnarsson,Tampa Bay,44,34,0,0,0,0,0,0,0,0,0,0,0,0,0,74,198
+Carl Hagelin,Columbus,65,32,0,0,0,0,0,0,0,0,0,0,0,0,0,71,185
+Carl Soderberg,Florida,23,35,0,0,0,0,0,0,0,0,0,0,0,0,0,75,210
+Carson Soucy,Edmonton,6,26,0,0,0,0,0,0,0,0,0,0,0,0,0,77,210
+Carter Verhaeghe,New Jersey,41,25,0,0,0,0,0,0,0,0,0,0,0,0,0,73,180
+Casey Cizikas,Boston,71,29,0,0,0,0,0,0,0,0,0,0,0,0,0,71,195
+Casey Mittelstadt,Anaheim,39,22,0,0,0,0,0,0,0,0,0,0,0,0,0,73,199
+Casey Nelson,Calgary,7,28,0,0,0,0,0,0,0,0,0,0,0,0,0,73,185
+Cedric Paquette,Dallas,32,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,204
+Chandler Stephenson,Ottawa,10,26,0,0,0,0,0,0,0,0,0,0,0,0,0,72,208
+Charles Hudon,Nashville,6,26,0,0,0,0,0,0,0,0,0,0,0,0,0,70,190
+Charlie Coyle,Vancouver,2,28,0,0,0,0,0,0,0,0,0,0,0,0,0,75,220
+Charlie McAvoy,Winnipeg,37,23,0,0,0,0,0,0,0,0,0,0,0,0,0,72,208
+Chase De Leo,Florida,12,25,0,0,0,0,0,0,0,0,0,0,0,0,0,69,186
+Chris Bigras,Detroit,3,25,0,0,0,0,0,0,0,0,0,0,0,0,0,73,191
+Chris Bourque,Tampa Bay,58,34,0,0,0,0,0,0,0,0,0,0,0,0,0,68,174
+Chris Kreider,Tampa Bay,71,29,0,0,0,0,0,0,0,0,0,0,0,0,0,75,217
+Chris Stewart,Anaheim,38,33,0,0,0,0,0,0,0,0,0,0,0,0,0,74,242
+Chris Terry,Florida,18,31,0,0,0,0,0,0,0,0,0,0,0,0,0,70,191
+Chris Tierney,San Jose,6,26,0,0,0,0,0,0,0,0,0,0,0,0,0,73,195
+Chris Wagner,Calgary,80,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,198
+Chris Wideman,Toronto,59,31,0,0,0,0,0,0,0,0,0,0,0,0,0,70,190
+Christian Djoos,Colorado,4,26,0,0,0,0,0,0,0,0,0,0,0,0,0,72,180
+Christian Dvorak,Carolina,45,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,195
+Christian Fischer,Islanders,4,23,0,0,0,0,0,0,0,0,0,0,0,0,0,74,214
+Christian Folin,Montreal,25,29,0,0,0,0,0,0,0,0,0,0,0,0,0,75,204
+Christian Jaros,Tampa Bay,15,24,0,0,0,0,0,0,0,0,0,0,0,0,0,75,222
+Christian Thomas,Dallas,60,28,0,0,0,0,0,0,0,0,0,0,0,0,0,69,175
+Christian Wolanin,Tampa Bay,42,25,0,0,0,0,0,0,0,0,0,0,0,0,0,74,185
+Christoffer Ehn,Boston,2,24,0,0,0,0,0,0,0,0,0,0,0,0,0,75,195
+Clark Bishop,Vancouver,27,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,199
+Claude Giroux,Florida,31,33,0,0,0,0,0,0,0,0,0,0,0,0,0,71,185
+Clayton Keller,Anaheim,35,22,0,0,0,0,0,0,0,0,0,0,0,0,0,70,170
+Clayton Stoner,Minnesota,13,35,0,0,0,0,0,0,0,0,0,0,0,0,0,76,216
+Cody Ceci,Chicago,5,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,210
+Cody Eakin,St. Louis,21,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,183
+Cody Franson,Montreal,35,33,0,0,0,0,0,0,0,0,0,0,0,0,0,77,224
+Cody Goloubef,St. Louis,69,31,0,0,0,0,0,0,0,0,0,0,0,0,0,73,190
+Cody McLeod,Montreal,65,36,0,0,0,0,0,0,0,0,0,0,0,0,0,74,204
+Colin Miller,Colorado,63,28,0,0,0,0,0,0,0,0,0,0,0,0,0,73,193
+Colin Smith,LosAngeles,14,27,0,0,0,0,0,0,0,0,0,0,0,0,0,70,185
+Colin White,Rangers,6,23,0,0,0,0,0,0,0,0,0,0,0,0,0,72,191
+Colin Wilson,St. Louis,26,31,0,0,0,0,0,0,0,0,0,0,0,0,0,73,215
+Colton Parayko,Edmonton,30,27,0,0,0,0,0,0,0,0,0,0,0,0,0,78,230
+Colton Sceviour,San Jose,4,31,0,0,0,0,0,0,0,0,0,0,0,0,0,72,190
+Colton Sissons,Colorado,40,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,200
+Connor Brickley,LosAngeles,86,28,0,0,0,0,0,0,0,0,0,0,0,0,0,72,203
+Connor Brown,Tampa Bay,23,27,0,0,0,0,0,0,0,0,0,0,0,0,0,72,186
+Connor Carrick,Islanders,24,26,0,0,0,0,0,0,0,0,0,0,0,0,0,70,192
+Connor Clifton,LosAngeles,1,25,0,0,0,0,0,0,0,0,0,0,0,0,0,71,175
+Connor McDavid,Edmonton,97,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,193
+Connor Murphy,Montreal,41,27,0,0,0,0,0,0,0,0,0,0,0,0,0,76,212
+Conor Garland,Colorado,1,24,0,0,0,0,0,0,0,0,0,0,0,0,0,70,165
+Conor Sheary,Pittsburgh,20,28,0,0,0,0,0,0,0,0,0,0,0,0,0,68,179
+Cooper Marody,Rangers,9,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,184
+Corey Perry,Montreal,63,35,0,0,0,0,0,0,0,0,0,0,0,0,0,75,205
+Corey Tropp,Tampa Bay,16,31,0,0,0,0,0,0,0,0,0,0,0,0,0,72,192
+Craig Smith,Pittsburgh,25,31,0,0,0,0,0,0,0,0,0,0,0,0,0,73,208
+Curtis Lazar,Pittsburgh,22,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,211
+Curtis McKenzie,St. Louis,50,29,0,0,0,0,0,0,0,0,0,0,0,0,0,74,205
+Curtis Valk,Nashville,2,27,0,0,0,0,0,0,0,0,0,0,0,0,0,69,170
+Dalton Prout,Boston,72,30,0,0,0,0,0,0,0,0,0,0,0,0,0,75,215
+Damon Severson,Nashville,36,26,0,0,0,0,0,0,0,0,0,0,0,0,0,74,205
+Dan Hamhuis,Edmonton,22,38,0,0,0,0,0,0,0,0,0,0,0,0,0,73,204
+Daniel Brickley,Carolina,42,25,0,0,0,0,0,0,0,0,0,0,0,0,0,75,203
+Daniel Carr,Columbus,18,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,193
+Daniel Sprong,Minnesota,30,23,0,0,0,0,0,0,0,0,0,0,0,0,0,72,191
+Daniel Winnik,Montreal,44,35,0,0,0,0,0,0,0,0,0,0,0,0,0,74,210
+Danny Dekeyser,Philly,7,30,0,0,0,0,0,0,0,0,0,0,0,0,0,75,190
+Danton Heinen,Minnesota,6,25,0,0,0,0,0,0,0,0,0,0,0,0,0,73,188
+Darnell Nurse,Buffalo,6,25,0,0,0,0,0,0,0,0,0,0,0,0,0,76,221
+Darren Archibald,Phoenix,53,30,0,0,0,0,0,0,0,0,0,0,0,0,0,75,210
+Darren Dietz,Chicago,11,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,201
+Darren Helm,St. Louis,73,33,0,0,0,0,0,0,0,0,0,0,0,0,0,72,192
+David Backes,Edmonton,48,36,0,0,0,0,0,0,0,0,0,0,0,0,0,75,215
+David Booth,Ottawa,50,36,0,0,0,0,0,0,0,0,0,0,0,0,0,72,212
+David Desharnais,Montreal,60,34,0,0,0,0,0,0,0,0,0,0,0,0,0,67,180
+David Kampf,San Jose,23,26,0,0,0,0,0,0,0,0,0,0,0,0,0,74,188
+David Krejci,New Jersey,49,34,0,0,0,0,0,0,0,0,0,0,0,0,0,72,188
+David Musil,LosAngeles,88,27,0,0,0,0,0,0,0,0,0,0,0,0,0,76,207
+David Pastrnak,Rangers,8,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,194
+David Perron,Florida,62,32,0,0,0,0,0,0,0,0,0,0,0,0,0,72,200
+David Rundblad,Pittsburgh,7,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,187
+David Savard,Columbus,30,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,229
+David Schlemko,Islanders,14,33,0,0,0,0,0,0,0,0,0,0,0,0,0,73,191
+Dean Kukan,Colorado,3,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,192
+Denis Malgin,Nashville,4,24,0,0,0,0,0,0,0,0,0,0,0,0,0,69,177
+Dennis Cholowski,Philly,5,22,0,0,0,0,0,0,0,0,0,0,0,0,0,72,197
+Dennis Everberg,Philly,46,29,0,0,0,0,0,0,0,0,0,0,0,0,0,76,205
+Dennis Gilbert,Columbus,2,24,0,0,0,0,0,0,0,0,0,0,0,0,0,74,216
+Dennis Rasmussen,Detroit,40,30,0,0,0,0,0,0,0,0,0,0,0,0,0,75,192
+Derek Forbort,Columbus,8,28,0,0,0,0,0,0,0,0,0,0,0,0,0,76,219
+Derek Grant,Columbus,57,30,0,0,0,0,0,0,0,0,0,0,0,0,0,75,206
+Derek Ryan,New Jersey,1,34,0,0,0,0,0,0,0,0,0,0,0,0,0,71,185
+Derek Stepan,Pittsburgh,39,30,0,0,0,0,0,0,0,0,0,0,0,0,0,72,196
+Derick Brassard,Columbus,28,33,0,0,0,0,0,0,0,0,0,0,0,0,0,73,202
+Derrick Pouliot,Pittsburgh,15,27,0,0,0,0,0,0,0,0,0,0,0,0,0,72,196
+Deryk Engelland,Washington,10,38,0,0,0,0,0,0,0,0,0,0,0,0,0,74,212
+Devante Smith-Pelly,Islanders,77,28,0,0,0,0,0,0,0,0,0,0,0,0,0,72,223
+Devin Shore,Rangers,4,26,0,0,0,0,0,0,0,0,0,0,0,0,0,72,206
+Devon Toews,Washington,15,26,0,0,0,0,0,0,0,0,0,0,0,0,0,73,191
+Dillon Heatherington,Dallas,20,25,0,0,0,0,0,0,0,0,0,0,0,0,0,76,225
+Dion Phaneuf,Nashville,47,35,0,0,0,0,0,0,0,0,0,0,0,0,0,75,222
+Dmitrij Jaskin,Montreal,26,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,216
+Dmitry Kulikov,Chicago,20,30,0,0,0,0,0,0,0,0,0,0,0,0,0,73,204
+Dmitry Orlov,Pittsburgh,81,29,0,0,0,0,0,0,0,0,0,0,0,0,0,71,208
+Dmytro Timashov,Minnesota,19,24,0,0,0,0,0,0,0,0,0,0,0,0,0,70,192
+Dominic Toninato,New Jersey,7,26,0,0,0,0,0,0,0,0,0,0,0,0,0,74,191
+Dominic Turgeon,Vancouver,18,24,0,0,0,0,0,0,0,0,0,0,0,0,0,74,200
+Dominik Kahun,Carolina,21,25,0,0,0,0,0,0,0,0,0,0,0,0,0,71,175
+Dominik Kubalik,New Jersey,13,25,0,0,0,0,0,0,0,0,0,0,0,0,0,74,179
+Dominik Simon,Colorado,11,26,0,0,0,0,0,0,0,0,0,0,0,0,0,71,190
+Dougie Hamilton,San Jose,2,27,0,0,0,0,0,0,0,0,0,0,0,0,0,78,229
+Drake Caggiula,Washington,34,26,0,0,0,0,0,0,0,0,0,0,0,0,0,70,176
+Drew Doughty,New Jersey,9,31,0,0,0,0,0,0,0,0,0,0,0,0,0,73,202
+Drew Shore,Boston,25,29,0,0,0,0,0,0,0,0,0,0,0,0,0,75,205
+Drew Stafford,Vancouver,41,35,0,0,0,0,0,0,0,0,0,0,0,0,0,74,215
+Duncan Keith,Edmonton,12,37,0,0,0,0,0,0,0,0,0,0,0,0,0,73,192
+Duncan Siemens,Chicago,8,27,0,0,0,0,0,0,0,0,0,0,0,0,0,75,210
+Dustin Brown,Carolina,29,36,0,0,0,0,0,0,0,0,0,0,0,0,0,72,210
+Dustin Byfuglien,Rangers,38,35,0,0,0,0,0,0,0,0,0,0,0,0,0,77,260
+Dwight King,Washington,27,31,0,0,0,0,0,0,0,0,0,0,0,0,0,76,229
+Dylan Demelo,New Jersey,4,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,191
+Dylan Larkin,Carolina,15,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,198
+Dylan McIlrath,Buffalo,42,28,0,0,0,0,0,0,0,0,0,0,0,0,0,77,231
+Dylan Olsen,LosAngeles,31,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,223
+Dylan Sikura,Winnipeg,32,25,0,0,0,0,0,0,0,0,0,0,0,0,0,71,166
+Dylan Strome,Nashville,11,23,0,0,0,0,0,0,0,0,0,0,0,0,0,75,200
+Elias Lindholm,New Jersey,19,26,0,0,0,0,0,0,0,0,0,0,0,0,0,73,195
+Elias Pettersson,St. Louis,35,22,0,0,0,0,0,0,0,0,0,0,0,0,0,74,176
+Emerson Etem,Winnipeg,65,28,0,0,0,0,0,0,0,0,0,0,0,0,0,73,212
+Eric Fehr,Anaheim,57,35,0,0,0,0,0,0,0,0,0,0,0,0,0,76,209
+Eric Staal,Anaheim,25,36,0,0,0,0,0,0,0,0,0,0,0,0,0,76,206
+Erik Cernak,Winnipeg,2,23,0,0,0,0,0,0,0,0,0,0,0,0,0,75,233
+Erik Condra,Tampa Bay,41,34,0,0,0,0,0,0,0,0,0,0,0,0,0,71,185
+Erik Gudbranson,Colorado,84,29,0,0,0,0,0,0,0,0,0,0,0,0,0,77,217
+Erik Gustafsson,Colorado,30,28,0,0,0,0,0,0,0,0,0,0,0,0,0,72,197
+Erik Haula,San Jose,57,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,193
+Erik Johnson,Anaheim,7,32,0,0,0,0,0,0,0,0,0,0,0,0,0,76,225
+Erik Karlsson,Washington,68,30,0,0,0,0,0,0,0,0,0,0,0,0,0,72,190
+Esa Lindell,Buffalo,7,26,0,0,0,0,0,0,0,0,0,0,0,0,0,75,215
+Ethan Bear,Minnesota,27,23,0,0,0,0,0,0,0,0,0,0,0,0,0,71,197
+Evan Rodrigues,Detroit,2,27,0,0,0,0,0,0,0,0,0,0,0,0,0,71,184
+Evander Kane,Pittsburgh,27,29,0,0,0,0,0,0,0,0,0,0,0,0,0,74,210
+Evgeni Malkin,Anaheim,36,34,0,0,0,0,0,0,0,0,0,0,0,0,0,75,195
+Evgeny Dadonov,Chicago,74,31,0,0,0,0,0,0,0,0,0,0,0,0,0,71,185
+Evgeny Kuznetsov,Minnesota,91,28,0,0,0,0,0,0,0,0,0,0,0,0,0,74,197
+Fabian Brunnstrom,Phoenix,61,35,0,0,0,0,0,0,0,0,0,0,0,0,0,73,206
+Filip Chlapik,Tampa Bay,24,23,0,0,0,0,0,0,0,0,0,0,0,0,0,73,194
+Filip Chytil,Colorado,12,21,0,0,0,0,0,0,0,0,0,0,0,0,0,74,206
+Filip Forsberg,Minnesota,9,26,0,0,0,0,0,0,0,0,0,0,0,0,0,73,205
+Filip Hronek,Colorado,14,23,0,0,0,0,0,0,0,0,0,0,0,0,0,72,183
+Frank Vatrano,St. Louis,27,26,0,0,0,0,0,0,0,0,0,0,0,0,0,69,197
+Frans Nielsen,Tampa Bay,53,36,0,0,0,0,0,0,0,0,0,0,0,0,0,73,186
+Freddie Hamilton,Ottawa,76,29,0,0,0,0,0,0,0,0,0,0,0,0,0,73,195
+Frederik Gauthier,Columbus,22,25,0,0,0,0,0,0,0,0,0,0,0,0,0,77,239
+Fredrik Claesson,Toronto,23,28,0,0,0,0,0,0,0,0,0,0,0,0,0,73,196
+Gabriel Bourque,Buffalo,11,30,0,0,0,0,0,0,0,0,0,0,0,0,0,70,206
+Gabriel Landeskog,Nashville,90,28,0,0,0,0,0,0,0,0,0,0,0,0,0,73,215
+Garnet Hathaway,Nashville,12,29,0,0,0,0,0,0,0,0,0,0,0,0,0,74,210
+Gavin Bayreuther,Nashville,22,26,0,0,0,0,0,0,0,0,0,0,0,0,0,73,195
+Gemel Smith,Islanders,8,26,0,0,0,0,0,0,0,0,0,0,0,0,0,70,196
+Greg McKegg,Washington,26,28,0,0,0,0,0,0,0,0,0,0,0,0,0,72,192
+Greg Pateryn,Philly,31,30,0,0,0,0,0,0,0,0,0,0,0,0,0,75,220
+Griffin Reinhart,Philly,23,26,0,0,0,0,0,0,0,0,0,0,0,0,0,76,212
+Gustav Forsling,Carolina,11,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,186
+Gustav Nyquist,Columbus,4,31,0,0,0,0,0,0,0,0,0,0,0,0,0,71,179
+Gustav Olofsson,Detroit,4,26,0,0,0,0,0,0,0,0,0,0,0,0,0,75,200
+Hampus Lindholm,Minnesota,48,26,0,0,0,0,0,0,0,0,0,0,0,0,0,75,208
+Haydn Fleury,Buffalo,28,24,0,0,0,0,0,0,0,0,0,0,0,0,0,75,208
+Henrik Borgstrom,Toronto,19,23,0,0,0,0,0,0,0,0,0,0,0,0,0,75,199
+Henrik Haapala,Nashville,24,26,0,0,0,0,0,0,0,0,0,0,0,0,0,69,165
+Henrik Samuelsson,Nashville,15,26,0,0,0,0,0,0,0,0,0,0,0,0,0,75,219
+Henrik Zetterberg,Florida,48,40,0,0,0,0,0,0,0,0,0,0,0,0,0,72,197
+Hudson Fasching,New Jersey,38,25,0,0,0,0,0,0,0,0,0,0,0,0,0,75,204
+Hunter Shinkaruk,Buffalo,34,26,0,0,0,0,0,0,0,0,0,0,0,0,0,70,181
+Ian Cole,Detroit,24,31,0,0,0,0,0,0,0,0,0,0,0,0,0,73,225
+Ian McCoshen,Minnesota,23,25,0,0,0,0,0,0,0,0,0,0,0,0,0,75,210
+Igor Ozhiganov,Carolina,22,28,0,0,0,0,0,0,0,0,0,0,0,0,0,74,210
+Iiro Pakarinen,LosAngeles,64,29,0,0,0,0,0,0,0,0,0,0,0,0,0,73,212
+Ilya Kovalchuk,New Jersey,29,37,0,0,0,0,0,0,0,0,0,0,0,0,0,75,222
+Ivan Barbashev,Toronto,21,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,187
+Ivan Provorov,Anaheim,14,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,201
+Jaccob Slavin,San Jose,11,26,0,0,0,0,0,0,0,0,0,0,0,0,0,75,207
+Jack Eichel,Carolina,27,24,0,0,0,0,0,0,0,0,0,0,0,0,0,74,203
+Jack Johnson,Winnipeg,5,34,0,0,0,0,0,0,0,0,0,0,0,0,0,73,227
+Jack Roslovic,Minnesota,24,23,0,0,0,0,0,0,0,0,0,0,0,0,0,73,187
+Jacob De La Rose,Winnipeg,19,25,0,0,0,0,0,0,0,0,0,0,0,0,0,75,215
+Jacob Larsson,Winnipeg,15,23,0,0,0,0,0,0,0,0,0,0,0,0,0,74,190
+Jacob Trouba,New Jersey,15,26,0,0,0,0,0,0,0,0,0,0,0,0,0,75,209
+Jaden Schwartz,Carolina,16,28,0,0,0,0,0,0,0,0,0,0,0,0,0,70,190
+Jake Bischoff,Pittsburgh,45,26,0,0,0,0,0,0,0,0,0,0,0,0,0,73,194
+Jake Chelios,Toronto,45,29,0,0,0,0,0,0,0,0,0,0,0,0,0,74,185
+Jake DeBrusk,San Jose,16,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,188
+Jake Evans,St. Louis,10,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,181
+Jake Gardiner,New Jersey,54,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,203
+Jake Guentzel,Anaheim,18,26,0,0,0,0,0,0,0,0,0,0,0,0,0,71,180
+Jake McCabe,Minnesota,5,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,204
+Jake Muzzin,Carolina,12,31,0,0,0,0,0,0,0,0,0,0,0,0,0,75,217
+Jake Virtanen,Buffalo,24,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,226
+Jake Walman,Toronto,3,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,170
+Jakob Chychrun,Buffalo,2,22,0,0,0,0,0,0,0,0,0,0,0,0,0,74,210
+Jakob Silfverberg,Colorado,15,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,208
+Jakub Voracek,Toronto,93,31,0,0,0,0,0,0,0,0,0,0,0,0,0,74,214
+Jakub Vrana,Nashville,0,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,195
+Jakub Zboril,St. Louis,21,23,0,0,0,0,0,0,0,0,0,0,0,0,0,72,200
+James Neal,Florida,33,33,0,0,0,0,0,0,0,0,0,0,0,0,0,74,212
+James van Riemsdyk,Boston,9,31,0,0,0,0,0,0,0,0,0,0,0,0,0,75,217
+James Wisniewski,Islanders,45,36,0,0,0,0,0,0,0,0,0,0,0,0,0,71,203
+Jamie Benn,San Jose,1,31,0,0,0,0,0,0,0,0,0,0,0,0,0,74,210
+Jamie McGinn,Vancouver,65,32,0,0,0,0,0,0,0,0,0,0,0,0,0,73,205
+Jamie Oleksiak,Boston,21,28,0,0,0,0,0,0,0,0,0,0,0,0,0,79,255
+Jan Rutta,Ottawa,14,30,0,0,0,0,0,0,0,0,0,0,0,0,0,75,204
+Jared McCann,St. Louis,2,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,185
+Jared Spurgeon,Anaheim,47,31,0,0,0,0,0,0,0,0,0,0,0,0,0,69,167
+Jared Staal,Phoenix,54,30,0,0,0,0,0,0,0,0,0,0,0,0,0,76,210
+Jaromir Jagr,Winnipeg,71,48,0,0,0,0,0,0,0,0,0,0,0,0,0,75,230
+Jason Chimera,Carolina,33,41,0,0,0,0,0,0,0,0,0,0,0,0,0,75,215
+Jason Demers,Tampa Bay,66,32,0,0,0,0,0,0,0,0,0,0,0,0,0,73,195
+Jason Dickinson,Winnipeg,1,25,0,0,0,0,0,0,0,0,0,0,0,0,0,74,200
+Jason Garrison,Vancouver,29,36,0,0,0,0,0,0,0,0,0,0,0,0,0,73,218
+Jason Pominville,Montreal,52,38,0,0,0,0,0,0,0,0,0,0,0,0,0,72,180
+Jason Spezza,Washington,21,37,0,0,0,0,0,0,0,0,0,0,0,0,0,75,216
+Jason Zucker,Vancouver,3,29,0,0,0,0,0,0,0,0,0,0,0,0,0,71,192
+Jay Beagle,Islanders,84,35,0,0,0,0,0,0,0,0,0,0,0,0,0,75,210
+Jay Bouwmeester,Anaheim,41,37,0,0,0,0,0,0,0,0,0,0,0,0,0,76,206
+Jayce Hawryluk,Carolina,1,25,0,0,0,0,0,0,0,0,0,0,0,0,0,71,196
+Jayson Megna,Chicago,67,30,0,0,0,0,0,0,0,0,0,0,0,0,0,73,195
+Jean-Gabriel Pageau,Chicago,44,28,0,0,0,0,0,0,0,0,0,0,0,0,0,70,180
+Jean-Sebastien Dea,Detroit,7,26,0,0,0,0,0,0,0,0,0,0,0,0,0,71,168
+Jeff Carter,Toronto,47,36,0,0,0,0,0,0,0,0,0,0,0,0,0,75,219
+Jeff Petry,Toronto,32,33,0,0,0,0,0,0,0,0,0,0,0,0,0,75,201
+Jeff Skinner,LosAngeles,62,28,0,0,0,0,0,0,0,0,0,0,0,0,0,71,195
+Jerry D'Amigo,Calgary,3,29,0,0,0,0,0,0,0,0,0,0,0,0,0,71,200
+Jesper Bratt,San Jose,22,22,0,0,0,0,0,0,0,0,0,0,0,0,0,70,175
+Jesper Fast,Minnesota,18,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,191
+Jesperi Kotkaniemi,Winnipeg,24,20,0,0,0,0,0,0,0,0,0,0,0,0,0,74,198
+Jesse Puljujarvi,Calgary,17,22,0,0,0,0,0,0,0,0,0,0,0,0,0,76,201
+Jimmy Hayes,Rangers,48,31,0,0,0,0,0,0,0,0,0,0,0,0,0,77,215
+Jimmy Schuldt,Montreal,8,25,0,0,0,0,0,0,0,0,0,0,0,0,0,73,203
+Jimmy Vesey,Boston,28,27,0,0,0,0,0,0,0,0,0,0,0,0,0,75,202
+Jiri Tlusty,Detroit,26,32,0,0,0,0,0,0,0,0,0,0,0,0,0,72,205
+Joakim Lindstrom,Anaheim,45,37,0,0,0,0,0,0,0,0,0,0,0,0,0,72,187
+Joakim Ryan,Nashville,1,27,0,0,0,0,0,0,0,0,0,0,0,0,0,71,185
+Joe Colborne,Islanders,43,30,0,0,0,0,0,0,0,0,0,0,0,0,0,77,221
+Joe Hicketts,Carolina,8,24,0,0,0,0,0,0,0,0,0,0,0,0,0,68,180
+Joe Pavelski,New Jersey,44,36,0,0,0,0,0,0,0,0,0,0,0,0,0,71,195
+Joe Thornton,Toronto,39,41,0,0,0,0,0,0,0,0,0,0,0,0,0,76,220
+Joel Armia,Vancouver,33,27,0,0,0,0,0,0,0,0,0,0,0,0,0,75,213
+Joel Edmundson,Florida,82,27,0,0,0,0,0,0,0,0,0,0,0,0,0,76,215
+Joel L'Esperance,Washington,37,25,0,0,0,0,0,0,0,0,0,0,0,0,0,74,215
+Joel Ward,Washington,43,40,0,0,0,0,0,0,0,0,0,0,0,0,0,73,225
+Joey Hishon,LosAngeles,42,29,0,0,0,0,0,0,0,0,0,0,0,0,0,70,170
+Johan Larsson,Calgary,26,28,0,0,0,0,0,0,0,0,0,0,0,0,0,71,204
+Johan Sundstrom,Minnesota,31,28,0,0,0,0,0,0,0,0,0,0,0,0,0,75,201
+John Carlson,Edmonton,10,31,0,0,0,0,0,0,0,0,0,0,0,0,0,75,217
+John Gilmour,San Jose,12,27,0,0,0,0,0,0,0,0,0,0,0,0,0,72,188
+John Hayden,Columbus,11,25,0,0,0,0,0,0,0,0,0,0,0,0,0,75,215
+John Klingberg,Minnesota,11,28,0,0,0,0,0,0,0,0,0,0,0,0,0,74,190
+John Moore,Toronto,25,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,210
+John Persson,Washington,25,28,0,0,0,0,0,0,0,0,0,0,0,0,0,75,222
+John Quenneville,Vancouver,11,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,195
+John Tavares,St. Louis,92,30,0,0,0,0,0,0,0,0,0,0,0,0,0,73,215
+Johnny Boychuk,Islanders,56,36,0,0,0,0,0,0,0,0,0,0,0,0,0,74,227
+Johnny Gaudreau,Rangers,22,27,0,0,0,0,0,0,0,0,0,0,0,0,0,69,165
+Johnny Oduya,Carolina,53,39,0,0,0,0,0,0,0,0,0,0,0,0,0,72,191
+Jon Merrill,Rangers,35,28,0,0,0,0,0,0,0,0,0,0,0,0,0,75,195
+Jonas Brodin,St. Louis,38,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,194
+Jonathan Drouin,Rangers,45,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,197
+Jonathan Ericsson,New Jersey,64,36,0,0,0,0,0,0,0,0,0,0,0,0,0,76,218
+Jonathan Huberdeau,Rangers,15,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,202
+Jonathan Racine,LosAngeles,63,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,194
+Jonathan Toews,Ottawa,20,32,0,0,0,0,0,0,0,0,0,0,0,0,0,74,201
+Jonny Brodzinski,Carolina,5,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,215
+Joonas Donskoi,Washington,73,28,0,0,0,0,0,0,0,0,0,0,0,0,0,72,190
+Jordan Caron,Tampa Bay,31,30,0,0,0,0,0,0,0,0,0,0,0,0,0,75,204
+Jordan Eberle,Nashville,9,30,0,0,0,0,0,0,0,0,0,0,0,0,0,71,187
+Jordan Greenway,Carolina,13,23,0,0,0,0,0,0,0,0,0,0,0,0,0,78,225
+Jordan Martinook,Ottawa,13,28,0,0,0,0,0,0,0,0,0,0,0,0,0,72,196
+Jordan Nolan,Tampa Bay,70,31,0,0,0,0,0,0,0,0,0,0,0,0,0,75,219
+Jordan Oesterle,LosAngeles,22,28,0,0,0,0,0,0,0,0,0,0,0,0,0,72,182
+Jordan Schroeder,LosAngeles,19,30,0,0,0,0,0,0,0,0,0,0,0,0,0,69,170
+Jordan Staal,Toronto,28,32,0,0,0,0,0,0,0,0,0,0,0,0,0,76,220
+Jordan Weal,Detroit,69,28,0,0,0,0,0,0,0,0,0,0,0,0,0,70,180
+Jordie Benn,St. Louis,13,33,0,0,0,0,0,0,0,0,0,0,0,0,0,74,199
+Jori Lehtera,Winnipeg,26,33,0,0,0,0,0,0,0,0,0,0,0,0,0,74,212
+Joseph Blandisi,Montreal,5,26,0,0,0,0,0,0,0,0,0,0,0,0,0,72,187
+Josh Anderson,Tampa Bay,29,26,0,0,0,0,0,0,0,0,0,0,0,0,0,75,222
+Josh Archibald,Columbus,40,28,0,0,0,0,0,0,0,0,0,0,0,0,0,70,176
+Josh Jooris,Toronto,24,30,0,0,0,0,0,0,0,0,0,0,0,0,0,73,198
+Josh Leivo,Toronto,33,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,192
+Josh Manson,Columbus,23,29,0,0,0,0,0,0,0,0,0,0,0,0,0,75,224
+Josh Morrissey,Pittsburgh,23,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,195
+Juho Lammikko,Vancouver,23,24,0,0,0,0,0,0,0,0,0,0,0,0,0,74,191
+Jujhar Khaira,Rangers,11,26,0,0,0,0,0,0,0,0,0,0,0,0,0,76,212
+Julius Honka,Anaheim,27,25,0,0,0,0,0,0,0,0,0,0,0,0,0,71,180
+Jussi Jokinen,Chicago,49,37,0,0,0,0,0,0,0,0,0,0,0,0,0,72,191
+Justin Abdelkader,Montreal,17,33,0,0,0,0,0,0,0,0,0,0,0,0,0,74,213
+Justin Auger,Boston,4,26,0,0,0,0,0,0,0,0,0,0,0,0,0,78,232
+Justin Bailey,LosAngeles,2,25,0,0,0,0,0,0,0,0,0,0,0,0,0,76,214
+Justin Braun,Colorado,61,33,0,0,0,0,0,0,0,0,0,0,0,0,0,74,205
+Justin Faulk,Nashville,38,28,0,0,0,0,0,0,0,0,0,0,0,0,0,72,217
+Justin Kloos,Nashville,32,27,0,0,0,0,0,0,0,0,0,0,0,0,0,69,175
+Justin Schultz,Washington,30,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,193
+Justin Williams,Pittsburgh,24,39,0,0,0,0,0,0,0,0,0,0,0,0,0,73,184
+Juuso Riikola,San Jose,24,27,0,0,0,0,0,0,0,0,0,0,0,0,0,72,189
+Kalle Kossila,Dallas,11,27,0,0,0,0,0,0,0,0,0,0,0,0,0,70,182
+Karl Alzner,Vancouver,28,32,0,0,0,0,0,0,0,0,0,0,0,0,0,75,213
+Kasperi Kapanen,Rangers,1,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,194
+Keaton Ellerby,Detroit,19,32,0,0,0,0,0,0,0,0,0,0,0,0,0,77,220
+Keith Aulie,Buffalo,27,31,0,0,0,0,0,0,0,0,0,0,0,0,0,78,222
+Keith Yandle,Washington,8,34,0,0,0,0,0,0,0,0,0,0,0,0,0,73,192
+Kenny Agostino,Philly,75,28,0,0,0,0,0,0,0,0,0,0,0,0,0,72,204
+Kerby Rychel,New Jersey,20,26,0,0,0,0,0,0,0,0,0,0,0,0,0,73,213
+Kevan Miller,Winnipeg,12,33,0,0,0,0,0,0,0,0,0,0,0,0,0,74,210
+Kevin Connauton,Columbus,19,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,205
+Kevin Czuczman,Columbus,37,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,206
+Kevin Fiala,Anaheim,28,24,0,0,0,0,0,0,0,0,0,0,0,0,0,70,193
+Kevin Gravel,Philly,10,28,0,0,0,0,0,0,0,0,0,0,0,0,0,76,205
+Kevin Hayes,Minnesota,14,28,0,0,0,0,0,0,0,0,0,0,0,0,0,77,216
+Kevin Labanc,Philly,11,25,0,0,0,0,0,0,0,0,0,0,0,0,0,71,185
+Kevin Shattenkirk,Toronto,13,31,0,0,0,0,0,0,0,0,0,0,0,0,0,72,203
+Kevin Stenlund,Minnesota,33,24,0,0,0,0,0,0,0,0,0,0,0,0,0,76,210
+Klas Dahlbeck,Boston,11,29,0,0,0,0,0,0,0,0,0,0,0,0,0,75,207
+Kris Russell,Montreal,15,33,0,0,0,0,0,0,0,0,0,0,0,0,0,70,170
+Kris Versteeg,Pittsburgh,50,34,0,0,0,0,0,0,0,0,0,0,0,0,0,71,176
+Kurtis Gabriel,Anaheim,12,27,0,0,0,0,0,0,0,0,0,0,0,0,0,76,200
+Kyle Chipchura,Islanders,18,34,0,0,0,0,0,0,0,0,0,0,0,0,0,74,203
+Kyle Clifford,Buffalo,16,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,211
+Kyle Connor,Minnesota,35,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,182
+Kyle Cumiskey,Phoenix,27,34,0,0,0,0,0,0,0,0,0,0,0,0,0,71,180
+Kyle Okposo,Florida,21,32,0,0,0,0,0,0,0,0,0,0,0,0,0,72,216
+Kyle Palmieri,Winnipeg,18,29,0,0,0,0,0,0,0,0,0,0,0,0,0,71,185
+Kyle Turris,Tampa Bay,4,31,0,0,0,0,0,0,0,0,0,0,0,0,0,73,190
+Landon Ferraro,Pittsburgh,29,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,173
+Lars Eller,Washington,12,31,0,0,0,0,0,0,0,0,0,0,0,0,0,74,205
+Laurent Dauphin,Vancouver,7,25,0,0,0,0,0,0,0,0,0,0,0,0,0,73,180
+Lawson Crouse,Dallas,9,23,0,0,0,0,0,0,0,0,0,0,0,0,0,76,220
+Leo Komarov,Florida,47,33,0,0,0,0,0,0,0,0,0,0,0,0,0,71,209
+Leon Draisaitl,Florida,30,25,0,0,0,0,0,0,0,0,0,0,0,0,0,74,208
+Liam O'Brien,LosAngeles,87,26,0,0,0,0,0,0,0,0,0,0,0,0,0,73,213
+Lias Andersson,Winnipeg,16,22,0,0,0,0,0,0,0,0,0,0,0,0,0,72,190
+Logan Couture,Minnesota,52,31,0,0,0,0,0,0,0,0,0,0,0,0,0,73,200
+Logan Shaw,Edmonton,42,28,0,0,0,0,0,0,0,0,0,0,0,0,0,75,208
+Loui Eriksson,Montreal,28,35,0,0,0,0,0,0,0,0,0,0,0,0,0,74,179
+Louie Belpedio,Colorado,2,24,0,0,0,0,0,0,0,0,0,0,0,0,0,71,196
+Luca Sbisa,Washington,17,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,206
+Lucas Wallmark,New Jersey,6,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,178
+Lukas Sedlak,Nashville,31,27,0,0,0,0,0,0,0,0,0,0,0,0,0,72,205
+Luke Glendening,Winnipeg,30,31,0,0,0,0,0,0,0,0,0,0,0,0,0,71,191
+Luke Kunin,Anaheim,37,23,0,0,0,0,0,0,0,0,0,0,0,0,0,72,197
+Luke Schenn,Buffalo,8,31,0,0,0,0,0,0,0,0,0,0,0,0,0,74,227
+Luke Witkowski,Ottawa,53,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,217
+Mackenzie MacEachern,Carolina,30,26,0,0,0,0,0,0,0,0,0,0,0,0,0,74,190
+Madison Bowey,LosAngeles,33,25,0,0,0,0,0,0,0,0,0,0,0,0,0,74,202
+Magnus Paajarvi,Chicago,19,29,0,0,0,0,0,0,0,0,0,0,0,0,0,75,206
+Marc Methot,Buffalo,38,35,0,0,0,0,0,0,0,0,0,0,0,0,0,76,230
+Marc Staal,Florida,29,34,0,0,0,0,0,0,0,0,0,0,0,0,0,76,209
+Marc-Edouard Vlasic,San Jose,19,33,0,0,0,0,0,0,0,0,0,0,0,0,0,73,205
+Marco Scandella,Boston,27,30,0,0,0,0,0,0,0,0,0,0,0,0,0,75,212
+Marcus Foligno,Tampa Bay,82,29,0,0,0,0,0,0,0,0,0,0,0,0,0,75,224
+Marcus Johansson,Columbus,20,30,0,0,0,0,0,0,0,0,0,0,0,0,0,73,205
+Marcus Pettersson,Islanders,10,24,0,0,0,0,0,0,0,0,0,0,0,0,0,76,177
+Marcus Sorensen,Dallas,44,28,0,0,0,0,0,0,0,0,0,0,0,0,0,71,175
+Marek Hrivik,LosAngeles,43,29,0,0,0,0,0,0,0,0,0,0,0,0,0,74,197
+Marian Gaborik,Vancouver,52,38,0,0,0,0,0,0,0,0,0,0,0,0,0,73,200
+Mark Barberio,Philly,55,30,0,0,0,0,0,0,0,0,0,0,0,0,0,73,200
+Mark Borowiecki,Tampa Bay,75,31,0,0,0,0,0,0,0,0,0,0,0,0,0,73,204
+Mark Giordano,Florida,22,37,0,0,0,0,0,0,0,0,0,0,0,0,0,72,200
+Mark Jankowski,Toronto,6,26,0,0,0,0,0,0,0,0,0,0,0,0,0,76,212
+Mark Letestu,Toronto,55,35,0,0,0,0,0,0,0,0,0,0,0,0,0,70,195
+Mark Pysyk,Chicago,37,29,0,0,0,0,0,0,0,0,0,0,0,0,0,73,196
+Mark Scheifele,Minnesota,10,27,0,0,0,0,0,0,0,0,0,0,0,0,0,75,207
+Mark Stone,Toronto,62,28,0,0,0,0,0,0,0,0,0,0,0,0,0,75,202
+Marko Dano,Pittsburgh,18,26,0,0,0,0,0,0,0,0,0,0,0,0,0,71,201
+Markus Granlund,Minnesota,12,27,0,0,0,0,0,0,0,0,0,0,0,0,0,72,180
+Markus Hannikainen,Washington,42,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,200
+Markus Nutivaara,Washington,2,26,0,0,0,0,0,0,0,0,0,0,0,0,0,73,187
+Martin Frk,Anaheim,34,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,205
+Martin Marincin,Philly,16,28,0,0,0,0,0,0,0,0,0,0,0,0,0,77,217
+Mason Appleton,Rangers,29,25,0,0,0,0,0,0,0,0,0,0,0,0,0,74,193
+Mason Raymond,Dallas,26,35,0,0,0,0,0,0,0,0,0,0,0,0,0,73,179
+Mathew Barzal,Pittsburgh,52,23,0,0,0,0,0,0,0,0,0,0,0,0,0,72,187
+Mathieu Joseph,Edmonton,9,23,0,0,0,0,0,0,0,0,0,0,0,0,0,73,190
+Mathieu Perreault,Tampa Bay,85,33,0,0,0,0,0,0,0,0,0,0,0,0,0,70,188
+Mats Zuccarello,Pittsburgh,4,33,0,0,0,0,0,0,0,0,0,0,0,0,0,68,178
+Matt Bartkowski,Boston,65,32,0,0,0,0,0,0,0,0,0,0,0,0,0,73,198
+Matt Beleskey,Chicago,39,32,0,0,0,0,0,0,0,0,0,0,0,0,0,72,207
+Matt Calvert,Carolina,40,31,0,0,0,0,0,0,0,0,0,0,0,0,0,71,186
+Matt Duchene,Chicago,12,30,0,0,0,0,0,0,0,0,0,0,0,0,0,71,195
+Matt Dumba,Edmonton,15,26,0,0,0,0,0,0,0,0,0,0,0,0,0,72,180
+Matt Grzelcyk,Florida,11,27,0,0,0,0,0,0,0,0,0,0,0,0,0,69,174
+Matt Hunwick,Chicago,40,35,0,0,0,0,0,0,0,0,0,0,0,0,0,71,194
+Matt Luff,Carolina,23,23,0,0,0,0,0,0,0,0,0,0,0,0,0,74,196
+Matt Martin,Rangers,43,31,0,0,0,0,0,0,0,0,0,0,0,0,0,75,220
+Matt Niskanen,Chicago,13,34,0,0,0,0,0,0,0,0,0,0,0,0,0,73,203
+Matt Puempel,Florida,73,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,205
+Matt Read,Tampa Bay,11,34,0,0,0,0,0,0,0,0,0,0,0,0,0,70,188
+Matt Stajan,Washington,45,37,0,0,0,0,0,0,0,0,0,0,0,0,0,73,195
+Matt Watkins,Phoenix,45,34,0,0,0,0,0,0,0,0,0,0,0,0,0,70,181
+Matthew Benning,Washington,3,26,0,0,0,0,0,0,0,0,0,0,0,0,0,73,203
+Matthew Highmore,Edmonton,18,24,0,0,0,0,0,0,0,0,0,0,0,0,0,71,188
+Matthew Peca,Montreal,68,27,0,0,0,0,0,0,0,0,0,0,0,0,0,68,182
+Matthew Tkachuk,Columbus,10,23,0,0,0,0,0,0,0,0,0,0,0,0,0,74,202
+Mattias Ekholm,St. Louis,9,30,0,0,0,0,0,0,0,0,0,0,0,0,0,76,215
+Max Domi,San Jose,13,25,0,0,0,0,0,0,0,0,0,0,0,0,0,70,192
+Max McCormick,Chicago,15,28,0,0,0,0,0,0,0,0,0,0,0,0,0,71,188
+Max Pacioretty,Carolina,73,32,0,0,0,0,0,0,0,0,0,0,0,0,0,74,215
+Max Reinhart,Phoenix,60,28,0,0,0,0,0,0,0,0,0,0,0,0,0,73,195
+Max Veronneau,Tampa Bay,5,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,193
+Maxim Lapierre,Washington,32,35,0,0,0,0,0,0,0,0,0,0,0,0,0,74,215
+Maxim Letunov,Colorado,34,24,0,0,0,0,0,0,0,0,0,0,0,0,0,76,180
+Maxim Mamin,St. Louis,36,26,0,0,0,0,0,0,0,0,0,0,0,0,0,74,206
+Melker Karlsson,Ottawa,16,30,0,0,0,0,0,0,0,0,0,0,0,0,0,72,180
+Michael Bunting,Nashville,21,25,0,0,0,0,0,0,0,0,0,0,0,0,0,71,197
+Michael Chaput,Ottawa,39,28,0,0,0,0,0,0,0,0,0,0,0,0,0,74,199
+Michael Dal Colle,Detroit,5,24,0,0,0,0,0,0,0,0,0,0,0,0,0,75,204
+Michael Del Zotto,Washington,24,30,0,0,0,0,0,0,0,0,0,0,0,0,0,72,195
+Michael Frolik,Columbus,70,32,0,0,0,0,0,0,0,0,0,0,0,0,0,73,190
+Michael Grabner,LosAngeles,54,33,0,0,0,0,0,0,0,0,0,0,0,0,0,73,188
+Michael Latta,Calgary,32,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,188
+Michael Matheson,Vancouver,15,26,0,0,0,0,0,0,0,0,0,0,0,0,0,74,188
+Michael McCarron,Montreal,31,25,0,0,0,0,0,0,0,0,0,0,0,0,0,78,230
+Michael Paliotta,Ottawa,24,27,0,0,0,0,0,0,0,0,0,0,0,0,0,76,207
+Michael Raffl,Boston,48,32,0,0,0,0,0,0,0,0,0,0,0,0,0,72,200
+Michael Rasmussen,Colorado,16,21,0,0,0,0,0,0,0,0,0,0,0,0,0,78,221
+Michael Stone,Ottawa,33,30,0,0,0,0,0,0,0,0,0,0,0,0,0,75,210
+Michal Kempny,Carolina,17,30,0,0,0,0,0,0,0,0,0,0,0,0,0,72,195
+Miikka Salomaki,Philly,27,27,0,0,0,0,0,0,0,0,0,0,0,0,0,71,203
+Mika Zibanejad,Nashville,93,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,208
+Mikael Backlund,Nashville,17,31,0,0,0,0,0,0,0,0,0,0,0,0,0,73,200
+Mikael Granlund,Rangers,12,28,0,0,0,0,0,0,0,0,0,0,0,0,0,70,185
+Mike Green,Toronto,57,35,0,0,0,0,0,0,0,0,0,0,0,0,0,73,210
+Mike Hoffman,Edmonton,73,31,0,0,0,0,0,0,0,0,0,0,0,0,0,72,182
+Mike Lundin,Calgary,74,36,0,0,0,0,0,0,0,0,0,0,0,0,0,74,190
+Mike Reilly,Rangers,13,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,200
+Mike Vecchione,Calgary,36,27,0,0,0,0,0,0,0,0,0,0,0,0,0,70,194
+Mikhail Grabovski,Islanders,83,36,0,0,0,0,0,0,0,0,0,0,0,0,0,71,186
+Mikhail Grigorenko,Nashville,14,26,0,0,0,0,0,0,0,0,0,0,0,0,0,75,209
+Mikhail Sergachev,Pittsburgh,44,22,0,0,0,0,0,0,0,0,0,0,0,0,0,75,217
+Mikkel Boedker,Vancouver,89,31,0,0,0,0,0,0,0,0,0,0,0,0,0,72,207
+Mikko Koivu,Columbus,56,37,0,0,0,0,0,0,0,0,0,0,0,0,0,75,213
+Mikko Rantanen,Anaheim,30,24,0,0,0,0,0,0,0,0,0,0,0,0,0,76,215
+Milan Lucic,Dallas,33,32,0,0,0,0,0,0,0,0,0,0,0,0,0,75,231
+Miles Wood,St. Louis,4,25,0,0,0,0,0,0,0,0,0,0,0,0,0,74,195
+Mirco Mueller,Vancouver,22,25,0,0,0,0,0,0,0,0,0,0,0,0,0,75,210
+Miro Heiskanen,Detroit,14,21,0,0,0,0,0,0,0,0,0,0,0,0,0,73,190
+Mitchell Stephens,Winnipeg,3,23,0,0,0,0,0,0,0,0,0,0,0,0,0,72,193
+Morgan Klimchuk,Montreal,7,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,185
+Morgan Rielly,New Jersey,2,26,0,0,0,0,0,0,0,0,0,0,0,0,0,73,219
+Nail Yakupov,Philly,64,27,0,0,0,0,0,0,0,0,0,0,0,0,0,71,195
+Nate Schmidt,Toronto,20,29,0,0,0,0,0,0,0,0,0,0,0,0,0,73,194
+Nathan Beaulieu,LosAngeles,16,28,0,0,0,0,0,0,0,0,0,0,0,0,0,74,200
+Nathan Gerbe,LosAngeles,51,33,0,0,0,0,0,0,0,0,0,0,0,0,0,64,176
+Nathan MacKinnon,Minnesota,16,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,200
+Nathan Oystrick,Dallas,12,38,0,0,0,0,0,0,0,0,0,0,0,0,0,71,213
+Nathan Walker,Detroit,11,26,0,0,0,0,0,0,0,0,0,0,0,0,0,69,186
+Nazem Kadri,Dallas,46,30,0,0,0,0,0,0,0,0,0,0,0,0,0,72,192
+Neal Pionk,LosAngeles,46,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,186
+Nic Dowd,Philly,26,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,195
+Nicholas Baptiste,Carolina,19,25,0,0,0,0,0,0,0,0,0,0,0,0,0,73,205
+Nick Bjugstad,Tampa Bay,27,28,0,0,0,0,0,0,0,0,0,0,0,0,0,78,215
+Nick Bonino,Montreal,38,32,0,0,0,0,0,0,0,0,0,0,0,0,0,73,196
+Nick Cousins,Boston,1,27,0,0,0,0,0,0,0,0,0,0,0,0,0,71,183
+Nick Foligno,Toronto,71,33,0,0,0,0,0,0,0,0,0,0,0,0,0,72,208
+Nick Holden,Boston,30,33,0,0,0,0,0,0,0,0,0,0,0,0,0,76,212
+Nick Jensen,St. Louis,34,30,0,0,0,0,0,0,0,0,0,0,0,0,0,72,196
+Nick Lappin,Calgary,1,28,0,0,0,0,0,0,0,0,0,0,0,0,0,73,175
+Nick Leddy,Tampa Bay,8,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,207
+Nick Paul,Florida,13,25,0,0,0,0,0,0,0,0,0,0,0,0,0,76,219
+Nick Ritchie,San Jose,14,25,0,0,0,0,0,0,0,0,0,0,0,0,0,74,230
+Nick Schmaltz,Colorado,23,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,177
+Nick Seeler,Tampa Bay,28,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,201
+Nick Sorensen,LosAngeles,0,26,0,0,0,0,0,0,0,0,0,0,0,0,0,73,182
+Nick Spaling,Detroit,8,32,0,0,0,0,0,0,0,0,0,0,0,0,0,73,198
+Nicklas Backstrom,Rangers,24,33,0,0,0,0,0,0,0,0,0,0,0,0,0,73,206
+Nico Hischier,Buffalo,5,22,0,0,0,0,0,0,0,0,0,0,0,0,0,73,175
+Nicolas Aube-Kubel,Vancouver,6,24,0,0,0,0,0,0,0,0,0,0,0,0,0,71,187
+Nicolas Deslauriers,Tampa Bay,19,29,0,0,0,0,0,0,0,0,0,0,0,0,0,73,219
+Nicolas Roy,Rangers,28,23,0,0,0,0,0,0,0,0,0,0,0,0,0,76,200
+Nikita Gusev,Washington,97,28,0,0,0,0,0,0,0,0,0,0,0,0,0,69,163
+Nikita Kucherov,Washington,4,27,0,0,0,0,0,0,0,0,0,0,0,0,0,71,183
+Nikita Nesterov,Philly,86,27,0,0,0,0,0,0,0,0,0,0,0,0,0,71,191
+Nikita Scherbak,Philly,3,25,0,0,0,0,0,0,0,0,0,0,0,0,0,74,192
+Nikita Soshnikov,Philly,35,27,0,0,0,0,0,0,0,0,0,0,0,0,0,71,185
+Nikita Tryamkin,Washington,5,26,0,0,0,0,0,0,0,0,0,0,0,0,0,79,265
+Nikita Zadorov,Edmonton,52,25,0,0,0,0,0,0,0,0,0,0,0,0,0,77,235
+Nikita Zaitsev,Edmonton,8,29,0,0,0,0,0,0,0,0,0,0,0,0,0,74,188
+Niklas Hjalmarsson,Nashville,18,33,0,0,0,0,0,0,0,0,0,0,0,0,0,75,197
+Nikolaj Ehlers,Edmonton,28,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,172
+Nikolay Goldobin,Minnesota,0,25,0,0,0,0,0,0,0,0,0,0,0,0,0,71,196
+Noah Juulsen,LosAngeles,3,23,0,0,0,0,0,0,0,0,0,0,0,0,0,74,193
+Noel Acciari,Vancouver,16,29,0,0,0,0,0,0,0,0,0,0,0,0,0,70,203
+Nolan Patrick,Calgary,20,22,0,0,0,0,0,0,0,0,0,0,0,0,0,74,198
+Oliver Bjorkstrand,New Jersey,24,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,177
+Oliver Ekman-Larsson,Colorado,20,29,0,0,0,0,0,0,0,0,0,0,0,0,0,74,200
+Oliver Kylington,Minnesota,37,23,0,0,0,0,0,0,0,0,0,0,0,0,0,72,183
+Ondrej Kase,New Jersey,32,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,190
+Ondrej Palat,Washington,31,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,194
+Oscar Klefbom,Rangers,10,27,0,0,0,0,0,0,0,0,0,0,0,0,0,75,216
+Oscar Lindberg,Minnesota,26,29,0,0,0,0,0,0,0,0,0,0,0,0,0,73,202
+Oskar Lindblom,Colorado,18,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,191
+Oskar Sundqvist,Washington,14,26,0,0,0,0,0,0,0,0,0,0,0,0,0,75,209
+P.K. Subban,Florida,76,31,0,0,0,0,0,0,0,0,0,0,0,0,0,72,210
+Par Lindholm,St. Louis,39,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,183
+Patric Hornqvist,St. Louis,47,34,0,0,0,0,0,0,0,0,0,0,0,0,0,71,189
+Patrice Bergeron,Rangers,44,35,0,0,0,0,0,0,0,0,0,0,0,0,0,73,195
+Patrice Cormier,Phoenix,6,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,215
+Patrick Eaves,Chicago,7,36,0,0,0,0,0,0,0,0,0,0,0,0,0,70,203
+Patrick Kane,Anaheim,88,32,0,0,0,0,0,0,0,0,0,0,0,0,0,71,177
+Patrick Marleau,Anaheim,16,41,0,0,0,0,0,0,0,0,0,0,0,0,0,74,215
+Patrick Maroon,Philly,59,32,0,0,0,0,0,0,0,0,0,0,0,0,0,75,236
+Patrik Berglund,LosAngeles,18,32,0,0,0,0,0,0,0,0,0,0,0,0,0,76,215
+Patrik Laine,Carolina,2,22,0,0,0,0,0,0,0,0,0,0,0,0,0,77,206
+Patrik Nemeth,St. Louis,1,28,0,0,0,0,0,0,0,0,0,0,0,0,0,75,228
+Paul Byron,Philly,33,31,0,0,0,0,0,0,0,0,0,0,0,0,0,69,158
+Paul Ladue,Rangers,30,28,0,0,0,0,0,0,0,0,0,0,0,0,0,74,200
+Paul Postma,St. Louis,37,31,0,0,0,0,0,0,0,0,0,0,0,0,0,75,195
+Paul Stastny,Vancouver,37,35,0,0,0,0,0,0,0,0,0,0,0,0,0,72,193
+Pavel Buchnevich,New Jersey,31,25,0,0,0,0,0,0,0,0,0,0,0,0,0,74,197
+Pavel Datsyuk,New Jersey,30,42,0,0,0,0,0,0,0,0,0,0,0,0,0,71,188
+Pavel Zacha,St. Louis,20,23,0,0,0,0,0,0,0,0,0,0,0,0,0,75,210
+Peter Cehlarik,St. Louis,5,25,0,0,0,0,0,0,0,0,0,0,0,0,0,74,202
+Peter Mueller,Tampa Bay,88,32,0,0,0,0,0,0,0,0,0,0,0,0,0,74,204
+Petr Straka,Vancouver,51,28,0,0,0,0,0,0,0,0,0,0,0,0,0,73,188
+Phil Kessel,Anaheim,82,33,0,0,0,0,0,0,0,0,0,0,0,0,0,72,202
+Philippe Myers,Anaheim,31,23,0,0,0,0,0,0,0,0,0,0,0,0,0,77,210
+Phillip Danault,St. Louis,24,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,201
+Pierre Engvall,New Jersey,3,24,0,0,0,0,0,0,0,0,0,0,0,0,0,77,214
+Pierre-Luc Dubois,Minnesota,1,22,0,0,0,0,0,0,0,0,0,0,0,0,0,75,218
+Pontus Aberg,Colorado,79,27,0,0,0,0,0,0,0,0,0,0,0,0,0,71,194
+Radek Faksa,Florida,6,27,0,0,0,0,0,0,0,0,0,0,0,0,0,75,220
+Radko Gudas,Boston,75,30,0,0,0,0,0,0,0,0,0,0,0,0,0,72,205
+Raphael Diaz,Philly,24,35,0,0,0,0,0,0,0,0,0,0,0,0,0,71,197
+Rasmus Andersson,Columbus,3,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,214
+Rasmus Dahlin,Rangers,14,20,0,0,0,0,0,0,0,0,0,0,0,0,0,75,193
+Rasmus Ristolainen,Rangers,5,26,0,0,0,0,0,0,0,0,0,0,0,0,0,76,220
+Reid Boucher,St. Louis,12,27,0,0,0,0,0,0,0,0,0,0,0,0,0,70,195
+Reilly Smith,St. Louis,15,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,183
+Remi Elie,Vancouver,5,25,0,0,0,0,0,0,0,0,0,0,0,0,0,73,215
+Richard Panik,LosAngeles,70,29,0,0,0,0,0,0,0,0,0,0,0,0,0,73,202
+Rickard Rakell,Edmonton,68,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,196
+Riley Nash,Dallas,59,31,0,0,0,0,0,0,0,0,0,0,0,0,0,73,185
+Riley Sheahan,Islanders,11,29,0,0,0,0,0,0,0,0,0,0,0,0,0,75,214
+Rinat Valiev,Colorado,33,25,0,0,0,0,0,0,0,0,0,0,0,0,0,75,215
+Rob Schremp,Phoenix,24,34,0,0,0,0,0,0,0,0,0,0,0,0,0,71,200
+Robbie Russo,St. Louis,14,27,0,0,0,0,0,0,0,0,0,0,0,0,0,72,191
+Robby Fabbri,Colorado,32,24,0,0,0,0,0,0,0,0,0,0,0,0,0,70,190
+Robert Bortuzzo,Columbus,48,31,0,0,0,0,0,0,0,0,0,0,0,0,0,76,216
+Robert Hagg,Colorado,8,25,0,0,0,0,0,0,0,0,0,0,0,0,0,74,204
+Robert Thomas,Phoenix,2,21,0,0,0,0,0,0,0,0,0,0,0,0,0,72,188
+Rocco Grimaldi,Anaheim,24,27,0,0,0,0,0,0,0,0,0,0,0,0,0,66,180
+Roland McKeown,Carolina,35,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,195
+Roman Josi,Rangers,59,30,0,0,0,0,0,0,0,0,0,0,0,0,0,73,201
+Roman Lyubimov,Ottawa,28,29,0,0,0,0,0,0,0,0,0,0,0,0,0,74,207
+Roman Polak,Dallas,69,34,0,0,0,0,0,0,0,0,0,0,0,0,0,74,240
+Ron Hainsey,San Jose,70,39,0,0,0,0,0,0,0,0,0,0,0,0,0,75,201
+Roope Hintz,Islanders,6,24,0,0,0,0,0,0,0,0,0,0,0,0,0,75,220
+Rourke Chartier,Minnesota,38,24,0,0,0,0,0,0,0,0,0,0,0,0,0,71,190
+Ryan Callahan,Washington,51,35,0,0,0,0,0,0,0,0,0,0,0,0,0,70,187
+Ryan Carpenter,Columbus,49,30,0,0,0,0,0,0,0,0,0,0,0,0,0,72,200
+Ryan Donato,Pittsburgh,36,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,192
+Ryan Dzingel,Nashville,46,28,0,0,0,0,0,0,0,0,0,0,0,0,0,72,190
+Ryan Ellis,Rangers,7,30,0,0,0,0,0,0,0,0,0,0,0,0,0,70,180
+Ryan Getzlaf,Washington,22,35,0,0,0,0,0,0,0,0,0,0,0,0,0,76,228
+Ryan Graves,Colorado,17,25,0,0,0,0,0,0,0,0,0,0,0,0,0,77,220
+Ryan Hartman,Anaheim,20,26,0,0,0,0,0,0,0,0,0,0,0,0,0,72,189
+Ryan Johansen,Nashville,13,28,0,0,0,0,0,0,0,0,0,0,0,0,0,75,218
+Ryan Kesler,Anaheim,72,36,0,0,0,0,0,0,0,0,0,0,0,0,0,74,206
+Ryan Kuffner,Washington,38,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,186
+Ryan MacInnis,Columbus,9,24,0,0,0,0,0,0,0,0,0,0,0,0,0,75,200
+Ryan McDonagh,Chicago,14,31,0,0,0,0,0,0,0,0,0,0,0,0,0,73,214
+Ryan Murray,Ottawa,5,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,206
+Ryan Nugent-Hopkins,Pittsburgh,93,27,0,0,0,0,0,0,0,0,0,0,0,0,0,72,184
+Ryan O'Reilly,Dallas,61,29,0,0,0,0,0,0,0,0,0,0,0,0,0,73,216
+Ryan Pulock,Pittsburgh,19,26,0,0,0,0,0,0,0,0,0,0,0,0,0,74,217
+Ryan Reaves,Dallas,22,33,0,0,0,0,0,0,0,0,0,0,0,0,0,73,225
+Ryan Spooner,Anaheim,51,28,0,0,0,0,0,0,0,0,0,0,0,0,0,70,191
+Ryan Strome,Edmonton,11,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,193
+Ryan Suter,Dallas,35,35,0,0,0,0,0,0,0,0,0,0,0,0,0,74,206
+Ryan White,Montreal,54,32,0,0,0,0,0,0,0,0,0,0,0,0,0,72,200
+Saku Maenalanen,Nashville,29,26,0,0,0,0,0,0,0,0,0,0,0,0,0,75,207
+Sam Bennett,Dallas,8,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,195
+Sam Gagner,Buffalo,89,31,0,0,0,0,0,0,0,0,0,0,0,0,0,71,200
+Sam Reinhart,Winnipeg,36,25,0,0,0,0,0,0,0,0,0,0,0,0,0,73,194
+Sam Steel,Florida,5,22,0,0,0,0,0,0,0,0,0,0,0,0,0,71,189
+Sami Niku,Minnesota,39,24,0,0,0,0,0,0,0,0,0,0,0,0,0,73,176
+Sami Vatanen,Islanders,12,29,0,0,0,0,0,0,0,0,0,0,0,0,0,70,185
+Samuel Girard,Nashville,35,22,0,0,0,0,0,0,0,0,0,0,0,0,0,70,170
+Samuel Morin,St. Louis,11,25,0,0,0,0,0,0,0,0,0,0,0,0,0,78,202
+Scott Harrington,Columbus,52,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,204
+Scott Laughton,Winnipeg,8,26,0,0,0,0,0,0,0,0,0,0,0,0,0,73,190
+Scott Mayfield,Vancouver,13,28,0,0,0,0,0,0,0,0,0,0,0,0,0,76,223
+Scott Wilson,Philly,90,28,0,0,0,0,0,0,0,0,0,0,0,0,0,71,186
+Sean Couturier,Boston,3,28,0,0,0,0,0,0,0,0,0,0,0,0,0,75,211
+Sean Kuraly,Columbus,15,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,213
+Sean Monahan,San Jose,8,26,0,0,0,0,0,0,0,0,0,0,0,0,0,75,200
+Sebastian Aho,Pittsburgh,38,24,0,0,0,0,0,0,0,0,0,0,0,0,0,70,177
+Sebastian Aho,Toronto,17,24,0,0,0,0,0,0,0,0,0,0,0,0,0,70,177
+Seth Helgeson,Philly,9,30,0,0,0,0,0,0,0,0,0,0,0,0,0,76,219
+Seth Jones,Minnesota,15,26,0,0,0,0,0,0,0,0,0,0,0,0,0,76,209
+Shane Gersich,Carolina,18,24,0,0,0,0,0,0,0,0,0,0,0,0,0,71,175
+Shane Prince,Tampa Bay,17,28,0,0,0,0,0,0,0,0,0,0,0,0,0,71,193
+Shayne Gostisbehere,Toronto,54,27,0,0,0,0,0,0,0,0,0,0,0,0,0,71,180
+Shea Theodore,New Jersey,39,25,0,0,0,0,0,0,0,0,0,0,0,0,0,74,195
+Shea Weber,Dallas,63,35,0,0,0,0,0,0,0,0,0,0,0,0,0,76,230
+Sidney Crosby,Chicago,87,33,0,0,0,0,0,0,0,0,0,0,0,0,0,71,200
+Slater Koekkoek,Toronto,15,26,0,0,0,0,0,0,0,0,0,0,0,0,0,74,193
+Sonny Milano,Pittsburgh,46,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,194
+Spencer Foo,Nashville,77,26,0,0,0,0,0,0,0,0,0,0,0,0,0,72,190
+Stanislav Galiev,Vancouver,21,29,0,0,0,0,0,0,0,0,0,0,0,0,0,73,197
+Stefan Matteau,Anaheim,21,26,0,0,0,0,0,0,0,0,0,0,0,0,0,74,220
+Stefan Noesen,Buffalo,65,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,205
+Stephen Johns,Phoenix,24,28,0,0,0,0,0,0,0,0,0,0,0,0,0,76,225
+Steve Bernier,Pittsburgh,49,35,0,0,0,0,0,0,0,0,0,0,0,0,0,75,222
+Steven Santini,Ottawa,17,25,0,0,0,0,0,0,0,0,0,0,0,0,0,74,205
+Steven Stamkos,New Jersey,92,30,0,0,0,0,0,0,0,0,0,0,0,0,0,73,194
+Sven Baertschi,Toronto,27,28,0,0,0,0,0,0,0,0,0,0,0,0,0,71,190
+T.J. Oshie,Toronto,41,34,0,0,0,0,0,0,0,0,0,0,0,0,0,71,195
+Tage Thompson,Tampa Bay,30,23,0,0,0,0,0,0,0,0,0,0,0,0,0,77,215
+Tanner Pearson,Montreal,36,28,0,0,0,0,0,0,0,0,0,0,0,0,0,73,201
+Tanner Richard,Ottawa,27,27,0,0,0,0,0,0,0,0,0,0,0,0,0,72,192
+Taro Hirose,New Jersey,17,24,0,0,0,0,0,0,0,0,0,0,0,0,0,70,162
+Taylor Beck,Buffalo,1,29,0,0,0,0,0,0,0,0,0,0,0,0,0,74,203
+Taylor Chorney,Phoenix,44,33,0,0,0,0,0,0,0,0,0,0,0,0,0,72,193
+Taylor Fedun,Phoenix,82,32,0,0,0,0,0,0,0,0,0,0,0,0,0,73,200
+Taylor Hall,Washington,16,29,0,0,0,0,0,0,0,0,0,0,0,0,0,73,205
+Taylor Leier,Pittsburgh,31,26,0,0,0,0,0,0,0,0,0,0,0,0,0,71,180
+Teemu Hartikainen,Phoenix,8,30,0,0,0,0,0,0,0,0,0,0,0,0,0,73,214
+Teuvo Teravainen,Anaheim,22,26,0,0,0,0,0,0,0,0,0,0,0,0,0,71,191
+Thomas Chabot,Tampa Bay,2,23,0,0,0,0,0,0,0,0,0,0,0,0,0,74,190
+Thomas Hickey,Montreal,12,31,0,0,0,0,0,0,0,0,0,0,0,0,0,72,183
+Thomas Vanek,Vancouver,71,36,0,0,0,0,0,0,0,0,0,0,0,0,0,74,214
+Tim Erixon,Detroit,25,29,0,0,0,0,0,0,0,0,0,0,0,0,0,74,200
+Tim Heed,Colorado,7,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,180
+Timo Meier,Ottawa,8,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,210
+Tobias Lindberg,San Jose,20,25,0,0,0,0,0,0,0,0,0,0,0,0,0,75,215
+Tobias Rieder,LosAngeles,12,28,0,0,0,0,0,0,0,0,0,0,0,0,0,71,186
+Tom Kuhnhackl,St. Louis,54,28,0,0,0,0,0,0,0,0,0,0,0,0,0,74,196
+Tom Wilson,Chicago,48,26,0,0,0,0,0,0,0,0,0,0,0,0,0,76,220
+Tomas Hertl,Toronto,50,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,215
+Tomas Jurco,Buffalo,26,28,0,0,0,0,0,0,0,0,0,0,0,0,0,74,188
+Tomas Nosek,Colorado,60,28,0,0,0,0,0,0,0,0,0,0,0,0,0,75,205
+Tomas Tatar,San Jose,9,30,0,0,0,0,0,0,0,0,0,0,0,0,0,70,183
+Tommy Cross,Columbus,58,31,0,0,0,0,0,0,0,0,0,0,0,0,0,75,205
+Tommy Wingels,Ottawa,77,32,0,0,0,0,0,0,0,0,0,0,0,0,0,72,200
+Torey Krug,Nashville,41,29,0,0,0,0,0,0,0,0,0,0,0,0,0,69,186
+Torrey Mitchell,Islanders,23,35,0,0,0,0,0,0,0,0,0,0,0,0,0,71,186
+Travis Boyd,Nashville,37,27,0,0,0,0,0,0,0,0,0,0,0,0,0,71,190
+Travis Dermott,Florida,1,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,205
+Travis Hamonic,Minnesota,32,30,0,0,0,0,0,0,0,0,0,0,0,0,0,74,205
+Travis Konecny,Winnipeg,34,23,0,0,0,0,0,0,0,0,0,0,0,0,0,70,175
+Travis Sanheim,Boston,42,24,0,0,0,0,0,0,0,0,0,0,0,0,0,75,181
+Travis Zajac,Pittsburgh,33,35,0,0,0,0,0,0,0,0,0,0,0,0,0,74,185
+Trevor Carrick,Edmonton,27,26,0,0,0,0,0,0,0,0,0,0,0,0,0,74,196
+Trevor Daley,Winnipeg,70,37,0,0,0,0,0,0,0,0,0,0,0,0,0,71,199
+Trevor Lewis,Edmonton,66,34,0,0,0,0,0,0,0,0,0,0,0,0,0,73,202
+Trevor Moore,New Jersey,26,25,0,0,0,0,0,0,0,0,0,0,0,0,0,70,185
+Trevor Van Riemsdyk,Boston,10,29,0,0,0,0,0,0,0,0,0,0,0,0,0,74,192
+Troy Brouwer,LosAngeles,40,35,0,0,0,0,0,0,0,0,0,0,0,0,0,75,213
+Troy Stecher,Chicago,6,26,0,0,0,0,0,0,0,0,0,0,0,0,0,70,186
+Troy Terry,Minnesota,40,23,0,0,0,0,0,0,0,0,0,0,0,0,0,73,180
+Tucker Poolman,Anaheim,1,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,199
+Ty Rattie,Phoenix,20,27,0,0,0,0,0,0,0,0,0,0,0,0,0,71,183
+Ty Wishart,Phoenix,55,32,0,0,0,0,0,0,0,0,0,0,0,0,0,76,225
+Tyler Bertuzzi,Dallas,38,25,0,0,0,0,0,0,0,0,0,0,0,0,0,72,199
+Tyler Bozak,Ottawa,42,34,0,0,0,0,0,0,0,0,0,0,0,0,0,73,199
+Tyler Ennis,Edmonton,37,31,0,0,0,0,0,0,0,0,0,0,0,0,0,69,161
+Tyler Gaudet,Dallas,14,27,0,0,0,0,0,0,0,0,0,0,0,0,0,75,217
+Tyler Johnson,Montreal,18,30,0,0,0,0,0,0,0,0,0,0,0,0,0,68,182
+Tyler Lewington,Anaheim,29,26,0,0,0,0,0,0,0,0,0,0,0,0,0,74,200
+Tyler Motte,Washington,7,25,0,0,0,0,0,0,0,0,0,0,0,0,0,70,192
+Tyler Myers,Pittsburgh,60,30,0,0,0,0,0,0,0,0,0,0,0,0,0,80,229
+Tyler Pitlick,Ottawa,68,29,0,0,0,0,0,0,0,0,0,0,0,0,0,74,200
+Tyler Seguin,Edmonton,20,28,0,0,0,0,0,0,0,0,0,0,0,0,0,73,200
+Tyler Toffoli,St. Louis,74,28,0,0,0,0,0,0,0,0,0,0,0,0,0,72,197
+Tyrell Goulbourne,Winnipeg,14,26,0,0,0,0,0,0,0,0,0,0,0,0,0,71,195
+Tyson Barrie,Florida,71,29,0,0,0,0,0,0,0,0,0,0,0,0,0,70,197
+Tyson Jost,Colorado,22,22,0,0,0,0,0,0,0,0,0,0,0,0,0,71,187
+Valentin Zykov,Colorado,29,25,0,0,0,0,0,0,0,0,0,0,0,0,0,73,220
+Valeri Nichushkin,New Jersey,47,25,0,0,0,0,0,0,0,0,0,0,0,0,0,76,210
+Valtteri Filppula,Edmonton,64,36,0,0,0,0,0,0,0,0,0,0,0,0,0,72,189
+Victor Ejdsell,Carolina,20,25,0,0,0,0,0,0,0,0,0,0,0,0,0,77,214
+Victor Hedman,Dallas,19,30,0,0,0,0,0,0,0,0,0,0,0,0,0,78,229
+Victor Mete,Colorado,26,22,0,0,0,0,0,0,0,0,0,0,0,0,0,69,187
+Victor Olofsson,Rangers,25,25,0,0,0,0,0,0,0,0,0,0,0,0,0,71,183
+Victor Rask,Buffalo,52,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,193
+Viktor Arvidsson,Rangers,2,27,0,0,0,0,0,0,0,0,0,0,0,0,0,69,180
+Viktor Svedberg,Calgary,8,29,0,0,0,0,0,0,0,0,0,0,0,0,0,80,238
+Vince Dunn,Rangers,23,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,203
+Vincent Trocheck,Columbus,21,27,0,0,0,0,0,0,0,0,0,0,0,0,0,70,183
+Vinnie Hinostroza,Vancouver,39,26,0,0,0,0,0,0,0,0,0,0,0,0,0,69,173
+Vladimir Sobotka,Montreal,27,33,0,0,0,0,0,0,0,0,0,0,0,0,0,70,191
+Vladimir Tarasenko,Chicago,91,29,0,0,0,0,0,0,0,0,0,0,0,0,0,72,225
+Vladislav Gavrikov,Minnesota,41,25,0,0,0,0,0,0,0,0,0,0,0,0,0,75,213
+Vladislav Kamenev,Toronto,11,24,0,0,0,0,0,0,0,0,0,0,0,0,0,74,194
+Vladislav Namestnikov,Colorado,91,28,0,0,0,0,0,0,0,0,0,0,0,0,0,71,183
+Vojtech Mozik,Phoenix,19,28,0,0,0,0,0,0,0,0,0,0,0,0,0,75,188
+Warren Foegele,Pittsburgh,41,24,0,0,0,0,0,0,0,0,0,0,0,0,0,74,198
+Wayne Simmonds,Anaheim,32,32,0,0,0,0,0,0,0,0,0,0,0,0,0,74,185
+Will Butcher,New Jersey,40,26,0,0,0,0,0,0,0,0,0,0,0,0,0,70,190
+William Carrier,Montreal,1,26,0,0,0,0,0,0,0,0,0,0,0,0,0,74,218
+William Karlsson,Chicago,40,28,0,0,0,0,0,0,0,0,0,0,0,0,0,73,195
+William Nylander,Minnesota,3,24,0,0,0,0,0,0,0,0,0,0,0,0,0,72,196
+Xavier Ouellet,Ottawa,7,27,0,0,0,0,0,0,0,0,0,0,0,0,0,73,196
+Yakov Trenin,Carolina,24,24,0,0,0,0,0,0,0,0,0,0,0,0,0,74,201
+Yanni Gourde,Colorado,6,29,0,0,0,0,0,0,0,0,0,0,0,0,0,69,175
+Yannick Weber,Toronto,14,32,0,0,0,0,0,0,0,0,0,0,0,0,0,71,200
+Yohann Auvitu,Phoenix,30,31,0,0,0,0,0,0,0,0,0,0,0,0,0,71,187
+Zac Rinaldo,Philly,2,30,0,0,0,0,0,0,0,0,0,0,0,0,0,70,192
+Zach Bogosian,Detroit,21,30,0,0,0,0,0,0,0,0,0,0,0,0,0,75,226
+Zach Boychuk,Tampa Bay,26,31,0,0,0,0,0,0,0,0,0,0,0,0,0,70,185
+Zach Hyman,Rangers,17,28,0,0,0,0,0,0,0,0,0,0,0,0,0,73,211
+Zach Parise,Washington,20,36,0,0,0,0,0,0,0,0,0,0,0,0,0,71,195
+Zach Sanford,Ottawa,22,26,0,0,0,0,0,0,0,0,0,0,0,0,0,76,207
+Zach Werenski,Tampa Bay,18,23,0,0,0,0,0,0,0,0,0,0,0,0,0,74,212
+Zach Whitecloud,New Jersey,11,24,0,0,0,0,0,0,0,0,0,0,0,0,0,74,209
+Zack Kassian,Carolina,26,29,0,0,0,0,0,0,0,0,0,0,0,0,0,75,211
+Zack MacEwen,Colorado,24,24,0,0,0,0,0,0,0,0,0,0,0,0,0,75,205
+Zack Mitchell,LosAngeles,69,28,0,0,0,0,0,0,0,0,0,0,0,0,0,73,188
+Zack Smith,Colorado,48,32,0,0,0,0,0,0,0,0,0,0,0,0,0,74,208
+Zdeno Chara,Dallas,29,43,0,0,0,0,0,0,0,0,0,0,0,0,0,81,250
+Zemgus Girgensons,Minnesota,28,27,0,0,0,0,0,0,0,0,0,0,0,0,0,74,211

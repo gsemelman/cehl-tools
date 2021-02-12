@@ -228,6 +228,7 @@ public class UnassignedRerateImportJob extends AbstractJob {
 
 		final CellProcessor[] processors = new CellProcessor[] {
 				new StrNotNullOrEmpty(new StrMinMax(1, 22, new Trim())), // Name
+				new NotNull(new ParseInt()), // jersey
 				new NotNull(new ParseInt()), // age
 				new NotNull(new RatingProcessor()), //intensity
 				new NotNull(new RatingProcessor()), //speed
