@@ -1,6 +1,10 @@
 package org.cehl.cehltools.rerate.rating;
 
+import org.cehl.cehltools.rerate.model.Player;
+
 public class RatingResult {
+	
+	private Player player;
 
 	private double it;
 	private double sp;
@@ -18,7 +22,7 @@ public class RatingResult {
 	private double ov;
 	
 	public RatingResult(double it, double sp, double st, double en, double du, double di, double sk, double pa,
-			double pc, double df, double sc, double ex, double ld, double ov) {
+			double pc, double df, double sc, double ex, double ld, double ov, Player player) {
 		super();
 		this.it = it;
 		this.sp = sp;
@@ -34,6 +38,7 @@ public class RatingResult {
 		this.ex = ex;
 		this.ld = ld;
 		this.ov = ov;
+		this.player = player;
 	}
 	public double getIt() {
 		return it;
@@ -119,7 +124,13 @@ public class RatingResult {
 	public void setOv(double ov) {
 		this.ov = ov;
 	}
-	
+	public Player getPlayer() {
+		return player;
+	}
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+
 	
 	
 	

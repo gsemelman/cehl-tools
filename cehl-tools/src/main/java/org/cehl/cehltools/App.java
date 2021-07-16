@@ -38,6 +38,7 @@ public class App{
 	static final String CMD_LINE_UPLOAD = "upload";
 	static final String CMD_LINE_ROSTER_EXPORT = "rosterExport";
 	static final String CMD_LINE_UNASSIGNED_RERATE = "unassignedRerate";
+	static final String CMD_LINE_DRAFT_UPDATE = "draftUpdate";
 	
 	private Options commandLineOptions;
 	private ApplicationContext ctx;
@@ -142,6 +143,11 @@ public class App{
 		
 		optionGroup = new OptionGroup();
 		option = new Option(CMD_LINE_UNASSIGNED_RERATE, false,"Unassigned rerate");
+		optionGroup.addOption(option);
+		commandLineOptions.addOptionGroup(optionGroup);
+
+		optionGroup = new OptionGroup();
+		option = new Option(CMD_LINE_DRAFT_UPDATE, false,"Draft Update");
 		optionGroup.addOption(option);
 		commandLineOptions.addOptionGroup(optionGroup);
 		
@@ -273,9 +279,14 @@ public class App{
 			}
 			JobRunner.unassignedRerate(new File(optionArg));
 			return;
+		}else if(cmdLine.hasOption(CMD_LINE_DRAFT_UPDATE)) {
+			JobRunner.draftPickUpdater(null);
+			return;
 		}else{
 			usage();
 		}
+		
+		
 		
 		
     }

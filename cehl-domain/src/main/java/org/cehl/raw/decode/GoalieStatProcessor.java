@@ -28,7 +28,7 @@ public class GoalieStatProcessor extends CellProcessorAdaptor{
             
             if(!NumberUtils.isCreatable(value.toString())) {
                 if(NA_STRINGS.contains(value.toString())){
-                	return next.execute(0, context);
+                	return next.execute("0", context);
                 }
             }
             

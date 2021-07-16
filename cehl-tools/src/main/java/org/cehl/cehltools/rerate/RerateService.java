@@ -27,6 +27,7 @@ import org.cehl.cehltools.rerate.processor.ItRatingProcessor;
 import org.cehl.cehltools.rerate.processor.LdRatingProcessor;
 import org.cehl.cehltools.rerate.processor.PaRatingProcessor;
 import org.cehl.cehltools.rerate.processor.PcRatingProcessor;
+import org.cehl.cehltools.rerate.processor.RatingProcessor2;
 import org.cehl.cehltools.rerate.processor.ScRatingProcessor;
 import org.cehl.cehltools.rerate.processor.StRatingProcessor;
 import org.cehl.cehltools.rerate.rating.RatingResult;
@@ -46,6 +47,8 @@ public class RerateService {
 	
 	Map<String,String> nameExceptions = new HashMap<>();
 	List<String> dupExceptions = new ArrayList<>();
+	
+	List<RatingProcessor2> processors;
 	
 	ItRatingProcessor itProcessor;
 	StRatingProcessor stProcessor;
@@ -73,6 +76,19 @@ public class RerateService {
 		dfProcessor= new DfRatingProcessor();
 		exProcessor = new ExRatingProcessor();
 		ldProcessor = new LdRatingProcessor();
+		
+		processors = new ArrayList<>();
+		processors.add(itProcessor);
+		processors.add(stProcessor);
+		processors.add(enProcessor);
+		processors.add(duProcessor);
+		processors.add(paProcessor);
+		processors.add(pcProcessor);
+		processors.add(scProcessor);
+		processors.add(dfProcessor);
+		processors.add(exProcessor);
+		processors.add(ldProcessor);
+		
 		
 		JdbcTemplate template = new JdbcTemplate(ds);
 		
@@ -104,11 +120,11 @@ public class RerateService {
 			return null;
 		}
 		
-		rerateDto.setSt(player.getSeasons().size());
-		rerateDto.setSk(player.getSeasonByYear(2019) != null ? 1 : 0);
+		//rerateDto.setSt(player.getSeasons().size());
+		//rerateDto.setSk(player.getSeasonByYear(2019) != null ? 1 : 0);
 //		rerateDto.setSp(player.getSeasonByYear(2019) != null ? player.getSeasonByYear(2019).getStatsAll().getGp() : 0);
-		int totalgp = player.getSeasons().stream().map(PlayerSeason::getStatsAll).mapToInt(PlayerStatsAllStrengths::getGp).sum();
-		rerateDto.setSp(totalgp);
+		//int totalgp = player.getSeasons().stream().map(PlayerSeason::getStatsAll).mapToInt(PlayerStatsAllStrengths::getGp).sum();
+		//rerateDto.setSp(totalgp);
 		if(rerateDto.getAge() == 0 && player.getDob() != null) {
 			rerateDto.setAge(player.getAge());
 		}
@@ -125,8 +141,17 @@ public class RerateService {
 			rerateDto.setNationality(player.getCountry());
 		}
 	
+
+		return getRerateResult(player,rerateDto, endYear);
+	}
+	
+	public RatingResult reratePlayer(Player player, int endYear) {
 		
-		
+		PlayerRerateDto rerateDto = new PlayerRerateDto(player.getName(),player.getAge(),player.getCountry());
+		//default
+		rerateDto.setSt(65);
+		rerateDto.setSp(65);
+		rerateDto.setSk(65);
 		
 		return getRerateResult(player,rerateDto, endYear);
 	}
@@ -208,10 +233,11 @@ public class RerateService {
 		
 		RatingResult rerateResult = new RatingResult(
 				it, sp, st,
-				en, du, di, sk, pa, pc, df, sc, ex, ld, ov);
+				en, du, di, sk, pa, pc, df, sc, ex, ld, ov, p);
 		
 		//post process
-		paProcessor.postProcess(rerateResult);
+		//paProcessor.postProcess(rerateResult);
+		processors.forEach(processor-> processor.postProcess(rerateResult));
 		
 		//set ov after post process
 		ov = RerateUtils.calculateOv(p.getPosition(), rerateResult.getIt(), rerateResult.getSp(), rerateResult.getSt(), 

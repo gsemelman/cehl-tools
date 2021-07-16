@@ -11,36 +11,24 @@ public class PcRatingProcessor extends AbstractRatingProcessor{
 	static RangeTable forwardRangeTable = initForwardRanges();
 	static RangeTable defenseRangeTable = initDefenseRanges();
 	
-//	static RangeTable initForwardRanges() {
-//		RangeTable forwardRangeTable = new RangeTable();
-//		forwardRangeTable.insertValue(0.05, 60);
-//		forwardRangeTable.insertValue(0.1219, 70);
-//		forwardRangeTable.insertValue(0.2857, 75);
-//		//forwardRangeTable.insertValue(0.8760, 97); 
-//		//forwardRangeTable.insertValue(0.6, 80); 
-//		forwardRangeTable.insertValue(0.625, 79); 
-//		forwardRangeTable.insertValue(0.8760, 87);
-//		
-//		return forwardRangeTable;
-//
-//	}
-	
 	static RangeTable initForwardRanges() {
 		RangeTable forwardRangeTable = new RangeTable();
-		//forwardRangeTable.insertValue(0.00, 60);
-		//forwardRangeTable.insertValue(0.1219, 72);
-		//forwardRangeTable.insertValue(0.5, 81);
+
+//		forwardRangeTable.insertValue(0.00, 60);
+//		forwardRangeTable.insertValue(0.1219, 70);
+//		forwardRangeTable.insertValue(0.26, 72);	
+//		forwardRangeTable.insertValue(0.48, 77);
+//		forwardRangeTable.insertValue(0.68, 82);
+//		forwardRangeTable.insertValue(0.8760, 87);
 		
 		forwardRangeTable.insertValue(0.00, 60);
-		forwardRangeTable.insertValue(0.1219, 70);
-		
-		forwardRangeTable.insertValue(0.26, 72);
-		
-		forwardRangeTable.insertValue(0.48, 77);
-
-		forwardRangeTable.insertValue(0.68, 82);
-		
-		forwardRangeTable.insertValue(0.8760, 87);
+		forwardRangeTable.insertValue(0.1219, 69);
+		forwardRangeTable.insertValue(0.26, 71);	
+		forwardRangeTable.insertValue(0.48, 76);
+		//forwardRangeTable.insertValue(0.68, 81);
+		forwardRangeTable.insertValue(0.68, 80);
+		//forwardRangeTable.insertValue(0.8760, 87);
+		forwardRangeTable.insertValue(0.8760, 83);
 		
 		return forwardRangeTable;
 
@@ -49,17 +37,15 @@ public class PcRatingProcessor extends AbstractRatingProcessor{
 	static RangeTable initDefenseRanges() {
 
 		RangeTable defenseRangeTable = new RangeTable();
-//		defenseRangeTable.insertValue(0.05, 60);
-//		defenseRangeTable.insertValue(0.1, 69);
-//		defenseRangeTable.insertValue(0.25, 76);
-//		defenseRangeTable.insertValue(0.55, 80.5);	
-//		defenseRangeTable.insertValue(0.8760, 88.5); 
-		
+
 		defenseRangeTable.insertValue(0.05, 60);
 		defenseRangeTable.insertValue(0.1, 69.5);
-		defenseRangeTable.insertValue(0.25, 76.5);
-		defenseRangeTable.insertValue(0.55, 81.5);	
-		defenseRangeTable.insertValue(0.8760, 88); 
+		//defenseRangeTable.insertValue(0.25, 76.5);
+		defenseRangeTable.insertValue(0.25, 75);
+		//defenseRangeTable.insertValue(0.55, 81.5);	
+		defenseRangeTable.insertValue(0.55, 80.5);	
+		//defenseRangeTable.insertValue(0.8760, 88); 
+		defenseRangeTable.insertValue(0.8760, 84); 
 		
 		return defenseRangeTable;
 	}

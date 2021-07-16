@@ -15,22 +15,22 @@ public class PaRatingProcessor extends AbstractRatingProcessor{
 
 	static RangeTable initForwardRanges() {
 		RangeTable forwardRangeTable = new RangeTable();
-		//forwardRangeTable.insertValue(0.00, 60);
-		//forwardRangeTable.insertValue(0.1219, 72);
-		//forwardRangeTable.insertValue(0.5, 81);
+
+//		forwardRangeTable.insertValue(0.00, 60);
+//		forwardRangeTable.insertValue(0.1219, 70); //10
+//		forwardRangeTable.insertValue(0.26, 74); //21.32
+//		forwardRangeTable.insertValue(0.48, 81); //39.3
+//		forwardRangeTable.insertValue(0.68, 85); //55.7
+//		forwardRangeTable.insertValue(0.8760, 96); //71.8
 		
 		forwardRangeTable.insertValue(0.00, 60);
-//		forwardRangeTable.insertValue(0.1219, 72);
-//		forwardRangeTable.insertValue(0.26, 76);
-		
-		forwardRangeTable.insertValue(0.1219, 70);
-		forwardRangeTable.insertValue(0.26, 74);
-		
-		forwardRangeTable.insertValue(0.48, 81);
-
-		forwardRangeTable.insertValue(0.68, 85);
-		
-		forwardRangeTable.insertValue(0.8760, 96);
+		forwardRangeTable.insertValue(0.1219, 69); //10
+		forwardRangeTable.insertValue(0.26, 73); //21.32
+		forwardRangeTable.insertValue(0.48, 80); //39.3
+		//forwardRangeTable.insertValue(0.68, 84); //55.7
+		forwardRangeTable.insertValue(0.68, 83); //55.7
+		//forwardRangeTable.insertValue(0.8760, 96); //71.8
+		forwardRangeTable.insertValue(0.8760, 91); //71.8
 		
 		return forwardRangeTable;
 
@@ -42,13 +42,14 @@ public class PaRatingProcessor extends AbstractRatingProcessor{
 
 		defenseRangeTable.insertValue(0.0001, 60);
 		defenseRangeTable.insertValue(0.05, 68.5);
-		defenseRangeTable.insertValue(0.2, 74);
-		//defenseRangeTable.insertValue(0.42, 82);
-		
-		defenseRangeTable.insertValue(0.42, 80);
-		defenseRangeTable.insertValue(0.50, 84);
-		
-		defenseRangeTable.insertValue(0.8760, 94); 
+		//defenseRangeTable.insertValue(0.2, 74);
+		defenseRangeTable.insertValue(0.2, 73);
+		//defenseRangeTable.insertValue(0.42, 80);
+		defenseRangeTable.insertValue(0.435, 80);
+		//defenseRangeTable.insertValue(0.50, 84);
+		defenseRangeTable.insertValue(0.50, 83);
+		//defenseRangeTable.insertValue(0.8760, 94); 
+		defenseRangeTable.insertValue(0.8760, 90);
 		
 		return defenseRangeTable;
 	}

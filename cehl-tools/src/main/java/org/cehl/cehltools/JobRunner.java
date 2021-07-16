@@ -5,6 +5,7 @@ import java.io.File;
 import org.cehl.cehltools.jobs.CashUpdaterJob;
 import org.cehl.cehltools.jobs.CoachUpdaterJob;
 import org.cehl.cehltools.jobs.ContractImportJob;
+import org.cehl.cehltools.jobs.DraftPickUpdaterJob;
 import org.cehl.cehltools.jobs.HoldoutJob;
 import org.cehl.cehltools.jobs.ProspecImportJob;
 import org.cehl.cehltools.jobs.ProspectFileUpdaterJob;
@@ -85,6 +86,13 @@ public class JobRunner {
     
     public static void unassignedRerate(File inputFile){
     	UnassignedRerateImportJob job = StaticContextAccessor.getBean(UnassignedRerateImportJob.class);
+    	job.setInputFile(inputFile);
+    	job.runJob();
+    }
+    
+    
+    public static void draftPickUpdater(File inputFile){
+    	DraftPickUpdaterJob job = StaticContextAccessor.getBean(DraftPickUpdaterJob.class);
     	job.setInputFile(inputFile);
     	job.runJob();
     }

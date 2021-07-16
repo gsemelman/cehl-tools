@@ -64,8 +64,8 @@ public class DraftSimulator2 {
 	private static final String TEAM_CARD = "TEAM_CARD";
 	private static final String DRAFT_CARD = "DRAFT_CARD";
 	private static final String CAPTURE_LOCATION ="c:/temp/capture/";
-	private static final int PICK_DISPLAY_DELAY_SECONDS = 4;
-	private static final int DRAFT_DISPLAY_DELAY_SECONDS = 6;
+	private static final int PICK_DISPLAY_DELAY_SECONDS = 3;
+	private static final int DRAFT_DISPLAY_DELAY_SECONDS = 5;
 	
 	int rounds = 3;
 	
@@ -96,20 +96,20 @@ public class DraftSimulator2 {
     	finalOrder = new LinkedHashSet<String>();
     	rc = new RandomCollection<>();
 
-    	teamMap.put("Detroit",20.0); //18.5
-    	teamMap.put("Phoenix",13.5); //13.5
-    	teamMap.put("Calgary",11.5); //11.5
+    	teamMap.put("Phoenix",20.0); //18.5
+    	teamMap.put("Philly",13.5); //13.5
+    	teamMap.put("Detroit",11.5); //11.5
     	teamMap.put("Islanders",9.5);//9.5
-    	teamMap.put("Philly",8.5);
-    	teamMap.put("Colorado",7.5);
-    	teamMap.put("Buffalo",6.5);
-    	teamMap.put("Winnipeg",6.0);
-    	teamMap.put("Vancouver",5.0);
-    	teamMap.put("Boston",3.5);
-    	teamMap.put("Montreal",3.0);
-    	teamMap.put("Ottawa",2.5);
-    	teamMap.put("LosAngeles",2.0);
-    	teamMap.put("Columbus",1.0);
+    	teamMap.put("Winnipeg",8.5);
+    	teamMap.put("Calgary",7.5);
+    	teamMap.put("Vancouver",6.5);
+    	teamMap.put("Tampa Bay",6.0);
+    	teamMap.put("Montreal",5.0);
+    	teamMap.put("Dallas",3.5);
+    	teamMap.put("Buffalo",3.0);
+    	teamMap.put("St. Louis",2.5);
+    	teamMap.put("Nashville",2.0);
+    	teamMap.put("Boston",1.0);
     	
     	for(Entry<String, Double> entry : teamMap.entrySet()) {
     		rc.add(entry.getValue(), entry.getKey());

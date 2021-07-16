@@ -46,6 +46,27 @@ public class ItRatingProcessor extends AbstractRatingProcessor{
 		return rangeTable;
 	}
 	
+	
+	static RangeTable rangeTable = initRange();
+	//total range
+	static RangeTable initRange() {
+		RangeTable rangeTable = new RangeTable();
+//		rangeTable.insertValue(0, 60);
+//		rangeTable.insertValue(5, 70);
+//		rangeTable.insertValue(7, 73);
+//		rangeTable.insertValue(12, 77);
+//		rangeTable.insertValue(22, 90); 
+		
+		rangeTable.insertValue(0, 60);
+		rangeTable.insertValue(5, 67);
+		rangeTable.insertValue(7, 71);
+		rangeTable.insertValue(12, 77);
+		rangeTable.insertValue(22, 90); 
+		
+		return rangeTable;
+
+	}
+	
 	@Override
 	public int getSeasonRating(Player player, PlayerStatHolder statHolder) {
 		double hits = statHolder.getHits();
@@ -98,19 +119,7 @@ public class ItRatingProcessor extends AbstractRatingProcessor{
 		return RerateUtils.normalizeRating(it) ;
 	}
 	
-	static RangeTable rangeTable = initRange();
 
-	static RangeTable initRange() {
-		RangeTable rangeTable = new RangeTable();
-		rangeTable.insertValue(0, 60);
-		rangeTable.insertValue(5, 70);
-		rangeTable.insertValue(7, 73);
-		rangeTable.insertValue(12, 77);
-		rangeTable.insertValue(22, 90); 
-		
-		return rangeTable;
-
-	}
 	
 	//@Override
 	public int getSeasonRating2(Player player, PlayerStatHolder statHolder) {

@@ -146,6 +146,12 @@ public class PlayerStatAccumulator {
 				if(season.getStatsPk() != null) {
 					holder.setPkToi(season.getStatsPk().getToi());
 				}
+				
+				if(season.getStatsOnIce() != null) {
+					holder.setXgf(season.getStatsOnIce().getXgf());
+					holder.setXga(season.getStatsOnIce().getXga());
+					holder.setXgfPct(season.getStatsOnIce().getXgfPct());
+				}
 
 				statsByYear.put(year, holder);
 			}
@@ -198,8 +204,9 @@ public class PlayerStatAccumulator {
 		
 		totals.setYear(seasons.size()); //TODO fix this
 		
-
-		
+		totals.setXgf(seasons.stream().mapToInt(PlayerStatHolder::getXgf).sum());
+		totals.setXga(seasons.stream().mapToInt(PlayerStatHolder::getXga).sum());
+		totals.setXgfPct(seasons.stream().mapToDouble(PlayerStatHolder::getXgfPct).average().orElse(0));
 		return totals;
 	}
 	
@@ -324,6 +331,8 @@ public class PlayerStatAccumulator {
 		
 		if(season.getYear() == 2019) {
 			multiplier = 1.17; //assumes 70 game season
+		}else if(season.getYear() == 2020) {
+			multiplier = 1.4642; //assumes 70 game season		}
 		}
 		
 		if(multiplier != null) {

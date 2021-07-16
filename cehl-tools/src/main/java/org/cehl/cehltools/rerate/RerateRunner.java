@@ -6,6 +6,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 
 public class RerateRunner {
+	
+	int runYear = 2020;
+	
     public static void main( String[] args )
     {
 
@@ -15,14 +18,14 @@ public class RerateRunner {
     	ConfigurableApplicationContext context = appBuilder.run(args);
 
     	RerateRunner runner = new RerateRunner();
-    	runner.run2(context);
+    	runner.run5(context);
     }
     
     void run(ApplicationContext context) {
 
     	RerateJob job =context.getBean(RerateJob.class);
     	
-    	job.reratePlayers(2019);
+    	job.reratePlayers(runYear);
     
     }
     
@@ -30,7 +33,7 @@ public class RerateRunner {
 
     	CsvRerateJob job =context.getBean(CsvRerateJob.class);
     	
-    	job.runJob(2019);
+    	job.runJob(runYear);
     
     }
     
@@ -38,7 +41,7 @@ public class RerateRunner {
 
     	DrsRerateJob job =context.getBean(DrsRerateJob.class);
     	
-    	job.runJob(2019);
+    	job.runJob(runYear);
     
     }
     
@@ -46,7 +49,15 @@ public class RerateRunner {
 
     	RerateJob2 job =context.getBean(RerateJob2.class);
     	
-    	job.runJob(2019);
+    	job.runJob(runYear);
+    
+    }
+    
+    void run5(ApplicationContext context) {
+
+    	RerateJob3 job =context.getBean(RerateJob3.class);
+    	
+    	job.runJob(runYear);
     
     }
 }

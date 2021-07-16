@@ -16,8 +16,14 @@ public class ExRatingProcessor extends AbstractRatingProcessor{
 		
 		//double ex = (((age * 1.8) + gp) * 0.06) + 20;
 		
-		double ex = (gp * 0.055) + (age * 1.2);
+		double ex = 0;
 		
+		if(player.getPosition().contains("G")) {
+			ex = (gp * 0.065) + (age * 1.2);
+		}else {
+			ex = (gp * 0.055) + (age * 1.2);
+		}
+
 		ex = Math.max(ex, 35);
 
 		return RerateUtils.normalizeRating(ex);

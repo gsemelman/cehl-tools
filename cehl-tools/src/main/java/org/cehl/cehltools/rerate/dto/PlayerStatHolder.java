@@ -37,6 +37,11 @@ public class PlayerStatHolder {
 	private int oZoneStart;
 	private int dZoneStart;
 	private int nZoneStart;
+	
+	private int xgf;
+	private int xga;
+	private double xgfPct;
+	
 	public int getYear() {
 		return year;
 	}
@@ -206,6 +211,24 @@ public class PlayerStatHolder {
 	}
 	public void setnZoneStart(int nZoneStart) {
 		this.nZoneStart = nZoneStart;
+	}
+	public int getXgf() {
+		return xgf;
+	}
+	public void setXgf(int xgf) {
+		this.xgf = xgf;
+	}
+	public int getXga() {
+		return xga;
+	}
+	public void setXga(int xga) {
+		this.xga = xga;
+	}
+	public double getXgfPct() {
+		return xgfPct;
+	}
+	public void setXgfPct(double xgfPct) {
+		this.xgfPct = xgfPct;
 	}
 	
 	

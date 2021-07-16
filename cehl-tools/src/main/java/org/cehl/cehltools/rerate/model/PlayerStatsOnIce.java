@@ -30,6 +30,10 @@ public class PlayerStatsOnIce extends AbstractEntity {
 	private int dZoneStart;
 	private int nZoneStart;
 	
+	private int xgf;
+	private int xga;
+	private double xgfPct;
+	
 	public PlayerSeason getPlayerSeason() {
 		return playerSeason;
 	}
@@ -107,6 +111,24 @@ public class PlayerStatsOnIce extends AbstractEntity {
 	}
 	public void setnZoneStart(int nZoneStart) {
 		this.nZoneStart = nZoneStart;
+	}
+	public int getXgf() {
+		return xgf;
+	}
+	public void setXgf(int xgf) {
+		this.xgf = xgf;
+	}
+	public int getXga() {
+		return xga;
+	}
+	public void setXga(int xga) {
+		this.xga = xga;
+	}
+	public double getXgfPct() {
+		return xgfPct;
+	}
+	public void setXgfPct(double xgfPct) {
+		this.xgfPct = xgfPct;
 	}
 	
 

@@ -251,7 +251,7 @@ public class RerateJob {
 		
 		RatingResult rerateResult = new RatingResult(
 				it, rosterRaw.getSp(), rosterRaw.getSt(),
-				en, du, di, rosterRaw.getSk(), pa, pc, rosterRaw.getDf(), sc, rosterRaw.getEx(), rosterRaw.getLd(), ov);
+				en, du, di, rosterRaw.getSk(), pa, pc, rosterRaw.getDf(), sc, rosterRaw.getEx(), rosterRaw.getLd(), ov, p);
 		
 		//post process
 		paProcessor.postProcess(rerateResult);

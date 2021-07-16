@@ -111,6 +111,9 @@ public class RerateConfig {
 		return new RerateJob2();
 	}
 	
-	
+	@Bean
+	public RerateJob3 rerateJob3() {
+		return new RerateJob3();
+	}
 
 }
